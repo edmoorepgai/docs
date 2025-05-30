@@ -1,56 +1,96 @@
 ---
 title: "Strategic Priorities"
-description: "AI-extracted business initiatives and priorities from company documents
-"
+description: "AI-extracted business initiatives that drive sales conversations"
 icon: "bullseye-arrow"
 ---
 
-## Overview
+<Note>
+  Strategic Priorities are the **#1 predictor** of deal success - accounts with aligned priorities close 3x faster.
+</Note>
 
-Strategic Priorities are the key business initiatives and focus areas that PG:AI automatically extracts from company documents including annual reports, earnings calls, quarterly reports, news and executive communications.
-
-## What's Included
+## What are Strategic Priorities?
 
 <CardGroup cols={2}>
-  <Card>
-    Current Initiatives 
-
-    Active strategic projects
+  <Card title="Board-Level Focus" icon="crown" color="#7c3aed">
+    C-suite and board priorities that drive budget allocation
   </Card>
-  <Card>
-    <h3>
-    Board Priorities</h3>
-
-    
-    C-suite and board-level strategic focus areas
+  <Card title="Division Initiatives" icon="sitemap" color="#7c3aed">
+    Business unit specific projects and transformations
   </Card>
-  <Card>
-    <h3>
-    Division Strategies</h3>
-
-    
-    Business unit-specific initiatives and goals
+  <Card title="Timeline Markers" icon="calendar-days" color="#7c3aed">
+    When initiatives launch and deadlines that create urgency
   </Card>
-  <Card>
-    Source References
-
-    Exact web page / document citations
+  <Card title="Source Verified" icon="certificate" color="#7c3aed">
+    Every priority linked to exact page references
   </Card>
 </CardGroup>
 
-## Use Cases
+## How PG:AI Extracts Priorities
 
-- **Sales Alignment**: Connect your value proposition to their top priorities
-- **Executive Meetings**: Speak directly to board-level initiatives
-- **Account Planning**: Build strategies around their strategic direction
+<Steps>
+  <Step title="Document Analysis">
+    Processes annual reports, 10-Ks, earnings transcripts & web pages
+  </Step>
+  <Step title="Initiative Detection">
+    AI identifies strategic language patterns and commitments
+  </Step>
+  <Step title="Priority Ranking">
+    Weights initiatives by executive mentions and investment
+  </Step>
+  <Step title="Timeline Mapping">
+    Extracts deadlines and milestone dates
+  </Step>
+</Steps>
 
 ## Example Output
 
-```json
-{
-  "priority": "Accelerate cloud migration",
-  "source": "Annual Report 2024, Page 7",
-  "timeline": "Q3 2024 - Q2 2025",
-  "division": "Enterprise Technology"
-}
-```
+<Tabs>
+  <Tab title="Enterprise Tech">
+    ```json
+    {
+      "priority": "Cloud-First Digital Transformation",
+      "description": "Migrate 80% of workloads to cloud by Q4 2025",
+      "investment": "$200M allocated",
+      "executive_sponsor": "CTO",
+      "source": "Annual Report 2024, Page 47",
+      "timeline": "Q1 2024 - Q4 2025",
+      "divisions": ["IT", "Operations", "Product"]
+    }
+    ```
+  </Tab>
+  <Tab title="Financial Services">
+    ```json
+    {
+      "priority": "Real-Time Payment Infrastructure",
+      "description": "Enable instant payment processing across all channels",
+      "compliance_driver": "ISO 20022 mandate",
+      "source": "Investor Day Presentation, Slide 23",
+      "deadline": "March 2025",
+      "impact": "40% of transaction volume"
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Sales Application
+
+<AccordionGroup>
+  <Accordion title="Discovery Questions" icon="message-question">
+    - "I noticed your CEO mentioned [priority] as critical for 2025. What's driving that timeline?"
+    - "How is [priority] impacting your team's current projects?"
+    - "What happens if you miss the Q3 deadline for [initiative]?"
+  </Accordion>
+  <Accordion title="Executive Messaging" icon="user-tie">
+    - Reference specific board commitments
+    - Align your solution to stated outcomes
+    - Create urgency using their timeline
+  </Accordion>
+  <Accordion title="Competitive Positioning" icon="chess">
+    - "Unlike generic solutions, we specifically accelerate [their priority]"
+    - "Our track record with [similar priority] at [peer company]"
+  </Accordion>
+</AccordionGroup>
+
+<Check>
+  **Pro tip:** Always reference the source when mentioning priorities - it demonstrates preparation and builds instant credibility.
+</Check>

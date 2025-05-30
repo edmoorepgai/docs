@@ -1,44 +1,154 @@
 ---
-title: 'Tech Stack'
-description: 'Technology usage and infrastructure analysis from job postings and public data'
-icon: 'layer-group'
+title: "Tech Stack"
+description: "Technology footprint analysis for perfect positioning"
+icon: "layer-group"
 ---
 
-## Overview
+<Info>
+  Tech stack intelligence helps you **qualify 3x faster** and **reduce integration objections by 60%**
+</Info>
 
-Tech Stack analysis identifies the technologies, platforms, and tools that companies use based on job descriptions, technical documentation, and public statements.
-
-## Data Sources
+## How We Detect Technologies
 
 <CardGroup cols={2}>
-  <Card title="Job Postings" icon="briefcase">
-    Technology requirements from current and historical job listings
+  <Card title="Job Posting Analysis" icon="briefcase" color="#8b5cf6">
+    4 years of job requirements reveal actual tech usage
   </Card>
-  <Card title="Confidence Scoring" icon="percentage">
-    Weighted analysis based on mention frequency
+  <Card title="Confidence Scoring" icon="percent" color="#8b5cf6">
+    Weighted analysis shows adoption certainty
   </Card>
-  <Card title="Categories" icon="tags">
-    Organized by technology type and use case
+  <Card title="Trend Detection" icon="chart-line" color="#8b5cf6">
+    See what they're adopting vs. sunsetting
   </Card>
-  <Card title="Trends" icon="trending-up">
-    Adoption patterns over time
+  <Card title="Skills Mapping" icon="code" color="#8b5cf6">
+    Team expertise indicates tech maturity
   </Card>
 </CardGroup>
 
 ## Technology Categories
 
-- **Cloud Platforms**: AWS, Azure, GCP usage
-- **Databases**: SQL, NoSQL, data warehouses
-- **DevOps Tools**: CI/CD, monitoring, orchestration
-- **Languages**: Programming languages and frameworks
-- **Security**: Security tools and platforms
+<Tabs>
+  <Tab title="☁️ Cloud & Infra">
+    ```json
+    {
+      "cloud_platforms": {
+        "primary": "AWS",
+        "secondary": ["Azure", "GCP"],
+        "services": ["EC2", "Lambda", "S3", "RDS"],
+        "confidence": 95
+      },
+      "containers": {
+        "orchestration": "Kubernetes",
+        "runtime": "Docker",
+        "service_mesh": "Istio"
+      },
+      "infrastructure": {
+        "iac": "Terraform",
+        "ci_cd": ["Jenkins", "GitHub Actions"],
+        "monitoring": ["Datadog", "New Relic"]
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="📊 Data Stack">
+    ```json
+    {
+      "databases": {
+        "transactional": ["PostgreSQL", "MySQL"],
+        "analytical": "Snowflake",
+        "nosql": ["MongoDB", "Redis"],
+        "streaming": "Kafka"
+      },
+      "analytics": {
+        "bi_tools": ["Tableau", "Looker"],
+        "data_pipeline": ["Airflow", "dbt"],
+        "ml_platform": "Databricks"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="🔧 Dev Tools">
+    ```json
+    {
+      "languages": {
+        "backend": ["Java", "Python", "Go"],
+        "frontend": ["React", "TypeScript"],
+        "trending": "Rust adoption increasing"
+      },
+      "frameworks": {
+        "web": ["Spring Boot", "Django"],
+        "mobile": ["React Native", "Flutter"],
+        "api": "GraphQL"
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
 
-## Use Case
+## Confidence Indicators
+
+<Steps>
+  <Step title="High Confidence (90%+)">
+    - Multiple recent job postings
+    - Senior roles requiring expertise
+    - Certification requirements
+  </Step>
+  <Step title="Medium Confidence (60-89%)">
+    - Some job mentions
+    - Related technology indicators
+    - Partner announcements
+  </Step>
+  <Step title="Low Confidence (<60%)">
+    - Few or old references
+    - Indirect mentions only
+    - Conflicting signals
+  </Step>
+</Steps>
+
+## Sales Applications
+
+<AccordionGroup>
+  <Accordion title="Integration Conversations" icon="plug">
+    <Card>
+      **Confidence Builder:**
+      "I see you're using Snowflake for analytics. We have native connectors
+      that our mutual customers love - here's how [Customer] uses it..."
+    </Card>
+  </Accordion>
+  <Accordion title="Technical Maturity" icon="gauge">
+    <Card>
+      **Sophistication Indicator:**
+      "Your team's investment in Kubernetes and service mesh tells me you're
+      serious about microservices. Let me show you our advanced features..."
+    </Card>
+  </Accordion>
+  <Accordion title="Migration Opportunities" icon="shuffle">
+    <Card>
+      **Modernization Hook:**
+      "Noticed you're still hiring for Oracle DBAs while adding cloud architects.
+      We specialize in making that transition smooth..."
+    </Card>
+  </Accordion>
+</AccordionGroup>
+
+## Tech Stack Patterns
+
+<Grid cols={2}>
+  <Card title="Modern Stack Signals" icon="rocket">
+    * Kubernetes + Istio
+    * Snowflake + dbt + Looker
+    * React + GraphQL + TypeScript
+    * GitHub + Actions + Terraform
+  </Card>
+
+  <Card title="Legacy Indicators" icon="server">
+    * Mainframe languages (COBOL)
+    * On-premise only
+    * Waterfall methodologies
+    * Manual deployment processes
+  </Card>
+</Grid>
 
 <Tip>
-Use tech stack data to:
-- Identify integration opportunities
-- Understand technical maturity
-- Spot modernization needs
-- Tailor technical discussions
+  **Discovery hack:** "I noticed you use [Technology]. What's your experience been?" opens technical conversations naturally
 </Tip>

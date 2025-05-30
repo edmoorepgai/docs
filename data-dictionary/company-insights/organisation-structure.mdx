@@ -1,34 +1,144 @@
 ---
-title: 'Organisation Structure'
-description: 'Company hierarchy, divisions, and key leadership mapped from public sources'
-icon: 'sitemap'
+title: "Organisation Structure"
+description: "Navigate complex enterprises with confidence"
+icon: "sitemap"
 ---
 
-## Overview
+<info>
+  Understanding organizational structure helps you **multi-thread 3x more effectively** and reduces sales cycles by 25%
+</info>
 
-Organisation Structure provides a comprehensive view of the company's divisions, business units, leadership team, and reporting relationships extracted from official sources.
+## Why Structure Matters
 
-## Components
+In complex B2B sales, knowing who reports to whom can make or break your deal:
+
+<CardGroup cols={3}>
+  <Card title="Find Power" icon="crown">
+    Identify budget holders and decision makers
+  </Card>
+  <Card title="Build Champions" icon="handshake">
+    Navigate to the right influencers
+  </Card>
+  <Card title="Avoid Politics" icon="chess">
+    Understand competing priorities
+  </Card>
+</CardGroup>
+
+## Structure Components
+
+<Tabs>
+  <Tab title="Leadership Hierarchy">
+    ```mermaid
+    graph TD
+      CEO[CEO]
+      CEO --> CTO[CTO]
+      CEO --> CFO[CFO]
+      CEO --> CRO[CRO]
+      CTO --> VP1[VP Engineering]
+      CTO --> VP2[VP Product]
+      CFO --> VP3[VP Finance]
+      CRO --> VP4[VP Sales]
+      
+      style CEO fill:#7c3aed,color:#fff
+      style CTO fill:#3b82f6,color:#fff
+      style CFO fill:#10b981,color:#fff
+      style CRO fill:#f59e0b,color:#fff
+    ```
+  </Tab>
+  <Tab title="Business Units">
+    **Divisional Structure Example:**
+
+    <Tree>
+  <TreeNode title="Global Enterprise">
+    <TreeNode title="North America">
+      <TreeNode title="Enterprise Sales" />
+
+      <TreeNode title="SMB Sales" />
+    </TreeNode>
+
+    <TreeNode title="EMEA">
+      <TreeNode title="UK & Ireland" />
+
+      <TreeNode title="Continental Europe" />
+    </TreeNode>
+
+    <TreeNode title="APAC">
+      <TreeNode title="ANZ" />
+
+      <TreeNode title="Southeast Asia" />
+    </TreeNode>
+  </TreeNode>
+</Tree>
+  </Tab>
+  <Tab title="Reporting Lines">
+    <Info>
+      Key relationships that matter for deals:
+
+      - **Direct Reports**: Have budget authority
+      - **Dotted Lines**: Have influence but need approval
+      - **Matrix Reports**: Multiple stakeholders involved
+    </Info>
+  </Tab>
+</Tabs>
+
+## Reading the Organization
 
 <AccordionGroup>
-  <Accordion title="Executive Leadership">
-    C-suite executives with their roles and responsibilities
+  <Accordion title="Power Dynamics" icon="bolt">
+    **Look for these signals:**
+
+    - Who speaks on earnings calls
+    - Who announces major initiatives
+    - Who has the most direct reports
+    - Who owns P&L responsibility
   </Accordion>
-  <Accordion title="Business Divisions">
-    Major business units and their focus areas
+  <Accordion title="Decision Making" icon="gavel">
+    **Common patterns:**
+
+    - Centralized: Everything goes through HQ
+    - Decentralized: Divisions have autonomy
+    - Matrix: Multiple approvals needed
+    - Agile: Small teams with fast decisions
   </Accordion>
-  <Accordion title="Geographic Structure">
-    Regional organizations and market coverage
-  </Accordion>
-  <Accordion title="Reporting Lines">
-    Key reporting relationships and decision-making hierarchy
+  <Accordion title="Budget Control" icon="wallet">
+    **Follow the money:**
+
+    - Operating budget holders
+    - Capital expenditure approvers
+    - Innovation fund controllers
+    - Discretionary spend limits
   </Accordion>
 </AccordionGroup>
 
-## Why It Matters
+## Sales Strategy by Structure Type
 
-Understanding organizational structure helps you:
-- Navigate complex buying committees
-- Identify the right stakeholders
-- Understand decision-making processes
-- Target specific divisions with relevant messaging
+<CardGroup cols={2}>
+  <Card title="Hierarchical Organizations" icon="building">
+    - Start at the top
+    - Get executive sponsorship
+    - Work down through layers
+    - Respect chain of command
+  </Card>
+  <Card title="Flat Organizations" icon="users">
+    - Build broad consensus
+    - Focus on influencers
+    - Demonstrate team value
+    - Enable peer champions
+  </Card>
+  <Card title="Matrix Organizations" icon="network-wired">
+    - Map all stakeholders
+    - Align competing interests
+    - Build coalition support
+    - Navigate carefully
+  </Card>
+  <Card title="Divisional Organizations" icon="building-columns">
+    - Land and expand
+    - Prove value in one division
+    - Use internal references
+    - Scale horizontally
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Multi-threading hack:** Always ask "Who else would need to be involved in this decision?" to uncover hidden stakeholders
+</Tip>
