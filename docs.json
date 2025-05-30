@@ -38,12 +38,12 @@
           {
             "group": "Explore Features",
             "pages": [
-              "explore/company-insights",
-              "explore/engage-insights",
-              "explore/tech-stack",
-              "explore/contacts",
-              "explore/content",
-              "explore/ai-assistant"
+              "features/company-insights",
+              "features/engage-insights",
+              "features/tech-stack",
+              "features/contacts",
+              "features/content",
+              "features/ai-assistant"
             ]
           },
           {
