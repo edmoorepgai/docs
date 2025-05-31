@@ -26,63 +26,77 @@ description: "Technology footprint analysis for perfect positioning"
 
 ## Technology Categories
 
-<Tabs>
-  <Tab title="☁️ Cloud & Infra">
-    ```json
-    {
-      "cloud_platforms": {
-        "primary": "AWS",
-        "secondary": ["Azure", "GCP"],
-        "services": ["EC2", "Lambda", "S3", "RDS"],
-        "confidence": 95
-      },
-      "containers": {
-        "orchestration": "Kubernetes",
-        "runtime": "Docker",
-        "service_mesh": "Istio"
-      },
-      "infrastructure": {
-        "iac": "Terraform",
-        "ci_cd": ["Jenkins", "GitHub Actions"],
-        "monitoring": ["Datadog", "New Relic"]
-      }
-    }
-    ```
-  </Tab>
-  <Tab title="📊 Data Stack">
-    ```json
-    {
-      "databases": {
-        "transactional": ["PostgreSQL", "MySQL"],
-        "analytical": "Snowflake",
-        "nosql": ["MongoDB", "Redis"],
-        "streaming": "Kafka"
-      },
-      "analytics": {
-        "bi_tools": ["Tableau", "Looker"],
-        "data_pipeline": ["Airflow", "dbt"],
-        "ml_platform": "Databricks"
-      }
-    }
-    ```
-  </Tab>
-  <Tab title="🔧 Dev Tools">
-    ```json
-    {
-      "languages": {
-        "backend": ["Java", "Python", "Go"],
-        "frontend": ["React", "TypeScript"],
-        "trending": "Rust adoption increasing"
-      },
-      "frameworks": {
-        "web": ["Spring Boot", "Django"],
-        "mobile": ["React Native", "Flutter"],
-        "api": "GraphQL"
-      }
-    }
-    ```
-  </Tab>
-</Tabs>
+<AccordionGroup>
+  <Accordion title="☁️ Cloud & Infrastructure" icon="cloud">
+    <AccordionGroup>
+  <Accordion title="Data, BI and Analytics" icon="database">
+    Data warehouses, Business intelligence tools, Analytics platforms, Reporting systems, Data visualization, ETL tools
+  </Accordion>
+  <Accordion title="Collaboration" icon="users">
+    Team collaboration platforms, Project management, Shared workspaces, File sharing, Document collaboration
+  </Accordion>
+  <Accordion title="Communications" icon="message-circle">
+    Video conferencing, Messaging platforms, VoIP systems, Email platforms, Communication tools
+  </Accordion>
+  <Accordion title="Computer Networks" icon="network">
+    Network infrastructure, Load balancers, CDN services, Network security, SD-WAN, Routing equipment
+  </Accordion>
+  <Accordion title="Customer Management" icon="user-check">
+    CRM systems, Customer service platforms, Support ticketing, Customer analytics, Relationship management
+  </Accordion>
+  <Accordion title="Devops And Development" icon="git-branch">
+    CI/CD pipelines, Version control, Containerization, Infrastructure as Code, Deployment automation
+  </Accordion>
+  <Accordion title="E-commerce" icon="shopping-cart">
+    E-commerce platforms, Payment gateways, Shopping cart systems, Inventory management, Order fulfillment
+  </Accordion>
+  <Accordion title="Finance And Accounting" icon="calculator">
+    ERP systems, Accounting software, Financial planning, Billing platforms, Expense management
+  </Accordion>
+  <Accordion title="Health Tech" icon="heart">
+    EMR systems, Telemedicine platforms, Healthcare analytics, Medical devices, HIPAA compliance tools
+  </Accordion>
+  <Accordion title="Industrial Engineering" icon="cog">
+    Manufacturing systems, IoT platforms, Supply chain management, Automation tools, CAD/CAM software
+  </Accordion>
+  <Accordion title="Programming" icon="code">
+    Programming languages, Development frameworks, Code editors, Compilers, Runtime environments
+  </Accordion>
+  <Accordion title="Favourites" icon="star">
+    Most popular tools, Team preferences, Bookmarked solutions, Go-to platforms, Essential software
+  </Accordion>
+  <Accordion title="HR" icon="user-plus">
+    HR management systems, Payroll platforms, Recruitment tools, Performance management, Employee onboarding
+  </Accordion>
+  <Accordion title="IT Management" icon="settings">
+    Asset management, Service desk, System monitoring, IT service management, Infrastructure management
+  </Accordion>
+  <Accordion title="IT Security" icon="shield">
+    Security platforms, Identity management, Vulnerability scanning, SIEM systems, Endpoint protection
+  </Accordion>
+  <Accordion title="Marketing" icon="megaphone">
+    Marketing automation, CMS platforms, Email marketing, Social media tools, SEO platforms
+  </Accordion>
+  <Accordion title="Platform And Storage" icon="hard-drive">
+    Cloud storage, Database platforms, Content delivery, Data warehousing, Backup solutions
+  </Accordion>
+  <Accordion title="Product And Design" icon="palette">
+    Design tools, Prototyping platforms, User research, Design collaboration, Creative software
+  </Accordion>
+  <Accordion title="Productivity And Operations" icon="trending-up">
+    Task management, Time tracking, Workflow automation, Process optimization, Resource planning
+  </Accordion>
+  <Accordion title="Sales" icon="briefcase">
+    Sales automation, Pipeline management, Lead generation, Sales analytics, Quote management
+  </Accordion>
+  <Accordion title="Testing And QA" icon="flask">
+    Testing frameworks, Test automation, Performance testing, Quality assurance, Bug tracking
+  </Accordion>
+  <Accordion title="Operations Software" icon="zap">
+    Business operations, Workflow management, Process automation, Operational analytics, System integration
+  </Accordion>
+</AccordionGroup>
+
 
 ## Confidence Indicators
 
@@ -151,3 +165,18 @@ description: "Technology footprint analysis for perfect positioning"
 <Tip>
   **Discovery hack:** "I noticed you use [Technology]. What's your experience been?" opens technical conversations naturally
 </Tip>
+
+<CardGroup cols={2}>
+  <Card title="Modernization Signals" icon="arrow-up">
+    Legacy tech + cloud hires, Mainframe + API developers, Monolith + microservices, On-prem + DevOps
+  </Card>
+  <Card title="Scaling Indicators" icon="chart-line">
+    Rapid hiring for tech, Performance tools, Distributed systems, Real-time requirements
+  </Card>
+  <Card title="Gap Analysis" icon="magnifying-glass">
+    Missing tool categories, Immature practices, Manual processes, Security gaps
+  </Card>
+  <Card title="Innovation Readiness" icon="rocket">
+    AI/ML investments, Modern frameworks, Cloud-native apps, API-first design
+  </Card>
+</CardGroup>
