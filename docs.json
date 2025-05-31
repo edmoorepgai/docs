@@ -11,7 +11,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
             "group": "Get Started",
@@ -101,6 +101,34 @@
             "pages": [
               "security/overview",
               "security/subprocessor-list"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started Guides",
+            "pages": [
+              "guides/first-steps",
+              "guides/setup-walkthrough"
+            ]
+          },
+          {
+            "group": "Feature Guides",
+            "pages": [
+              "guides/account-research",
+              "guides/content-generation",
+              "guides/ai-assistant-usage"
+            ]
+          },
+          {
+            "group": "Best Practices",
+            "pages": [
+              "guides/best-practices/research-methodology",
+              "guides/best-practices/content-optimization",
+              "guides/best-practices/team-workflows"
             ]
           }
         ]
