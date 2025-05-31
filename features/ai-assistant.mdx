@@ -3,365 +3,298 @@ title: "AI Assistant"
 description: "Your 24/7 sales intelligence partner"
 ---
 
-<Hero variant="gradient">
-  <HeroContent>
-    <HeroBadge icon="sparkles">Always Learning, Always Ready</HeroBadge>
-    <HeroTitle>Your Personal Sales Intelligence Analyst</HeroTitle>
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/ai-assistant-light.svg"
+    alt="AI Assistant Light"
+  />
 
-    <HeroDescription>
-      Ask any question about your accounts. Get strategic guidance. Navigate complex deals with confidence.
-    </HeroDescription>
+  <img
+    className="hidden dark:block"
+    src="/images/ai-assistant-dark.svg"
+    alt="AI Assistant Dark"
+  />
+</Frame>
 
-    <HeroActions>
-      <Button size="lg" icon="message-dots">Try AI Assistant</Button>
-      <Button size="lg" variant="ghost" icon="play">Watch Demo</Button>
-    </HeroActions>
-  </HeroContent>
+# Your Personal Sales Intelligence Analyst
 
-  <HeroVisual>
-    <ChatInterface>
-      <ChatMessage role="user">
-        What's the best way to position our solution for Acme's cloud migration?
-      </ChatMessage>
+<Info>
+  **Always Learning, Always Ready** ✨ - Ask any question about your accounts. Get strategic guidance. Navigate complex deals with confidence.
+</Info>
 
-      <ChatMessage role="assistant">
-        Based on Acme's Q3 announcement, they're prioritizing cost optimization during their AWS migration. Their CFO mentioned a 20% reduction target.
+<CardGroup cols={2}>
+  <Card title="Try AI Assistant" icon="message-circle" href="/assistant">
+    Start asking intelligent questions
+  </Card>
+  <Card title="Watch Demo" icon="play" href="/demo/ai-assistant">
+    See AI Assistant in action
+  </Card>
+</CardGroup>
 
-        Position around:
+## Chat Preview
 
-        1. Cost visibility during migration
-        2. Automated optimization post-migration
-        3. Similar customer saved 24% in 6 months
+<Accordion title="💬 Example Conversation" icon="message-circle">
+  **You:** What's the best way to position our solution for Acme's cloud migration?
 
-        Lead with ROI, not features.
-      </ChatMessage>
-    </ChatInterface>
-  </HeroVisual>
-</Hero>
+  **AI Assistant:** Based on Acme's Q3 announcement, they're prioritizing cost optimization during their AWS migration. Their CFO mentioned a 20% reduction target.
+
+  Position around:
+
+  1. Cost visibility during migration
+  2. Automated optimization post-migration
+  3. Similar customer saved 24% in 6 months
+
+  Lead with ROI, not features.
+</Accordion>
 
 ## Your Strategic Advantage
 
-<FeatureCards>
-  <FeatureCard icon="brain" title="Contextual Intelligence" description="Every answer powered by deep account insights" gradient="from-purple-500 to-pink-500" />
-
-  <FeatureCard icon="clock" title="Instant Answers" description="No more hunting through documents" gradient="from-blue-500 to-cyan-500" />
-
-  <FeatureCard icon="trending-up" title="Deal Strategy" description="Guidance based on what actually works" gradient="from-green-500 to-emerald-500" />
-</FeatureCards>
+<CardGroup cols={3}>
+  <Card title="Contextual Intelligence" icon="brain">
+    Every answer powered by deep account insights
+  </Card>
+  <Card title="Instant Answers" icon="clock">
+    No more hunting through documents
+  </Card>
+  <Card title="Deal Strategy" icon="trending-up">
+    Guidance based on what actually works
+  </Card>
+</CardGroup>
 
 ## Ask Anything About Your Accounts
 
-<UseCaseGrid>
-  <UseCaseCard icon="search" title="Research Questions">
-    * "What are Acme's top 3 strategic priorities?"
-    * "Who owns digital transformation at TechCorp?"
-    * "What did their CEO say about AI in the earnings call?"
-    * "Which divisions would benefit most from our solution?"
-  </UseCaseCard>
+<Tabs>
+  <Tab title="🔍 Research Questions">
+    **Account Intelligence**
 
-  <UseCaseCard icon="chess" title="Strategic Guidance">
-    * "How should I position against their incumbent vendor?"
-    * "What's the best way to get to the CFO?"
-    * "Which use case should I lead with?"
-    * "How do I create urgency given their timeline?"
-  </UseCaseCard>
+    "What are Acme's top 3 strategic priorities?"
 
-  <UseCaseCard icon="shield" title="Objection Handling">
-    * "They say we're too expensive - how do I respond?"
-    * "What if they're happy with their current solution?"
-    * "How do I handle their security concerns?"
-    * "They want to wait until next year - what now?"
-  </UseCaseCard>
+    "Who owns digital transformation at TechCorp?"
 
-  <UseCaseCard icon="route" title="Deal Navigation">
-    * "This deal is stuck - what should I try?"
-    * "Who else should I be talking to?"
-    * "What's likely causing the delay?"
-    * "How do I re-engage after 3 months of silence?"
-  </UseCaseCard>
-</UseCaseGrid>
+    "What did their CEO say about AI in the earnings call?"
+
+    "Which divisions would benefit most from our solution?"
+  </Tab>
+  <Tab title="♟️ Strategic Guidance">
+    **Sales Strategy**
+
+    "How should I position against their incumbent vendor?"
+
+    "What's the best way to get to the CFO?"
+
+    "Which use case should I lead with?"
+
+    "How do I create urgency given their timeline?"
+  </Tab>
+  <Tab title="🛡️ Objection Handling">
+    **Common Objections**
+
+    "They say we're too expensive - how do I respond?"
+
+    "What if they're happy with their current solution?"
+
+    "How do I handle their security concerns?"
+
+    "They want to wait until next year - what now?"
+  </Tab>
+  <Tab title="🗺️ Deal Navigation">
+    **Deal Management**
+
+    "This deal is stuck - what should I try?"
+
+    "Who else should I be talking to?"
+
+    "What's likely causing the delay?"
+
+    "How do I re-engage after 3 months of silence?"
+  </Tab>
+</Tabs>
 
 ## Real Conversations That Close Deals
 
-<ConversationShowcase>
-  <ConversationCard>
-    <ConversationTitle>Pre-Meeting Intelligence</ConversationTitle>
+<AccordionGroup>
+  <Accordion title="Pre-Meeting Intelligence" icon="calendar">
+    **You:** I have a meeting with the CTO of DataCorp tomorrow. What should I focus on?
 
-    <Chat>
-      <ChatBubble role="user">
-        I have a meeting with the CTO of DataCorp tomorrow. What should I focus on?
-      </ChatBubble>
+    **AI Assistant:** Based on DataCorp's recent activities:
 
-      <ChatBubble role="assistant">
-        Based on DataCorp's recent activities:
+    **Key Focus Areas:**
 
-        **Key Focus Areas:**
+    1. Their "Project Lightning" - modernizing data infrastructure by Q2
+    2. CTO's LinkedIn posts show frustration with current query speeds
+    3. They're hiring 20 data engineers - scaling challenges
 
-        1. Their "Project Lightning" - modernizing data infrastructure by Q2
-        2. CTO's LinkedIn posts show frustration with current query speeds
-        3. They're hiring 20 data engineers - scaling challenges
+    **Discovery Questions:**
 
-        **Discovery Questions:**
+    - "How is Project Lightning progressing against the Q2 deadline?"
+    - "What's the impact of slow queries on your data scientists?"
+    - "How are you planning to onboard 20 new engineers?"
 
-        * "How is Project Lightning progressing against the Q2 deadline?"
-        * "What's the impact of slow queries on your data scientists?"
-        * "How are you planning to onboard 20 new engineers?"
+    **Value Prop:** Lead with performance (100x faster queries) and developer experience.
+  </Accordion>
+  <Accordion title="Competitive Intelligence" icon="shield">
+    **You:** They mentioned they're also evaluating CompetitorX. How do I position against them?
 
-        **Value Prop:** Lead with performance (100x faster queries) and developer experience.
-      </ChatBubble>
-    </Chat>
-  </ConversationCard>
+    **AI Assistant:** CompetitorX is strong on price but here's your differentiation:
 
-  <ConversationCard>
-    <ConversationTitle>Competitive Intelligence</ConversationTitle>
+    **Technical Advantages:**
 
-    <Chat>
-      <ChatBubble role="user">
-        They mentioned they're also evaluating CompetitorX. How do I position against them?
-      </ChatBubble>
+    - 10x faster performance on complex queries (verified by Gartner)
+    - No data movement required (they require ETL)
+    - Real-time vs. their 15-minute lag
 
-      <ChatBubble role="assistant">
-        CompetitorX is strong on price but here's your differentiation:
+    **Business Advantages:**
 
-        **Technical Advantages:**
+    - 60% less admin overhead (important given their hiring challenges)
+    - DataCorp's peer TechGiant switched from CompetitorX to us
+    - Our SOC2 Type II covers their compliance needs
 
-        * 10x faster performance on complex queries (verified by Gartner)
-        * No data movement required (they require ETL)
-        * Real-time vs. their 15-minute lag
-
-        **Business Advantages:**
-
-        * 60% less admin overhead (important given their hiring challenges)
-        * DataCorp's peer TechGiant switched from CompetitorX to us
-        * Our SOC2 Type II covers their compliance needs
-
-        **Trap Question:** "How important is real-time data for Project Lightning?"
-      </ChatBubble>
-    </Chat>
-  </ConversationCard>
-</ConversationShowcase>
+    **Trap Question:** "How important is real-time data for Project Lightning?"
+  </Accordion>
+</AccordionGroup>
 
 ## Intelligence Capabilities
 
 <Tabs>
   <Tab title="🔍 Account Research">
-    <CapabilityCard>
-  <CapabilityIcon>
-    <Icon icon="search" />
-  </CapabilityIcon>
+    **Deep Account Knowledge**
 
-  <CapabilityContent>
-    <CapabilityTitle>Deep Account Knowledge</CapabilityTitle>
-
-    <CapabilityList>
-      * Strategic priorities and initiatives
-      * Organizational structure and key players
-      * Technology stack and integrations
-      * Financial performance and budgets
-      * Recent announcements and changes
-    </CapabilityList>
-  </CapabilityContent>
-</CapabilityCard>
+    <Check>
+      Strategic priorities and initiatives
+    </Check>
+    
+    <Check>
+      Organizational structure and key players
+    </Check>
+    
+    <Check>
+      Technology stack and integrations
+    </Check>
+    
+    <Check>
+      Financial performance and budgets
+    </Check>
+    
+    <Check>
+      Recent announcements and changes
+    </Check>
   </Tab>
   <Tab title="💡 Sales Strategy">
-    <CapabilityCard>
-  <CapabilityIcon>
-    <Icon icon="lightbulb" />
-  </CapabilityIcon>
+    **Proven Sales Guidance**
 
-  <CapabilityContent>
-    <CapabilityTitle>Proven Sales Guidance</CapabilityTitle>
-
-    <CapabilityList>
-      * Positioning for different personas
-      * Competitive differentiation strategies
-      * Value proposition alignment
-      * Objection handling frameworks
-      * Deal acceleration tactics
-    </CapabilityList>
-  </CapabilityContent>
-</CapabilityCard>
+    <Check>
+      Positioning for different personas
+    </Check>
+    
+    <Check>
+      Competitive differentiation strategies
+    </Check>
+    
+    <Check>
+      Value proposition alignment
+    </Check>
+    
+    <Check>
+      Objection handling frameworks
+    </Check>
+    
+    <Check>
+      Deal acceleration tactics
+    </Check>
   </Tab>
   <Tab title="🎯 Personalization">
-    <CapabilityCard>
-  <CapabilityIcon>
-    <Icon icon="target" />
-  </CapabilityIcon>
+    **Contextual Recommendations**
 
-  <CapabilityContent>
-    <CapabilityTitle>Contextual Recommendations</CapabilityTitle>
-
-    <CapabilityList>
-      * Industry-specific messaging
-      * Persona-based approaches
-      * Timing recommendations
-      * Content suggestions
-      * Next best actions
-    </CapabilityList>
-  </CapabilityContent>
-</CapabilityCard>
+    <Check>
+      Industry-specific messaging
+    </Check>
+    
+    <Check>
+      Persona-based approaches
+    </Check>
+    
+    <Check>
+      Timing recommendations
+    </Check>
+    
+    <Check>
+      Content suggestions
+    </Check>
+    
+    <Check>
+      Next best actions
+    </Check>
   </Tab>
 </Tabs>
 
 ## How AI Assistant Learns
 
-<LearningProcess>
-  <ProcessCard>
-    <ProcessIcon>1</ProcessIcon>
-    <ProcessTitle>Account Context</ProcessTitle>
-
-    <ProcessDescription>
-      Continuously updated with latest account intelligence
-    </ProcessDescription>
-  </ProcessCard>
-
-  <ProcessCard>
-    <ProcessIcon>2</ProcessIcon>
-    <ProcessTitle>Sales Methodology</ProcessTitle>
-
-    <ProcessDescription>
-      Trained on proven frameworks and best practices
-    </ProcessDescription>
-  </ProcessCard>
-
-  <ProcessCard>
-    <ProcessIcon>3</ProcessIcon>
-    <ProcessTitle>Your Solutions</ProcessTitle>
-
-    <ProcessDescription>
-      Deep understanding of your value props and differentiators
-    </ProcessDescription>
-  </ProcessCard>
-
-  <ProcessCard>
-    <ProcessIcon>4</ProcessIcon>
-    <ProcessTitle>Success Patterns</ProcessTitle>
-
-    <ProcessDescription>
-      Learns from what works across your sales team
-    </ProcessDescription>
-  </ProcessCard>
-</LearningProcess>
+<Steps>
+  <Step title="Account Context">
+    Continuously updated with latest account intelligence
+  </Step>
+  <Step title="Sales Methodology">
+    Trained on proven frameworks and best practices
+  </Step>
+  <Step title="Your Solutions">
+    Deep understanding of your value props and differentiators
+  </Step>
+  <Step title="Success Patterns">
+    Learns from what works across your sales team
+  </Step>
+</Steps>
 
 ## Power Features
 
-<PowerFeatures>
-  <PowerFeature>
-    <PowerFeatureIcon>
-      <Icon icon="diagram-project" />
-    </PowerFeatureIcon>
-
-    <PowerFeatureContent>
-      <PowerFeatureTitle>Deal Strategy Mode</PowerFeatureTitle>
-
-      <PowerFeatureDescription>
-        Get step-by-step guidance for complex deals based on similar wins
-      </PowerFeatureDescription>
-    </PowerFeatureContent>
-  </PowerFeature>
-
-  <PowerFeature>
-    <PowerFeatureIcon>
-      <Icon icon="users" />
-    </PowerFeatureIcon>
-
-    <PowerFeatureContent>
-      <PowerFeatureTitle>Stakeholder Analysis</PowerFeatureTitle>
-
-      <PowerFeatureDescription>
-        Understand motivations and influence of each person in the deal
-      </PowerFeatureDescription>
-    </PowerFeatureContent>
-  </PowerFeature>
-
-  <PowerFeature>
-    <PowerFeatureIcon>
-      <Icon icon="calendar" />
-    </PowerFeatureIcon>
-
-    <PowerFeatureContent>
-      <PowerFeatureTitle>Timing Intelligence</PowerFeatureTitle>
-
-      <PowerFeatureDescription>
-        Know when to engage based on fiscal calendars and initiatives
-      </PowerFeatureDescription>
-    </PowerFeatureContent>
-  </PowerFeature>
-</PowerFeatures>
+<CardGroup cols={3}>
+  <Card title="Deal Strategy Mode" icon="chess-rook">
+    Get step-by-step guidance for complex deals based on similar wins
+  </Card>
+  <Card title="Stakeholder Analysis" icon="users">
+    Understand motivations and influence of each person in the deal
+  </Card>
+  <Card title="Timing Intelligence" icon="calendar">
+    Know when to engage based on fiscal calendars and initiatives
+  </Card>
+</CardGroup>
 
 ## Success Stories
 
-<Testimonials>
-  <TestimonialCard>
-    <TestimonialQuote>
-      "It's like having a senior sales strategist available 24/7. The AI Assistant helped me navigate a complex 7-figure deal with competing stakeholders."
-    </TestimonialQuote>
+<AccordionGroup>
+  <Accordion title="Rachel Stevens - Enterprise AE at CloudScale" icon="quote">
+    "It's like having a senior sales strategist available 24/7. The AI Assistant helped me navigate a complex 7-figure deal with competing stakeholders."
+  </Accordion>
+  <Accordion title="Marcus Thompson - Senior AE at DataPro" icon="quote">
+    "I ask it questions before every important call. It's helped me close deals 40% faster by always knowing exactly what to focus on."
+  </Accordion>
+</AccordionGroup>
 
-    <TestimonialAuthor>
-      <AuthorAvatar>RS</AuthorAvatar>
+---
 
-      <AuthorInfo>
-        <AuthorName>Rachel Stevens</AuthorName>
-        <AuthorRole>Enterprise AE • CloudScale</AuthorRole>
-      </AuthorInfo>
-    </TestimonialAuthor>
-  </TestimonialCard>
+## Ready to Level Up Your Sales Game?
 
-  <TestimonialCard>
-    <TestimonialQuote>
-      "I ask it questions before every important call. It's helped me close deals 40% faster by always knowing exactly what to focus on."
-    </TestimonialQuote>
+See how AI Assistant helps you close more deals with intelligent guidance
 
-    <TestimonialAuthor>
-      <AuthorAvatar>MT</AuthorAvatar>
+<CardGroup cols={2}>
+  <Card title="Try AI Assistant" icon="sparkles" href="/assistant">
+    Start asking smarter questions
+  </Card>
+  <Card title="Book Demo" icon="calendar" href="/demo">
+    See it in action
+  </Card>
+</CardGroup>
 
-      <AuthorInfo>
-        <AuthorName>Marcus Thompson</AuthorName>
-        <AuthorRole>Senior AE • DataPro</AuthorRole>
-      </AuthorInfo>
-    </TestimonialAuthor>
-  </TestimonialCard>
-</Testimonials>
+## Frequently Asked Questions
 
-## Start Asking Smarter Questions
-
-<CTASection variant="gradient">
-  <CTAContent>
-    <CTATitle>Ready to Level Up Your Sales Game?</CTATitle>
-
-    <CTADescription>
-      See how AI Assistant helps you close more deals with intelligent guidance
-    </CTADescription>
-
-    <CTAActions>
-      <Button size="lg" icon="sparkles">Try AI Assistant</Button>
-      <Button size="lg" variant="secondary" icon="calendar">Book Demo</Button>
-    </CTAActions>
-  </CTAContent>
-</CTASection>
-
-<FAQ>
-  <FAQItem>
-    <FAQQuestion>How is this different from ChatGPT?</FAQQuestion>
-
-    <FAQAnswer>
-      AI Assistant has deep context about your specific accounts, your solution, and proven sales strategies. It's not generic - every answer is tailored to your situation.
-    </FAQAnswer>
-  </FAQItem>
-
-  <FAQItem>
-    <FAQQuestion>What data does it access?</FAQQuestion>
-
-    <FAQAnswer>
-      It uses all PG:AI intelligence about your accounts plus your uploaded sales materials and methodologies. No private data is used.
-    </FAQAnswer>
-  </FAQItem>
-
-  <FAQItem>
-    <FAQQuestion>Can my whole team use it?</FAQQuestion>
-
-    <FAQAnswer>
-      Yes! Unlimited users can access AI Assistant, ensuring consistent intelligence across your organization.
-    </FAQAnswer>
-  </FAQItem>
-</FAQ>
+<AccordionGroup>
+  <Accordion title="How is this different from ChatGPT?" icon="help-circle">
+    AI Assistant has deep context about your specific accounts, your solution, and proven sales strategies. It's not generic - every answer is tailored to your situation.
+  </Accordion>
+  <Accordion title="What data does it access?" icon="database">
+    It uses all PG:AI intelligence about your accounts plus your uploaded sales materials and methodologies. No private data is used.
+  </Accordion>
+  <Accordion title="Can my whole team use it?" icon="users">
+    Yes\! Unlimited users can access AI Assistant, ensuring consistent intelligence across your organization.
+  </Accordion>
+</AccordionGroup>

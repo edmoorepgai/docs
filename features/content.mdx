@@ -3,292 +3,289 @@ title: "Content Generation"
 description: "Sales content that writes itself - personalized, relevant, and ready in seconds"
 ---
 
-<Hero>
-  <HeroBadge>Powered by Account Intelligence</HeroBadge>
-  <HeroTitle>From Blank Page to Perfect Pitch in Seconds</HeroTitle>
+<Frame>
+  <img
+    className="block dark:hidden"
+    src="/images/hero-light.svg"
+    alt="Hero Light"
+  />
 
-  <HeroDescription>
-    Generate emails, proposals, and sales content that references real initiatives and speaks directly to their priorities
-  </HeroDescription>
+  <img
+    className="hidden dark:block"
+    src="/images/hero-dark.svg"
+    alt="Hero Dark"
+  />
+</Frame>
 
-  <HeroActions>
-    <Button size="lg" href="/demo">See It Generate</Button>
-    <Button size="lg" variant="outline" href="#examples">View Examples</Button>
-  </HeroActions>
-</Hero>
+# From Blank Page to Perfect Pitch in Seconds
+
+<Info>
+  **Powered by Account Intelligence** - Generate emails, proposals, and sales content that references real initiatives and speaks directly to their priorities
+</Info>
+
+<CardGroup cols={2}>
+  <Card title="See It Generate" icon="play" href="/demo">
+    Watch content generation in action
+  </Card>
+  <Card title="View Examples" icon="eye" href="#examples">
+    See real examples that converted
+  </Card>
+</CardGroup>
 
 ## Content That Converts
 
-<StatCards>
-  <StatCard>
-    <StatCardNumber>10 seconds</StatCardNumber>
-    <StatCardLabel>To generate personalized content</StatCardLabel>
-  </StatCard>
-
-  <StatCard>
-    <StatCardNumber>85% time saved</StatCardNumber>
-    <StatCardLabel>vs. manual creation</StatCardLabel>
-  </StatCard>
-
-  <StatCard>
-    <StatCardNumber>3x higher engagement</StatCardNumber>
-    <StatCardLabel>Than generic templates</StatCardLabel>
-  </StatCard>
-</StatCards>
+<CardGroup cols={3}>
+  <Card title="⚡ 10 seconds" icon="clock">
+    To generate personalized content
+  </Card>
+  <Card title="📈 85% time saved" icon="chart-line">
+    vs. manual creation
+  </Card>
+  <Card title="🎯 3x higher engagement" icon="target">
+    Than generic templates
+  </Card>
+</CardGroup>
 
 ## What You Can Generate
 
 <Tabs>
   <Tab title="📧 Emails">
-    <ContentGrid>
-  <ContentCard title="Cold Outreach" icon="envelope">
-    First touch emails that reference their initiatives
-  </ContentCard>
-
-  <ContentCard title="Follow-ups" icon="reply">
-    Sequences that build on previous conversations
-  </ContentCard>
-
-  <ContentCard title="Executive Emails" icon="user-tie">
-    C-level messages focused on strategic outcomes
-  </ContentCard>
-
-  <ContentCard title="Re-engagement" icon="refresh">
-    Win back stalled deals with new angles
-  </ContentCard>
-</ContentGrid>
+    <CardGroup cols={2}>
+      <Card title="Cold Outreach" icon="envelope">
+        First touch emails that reference their initiatives
+      </Card>
+      <Card title="Follow-ups" icon="reply">
+        Sequences that build on previous conversations
+      </Card>
+      <Card title="Executive Emails" icon="user-tie">
+        C-level messages focused on strategic outcomes
+      </Card>
+      <Card title="Re-engagement" icon="refresh">
+        Win back stalled deals with new angles
+      </Card>
+    </CardGroup>
   </Tab>
   <Tab title="📞 Call Scripts">
-    <ContentGrid>
-  <ContentCard title="Discovery Guides" icon="compass">
-    Questions tailored to their industry and role
-  </ContentCard>
-
-  <ContentCard title="Cold Call Openers" icon="phone">
-    30-second hooks that get attention
-  </ContentCard>
-
-  <ContentCard title="Objection Handling" icon="shield">
-    Responses to their specific concerns
-  </ContentCard>
-
-  <ContentCard title="Demo Talk Tracks" icon="presentation">
-    Feature explanations tied to their needs
-  </ContentCard>
-</ContentGrid>
+    <CardGroup cols={2}>
+      <Card title="Discovery Guides" icon="compass">
+        Questions tailored to their industry and role
+      </Card>
+      <Card title="Cold Call Openers" icon="phone">
+        30-second hooks that get attention
+      </Card>
+      <Card title="Objection Handling" icon="shield">
+        Responses to their specific concerns
+      </Card>
+      <Card title="Demo Talk Tracks" icon="presentation">
+        Feature explanations tied to their needs
+      </Card>
+    </CardGroup>
   </Tab>
   <Tab title="📄 Documents">
-    <ContentGrid>
-  <ContentCard title="Executive Summaries" icon="file-contract">
-    One-pagers that hit their priorities
-  </ContentCard>
-
-  <ContentCard title="Business Cases" icon="chart-line">
-    ROI justified with their metrics
-  </ContentCard>
-
-  <ContentCard title="Proposals" icon="file-signature">
-    Customized to their evaluation criteria
-  </ContentCard>
-
-  <ContentCard title="Success Plans" icon="tasks">
-    Implementation tied to their timeline
-  </ContentCard>
-</ContentGrid>
+    <CardGroup cols={2}>
+      <Card title="Executive Summaries" icon="file-contract">
+        One-pagers that hit their priorities
+      </Card>
+      <Card title="Business Cases" icon="chart-line">
+        ROI justified with their metrics
+      </Card>
+      <Card title="Proposals" icon="file-signature">
+        Customized to their evaluation criteria
+      </Card>
+      <Card title="Success Plans" icon="tasks">
+        Implementation tied to their timeline
+      </Card>
+    </CardGroup>
   </Tab>
   <Tab title="💬 Social">
-    <ContentGrid>
-  <ContentCard title="LinkedIn Messages" icon="linkedin">
-    InMails that get responses
-  </ContentCard>
-
-  <ContentCard title="Connection Requests" icon="user-plus">
-    Personalized invitations that convert
-  </ContentCard>
-
-  <ContentCard title="Content Ideas" icon="lightbulb">
-    Posts relevant to your prospects
-  </ContentCard>
-
-  <ContentCard title="Comments" icon="comment">
-    Thoughtful responses that start conversations
-  </ContentCard>
-</ContentGrid>
+    <CardGroup cols={2}>
+      <Card title="LinkedIn Messages" icon="linkedin">
+        InMails that get responses
+      </Card>
+      <Card title="Connection Requests" icon="user-plus">
+        Personalized invitations that convert
+      </Card>
+      <Card title="Content Ideas" icon="lightbulb">
+        Posts relevant to your prospects
+      </Card>
+      <Card title="Comments" icon="comment">
+        Thoughtful responses that start conversations
+      </Card>
+    </CardGroup>
   </Tab>
 </Tabs>
 
 ## How It Works
 
-<ProcessSteps>
-  <ProcessStep number="1" title="Select Account">
+<Steps>
+  <Step title="Select Account">
     Choose the account and type of content needed
-  </ProcessStep>
-
-  <ProcessStep number="2" title="AI Analysis">
+  </Step>
+  <Step title="AI Analysis">
     PG:AI reviews account priorities, initiatives, and context
-  </ProcessStep>
-
-  <ProcessStep number="3" title="Content Creation">
+  </Step>
+  <Step title="Content Creation">
     Generates personalized content with relevant hooks
-  </ProcessStep>
-
-  <ProcessStep number="4" title="Review & Send">
+  </Step>
+  <Step title="Review & Send">
     Make any edits and deploy across channels
-  </ProcessStep>
-</ProcessSteps>
+  </Step>
+</Steps>
 
 ## Real Examples
 
-<ExampleShowcase>
-  <ExampleCard title="CFO Email That Got a Meeting">
-    ```email
+<AccordionGroup>
+  <Accordion title="CFO Email That Got a Meeting" icon="envelope">
+    ```text
     Subject: Quick question about Acme's 20% efficiency target
-
+    
     Hi Sarah,
-
+    
     I noticed in Acme's Q3 earnings call that you're targeting 
     20% operational efficiency gains by year-end to offset the 
     margin pressure from rising labor costs.
-
+    
     We recently helped GlobalManufacturing achieve 24% efficiency 
     improvement in 7 months through intelligent automation - 
     exceeding their 18% target.
-
+    
     The key was focusing on their highest-volume processes first, 
     which I believe could work well for Acme's distribution centers.
-
+    
     Worth a brief call to discuss their approach?
-
+    
     Best regards,
     [Name]
     ```
 
-    <Badge>Response in 2 hours → Meeting booked</Badge>
-  </ExampleCard>
-
-  <ExampleCard title="Technical Champion Email">
-    ```email
+    <Tip>
+      **Result:** Response in 2 hours → Meeting booked
+    </Tip>
+  </Accordion>
+  <Accordion title="Technical Champion Email" icon="code">
+    ```text
     Subject: Solving the real-time data challenge at scale
-
+    
     Hi Marcus,
-
+    
     Your team's recent blog post about handling 10M events/second 
     was impressive. The custom Kafka optimization was clever.
-
+    
     But I imagine maintaining that custom solution while scaling 
     to your 2025 target of 50M events/second is keeping you up 
     at night?
-
+    
     We helped TechGiant solve this exact challenge - they now 
     handle 100M events/second with 3 engineers instead of 15.
-
+    
     Interested in their architecture? Happy to share the 
     technical deep-dive.
-
+    
     [Name]
     ```
 
-    <Badge>Led to technical evaluation</Badge>
-  </ExampleCard>
-</ExampleShowcase>
+    <Tip>
+      **Result:** Led to technical evaluation
+    </Tip>
+  </Accordion>
+</AccordionGroup>
 
 ## Intelligence-Powered Personalization
 
-<FeatureGrid>
-  <FeatureCard icon="brain" title="Strategic Context" description="Every piece references their actual priorities and initiatives" />
-
-  <FeatureCard icon="users" title="Persona Awareness" description="Different angles for executives vs. practitioners" />
-
-  <FeatureCard icon="clock" title="Timeline Relevance" description="Urgency tied to their stated deadlines" />
-
-  <FeatureCard icon="building" title="Industry Fluency" description="Uses their terminology and references" />
-</FeatureGrid>
+<CardGroup cols={2}>
+  <Card title="Strategic Context" icon="brain">
+    Every piece references their actual priorities and initiatives
+  </Card>
+  <Card title="Persona Awareness" icon="users">
+    Different angles for executives vs. practitioners
+  </Card>
+  <Card title="Timeline Relevance" icon="clock">
+    Urgency tied to their stated deadlines
+  </Card>
+  <Card title="Industry Fluency" icon="building">
+    Uses their terminology and references
+  </Card>
+</CardGroup>
 
 ## Content Quality Controls
 
-<QualityChecks>
-  <Check title="Accuracy Verified">
-    All facts pulled from verified sources with citations
-  </Check>
+<Check>
+  **Accuracy Verified** - All facts pulled from verified sources with citations
+</Check>
 
-  <Check title="Brand Aligned">
-    Maintains your voice and messaging guidelines
-  </Check>
+<Check>
+  **Brand Aligned** - Maintains your voice and messaging guidelines
+</Check>
 
-  <Check title="Compliance Ready">
-    No false claims or problematic language
-  </Check>
+<Check>
+  **Compliance Ready** - No false claims or problematic language
+</Check>
 
-  <Check title="Human Touch">
-    Reads naturally, not like AI-generated content
-  </Check>
-</QualityChecks>
+<Check>
+  **Human Touch** - Reads naturally, not like AI-generated content
+</Check>
 
 ## Credit System
 
-<PricingCards>
-  <PricingCard
-    title="What's Included"
-    price="10 credits"
-    period="per account"
-    features={[
-    "Valid for 12 months",
-    "Any content type",
-    "Unlimited revisions",
-    "Multi-language support"
-  ]}
-  />
+<CardGroup cols={2}>
+  <Card title="What's Included" icon="credit-card">
+    **10 credits per account**
 
-  <PricingCard
-    title="Smart Usage"
-    features={[
-    "Use for high-value accounts",
-    "Create reusable templates",
-    "Share across team",
-    "Track what converts"
-  ]}
-    highlighted
-  />
-</PricingCards>
+    - Valid for 12 months
+    - Any content type
+    - Unlimited revisions
+    - Multi-language support
+  </Card>
+  <Card title="Smart Usage" icon="lightbulb">
+    **Best Practices**
+
+    - Use for high-value accounts
+    - Create reusable templates
+    - Share across team
+    - Track what converts
+  </Card>
+</CardGroup>
 
 ## Best Practices
 
-<BestPractices>
-  <Practice title="Always Review" icon="eye">
-    AI generates the foundation - add your personal touch
-  </Practice>
+<Warning>
+  **Always Review** - AI generates the foundation, add your personal touch
+</Warning>
 
-  <Practice title="Test Variations" icon="flask">
-    Try different angles to see what resonates
-  </Practice>
+<Tip>
+  **Test Variations** - Try different angles to see what resonates
+</Tip>
 
-  <Practice title="Track Performance" icon="chart-line">
-    Measure which messages drive engagement
-  </Practice>
+<Info>
+  **Track Performance** - Measure which messages drive engagement
+</Info>
 
-  <Practice title="Build Templates" icon="copy">
-    Turn winners into reusable frameworks
-  </Practice>
-</BestPractices>
+<Note>
+  **Build Templates** - Turn winners into reusable frameworks
+</Note>
 
-<Testimonials>
-  <TestimonialCard quote="Content generation paid for itself in the first week. One email to a Fortune 500 CFO led to a $2M opportunity." author="Jennifer Wu" title="Enterprise AE" company="SalesTech Pro" />
+## Success Stories
 
-  <TestimonialCard quote="I used to spend hours crafting the perfect email. Now I generate 5 variations in minutes and test what works." author="David Martinez" title="SDR Team Lead" company="CloudFirst" />
-</Testimonials>
+<AccordionGroup>
+  <Accordion title="Jennifer Wu - Enterprise AE at SalesTech Pro" icon="quote">
+    "Content generation paid for itself in the first week. One email to a Fortune 500 CFO led to a \$2M opportunity."
+  </Accordion>
+  <Accordion title="David Martinez - SDR Team Lead at CloudFirst" icon="quote">
+    "I used to spend hours crafting the perfect email. Now I generate 5 variations in minutes and test what works."
+  </Accordion>
+</AccordionGroup>
 
-<CTASection>
-  <CTATitle>Ready to Write Better Sales Content?</CTATitle>
+---
 
-  <CTADescription>
-    See how AI-powered content generation transforms your outreach
-  </CTADescription>
+## Ready to Write Better Sales Content?
 
-  <CTAButtons>
-    <Button size="lg" href="/demo">Get Your Demo</Button>
+See how AI-powered content generation transforms your outreach
 
-    <Button size="lg" variant="outline" href="/guides/content-best-practices">
-      Best Practices Guide
-    </Button>
-  </CTAButtons>
-</CTASection>
+<CardGroup cols={2}>
+  <Card title="Get Your Demo" icon="play" href="/demo">
+    See content generation in action
+  </Card>
+  <Card title="Best Practices Guide" icon="book" href="/guides/content-best-practices">
+    Learn proven strategies
+  </Card>
+</CardGroup>
