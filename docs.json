@@ -22,28 +22,16 @@
             ]
           },
           {
-            "group": "Learn About PG:AI",
+            "group": "Account Intelligence",
             "pages": [
-              "learn/planning-with-pgai",
-              {
-                "group": "Use Cases",
-                "pages": [
-                  "learn/use-cases/account-planning",
-                  "learn/use-cases/pipeline-generation",
-                  "learn/use-cases/meeting-preparation"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Explore Features",
-            "pages": [
-              "features/company-insights",
-              "features/engage-insights",
-              "features/tech-stack",
-              "features/contacts",
-              "features/content",
-              "features/ai-assistant"
+              "account-intelligence/overview",
+              "account-intelligence/peer-analysis",
+              "account-intelligence/insights",
+              "account-intelligence/engage",
+              "account-intelligence/contacts",
+              "account-intelligence/tech-stack",
+              "account-intelligence/content",
+              "account-intelligence/ai-assistant"
             ]
           },
           {
@@ -59,9 +47,7 @@
                   "data-dictionary/company-insights/quarterly-reports",
                   "data-dictionary/company-insights/peer-analysis",
                   "data-dictionary/company-insights/swot-analysis",
-                  "data-dictionary/company-insights/industry-insights",
-                  "data-dictionary/company-insights/tech-stack",
-                  "data-dictionary/company-insights/contacts"
+                  "data-dictionary/company-insights/industry-insights"
                 ]
               },
               {
@@ -71,29 +57,28 @@
                   "data-dictionary/engage-insights/three-whys",
                   "data-dictionary/engage-insights/discovery-questions",
                   "data-dictionary/engage-insights/facts-and-figures",
-                  "data-dictionary/engage-insights/custom-insights",
-                  "data-dictionary/engage-insights/content"
+                  "data-dictionary/engage-insights/custom-insights"
                 ]
               }
             ]
           },
           {
+            "group": "Account",
+            "pages": [
+              "account/usage-and-analytics",
+              "account/team",
+              "account/billing"
+            ]
+          },
+          {
             "group": "Settings",
             "pages": [
-              "settings/usage-and-analytics",
-              "settings/team",
-              "settings/billing",
-              {
-                "group": "Organisation Settings",
-                "pages": [
-                  "settings/organisation/datasets",
-                  "settings/organisation/engage",
-                  "settings/organisation/custom-insights",
-                  "settings/organisation/personas",
-                  "settings/organisation/workflows",
-                  "settings/organisation/technologies"
-                ]
-              }
+              "settings/datasets",
+              "settings/engage",
+              "settings/custom-insights",
+              "settings/personas",
+              "settings/workflows",
+              "settings/technologies"
             ]
           },
           {
@@ -109,46 +94,24 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting Started Guides",
+            "group": "Pipeline Generation",
             "pages": [
-              "guides/first-steps",
-              "guides/setup-walkthrough"
+              "guides/pipeline-generation/cold-calling",
+              "guides/pipeline-generation/identifying-contacts",
+              "guides/pipeline-generation/writing-emails"
             ]
           },
           {
-            "group": "Feature Guides",
+            "group": "Meeting Preparation",
             "pages": [
-              "guides/account-research",
-              "guides/content-generation",
-              "guides/ai-assistant-usage"
+              "guides/meeting-preparation/preparing-for-prospect-meetings"
             ]
           },
           {
-            "group": "Best Practices",
+            "group": "Content",
             "pages": [
-              "guides/best-practices/research-methodology",
-              "guides/best-practices/content-optimization",
-              "guides/best-practices/team-workflows"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "guides/content/creating-templates",
+              "guides/content/using-templates"
             ]
           }
         ]
