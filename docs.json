@@ -4,7 +4,7 @@
   "name": "PG:AI Docs",
   "colors": {
     "primary": "#5d4af6",
-    "light": "#07C983",
+    "light": "#5d4af6",
     "dark": "#5d4af6"
   },
   "favicon": "/images/pgai-favicon.png",
