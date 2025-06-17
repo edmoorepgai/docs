@@ -7,7 +7,7 @@
     "light": "#07C983",
     "dark": "#5d4af6"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/images/pgai-favicon.png",
   "navigation": {
     "tabs": [
       {
