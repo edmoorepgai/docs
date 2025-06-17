@@ -115,6 +115,24 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Templates",
+        "groups": [
+          {
+            "group": "Pipeline Generation",
+            "pages": [
+              "templates/templates-pg/executive-email",
+              "templates/templates-pg/template-script"
+            ]
+          },
+          {
+            "group": "Meeting Preparation",
+            "pages": [
+              "templates/templates-meetings/template-disco"
+            ]
+          }
+        ]
       }
     ],
     "global": {
