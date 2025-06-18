@@ -27,8 +27,8 @@
     {
       "group": "Overview",
       "pages": [
-        "account-intelligence/overview/index",
-        "account-intelligence/overview/company-summary",
+        "account-intelligence/overview/overview-index",
+        "account-intelligence/overview/summary",
         "account-intelligence/overview/strategies-risk",
         "account-intelligence/overview/organization-structure",
         "account-intelligence/overview/quarterly-updates",
