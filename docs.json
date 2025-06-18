@@ -107,6 +107,12 @@
         "tab": "Guides",
         "groups": [
           {
+            "group": "Getting Started",
+            "pages": [
+              "guides/getting-started/add-first-account"
+            ]
+          },
+          {
             "group": "Pipeline Generation",
             "pages": [
               "guides/pipeline-generation/cold-calling",
