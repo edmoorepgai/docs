@@ -1,188 +1,193 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "PG:AI Docs",
-  "colors": {
-    "primary": "#5d4af6",
-    "light": "#5d4af6",
-    "dark": "#5d4af6"
-  },
-  "favicon": "/images/pgai-favicon.png",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "get-started/introduction",
-              "get-started/quickstart",
-              "get-started/faq"
-            ]
-          },
-          {
-  "group": "Account Intelligence",
-  "pages": [
-    {
-      "group": "Overview",
-      "pages": [
-        "account-intelligence/overview/overview-index",
-        "account-intelligence/overview/summary",
-        "account-intelligence/overview/strategies-risk",
-        "account-intelligence/overview/organization-structure",
-        "account-intelligence/overview/quarterly-updates",
-        "account-intelligence/overview/leadership-team",
-        "account-intelligence/overview/swot-analysis",
-        "account-intelligence/overview/industry-analysis"
-      ]
+    "$schema": "https://mintlify.com/docs.json",
+    "theme": "mint",
+    "name": "PG:AI Docs",
+    "colors": {
+        "primary": "#5d4af6",
+        "light": "#5d4af6",
+        "dark": "#5d4af6"
     },
-    "account-intelligence/peer-analysis",
-    "account-intelligence/insights",
-    "account-intelligence/engage",
-    "account-intelligence/contacts",
-    "account-intelligence/tech-stack",
-    "account-intelligence/content",
-    "account-intelligence/ai-assistant"
-  ]
-},
-          {
-            "group": "Data Dictionary",
-            "pages": [
-              {
-                "group": "Company Insights",
-                "pages": [
-                  "data-dictionary/company-insights/strategic-priorities",
-                  "data-dictionary/company-insights/goals",
-                  "data-dictionary/company-insights/risks",
-                  "data-dictionary/company-insights/digital-strategies",
-                  "data-dictionary/company-insights/priority-scores",
-                  "data-dictionary/company-insights/financial-analysis",
-                  "data-dictionary/company-insights/organisation-structure",
-                  "data-dictionary/company-insights/quarterly-reports",
-                  "data-dictionary/company-insights/peer-analysis",
-                  "data-dictionary/company-insights/swot-analysis",
-                  "data-dictionary/company-insights/industry-insights",
-                  "data-dictionary/company-insights/contacts"
+    "favicon": "/images/pgai-favicon.png",
+    "navigation": {
+        "tabs": [
+            {
+                "tab": "Documentation",
+                "groups": [
+                    {
+                        "group": "Get Started",
+                        "pages": [
+                            "get-started/introduction",
+                            "get-started/quickstart",
+                            "get-started/faq"
+                        ]
+                    },
+                    {
+                        "group": "Account Intelligence",
+                        "pages": [
+                            {
+                                "group": "Overview",
+                                "pages": [
+                                    "account-intelligence/overview/overview-index",
+                                    "account-intelligence/overview/summary",
+                                    "account-intelligence/overview/strategies-risk",
+                                    "account-intelligence/overview/organization-structure",
+                                    "account-intelligence/overview/quarterly-updates",
+                                    "account-intelligence/overview/leadership-team",
+                                    "account-intelligence/overview/swot-analysis",
+                                    "account-intelligence/overview/industry-analysis"
+                                ]
+                            },
+                            "account-intelligence/peer-analysis",
+                            "account-intelligence/insights",
+                            "account-intelligence/engage",
+                            "account-intelligence/contacts",
+                            "account-intelligence/tech-stack",
+                            "account-intelligence/content",
+                            "account-intelligence/ai-assistant"
+                        ]
+                    },
+                    {
+                        "group": "Data Dictionary",
+                        "pages": [
+                            {
+                                "group": "Company Insights",
+                                "pages": [
+                                    "data-dictionary/company-insights/strategic-priorities",
+                                    "data-dictionary/company-insights/goals",
+                                    "data-dictionary/company-insights/risks",
+                                    "data-dictionary/company-insights/digital-strategies",
+                                    "data-dictionary/company-insights/priority-scores",
+                                    "data-dictionary/company-insights/financial-analysis",
+                                    "data-dictionary/company-insights/organisation-structure",
+                                    "data-dictionary/company-insights/quarterly-reports",
+                                    "data-dictionary/company-insights/peer-analysis",
+                                    "data-dictionary/company-insights/swot-analysis",
+                                    "data-dictionary/company-insights/industry-insights",
+                                    "data-dictionary/company-insights/contacts"
+                                ]
+                            },
+                            {
+                                "group": "Engage Insights",
+                                "pages": [
+                                    "data-dictionary/engage-insights/value-pyramid",
+                                    "data-dictionary/engage-insights/three-whys",
+                                    "data-dictionary/engage-insights/discovery-questions",
+                                    "data-dictionary/engage-insights/facts-and-figures",
+                                    "data-dictionary/engage-insights/custom-insights"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "group": "Content",
+                        "pages": [
+                            "content/content"
+                        ]
+                    },
+                    {
+                        "group": "Account",
+                        "pages": [
+                            "account/usage-and-analytics",
+                            "account/team",
+                            "account/billing"
+                        ]
+                    },
+                    {
+                        "group": "Settings",
+                        "pages": [
+                            "settings/datasets",
+                            "settings/engage",
+                            "settings/custom-insights",
+                            "settings/personas",
+                            "settings/workflows",
+                            "settings/technologies"
+                        ]
+                    },
+                    {
+                        "group": "Security",
+                        "pages": [
+                            "security/overview",
+                            "security/subprocessor-list"
+                        ]
+                    }
                 ]
-              },
-              {
-                "group": "Engage Insights",
-                "pages": [
-                  "data-dictionary/engage-insights/value-pyramid",
-                  "data-dictionary/engage-insights/three-whys",
-                  "data-dictionary/engage-insights/discovery-questions",
-                  "data-dictionary/engage-insights/facts-and-figures",
-                  "data-dictionary/engage-insights/custom-insights"
+            },
+            {
+                "tab": "Guides",
+                "groups": [
+                    {
+                        "group": "Getting Started",
+                        "pages": [
+                            "guides/getting-started/add-first-account"
+                        ]
+                    },
+                    {
+                        "group": "Pipeline Generation",
+                        "pages": [
+                            "guides/pipeline-generation/cold-calling",
+                            "guides/pipeline-generation/identifying-contacts",
+                            "guides/pipeline-generation/creating-content"
+                        ]
+                    },
+                    {
+                        "group": "Meeting Preparation",
+                        "pages": [
+                            "guides/meeting-preparation/meeting-prep"
+                        ]
+                    },
+                    {
+                        "group": "Content",
+                        "pages": [
+                            "guides/content/creating-templates",
+                            "guides/content/using-templates"
+                        ]
+                    }
                 ]
-              }
+            },
+            {
+                "tab": "Templates",
+                "groups": [
+                    {
+                        "group": "Pipeline Generation",
+                        "pages": [
+                            "templates/templates-pg/executive-email",
+                            "templates/templates-pg/template-script"
+                        ]
+                    },
+                    {
+                        "group": "Meeting Preparation",
+                        "pages": [
+                            "templates/templates-meetings/template-disco"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "global": {
+            "anchors": [
+                {
+                    "anchor": "Website",
+                    "href": "https://www.getpg.ai",
+                    "icon": "browser"
+                }
             ]
-          },
-          {
-            "group": "Account",
-            "pages": [
-              "account/usage-and-analytics",
-              "account/team",
-              "account/billing"
-            ]
-          },
-          {
-            "group": "Settings",
-            "pages": [
-              "settings/datasets",
-              "settings/engage",
-              "settings/custom-insights",
-              "settings/personas",
-              "settings/workflows",
-              "settings/technologies"
-            ]
-          },
-          {
-            "group": "Security",
-            "pages": [
-              "security/overview",
-              "security/subprocessor-list"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "guides/getting-started/add-first-account"
-            ]
-          },
-          {
-            "group": "Pipeline Generation",
-            "pages": [
-              "guides/pipeline-generation/cold-calling",
-              "guides/pipeline-generation/identifying-contacts",
-              "guides/pipeline-generation/creating-content"
-            ]
-          },
-          {
-            "group": "Meeting Preparation",
-            "pages": [
-              "guides/meeting-preparation/meeting-prep"
-            ]
-          },
-          {
-            "group": "Content",
-            "pages": [
-              "guides/content/creating-templates",
-              "guides/content/using-templates"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Templates",
-        "groups": [
-          {
-            "group": "Pipeline Generation",
-            "pages": [
-              "templates/templates-pg/executive-email",
-              "templates/templates-pg/template-script"
-            ]
-          },
-          {
-            "group": "Meeting Preparation",
-            "pages": [
-              "templates/templates-meetings/template-disco"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Website",
-          "href": "https://www.getpg.ai",
-          "icon": "browser"
         }
-      ]
+    },
+    "logo": {
+        "light": "/logo/pgailogo.svg",
+        "dark": "/logo/pg-ai-white.png"
+    },
+    "navbar": {
+        "links": [],
+        "primary": {
+            "type": "button",
+            "label": "Dashboard",
+            "href": "https://www.app.getpg.ai/login"
+        }
+    },
+    "footer": {
+        "socials": {
+            "linkedin": "https://www.linkedin.com/company/pipeline-generation-ai"
+        }
     }
-  },
-  "logo": {
-    "light": "/logo/pgailogo.svg",
-    "dark": "/logo/pg-ai-white.png"
-  },
-  "navbar": {
-    "links": [
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://www.app.getpg.ai/login"
-    }
-  },
-  "footer": {
-    "socials": {
-      "linkedin": "https://www.linkedin.com/company/pipeline-generation-ai"
-    }
-  }
 }
