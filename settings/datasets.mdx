@@ -1,227 +1,211 @@
 ---
 title: "Datasets"
-description: "Manage and configure data sources that power your account insights and content generation"
+description: "Upload and manage your sales collateral to train PG:AI on your value proposition and solution capabilities"
 mode: "wide"
 ---
 
----
+Datasets are collections of your internal sales, marketing and product documents that train PG:AI to understand your value proposition, product capabilities, and sales messaging. Upload your existing sales collateral as PDFs, and PG:AI will ingest the content to generate personalized, on-brand materials for your team.
 
 ## What are Datasets?
 
-Datasets are collections of information about your company, products, and value propositions that PG:AI uses to generate personalized content and insights for your target accounts.
+Datasets are labeled collections of your sales documents that PG:AI uses to learn about your business:
 
-Datasets are structured collections of information that serve as the foundation for PG:AI's content generation. They contain details about your:
+- Upload any PDF documents containing your sales collateral
+- Organize documents into clearly labeled datasets by topic or purpose
+- PG:AI ingests the text content to understand your value propositions and messaging
+- Use these trained datasets to power personalized content generation and account insights
 
-- Company overview and history
-- Products and services
-- Value propositions
-- Competitive differentiators
-- Customer success stories
-- Industry expertise
+<Info>
+  Your first dataset is automatically created by ingesting your company website to train PG:AI on your basic value proposition and offerings. You can then add additional datasets with your internal sales materials.
+</Info>
 
-## What are Datasets used for?
+## Types of Sales Documents to Upload
 
 <CardGroup cols={2}>
-  <Card title="Content Generation" icon="file-lines">
-    Power AI-generated emails, call scripts, and meeting prep materials
+  <Card title="Value Frameworks & Positioning" icon="bullseye">
+    Value proposition documents, messaging frameworks, positioning guides
   </Card>
-  <Card title="Value Mapping" icon="map">
-    Connect your capabilities to prospect needs and priorities
+  <Card title="Battle Cards & Competitive Intel" icon="chess">
+    Competitive battle cards, objection handling guides, differentiation documents
   </Card>
-  <Card title="Consistency" icon="circle-check">
-    Ensure uniform messaging across your entire team
+  <Card title="Case Studies & Proof Points" icon="trophy">
+    Customer success stories, case studies, reference materials, testimonials
   </Card>
-  <Card title="Personalization" icon="user-pen">
-    Tailor content to specific industries, roles, and use cases
+  <Card title="Product Information" icon="box">
+    Product datasheets, capability overviews, technical specifications, feature guides
+  </Card>
+  <Card title="Use Cases & Solutions" icon="puzzle">
+    Use case documents, solution briefs, implementation guides, industry solutions
+  </Card>
+  <Card title="Persona & Audience Guides" icon="users">
+    Buyer persona guides, role-specific messaging, audience-targeted content
   </Card>
 </CardGroup>
 
-## Types of Datasets
+## How Datasets Work
 
-### 1. Core Company Dataset
-
-Your foundational dataset that includes:
-
-- Company mission and vision
-- Core products and services
-- Key differentiators
-- Target markets
-- Company achievements
-
-### 2. Product/Solution Datasets
-
-Detailed information about specific offerings:
-
-- Feature descriptions
-- Benefits and outcomes
-- Technical specifications
-- Pricing models
-- Implementation details
-
-### 3. Industry-Specific Datasets
-
-Tailored content for vertical markets:
-
-- Industry-specific value propositions
-- Relevant case studies
-- Compliance and regulatory expertise
-- Industry terminology and challenges
-
-### 4. Persona-Based Datasets
-
-Content optimized for different roles:
-
-- Executive-level business outcomes
-- Technical implementation details
-- End-user benefits
-- Economic buyer ROI metrics
-
-## Managing Datasets
+### **Document Ingestion Process**
 
 <Steps>
-  <Step title="Access Dataset Settings">
-    Navigate to Settings \> Organisation Settings \> Datasets
+  <Step title="Upload PDF Documents">
+    Upload your existing sales collateral in PDF format to organized datasets
   </Step>
-  <Step title="Create New Dataset">
-    Click "Add Dataset" and provide:
-
-    - Dataset name
-    - Description
-    - Category/type
+  <Step title="AI Content Analysis">
+    PG:AI reads and analyzes the text content to understand your messaging and value propositions
   </Step>
-  <Step title="Add Content">
-    Input your content using:
-
-    - Text editor for direct input
-    - File upload for documents
-    - Integration with existing content repositories
+  <Step title="Knowledge Integration">
+    The platform learns your specific language, positioning, and solution capabilities
   </Step>
-  <Step title="Configure Usage">
-    Define where and how this dataset should be used:
-
-    - Assign to specific workflows
-    - Link to personas
-    - Set for specific industries
+  <Step title="Content Generation">
+    PG:AI uses this knowledge to create personalized content that reflects your actual sales materials
   </Step>
 </Steps>
 
-## Best Practices
-
-### Content Guidelines
+### **Dataset Organization**
 
 <Tabs>
-  <Tab title="Do's">
-    - Use clear, concise language
-    - Include specific metrics and outcomes
-    - Provide real customer examples
-    - Update regularly with new wins
-    - Organize content logically
-    - Use consistent formatting
+  <Tab title="By Content Type">
+    - **Case Studies Dataset**: All customer success stories and proof points
+    - **Battle Cards Dataset**: Competitive positioning and objection handling
+    - **Product Info Dataset**: Technical capabilities and feature information
+    - **Value Frameworks Dataset**: ROI models and business case templates
   </Tab>
-  <Tab title="Don'ts">
-    - Avoid jargon without explanation
-    - Don't include outdated information
-    - Avoid competitor bashing
-    - Don't use internal acronyms
-    - Avoid overly technical language for business datasets
+  <Tab title="By Solution Area">
+    - **Platform Dataset**: Core platform capabilities and benefits
+    - **Security Dataset**: Security-focused messaging and case studies
+    - **Integration Dataset**: API and integration-specific content
+    - **Analytics Dataset**: Data and analytics solution materials
+  </Tab>
+  <Tab title="By Industry/Persona">
+    - **Financial Services Dataset**: Industry-specific messaging and case studies
+    - **IT Leader Dataset**: Technical decision-maker focused content
+    - **Executive Dataset**: C-level business outcome materials
+    - **End User Dataset**: User experience and workflow content
   </Tab>
 </Tabs>
 
-### Dataset Organization
+## Default Website Dataset
+
+### **Automatic Setup**
+
+When you first set up PG:AI, the platform automatically creates your initial dataset by:
+
+- Crawling and analyzing your company website content
+- Extracting information about your products, services, and value propositions
+- Learning your core messaging and positioning language
+- Creating a baseline understanding of what your company does
+
+### **Building from the Foundation**
 
 <AccordionGroup>
-  <Accordion title="Naming Conventions">
-    Use clear, descriptive names:
-
-    - `Core_Company_Overview_2024`
-    - `Product_CloudSolution_Enterprise`
-    - `Industry_FinancialServices_Compliance`
-    - `Persona_CISO_Security`
+  <Accordion title="Website Content Provides">
+    - Basic product and service descriptions
+    - High-level value propositions and benefits
+    - Company positioning and market focus
+    - Public-facing messaging and language
   </Accordion>
-  <Accordion title="Version Control">
-    - Maintain version history
-    - Date significant updates
-    - Archive outdated content
-    - Document major changes
-  </Accordion>
-  <Accordion title="Content Structure">
-    Organize information hierarchically:
-
-    1. Executive summary
-    2. Detailed descriptions
-    3. Proof points
-    4. Supporting materials
+  <Accordion title="Internal Documents Add">
+    - Detailed competitive positioning and battle cards
+    - Specific customer success stories and proof points
+    - Internal messaging frameworks and talk tracks
+    - Detailed use cases and implementation guides
   </Accordion>
 </AccordionGroup>
 
-## Examples
+## Managing Your Datasets
 
-### Sample Company Overview Dataset
-
-```
-Company: [Your Company Name]
-Founded: [Year]
-Mission: To help businesses transform their operations through innovative technology solutions
-
-What We Do:
-We provide comprehensive cloud-based solutions that enable companies to:
-- Streamline operations and reduce costs by up to 30%
-- Improve customer satisfaction scores by average of 25%
-- Accelerate time-to-market for new products by 40%
-
-Key Differentiators:
-1. Patent-pending AI technology
-2. 99.99% uptime guarantee
-3. 24/7 global support
-4. No-code configuration
-```
-
-### Sample Industry Dataset (Healthcare)
-
-```
-Healthcare Industry Expertise:
-- HIPAA compliant infrastructure
-- HL7/FHIR integration capabilities
-- Experience with 50+ hospital systems
-- Reduced patient wait times by average of 35%
-- Improved clinical documentation accuracy by 28%
-
-Relevant Case Studies:
-- Regional Medical Center: Reduced readmission rates by 22%
-- Community Health Network: Saved $2.3M annually
-- Specialty Clinic Group: Increased patient capacity by 40%
-```
-
-## Tips for Success
-
-<Info>
-  **Regular Updates**: Schedule quarterly reviews of your datasets to ensure information remains current and relevant.
-</Info>
-
-### Quality Checklist
-
-- Information is current (within last 6 months)
-- Metrics and statistics are accurate
-- Customer examples have approval for use
-- Content aligns with current messaging
-- Technical details are verified
-- Compliance statements are up-to-date
-
-### Integration with Other Features
-
-Datasets work seamlessly with:
-
-- **Workflows**: Automatically apply relevant datasets
-- **Personas**: Match content to specific roles
-- **Custom Insights**: Provide context for analysis
-- **Engage Settings**: Power value proposition mapping
+### **Creating Effective Datasets**
 
 <Warning>
-  **Data Governance**: Ensure all dataset content complies with your company's data governance policies and customer confidentiality agreements.
+  Label your datasets clearly and organize them logically. This makes it easier to select the right datasets for specific content templates and engage settings.
 </Warning>
 
-## Getting Started
+**Best Practices for Dataset Organization:**
 
-<Card title="Download Dataset Template" icon="download" href="/templates/dataset-template.xlsx">
-  Use our template to structure your dataset content effectively
-</Card>
+1. **Clear Labels**: Use descriptive names that indicate the content type and purpose
+2. **Logical Grouping**: Group related documents together by theme, audience, or solution area
+3. **Regular Updates**: Add new case studies, battle cards, and product information as they're created
+4. **Quality Control**: Ensure uploaded documents contain your current, approved messaging
+
+### **Document Preparation Tips**
+
+<Tabs>
+  <Tab title="Content Quality">
+    - Use your most current and approved sales materials
+    - Include quantified results and specific outcomes in case studies
+    - Ensure competitive information is accurate and up-to-date
+    - Remove any confidential or sensitive information before uploading
+  </Tab>
+  <Tab title="Format Considerations">
+    - PDFs with clear, readable text work best for content extraction
+    - Avoid image-heavy documents with minimal text content
+    - Ensure scanned documents have good OCR text recognition
+    - Break up very long documents into focused, topic-specific files
+  </Tab>
+</Tabs>
+
+## Using Datasets in PG:AI Features
+
+### **Engage Settings Integration**
+
+When configuring your Engage settings for Value Pyramids and Three Whys:
+
+- Select specific datasets that contain relevant value propositions
+- Choose case study datasets for proof points and customer examples
+- Use competitive datasets for differentiation messaging
+- Reference use case datasets for solution positioning
+
+### **Content Template Configuration**
+
+When setting up content templates for emails, call scripts, and presentations:
+
+- Specify which datasets should inform the content generation
+- Combine multiple datasets for comprehensive messaging (e.g., value framework \+ case studies)
+- Choose persona-specific datasets for targeted audience content
+- Select industry datasets for vertical-specific messaging
+
+### **Account Intelligence Enhancement**
+
+Your datasets enhance PG:AI's account analysis by:
+
+- Connecting prospect needs to your specific solution capabilities
+- Identifying relevant case studies and proof points for similar companies
+- Generating discovery questions based on your actual value propositions
+- Creating personalized content using your proven messaging frameworks
+
+## Measuring Dataset Effectiveness
+
+### **Content Quality Indicators**
+
+- **Relevance**: Generated content accurately reflects your value propositions
+- **Consistency**: Messaging aligns with your approved sales materials
+- **Completeness**: AI has sufficient information to create comprehensive content
+- **Differentiation**: Generated content includes your unique competitive advantages
+
+### **Usage and Performance**
+
+<AccordionGroup>
+  <Accordion title="Dataset Utilization">
+    Track which datasets are most frequently used in content generation and engage settings
+  </Accordion>
+  <Accordion title="Content Effectiveness">
+    Monitor sales team feedback on the quality and relevance of AI-generated materials
+  </Accordion>
+  <Accordion title="Gap Identification">
+    Identify areas where additional sales collateral could improve content generation
+  </Accordion>
+</AccordionGroup>
+
+## Quick Actions
+
+<CardGroup cols={3}>
+  <Card title="Upload Sales Collateral" icon="upload" href="/settings/organization/datasets">
+    Add your PDFs to create and organize datasets
+  </Card>
+  <Card title="Configure Engage Settings" icon="gear" href="/settings/engage">
+    Select datasets for Value Pyramids and Three Whys
+  </Card>
+  <Card title="Set Up Content Templates" icon="file-text" href="/settings/content-templates">
+    Choose datasets for personalized content generation
+  </Card>
+</CardGroup>
