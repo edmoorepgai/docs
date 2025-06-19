@@ -1,4 +1,119 @@
 ---
-title: "Subprocessor List"
-description: "Description of your new file."
+title: "Subprocessors"
+description: "Third-party services that help PG:AI deliver secure and reliable platform capabilities"
+mode: "wide"
 ---
+
+PG:AI partners with industry-leading service providers to deliver a secure, scalable, and feature-rich platform. This page lists all third-party subprocessors that may process data as part of our service delivery.
+
+## What are Subprocessors?
+
+Subprocessors are third-party services that PG:AI uses to provide specific functionality within our platform. Each subprocessor has been carefully vetted for security, reliability, and compliance with data protection standards.
+
+<Info>
+  All subprocessors are bound by data processing agreements and are required to maintain appropriate security measures to protect customer data.
+</Info>
+
+## Authorized Subprocessors
+
+### **Infrastructure & Data Storage**
+
+<CardGroup cols={2}>
+  <Card title="Microsoft Azure" icon="microsoft">
+    **Category**: Cloud Infrastructure Provider
+    
+    Part of our platform is hosted on Microsoft Azure, which provides our underlying cloud infrastructure. This includes compute, storage, and networking services protected by Azure's enterprise-grade security, compliance, and availability standards.
+  </Card>
+  <Card title="MongoDB" icon="database">
+    **Category**: Database
+    
+    We use MongoDB to store unstructured and semi-structured data, such as enriched insights, company intelligence, and vector-based search data for knowledge retrieval. Access is tightly controlled and encrypted both in transit and at rest.
+  </Card>
+</CardGroup>
+
+### **Authentication & Backend Services**
+
+<CardGroup cols={2}>
+  <Card title="Auth0 (Okta)" icon="shield-check">
+    **Category**: Authentication
+    
+    We use Auth0 (by Okta) to manage user authentication, including sign-up, login, and user session handling. Auth0 ensures secure access to PG:AI's platform through robust identity verification and supports enterprise Single Sign-On (SSO) where required.
+  </Card>
+  <Card title="Xano" icon="server">
+    **Category**: Database & Backend
+    
+    Xano serves as our primary backend platform, managing business logic, user data, and application workflows. It also acts as a secure relational database for storing structured application data, including user activity, account settings, and permissions.
+  </Card>
+</CardGroup>
+
+### **AI & Language Models**
+
+<CardGroup cols={2}>
+  <Card title="Anthropic" icon="brain">
+    **Category**: Large Language Model
+    
+    PG:AI integrates with Anthropic's Claude LLM for select natural language processing tasks, including summarization, insight generation, and enterprise-grade prompt responses. All API interactions are performed over secure encrypted channels, and no personally identifiable information (PII) is transmitted.
+  </Card>
+  <Card title="OpenAI" icon="sparkles">
+    **Category**: Large Language Model
+    
+    We use OpenAI's models (such as GPT-4o) for tasks like research automation, document generation, and user query interpretation. Data sent to OpenAI is limited to necessary inputs and handled in compliance with OpenAI's API data usage policies.
+  </Card>
+</CardGroup>
+
+### **Business Operations**
+
+<CardGroup cols={2}>
+  <Card title="HubSpot" icon="handshake">
+    **Category**: CRM System
+    
+    HubSpot is used to manage PG:AI's sales pipeline, customer engagement, and support communications. It stores contact details, deal activity, and interaction history, with role-based access controls in place to restrict internal visibility.
+  </Card>
+  <Card title="Stripe" icon="credit-card">
+    **Category**: Payments Provider
+    
+    PG:AI uses Stripe to securely manage customer billing, subscriptions, and payment methods. Stripe is a PCI-DSS Level 1 compliant provider, and PG:AI does not store any raw payment data on its own servers.
+  </Card>
+</CardGroup>
+
+### **Analytics & Support**
+
+<CardGroup cols={2}>
+  <Card title="PostHog" icon="chart-line">
+    **Category**: Product Analytics
+    
+    PostHog is used for behavioral analytics within the PG:AI platform. It helps us understand user engagement, feature usage, and performance bottlenecks. All event data is anonymized or pseudonymized where applicable, and no sensitive content is captured.
+  </Card>
+  <Card title="Intercom" icon="comments">
+    **Category**: Customer Support
+    
+    We use Intercom to provide in-app messaging, support ticketing, and knowledge base functionality. Intercom may collect user identifiers (such as email) and interaction logs to facilitate support resolution. Data is encrypted and access is restricted to support staff.
+  </Card>
+</CardGroup>
+
+## Data Processing Commitments
+
+All subprocessors are:
+- Contractually bound to protect customer data
+- Required to implement appropriate security measures
+- Limited to processing data only as instructed by PG:AI
+- Subject to regular security reviews and assessments
+
+## Updates to Subprocessors
+
+<Warning>
+  We may update our list of subprocessors as our service evolves. Any material changes that affect data processing will be communicated to customers with appropriate notice.
+</Warning>
+
+For questions about our subprocessors or data processing practices, please contact us at ed@getpg.ai.
+
+## Quick Actions
+
+<CardGroup cols={2}>
+  <Card title="View Security Overview" icon="lock" href="/security">
+    Learn about our security practices
+  </Card>
+  <Card title="Contact Security Team" icon="envelope" href="mailto:ed@getpg.ai">
+    Questions about data processing
+  </Card>
+</CardGroup>
