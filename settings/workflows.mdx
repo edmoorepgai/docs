@@ -1,5 +1,5 @@
 ---
-title: "Workflows Settings"
+title: "Workflows"
 description: "Automate the generation of insights and content when adding new accounts to PG:AI"
 mode: "wide"
 ---
@@ -22,22 +22,42 @@ Workflows are automated processes that orchestrate the generation of account int
 ## Workflow Architecture
 
 ```mermaid
-  flowchart LR
-    subgraph subgraph1
-        direction TB
-        top1[top] --> bottom1[bottom]
+flowchart TD
+    CT[Content Templates] --> CG[Content Groups]
+    CI[Custom Insights] --> IG[Insights Groups]
+    
+    CG --> W[Workflows]
+    IG --> W[Workflows]
+    ES[Engage Settings] --> W
+    P[Personas] --> W
+    D[Datasets] --> W
+    
+    W --> AA[Automated Account Onboarding]
+    
+    subgraph Content ["Content Generation"]
+        CT
+        CG
     end
-    subgraph subgraph2
-        direction TB
-        top2[top] --> bottom2[bottom]
+    
+    subgraph Intelligence ["Intelligence Generation"]
+        CI
+        IG
     end
-    %% ^ These subgraphs are identical, except for the links to them:
-
-    %% Link *to* subgraph1: subgraph1 direction is maintained
-    outside --> subgraph1
-    %% Link *within* subgraph2:
-    %% subgraph2 inherits the direction of the top-level graph (LR)
-    outside ---> top2
+    
+    subgraph Config ["Configuration Components"]
+        ES
+        P
+        D
+    end
+    
+    style W fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    style AA fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    style Content fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    style Intelligence fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style Config fill:#f1f8e9,stroke:#558b2f,stroke-width:2px
+<Info>
+  Workflows act as the central orchestration layer, combining content generation, intelligence research, and configuration components to create comprehensive, automated account preparation.
+</Info>
 ```
 
 ## Workflow Components
