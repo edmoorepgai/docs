@@ -29,32 +29,32 @@ config:
   layout: dagre
 ---
 flowchart TD
- subgraph Content["Content Generation"]
+    W["Workflows"]
+    AA["Automated Account Inelligence"]
+    
+    W --> AA
+    
+    subgraph Content["Content Generation"]
         CT["Content Templates"]
         CG["Content Groups"]
-  end
- subgraph Intelligence["Intelligence Generation"]
+    end
+    
+    subgraph Intelligence["Intelligence Generation"]
         CI["Custom Insights"]
-        IG["Insights Groups"]
-  end
- subgraph Config["Configuration Components"]
-    direction TB
-        ES["Engage Settings"]
-        P["Personas"]
-        D["Datasets"]
-  end
+        IG["Custom Insights Groups"]
+    end
+    
+    ES["Engage Settings"]
+    
     CT --> CG
     CI --> IG
-    CG --> W["Workflows"]
+    
+    CG --> W
     IG --> W
     ES --> W
-    P --> W
-    D --> W
-    W --> AA["Automated Account Onboarding"]
-    classDef pad fill:transparent,stroke:transparent
+    
     style W fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style AA fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    style Config fill:#fce4ec,stroke:#880e4f,stroke-width:2px
 ```
 
 <Info>
