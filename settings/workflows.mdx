@@ -22,33 +22,39 @@ Workflows are automated processes that orchestrate the generation of account int
 ## Workflow Architecture
 
 ```mermaid
+---
+config:
+  flowchart:
+    htmlLabels: false
+  layout: dagre
+---
 flowchart TD
-    CT[Content Templates] --> CG[Content Groups]
-    CI[Custom Insights] --> IG[Insights Groups]
-    
-    CG --> W[Workflows]
-    IG --> W[Workflows]
-    ES[Engage Settings] --> W
-    P[Personas] --> W
-    D[Datasets] --> W
-    
-    W --> AA[Automated Account Onboarding]
-    
-    subgraph Content ["Content Generation"]
-        CT
-        CG
-    end
-    
-    subgraph Intelligence ["Intelligence Generation"]
-        CI
-        IG
-    end
-    
-    subgraph Config ["Configuration Components"]
-        ES
-        P
-        D
-    end
+ subgraph Content["Content Generation"]
+        CT["Content Templates"]
+        CG["Content Groups"]
+  end
+ subgraph Intelligence["Intelligence Generation"]
+        CI["Custom Insights"]
+        IG["Insights Groups"]
+  end
+ subgraph Config["Configuration Components"]
+    direction TB
+        ES["Engage Settings"]
+        P["Personas"]
+        D["Datasets"]
+  end
+    CT --> CG
+    CI --> IG
+    CG --> W["Workflows"]
+    IG --> W
+    ES --> W
+    P --> W
+    D --> W
+    W --> AA["Automated Account Onboarding"]
+    classDef pad fill:transparent,stroke:transparent
+    style W fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    style AA fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    style Config fill:#fce4ec,stroke:#880e4f,stroke-width:2px
 ```
 
 <Info>
