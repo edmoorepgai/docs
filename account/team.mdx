@@ -1,4 +1,146 @@
 ---
 title: "Team"
-description: "Description of your new file."
+description: "Manage users, roles, and team structures to organize your PG:AI workspace"
+mode: "wide"
 ---
+
+Team settings allow you to manage user access, assign roles, and create team structures within PG:AI. Control who has access to your workspace, organize users into logical teams, and ensure proper permissions are in place for effective collaboration.
+
+## Team Management Overview
+
+Team settings provide two main areas of control:
+
+- **User Management**: Add, remove, and manage individual user accounts and permissions
+- **Team Structure**: Create teams with designated managers and members for better organization
+
+<Info>
+  Proper team configuration enables better analytics, clearer accountability, and more effective collaboration across your sales organization.
+</Info>
+
+## User Management
+
+### **User Roles and Permissions**
+
+PG:AI supports three user role levels:
+
+<CardGroup cols={3}>
+  <Card title="Super Admin" icon="crown">
+    Full system access including billing, all settings, and user management
+  </Card>
+  <Card title="Admin" icon="shield">
+    Manage users and teams, configure settings, view analytics
+  </Card>
+  <Card title="Common User" icon="user">
+    Add accounts, create content, use AI features, view own activity
+  </Card>
+</CardGroup>
+
+### **Managing Users**
+
+The user management interface allows you to:
+
+<Tabs>
+  <Tab title="User Actions">
+    - **Change Roles**: Promote or demote users between role levels
+    - **Delete Users**: Remove access for departed team members
+    - **Password Reset**: Send password reset emails to users
+    - **View Status**: See user activity and last login information
+  </Tab>
+  <Tab title="User Information">
+    - Email address
+    - Current role assignment
+    - Account creation date
+    - Last activity timestamp
+    - Team membership
+  </Tab>
+</Tabs>
+
+## Team Structure
+
+### **Creating Teams**
+
+Organize your users into logical teams that reflect your sales organization:
+
+<Steps>
+  <Step title="Create Team">
+    Define a team name that clearly identifies the group (e.g., "North America Sales", "Enterprise AEs")
+  </Step>
+  <Step title="Assign Manager">
+    Designate a team manager who will have visibility into team analytics
+  </Step>
+  <Step title="Add Members">
+    Select users to include in the team from your active user list
+  </Step>
+  <Step title="Save Configuration">
+    Finalize the team structure for use in analytics and reporting
+  </Step>
+</Steps>
+
+### **Team Examples**
+
+<AccordionGroup>
+  <Accordion title="Geographic Teams">
+    - North America Sales Team
+    - EMEA Sales Organization
+    - APAC Account Executives
+    - Regional Pre-Sales Engineers
+  </Accordion>
+  <Accordion title="Functional Teams">
+    - Enterprise Sales Team
+    - Mid-Market Account Executives
+    - Sales Development Representatives
+    - Customer Success Managers
+  </Accordion>
+  <Accordion title="Product-Focused Teams">
+    - Platform Sales Specialists
+    - Security Solution Team
+    - Integration Partners Team
+    - Strategic Accounts Team
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+### **User Role Assignment**
+
+<Warning>
+  Limit Super Admin access to essential personnel only. Most users should be assigned Common User roles with Admin roles reserved for team leaders and operations staff.
+</Warning>
+
+**Role Assignment Guidelines:**
+
+- **Super Admin**: 1-2 per organization (sales ops leaders, system administrators)
+- **Admin**: Team managers, sales enablement, operations staff
+- **Common User**: Sales reps, AEs, SDRs, and other end users
+
+### **Team Structure Strategy**
+
+Consider these factors when creating teams:
+
+1. **Mirror Sales Organization**: Align PG:AI teams with your actual sales structure
+2. **Enable Proper Analytics**: Teams should be meaningful for performance analysis
+3. **Maintain Simplicity**: Avoid over-complicating with too many small teams
+4. **Update Regularly**: Adjust teams as your organization evolves
+
+## Team Analytics Benefits
+
+Well-configured teams enable:
+
+- **Performance Comparison**: Compare activity levels across different teams
+- **Adoption Tracking**: Identify which teams are embracing PG:AI most effectively
+- **Manager Visibility**: Give team leaders insight into their team's platform usage
+- **Targeted Training**: Identify teams that need additional enablement
+
+## Quick Actions
+
+<CardGroup cols={3}>
+  <Card title="Manage Users" icon="users" href="/settings/team/users">
+    Add users, change roles, and manage access
+  </Card>
+  <Card title="Create Teams" icon="users-gear" href="/settings/team/teams">
+    Organize users into logical team structures
+  </Card>
+  <Card title="View Team Analytics" icon="chart-line" href="/settings/usage-analytics">
+    Analyze performance by team
+  </Card>
+</CardGroup>
