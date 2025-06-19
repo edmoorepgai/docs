@@ -159,6 +159,12 @@
                         "pages": [
                             "templates/templates-meetings/template-disco"
                         ]
+                    },
+                    {
+                        "group": "Custom Insights",
+                        "pages": [
+                            "templates/templates-custom-insights/template-custom-insight"
+                        ]
                     }
                 ]
             }

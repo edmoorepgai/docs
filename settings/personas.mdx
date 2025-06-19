@@ -4,129 +4,259 @@ description: "Configure and manage personas to find relevant contacts and tailor
 mode: "wide"
 ---
 
----
+Personas help you identify and engage with the right people at your target accounts by defining groups of contacts who share common job functions, responsibilities, or characteristics. Configure personas to automatically find relevant contacts and generate role-specific content.
 
 ## What are Personas?
 
-Personas help you identify and engage with the right people at your target accounts by defining groups of people who share common job functions, responsibilities, or characteristics.
+Personas are defined groups of people within organizations that share common characteristics:
 
-Personas are defined groups of people within organizations that share common job functions, responsibilities, or characteristics. Examples include:
+- Job functions and responsibilities (DevOps teams, sales leaders, security professionals)
+- Organizational levels (executives, directors, managers, individual contributors)
+- Decision-making authority (budget holders, technical influencers, end users)
+- Department affiliations (engineering, operations, finance, marketing)
 
-- DevOps teams
-- Sales leaders
-- Security professionals
-- HR managers
-- Marketing executives
+<Info>
+  Personas must be configured in Settings → Personas to appear in the Contacts tab. The system identifies individuals whose job titles and roles match your defined persona criteria.
+</Info>
 
-## What are Personas used for?
+## Persona Components
 
 <CardGroup cols={2}>
-  <Card title="Finding Contacts" icon="magnifying-glass">
-    Identify relevant contacts at target companies based on their role and level
+  <Card title="Contact Discovery" icon="users">
+    Automatically identify relevant contacts at target companies based on role and level
   </Card>
-  <Card title="Tailoring Content" icon="pen-to-square">
-    Create role-specific messaging and content for different personas
+  <Card title="Content Personalization" icon="pencil">
+    Generate role-specific messaging and content tailored to different stakeholders
   </Card>
-  <Card title="Organizing Outreach" icon="chart-network">
-    Structure your sales efforts based on job function
+  <Card title="Stakeholder Mapping" icon="sitemap">
+    Organize contacts by influence and decision-making authority in the buying process
   </Card>
-  <Card title="Identifying Stakeholders" icon="user-tie">
-    Find decision-makers and influencers in the buying process
+  <Card title="Outreach Strategy" icon="bullseye">
+    Structure sales efforts and multi-threading approaches based on job function
   </Card>
 </CardGroup>
 
-## How Persona Settings Work
+## Why Personas Matter for Sales
 
-### 1. Adding a Persona
+### **Multi-Threading Strategy**
 
-To create a new persona, click "Add Persona" and provide:
+Personas enable you to:
 
-- **Name of the group** - A descriptive name for this persona
-- **Department** - The department they belong to
-- **Maximum contacts** - The number of contacts you want PG:AI to find
+- Systematically identify all relevant stakeholders in complex B2B sales cycles
+- Ensure you're engaging with both technical influencers and business decision-makers
+- Map the complete buying committee rather than relying on single-threaded relationships
+- Develop relationships across multiple organizational levels and departments
 
-### 2. Configuration Components
+### **Personalized Engagement**
+
+Well-defined personas help you:
+
+- Create role-specific messaging that resonates with each stakeholder's priorities
+- Generate appropriate discovery questions for different types of contacts
+- Tailor value propositions to what matters most to each persona
+- Adapt communication style and content depth to audience preferences
+
+## Persona Configuration
+
+### **Setting Up Personas**
 
 <Steps>
-  <Step title="Select Job Levels">
-    Choose applicable job levels:
-
-    - Manager
-    - VP
-    - Director
-    - Executive
-    - Individual Contributor
+  <Step title="Define Persona Name">
+    Create descriptive names like "Technical Decision Makers" or "Security Leadership"
   </Step>
-  <Step title="Define Relevant Keywords">
-    Add job titles or functions like:
-
-    - DevSecOps
-    - Cyber Security
-    - Software Engineering
-    - Data Analytics
-    - Product Management
+  <Step title="Select Department">
+    Choose the primary department or functional area where this persona operates
   </Step>
-  <Step title="Understanding Combinations">
-    PG:AI will search for every combination of levels and keywords. For example:
-
-    - HR Manager
-    - HR Director
-    - HR VP
-    - Security Manager
-    - Security Director
+  <Step title="Set Contact Limits">
+    Define maximum number of contacts to find per account for this persona
+  </Step>
+  <Step title="Configure Job Levels">
+    Select applicable organizational levels (Executive, VP, Director, Manager, Individual Contributor)
+  </Step>
+  <Step title="Add Keywords">
+    Include job titles, functions, and role-specific terms for contact identification
+  </Step>
+  <Step title="Select Dataset">
+    Choose which sales collateral to use when generating content for this persona
   </Step>
 </Steps>
 
-### 3. Dataset Selection
-
-Choose which dataset to use when building content for this persona. This ensures the generated content is relevant to their specific role and responsibilities.
-
-### 4. Additional Keywords
-
-Define terms to help identify specific insights relevant to the persona. These keywords help PG:AI surface the most pertinent information for each role.
-
-### 5. Default Settings
-
-<Note>
-  The platform automatically sets up three default personas to help you get started. You can modify these or create your own based on your ideal customer profile.
-</Note>
-
-## Best Practices
-
-<Tip>
-  Create targeted personas that align with your ideal customer profile to ensure PG:AI finds the most relevant contacts at your target accounts.
-</Tip>
-
-### Recommended Approach:
-
-1. Start with your most common buyer personas
-2. Be specific with job titles and keywords
-3. Set appropriate contact limits based on company size
-4. Regularly review and refine based on results
-5. Create separate personas for different stages of the buying process
-
-## Example Personas
+### **Job Level Selection**
 
 <Tabs>
-  <Tab title="Technical Decision Maker">
-    - **Name**: Technical Leadership
-    - **Department**: Engineering/IT
-    - **Levels**: VP, Director, C-Level
-    - **Keywords**: CTO, Engineering, Architecture, Infrastructure
-    - **Max Contacts**: 5
+  <Tab title="Executive Level">
+    - **C-Suite**: CEO, CTO, CISO, CMO, CFO
+    - **SVP/EVP**: Senior Vice President, Executive Vice President
+    - **Decision Authority**: Budget approval, strategic direction
+    - **Engagement Focus**: Strategic business outcomes, competitive advantage, ROI
   </Tab>
-  <Tab title="Business Buyer">
-    - **Name**: Business Leadership
-    - **Department**: Operations
-    - **Levels**: VP, Director, C-Level
-    - **Keywords**: Operations, Strategy, Digital Transformation
-    - **Max Contacts**: 3
+  <Tab title="VP/Director Level">
+    - **Vice President**: VP of Engineering, VP of Operations, VP of Security
+    - **Director**: Director of IT, Director of Marketing, Director of Sales
+    - **Decision Authority**: Program approval, vendor selection, implementation oversight
+    - **Engagement Focus**: Operational improvements, team productivity, departmental goals
   </Tab>
-  <Tab title="End User">
-    - **Name**: DevOps Team
-    - **Department**: Engineering
-    - **Levels**: Manager, Individual Contributor
-    - **Keywords**: DevOps, SRE, Platform Engineering
-    - **Max Contacts**: 10
+  <Tab title="Manager Level">
+    - **Department Managers**: Engineering Manager, Operations Manager, Security Manager
+    - **Team Leads**: Technical Lead, Project Manager, Program Manager
+    - **Decision Authority**: Tool selection, process improvement, team resource allocation
+    - **Engagement Focus**: Team efficiency, workflow improvements, technical capabilities
+  </Tab>
+  <Tab title="Individual Contributor">
+    - **Specialists**: Engineers, Analysts, Architects, Consultants
+    - **End Users**: Day-to-day system users, process operators
+    - **Decision Authority**: Technical requirements, usability feedback, implementation input
+    - **Engagement Focus**: Ease of use, technical capabilities, workflow integration
   </Tab>
 </Tabs>
+
+### **Keyword Strategy**
+
+<AccordionGroup>
+  <Accordion title="Job Title Keywords">
+    Specific titles that identify the persona:
+
+    - DevOps Engineer, Site Reliability Engineer, Platform Engineer
+    - Security Analyst, Information Security Manager, CISO
+    - Data Engineer, Data Scientist, Analytics Manager
+    - Product Manager, Product Owner, Solutions Architect
+  </Accordion>
+  <Accordion title="Functional Keywords">
+    Role-based functions and responsibilities:
+
+    - Infrastructure, Cloud Architecture, System Administration
+    - Cybersecurity, Risk Management, Compliance
+    - Business Intelligence, Data Analytics, Machine Learning
+    - Customer Success, Account Management, Sales Operations
+  </Accordion>
+  <Accordion title="Industry-Specific Terms">
+    Sector-specific roles and titles:
+
+    - Financial Services: Risk Officer, Compliance Manager, Trading Systems
+    - Healthcare: Clinical Informatics, Health IT, Patient Safety
+    - Manufacturing: Operations Excellence, Supply Chain, Quality Assurance
+    - Retail: E-commerce, Customer Experience, Inventory Management
+  </Accordion>
+</AccordionGroup>
+
+## Persona Examples and Applications
+
+### **Technical Decision Maker Persona**
+
+<Tabs>
+  <Tab title="Configuration">
+    - **Name**: Technical Leadership
+    - **Department**: Engineering/IT
+    - **Job Levels**: VP, Director, C-Level
+    - **Keywords**: CTO, Chief Technology Officer, VP Engineering, Director of IT, Technical Director, System Architecture
+    - **Max Contacts**: 5
+    - **Dataset**: Technical capabilities and integration benefits
+  </Tab>
+  <Tab title="Sales Applications">
+    - **Discovery Focus**: Technical requirements, integration complexity, security needs
+    - **Value Proposition**: Platform capabilities, scalability, technical differentiation
+    - **Content Style**: Detailed technical information, architecture diagrams, implementation guides
+    - **Meeting Approach**: Technical deep-dives, proof-of-concept discussions, integration planning
+  </Tab>
+</Tabs>
+
+### **Business Decision Maker Persona**
+
+<Tabs>
+  <Tab title="Configuration">
+    - **Name**: Business Leadership
+    - **Department**: Operations/Strategy
+    - **Job Levels**: VP, Director, C-Level
+    - **Keywords**: COO, VP Operations, Director Strategy, Business Development, Digital Transformation
+    - **Max Contacts**: 3
+    - **Dataset**: Business outcomes and ROI-focused content
+  </Tab>
+  <Tab title="Sales Applications">
+    - **Discovery Focus**: Business objectives, operational challenges, budget authority
+    - **Value Proposition**: Business outcomes, ROI, competitive advantage, operational efficiency
+    - **Content Style**: Executive summaries, business cases, industry benchmarks
+    - **Meeting Approach**: Strategic discussions, business impact analysis, executive briefings
+  </Tab>
+</Tabs>
+
+### **End User Persona**
+
+<Tabs>
+  <Tab title="Configuration">
+    - **Name**: DevOps Engineers
+    - **Department**: Engineering
+    - **Job Levels**: Manager, Individual Contributor
+    - **Keywords**: DevOps Engineer, Site Reliability Engineer, Platform Engineer, Infrastructure Engineer
+    - **Max Contacts**: 10
+    - **Dataset**: User experience and workflow improvement content
+  </Tab>
+  <Tab title="Sales Applications">
+    - **Discovery Focus**: Daily workflows, tool usage, process pain points
+    - **Value Proposition**: Ease of use, productivity gains, workflow improvements
+    - **Content Style**: Feature demonstrations, workflow examples, user testimonials
+    - **Meeting Approach**: Product demos, hands-on trials, user experience discussions
+  </Tab>
+</Tabs>
+
+## Best Practices for Persona Management
+
+### **Strategic Persona Design**
+
+<Warning>
+  Create personas that align with your typical buying committee structure. Too many personas can create confusion, while too few may miss important stakeholders.
+</Warning>
+
+1. **Start with Your ICP**: Base personas on your most successful customer profiles
+2. **Map the Buying Committee**: Include technical influencers, business decision-makers, and end users
+3. **Consider Company Size**: Adjust persona definitions for enterprise vs. mid-market accounts
+4. **Regular Refinement**: Update personas based on successful sales patterns
+
+### **Contact Limit Strategy**
+
+<AccordionGroup>
+  <Accordion title="Executive Personas">
+    **Recommended Limit**: 2-3 contacts
+
+    - Focus on senior decision-makers with budget authority
+    - Quality over quantity for high-level strategic discussions
+    - Easier to manage relationships at executive level
+  </Accordion>
+  <Accordion title="Functional Personas">
+    **Recommended Limit**: 5-8 contacts
+
+    - Include managers and directors with operational authority
+    - Balance between coverage and relationship management
+    - Allow for organizational variations and role overlaps
+  </Accordion>
+  <Accordion title="User Personas">
+    **Recommended Limit**: 8-15 contacts
+
+    - Capture broader user base and implementation team
+    - Enable comprehensive user feedback and requirements gathering
+    - Support change management and adoption planning
+  </Accordion>
+</AccordionGroup>
+
+## Integration with Sales Process
+
+Personas enhance your sales effectiveness by:
+
+- **Prospecting**: Systematically identify all relevant stakeholders for comprehensive account coverage
+- **Research**: Generate persona-specific insights and talking points before meetings
+- **Multi-Threading**: Build relationships across the entire buying committee simultaneously
+- **Content Creation**: Produce role-appropriate emails, call scripts, and presentation materials
+- **Deal Strategy**: Navigate complex sales cycles with clear stakeholder mapping and engagement plans
+
+## Quick Actions
+
+<CardGroup cols={3}>
+  <Card title="Configure Personas" icon="gear" href="/settings/personas">
+    Set up personas aligned with your buying committee structure
+  </Card>
+  <Card title="Find Contacts" icon="users" href="/account-intelligence/contacts">
+    Discover persona-based contacts at your target accounts
+  </Card>
+  <Card title="Generate Content" icon="pencil" href="/account-intelligence/content">
+    Create persona-specific messaging and outreach materials
+  </Card>
+</CardGroup>
