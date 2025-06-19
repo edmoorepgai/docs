@@ -30,21 +30,15 @@ config:
 ---
 flowchart TD
     W["Workflows"]
-    AA["Automated Account Inelligence"]
+    AA["Automated Account Onboarding"]
+    
+    CT["Content Templates"]
+    CG["Content Groups"]
+    CI["Custom Insights"]
+    IG["Custom Insights Groups"]
+    ES["Engage Settings"]
     
     W --> AA
-    
-    subgraph Content["Content Generation"]
-        CT["Content Templates"]
-        CG["Content Groups"]
-    end
-    
-    subgraph Intelligence["Intelligence Generation"]
-        CI["Custom Insights"]
-        IG["Custom Insights Groups"]
-    end
-    
-    ES["Engage Settings"]
     
     CT --> CG
     CI --> IG
@@ -53,9 +47,13 @@ flowchart TD
     IG --> W
     ES --> W
     
-    style W fill:#e1f5fe,stroke:#01579b,stroke-width:3px
-    style AA fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-```
+    style W fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style AA fill:#f3e5f5,stroke:#4a148c,stroke-width:1px
+    style CT fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px
+    style CG fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px
+    style CI fill:#fff3e0,stroke:#ef6c00,stroke-width:1px
+    style IG fill:#fff3e0,stroke:#ef6c00,stroke-width:1px
+    style ES fill:#fce4ec,stroke:#880e4f,stroke-width:1px
 
 <Info>
   Workflows act as the central orchestration layer, combining content generation, intelligence research, and configuration components to create comprehensive, automated account preparation.
