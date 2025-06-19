@@ -1,137 +1,303 @@
 ---
-title: "Custom Insights"
-description: "Configure specific queries and parameters to generate targeted insights about your accounts"
+title: "Custom Insights Settings"
+description: "Configure specific queries and parameters to generate targeted intelligence about your accounts"
 mode: "wide"
 ---
 
----
+Custom Insights Settings allow you to create targeted, consistent intelligence about your accounts by defining specific queries that PG:AI will answer for every company. Configure custom research questions that align with your sales process and generate standardized insights across all accounts.
 
-## What are Custom Insights?
+## What are Custom Insights Settings?
 
-Custom Insights allow you to generate specific, targeted information about companies based on your defined queries and parameters. These insights appear on the Custom Insights page within any company profile.
+Custom Insights Settings consist of two main components that work together to generate targeted account intelligence:
 
-Custom Insights are specific pieces of information that PG:AI generates about companies based on your defined queries and parameters. They provide structured, consistent information across all your accounts.
+- **Individual Custom Insights**: Specific questions or research queries you want answered about each account
+- **Insights Groups**: Collections of insights with defined sources, timeframes, and targeting parameters
+- **Automated Generation**: Consistent intelligence production across all accounts based on your defined criteria
 
-## What are Custom Insights used for?
+<Info>
+  Custom Insights Settings determine what targeted intelligence appears on the Custom Insights tab for each account. Well-configured settings provide consistent, sales-relevant research that would otherwise require manual investigation.
+</Info>
 
-- **Generating targeted insights** about companies based on your specific needs
-- **Answering specific questions** about accounts consistently
-- **Providing structured information** that appears on the Custom Insights page
-- **Automating research** that would otherwise require manual investigation
+## Custom Insights Architecture
 
-## How Custom Insights Settings Work
+<CardGroup cols={2}>
+  <Card title="Individual Insights" icon="lightbulb">
+    Specific research questions that generate targeted information about each account
+  </Card>
+  <Card title="Insights Groups" icon="folder">
+    Collections of insights with shared sources, timeframes, and targeting parameters
+  </Card>
+  <Card title="Source Configuration" icon="database">
+    Define whether to use public documents, web information, or both for research
+  </Card>
+  <Card title="Automation Integration" icon="network-wired">
+    Include insights groups in workflows for automatic generation on new accounts
+  </Card>
+</CardGroup>
 
-The Custom Insights feature consists of two main components:
+## Why Custom Insights Settings Matter for Sales
 
-### 1. Custom Insights Tab
+### **Consistent Account Intelligence**
 
-This is where you define individual insights:
+Custom Insights Settings enable you to:
+
+- Generate the same high-quality research questions for every account automatically
+- Ensure no critical information is missed during account research
+- Standardize the intelligence-gathering process across your sales team
+- Scale expert-level account research regardless of individual rep experience
+
+### **Sales Process Alignment**
+
+Well-configured insights provide:
+
+- Research that directly supports your discovery questions and sales methodology
+- Intelligence that connects to your value propositions and competitive advantages
+- Information that helps qualify accounts and identify the best opportunities
+- Insights that enable more strategic and informed sales conversations
+
+## Configuring Individual Custom Insights
+
+### **Creating Effective Insights**
 
 <Steps>
-  <Step title="Name Your Insight">
-    Give your custom insight a clear, descriptive name that indicates what information it provides
+  <Step title="Define the Insight Name">
+    Create clear, descriptive names that indicate what information the insight provides
   </Step>
-  <Step title="Define the Query">
-    Write the specific question or instruction that PG:AI follows to generate the insight. Be clear and specific about what you want to know.
+  <Step title="Write the Research Query">
+    Craft specific questions or instructions that PG:AI will follow to generate the insight
   </Step>
-  <Step title="Set Word Count">
-    Define how detailed you want the insight to be:
-
-    - Short (50-100 words): Quick summaries
-    - Medium (100-200 words): Standard insights
-    - Long (200\+ words): Detailed analysis
+  <Step title="Set Word Count Parameters">
+    Define response length: Short (50-100 words), Medium (100-200 words), Long (200\+ words)
+  </Step>
+  <Step title="Test and Refine">
+    Generate sample insights on known accounts to validate query effectiveness
   </Step>
 </Steps>
 
-<Note>
-  PG:AI provides three default insights that you can edit or use as templates for creating your own.
-</Note>
-
-### 2. Insights Groups Tab
-
-Insights Groups organize and configure how insights are generated:
-
-<AccordionGroup>
-  <Accordion title="Title">
-    Name for your group of insights - helps organize related insights together
-  </Accordion>
-  <Accordion title="Sources">
-    Select from:
-
-    - **Public documents**: Annual reports, earnings calls, investor presentations
-    - **Web information**: News articles, press releases, company websites
-  </Accordion>
-  <Accordion title="Time Spans">
-    Choose relevancy periods:
-
-    - Last week
-    - Last month
-    - Last quarter
-    - Last year
-    - All time
-  </Accordion>
-  <Accordion title="Keywords">
-    Define terms that will be used alongside company names when searching for information
-  </Accordion>
-  <Accordion title="Insight Selection">
-    Choose which custom insights to include in this group
-  </Accordion>
-</AccordionGroup>
-
-### 3. Automation
-
-<Info>
-  Custom Insights can be included in workflows to automatically generate when adding new accounts. This ensures consistency and saves time during account onboarding.
-</Info>
-
-## Best Practices
-
-### Creating Effective Queries
-
-1. **Be Specific**: "What are this company's top 3 digital transformation initiatives?" rather than "Tell me about their strategy"
-2. **Use Clear Language**: Avoid ambiguous terms or industry jargon that might be interpreted differently
-3. **Focus on Actionable Information**: Design queries that provide insights you can act on
-4. **Test and Refine**: Start with a few accounts to test your insights before applying them broadly
-
-### Example Custom Insights
+### **Query Writing Best Practices**
 
 <Tabs>
-  <Tab title="Strategic Priorities">
-    **Name**: Strategic Business Priorities
+  <Tab title="Specificity Guidelines">
+    **Effective Queries:**
 
-    **Query**: "What are the top 3-5 strategic business priorities for this company based on their most recent public statements and reports?"
+    - "What are this company's top 3-5 digital transformation initiatives based on recent public statements?"
+    - "Identify current technology modernization projects, including timeline and scope if available"
+    - "What specific operational challenges has this company publicly acknowledged they are trying to solve?"
 
-    **Word Count**: 150
+    **Avoid Generic Queries:**
+
+    - "Tell me about their strategy" (too broad)
+    - "What do they do?" (basic information)
+    - "Are they a good fit?" (requires solution context)
   </Tab>
-  <Tab title="Technology Initiatives">
-    **Name**: Digital Transformation Projects
+  <Tab title="Sales-Focused Questions">
+    **Strategic Intelligence:**
 
-    **Query**: "Identify current digital transformation or technology modernization initiatives this company is undertaking, including timeline and scope if available"
+    - "What board-level priorities and strategic initiatives have been announced in the last 12 months?"
+    - "Which business units or divisions are investing most heavily in technology transformation?"
 
-    **Word Count**: 200
+    **Competitive Intelligence:**
+
+    - "What technology vendors and partners has this company recently announced working with?"
+    - "What challenges with current systems or processes have they publicly discussed?"
+
+    **Timing Intelligence:**
+
+    - "What major technology projects or implementations are scheduled for completion this year?"
+    - "Are there any upcoming regulatory deadlines or compliance requirements affecting this company?"
   </Tab>
-  <Tab title="Challenges">
-    **Name**: Key Business Challenges
+  <Tab title="Actionable Insights">
+    **Discovery Support:**
 
-    **Query**: "What are the main challenges or pain points this company has publicly acknowledged they are trying to solve?"
+    - "What metrics and KPIs does this company use to measure success in [relevant area]?"
+    - "Who are the key executives responsible for [initiative type] at this company?"
 
-    **Word Count**: 150
+    **Value Positioning:**
+
+    - "What business outcomes and ROI metrics has this company highlighted as priorities?"
+    - "What customer experience or operational efficiency goals have they set?"
   </Tab>
 </Tabs>
 
-## Tips for Success
+## Configuring Insights Groups
+
+### **Group Configuration Components**
+
+<AccordionGroup>
+  <Accordion title="Group Title and Organization">
+    - **Descriptive Names**: "Strategic Priorities Analysis" or "Technology Landscape Assessment"
+    - **Purpose Clarity**: Indicate what type of intelligence the group provides
+    - **Logical Grouping**: Combine related insights that support the same sales objectives
+  </Accordion>
+  <Accordion title="Source Selection">
+    **Public Documents**: Annual reports, earnings calls, investor presentations, SEC filings
+
+    - Best for: Strategic priorities, financial performance, official company positions
+    - Advantages: Authoritative, verified information from company leadership
+
+    **Web Information**: News articles, press releases, company websites, industry publications
+
+    - Best for: Recent developments, market commentary, partnership announcements
+    - Advantages: Current information, broader context, third-party perspectives
+  </Accordion>
+  <Accordion title="Time Span Configuration">
+    **Last Week**: Breaking news, recent announcements, immediate developments
+    **Last Month**: Recent strategic shifts, quarterly updates, current market activity
+    **Last Quarter**: Seasonal trends, quarterly results, recent strategic initiatives
+    **Last Year**: Annual strategic priorities, long-term trends, major transformations
+    **All Time**: Historical context, foundational information, comprehensive background
+  </Accordion>
+  <Accordion title="Keyword Targeting">
+    - **Company-Specific Terms**: Add keywords that help focus research on relevant topics
+    - **Industry Context**: Include sector-specific terminology that applies to your solution
+    - **Initiative Keywords**: Terms related to strategic priorities you typically address
+  </Accordion>
+</AccordionGroup>
+
+### **Strategic Group Examples**
+
+<Tabs>
+  <Tab title="Strategic Priorities Group">
+    **Title**: Executive Strategic Priorities
+
+    **Sources**: Public documents \+ Web information
+    **Time Span**: Last year
+    **Keywords**: strategic priorities, digital transformation, operational efficiency, growth initiatives
+
+    **Included Insights**:
+
+    - Top 5 Strategic Business Priorities
+    - Board-Level Initiative Announcements
+    - CEO Strategic Vision and Goals
+    - Investment Priority Areas
+  </Tab>
+  <Tab title="Technology Landscape Group">
+    **Title**: Technology Modernization Intelligence
+
+    **Sources**: Web information
+    **Time Span**: Last quarter
+    **Keywords**: technology modernization, cloud migration, digital infrastructure, IT transformation
+
+    **Included Insights**:
+
+    - Current Technology Modernization Projects
+    - Cloud and Infrastructure Investments
+    - Digital Transformation Timeline
+    - Technology Partner Announcements
+  </Tab>
+  <Tab title="Competitive Intelligence Group">
+    **Title**: Market Position and Challenges
+
+    **Sources**: Public documents \+ Web information
+    **Time Span**: Last 6 months
+    **Keywords**: market challenges, competitive position, industry trends, operational challenges
+
+    **Included Insights**:
+
+    - Key Business Challenges Acknowledged
+    - Competitive Market Position
+    - Industry Trend Response Strategy
+    - Operational Improvement Initiatives
+  </Tab>
+</Tabs>
+
+## Default Insights and Customization
+
+### **Platform-Provided Defaults**
+
+<Warning>
+  PG:AI provides three default insights that serve as templates. Review and customize these to align with your specific sales process and information needs.
+</Warning>
+
+**Typical Default Insights:**
+
+- **Strategic Business Priorities**: High-level strategic initiatives and goals
+- **Recent Business Developments**: Current news and announcements
+- **Key Challenges and Initiatives**: Problems they're actively trying to solve
+
+**Customization Approach:**
+
+- Modify default queries to be more specific to your solution area
+- Adjust word counts based on how much detail your team needs
+- Create additional insights that support your unique sales methodology
+
+### **Building on Defaults**
+
+<Steps>
+  <Step title="Review Default Insights">
+    Evaluate the provided insights for relevance to your sales process
+  </Step>
+  <Step title="Customize Existing Queries">
+    Modify default questions to be more specific to your solution and market
+  </Step>
+  <Step title="Add Complementary Insights">
+    Create additional insights that fill gaps in your account intelligence needs
+  </Step>
+  <Step title="Organize into Groups">
+    Structure insights into logical groups with appropriate sources and timeframes
+  </Step>
+</Steps>
+
+## Integration with Sales Process
+
+Custom Insights Settings enhance your sales effectiveness by:
+
+- **Qualification**: Consistent research criteria help identify best-fit accounts quickly
+- **Preparation**: Standardized intelligence ensures comprehensive meeting preparation
+- **Discovery**: Research questions align with your discovery methodology and talking points
+- **Positioning**: Insights reveal opportunities to connect your solution to their initiatives
+- **Competitive Strategy**: Intelligence helps you understand their current approaches and gaps
+
+## Best Practices for Success
+
+### **Query Development Strategy**
 
 <CardGroup cols={2}>
   <Card title="Start Simple" icon="seedling">
-    Begin with 3-5 core insights and expand based on what provides the most value
+    Begin with 3-5 core insights that answer your most important account questions
   </Card>
-  <Card title="Align with Sales Process" icon="route">
-    Create insights that answer questions your sales team asks during discovery
+  <Card title="Align with Process" icon="link">
+    Create insights that directly support your discovery questions and sales methodology
   </Card>
-  <Card title="Regular Updates" icon="arrows-rotate">
-    Review and update time spans to ensure insights remain current
+  <Card title="Test and Iterate" icon="repeat">
+    Use insights on known accounts to validate effectiveness before broad deployment
   </Card>
   <Card title="Team Collaboration" icon="users">
-    Share successful insight templates across your team for consistency
+    Gather input from successful reps on what information they find most valuable
+  </Card>
+</CardGroup>
+
+### **Common Implementation Mistakes**
+
+<AccordionGroup>
+  <Accordion title="Overly Broad Queries">
+    **Problem**: Generic questions that don't provide actionable intelligence
+    **Solution**: Make queries specific and tied to your sales objectives
+  </Accordion>
+  <Accordion title="Too Many Insights">
+    **Problem**: Information overload that doesn't get used by sales teams
+    **Solution**: Focus on 5-8 high-value insights that directly support sales activities
+  </Accordion>
+  <Accordion title="Wrong Time Spans">
+    **Problem**: Using "all time" for rapidly changing information or "last week" for strategic priorities
+    **Solution**: Match time spans to the type of information you're seeking
+  </Accordion>
+  <Accordion title="Inadequate Testing">
+    **Problem**: Deploying insights without validating their usefulness
+    **Solution**: Test queries on familiar accounts and refine based on output quality
+  </Accordion>
+</AccordionGroup>
+
+## Quick Actions
+
+<CardGroup cols={3}>
+  <Card title="Configure Custom Insights" icon="gear" href="/settings/custom-insights">
+    Set up targeted research queries and insights groups
+  </Card>
+  <Card title="Test Insights Quality" icon="flask" href="/account-intelligence/custom-insights">
+    Review generated insights for relevance and actionability
+  </Card>
+  <Card title="Create Workflows" icon="layer-plus" href="/settings/workflows">
+    Include insights groups in automated account onboarding
   </Card>
 </CardGroup>
