@@ -79,12 +79,6 @@
                         ]
                     },
                     {
-                        "group": "Content",
-                        "pages": [
-                            "content-overview/content-overview"
-                        ]
-                    },
-                    {
                         "group": "Account",
                         "pages": [
                             "account/usage-and-analytics",
