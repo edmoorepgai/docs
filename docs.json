@@ -118,7 +118,6 @@
                     {
                         "group": "Pipeline Generation",
                         "pages": [
-                            "guides/pipeline-generation/cold-calling",
                             "guides/pipeline-generation/identifying-contacts",
                             "guides/pipeline-generation/creating-content"
                         ]
