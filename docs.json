@@ -136,7 +136,11 @@
                         ]
                     }
                 ]
-            }
+            },
+           {
+        "tab": "API",
+        "openapi": "api.json"
+      }
         ],
         "global": {
             "anchors": [
