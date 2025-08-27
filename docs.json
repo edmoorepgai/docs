@@ -118,14 +118,7 @@
                     {
                         "group": "Pipeline Generation",
                         "pages": [
-                            "guides/pipeline-generation/identifying-contacts",
-                            "guides/pipeline-generation/creating-content"
-                        ]
-                    },
-                    {
-                        "group": "Meeting Preparation",
-                        "pages": [
-                            "guides/meeting-preparation/meeting-prep"
+                            "guides/pipeline-generation/identifying-contacts"
                         ]
                     },
                     {
@@ -133,6 +126,13 @@
                         "pages": [
                             "guides/content/creating-templates",
                             "guides/content/using-templates"
+                        ]
+                    },
+                    {
+                        "group": "Collaboration",
+                        "pages": [
+                            "guides/collaboration/comments",
+                            "guides/collaboration/share"
                         ]
                     }
                 ]
