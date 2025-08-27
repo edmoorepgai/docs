@@ -139,7 +139,7 @@
             },
            {
         "tab": "API",
-        "openapi": "api.json"
+        "openapi": "/api.json"
       }
         ],
         "global": {
