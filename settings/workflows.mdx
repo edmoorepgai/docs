@@ -1,22 +1,12 @@
 ---
 title: "Workflows"
-description: "Automate the generation of insights and content when adding new accounts to PG:AI"
-mode: "wide"
+description: "Define what account intelligence gets generated for each new company"
 ---
 
-Workflows automate the process of generating custom insights and engagement content when you add new accounts to PG:AI. Configure workflows to ensure consistent, comprehensive account intelligence is generated automatically, saving time and ensuring no critical research steps are missed.
-
-## What are Workflows?
-
-Workflows are automated processes that orchestrate the generation of account intelligence when new companies are added to your system:
-
-- **Content Generation**: Automatically create Value Pyramids, Three Whys, and Discovery Questions
-- **Intelligence Research**: Generate Custom Insights based on your defined research queries
-- **Persona Analysis**: Identify relevant contacts and stakeholders across target personas
-- **Consistent Onboarding**: Ensure uniform account preparation regardless of who adds the account
+Workflows control what gets automatically generated when you add a company to PG:AI. They act as templates that ensure consistent account preparation across your team.
 
 <Info>
-  Workflows act as templates that define what information should be automatically gathered and generated for each new account, ensuring consistency and comprehensive coverage across your account base.
+  PG:AI includes a default "Platform Generated" workflow that provides a foundation for account onboarding. This serves as a starting point that you can modify or supplement with specialized workflows.
 </Info>
 
 ## Workflow Architecture
@@ -54,275 +44,46 @@ flowchart TD
     style CI fill:#fff3e0,stroke:#ef6c00,stroke-width:1px
     style IG fill:#fff3e0,stroke:#ef6c00,stroke-width:1px
     style ES fill:#fce4ec,stroke:#880e4f,stroke-width:1px
+```
 
-    ```
+## How Workflows Work
 
-<Info>
-  Workflows act as the central orchestration layer, combining content generation, intelligence research, and configuration components to create comprehensive, automated account preparation.
-</Info>
+A workflow combines three components:
 
-## Workflow Components
+- **[Content Groups](/content-groups)** - Which personalized content gets created
+- **[Custom Insights Groups](/custom-insights-groups)** - Which research queries are run
+- **[Engage Settings](/engage-settings)** - Which value proposition framework is used
 
-<CardGroup cols={2}>
-  <Card title="Engage Settings Integration" icon="link">
-    Specify which Value Proposition configuration to use for account analysis
-  </Card>
-  <Card title="Custom Insights Selection" icon="lightbulb">
-    Choose which research queries and intelligence groups to generate automatically
-  </Card>
-  <Card title="Content Generation" icon="pencil">
-    Automatically create personalized content based on configured templates and groups
-  </Card>
-  <Card title="Persona Activation" icon="users">
-    Trigger contact discovery and persona-based content generation
-  </Card>
-</CardGroup>
+When you add a new company, PG:AI uses your selected workflow to automatically generate insights and content.
 
-## Why Workflows Matter for Sales Organizations
-
-### **Scalable Account Onboarding**
-
-Workflows enable you to:
-
-- Ensure every new account receives the same comprehensive research and preparation
-- Eliminate dependency on individual rep skills or diligence for account intelligence
-- Scale expert-level account preparation across your entire sales organization
-- Maintain consistent quality regardless of team size or geographic distribution
-
-### **Sales Efficiency and Effectiveness**
-
-Well-configured workflows provide:
-
-- Immediate account intelligence that reduces time-to-first-engagement
-- Comprehensive research that supports more strategic initial conversations
-- Consistent preparation that improves meeting quality and conversion rates
-- Automated processes that free up sales time for customer-facing activities
-
-## Workflow Configuration Process
-
-### **Creating a Workflow**
+## Creating a Workflow
 
 <Steps>
-  <Step title="Define Workflow Purpose">
-    Name your workflow descriptively to indicate its intended use case and scope
+  <Step title="Name your workflow">
+    Use descriptive names like "Enterprise FinServ" or "SMB Manufacturing"
   </Step>
-  <Step title="Select Engage Settings">
-    Choose which Value Proposition configuration will power the account analysis
+  <Step title="Select Content Groups">
+    Choose which content types to generate automatically
   </Step>
-  <Step title="Configure Custom Insights">
-    Select which Insights Groups to include for automated research generation
+  <Step title="Choose Insights Groups">
+    Pick which research queries to run for each account
   </Step>
-  <Step title="Add Content Components">
-    Include relevant Content Groups for personalized messaging generation
+  <Step title="Pick Engage Settings">
+    Select your value proposition configuration
   </Step>
-  <Step title="Test and Validate">
-    Run the workflow on known accounts to verify output quality and completeness
+  <Step title="Test">
+    Run on a known account to verify output quality
   </Step>
 </Steps>
 
-### **Component Selection Strategy**
-
-<Tabs>
-  <Tab title="Engage Settings Selection">
-    **Considerations:**
-
-    - Match industry focus (Financial Services, Healthcare, Manufacturing)
-    - Align with company size targeting (Enterprise, Mid-Market, SMB)
-    - Connect to solution positioning (New Logo, Expansion, Competitive)
-
-    **Impact on Output:**
-
-    - Determines Value Pyramid structure and strategic connection points
-    - Influences Three Whys narrative and competitive positioning
-    - Affects Discovery Question generation and focus areas
-  </Tab>
-  <Tab title="Custom Insights Groups">
-    **Strategic Research Groups:**
-
-    - Executive Strategic Priorities (for C-level engagement preparation)
-    - Technology Modernization Intelligence (for technical discovery)
-    - Competitive Market Position (for differentiation strategies)
-
-    **Selection Criteria:**
-
-    - Choose 2-4 insights groups to avoid information overload
-    - Prioritize insights that directly support your sales methodology
-    - Balance strategic and tactical intelligence based on typical sales cycle
-  </Tab>
-  <Tab title="Content Groups">
-    **Persona-Specific Content:**
-
-    - Executive outreach templates for C-level initial engagement
-    - Technical discovery materials for IT decision-makers
-    - Business case templates for operational stakeholders
-
-    **Content Strategy:**
-
-    - Include 1-2 content groups per major persona type
-    - Focus on early-stage sales cycle content for maximum impact
-    - Ensure content aligns with your proven messaging frameworks
-  </Tab>
-</Tabs>
-
-## Workflow Examples and Applications
-
-### **Enterprise Technology Workflow**
-
-<Tabs>
-  <Tab title="Configuration">
-    **Name**: Enterprise Technology Account Onboarding
-
-    **Engage Settings**: Enterprise Technology Companies
-    **Custom Insights Groups**:
-
-    - Strategic Priorities Analysis
-    - Technology Modernization Intelligence
-    - Executive Leadership Changes
-
-    **Content Groups**:
-
-    - C-Level Executive Outreach
-    - Technical Decision-Maker Discovery
-
-    **Use Case**: For technology companies with 1000\+ employees requiring comprehensive strategic analysis
-  </Tab>
-  <Tab title="Generated Intelligence">
-    **Automatic Outputs:**
-
-    - Value Pyramid connecting their digital transformation to your platform capabilities
-    - Three Whys framework emphasizing competitive technology advantage
-    - Discovery Questions focused on infrastructure modernization and scalability
-    - Executive outreach emails referencing their specific strategic initiatives
-    - Technical content highlighting integration capabilities and implementation benefits
-  </Tab>
-</Tabs>
-
-### **Financial Services Workflow**
-
-<Tabs>
-  <Tab title="Configuration">
-    **Name**: Banking and FinServ Rapid Qualification
-
-    **Engage Settings**: Financial Services Compliance Focus
-    **Custom Insights Groups**:
-
-    - Regulatory Compliance Initiatives
-    - Digital Banking Strategy
-    - Risk Management Priorities
-
-    **Content Groups**:
-
-    - Compliance-Focused Messaging
-    - ROI and Business Case Templates
-
-    **Use Case**: For banks, credit unions, and financial institutions with regulatory compliance emphasis
-  </Tab>
-  <Tab title="Generated Intelligence">
-    **Automatic Outputs:**
-
-    - Value Pyramid emphasizing regulatory compliance and risk mitigation
-    - Three Whys framework addressing regulatory deadlines and competitive pressure
-    - Discovery Questions exploring compliance challenges and audit requirements
-    - Compliance-focused outreach highlighting your security and regulatory expertise
-    - Business case templates with financial services ROI models and risk calculations
-  </Tab>
-</Tabs>
-
-### **Quick Qualification Workflow**
-
-<Tabs>
-  <Tab title="Configuration">
-    **Name**: Rapid Account Assessment
-
-    **Engage Settings**: General Business Solutions
-    **Custom Insights Groups**:
-
-    - Top Business Priorities
-    - Recent Strategic Announcements
-
-    **Content Groups**:
-
-    - Generic Business Outreach
-    - Discovery Call Preparation
-
-    **Use Case**: For quickly qualifying a large number of accounts with streamlined intelligence
-  </Tab>
-  <Tab title="Generated Intelligence">
-    **Automatic Outputs:**
-
-    - Simplified Value Pyramid focusing on operational efficiency and growth
-    - Streamlined Three Whys with broad business improvement focus
-    - General discovery questions applicable to multiple industries and use cases
-    - Flexible outreach templates adaptable to various business contexts
-    - Quick qualification materials for efficient account screening
-  </Tab>
-</Tabs>
-
-## Workflow Management Best Practices
-
-### **Strategic Workflow Design**
-
 <Warning>
-  Start with 2-3 focused workflows rather than trying to create comprehensive workflows for every possible scenario. You can always add more specialized workflows as you identify patterns in your account types.
+Start with 2-3 workflows maximum. You can always add more specialized workflows later as you identify specific patterns in your account types.
 </Warning>
 
-**Recommended Approach:**
+## When to Create Additional Workflows
 
-1. **Primary Workflow**: Covers 70-80% of your target accounts with comprehensive intelligence
-2. **Specialized Workflows**: Address specific industries, company sizes, or use cases
-3. **Quick Qualification**: Streamlined version for high-volume account screening
+Most companies only need one workflow. Create additional workflows if you want different intelligence for:
 
-### **Performance Optimization**
-
-<AccordionGroup>
-  <Accordion title="Workflow Effectiveness Metrics">
-    **Time to First Engagement**: How quickly can reps engage meaningfully after account creation?
-    **Intelligence Utilization**: Which generated insights are actually used in sales conversations?
-    **Conversion Impact**: Do accounts with certain workflow configurations convert better?
-    **Team Adoption**: How consistently are workflow-generated materials used across the sales team?
-  </Accordion>
-  <Accordion title="Continuous Improvement Process">
-    **Regular Review**: Quarterly assessment of workflow effectiveness and usage patterns
-    **Sales Team Feedback**: Monthly input from reps on the quality and usefulness of generated content
-    **Win/Loss Analysis**: Correlation between workflow-generated intelligence and deal outcomes
-    **Competitive Response**: Updates to workflows based on market changes and competitive evolution
-  </Accordion>
-  <Accordion title="Common Optimization Areas">
-    **Insight Relevance**: Refine Custom Insights queries based on successful sales conversations
-    **Content Quality**: Update datasets and templates to improve generated content effectiveness
-    **Component Balance**: Adjust the mix of strategic vs. tactical intelligence based on sales cycle needs
-    **Specialization**: Create more targeted workflows as you identify high-performing account patterns
-  </Accordion>
-</AccordionGroup>
-
-## Default Workflow and Customization
-
-### **Platform Generated Workflow**
-
-<Info>
-  PG:AI includes a default "Platform Generated" workflow that provides a foundation for account onboarding. This serves as a starting point that you can modify or supplement with specialized workflows.
-</Info>
-
-**Default Configuration Includes:**
-
-- Basic strategic priorities research
-- General business intelligence gathering
-- Standard value proposition analysis
-- Generic discovery question generation
-
-**Customization Strategy:**
-
-- **Enhance Defaults**: Add industry-specific insights and content to the base workflow
-- **Create Alternatives**: Build specialized workflows for different account types or sales scenarios
-- **Maintain Baseline**: Keep the default workflow as a fallback for accounts that don't fit specialized categories
-
-## Integration with Sales Process
-
-Workflows enhance your sales effectiveness by:
-
-- **Qualification**: Automated intelligence helps quickly identify best-fit accounts and prioritize efforts
-- **Preparation**: Comprehensive research enables more strategic and informed initial conversations
-- **Personalization**: Generated content provides relevant, account-specific messaging for all outreach
-- **Consistency**: Standardized intelligence ensures uniform quality regardless of individual rep experience
-- **Scalability**: Automated processes enable effective account coverage across large territories and teams
-```
+- Different industries (e.g., separate workflows for Financial Services vs Manufacturing)
+- Different account types (e.g., Enterprise vs Mid-Market approaches)
+- Different sales motions (e.g., New Logo vs Expansion plays)
