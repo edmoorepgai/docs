@@ -71,7 +71,8 @@
                         "pages": [
                             "account/usage-and-analytics",
                             "account/team",
-                            "account/billing"
+                            "account/billing",
+                            "account/credit-limit"
                         ]
                     },
                     {
