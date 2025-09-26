@@ -28,68 +28,27 @@ config:
   layout: dagre
 ---
 flowchart TD
-    I["Instructions/Prompt"]
-    CS["Content Settings"]
-    CD["Context Data"]
-    DS["Datasets"]
-    CI["Contact Info"]
+    I["Instructions<br/>(Your AI prompt)"]
+    S["Settings<br/>(Type, length, language)"]
+    C["Context Data<br/>(Account intelligence)"]
+    D["Datasets<br/>(Your sales collateral)"]
     
-    CT["Content Template"]
-    AI["Account Intelligence"]
-    GC["Generated Content"]
+    T["Content Template"]
+    G["Generated Content"]
     
-    I --> CT
-    CS --> CT
-    CD --> CT
-    DS --> CT
-    CI --> CT
+    I --> T
+    S --> T
+    C --> T
+    D --> T
     
-    CT --> AI
-    AI --> GC
+    T --> G
     
-    subgraph "Content Settings"
-        CS1["Content Type<br/>(Email/Document/Notes)"]
-        CS2["Word Count<br/>(50-500+ words)"]
-        CS3["Language<br/>(English/Other)"]
-    end
-    
-    subgraph "Context Data"
-        CD1["Value Pyramid<br/>(Strategic priorities)"]
-        CD2["Three Whys<br/>(Strategic reasoning)"]
-        CD3["Strategic Priorities<br/>(Current initiatives)"]
-        CD4["Website Content<br/>(Company messaging)"]
-        CD5["Professional Experience<br/>(Contact-specific insights)"]
-    end
-    
-    subgraph "Datasets"
-        DS1["Sales Collateral"]
-        DS2["Product Information"]
-        DS3["Case Studies"]
-        DS4["Competitive Intelligence"]
-    end
-    
-    CS1 --> CS
-    CS2 --> CS
-    CS3 --> CS
-    
-    CD1 --> CD
-    CD2 --> CD
-    CD3 --> CD
-    CD4 --> CD
-    CD5 --> CD
-    
-    DS1 --> DS
-    DS2 --> DS
-    DS3 --> DS
-    DS4 --> DS
-    
-    style CT fill:#e1f5fe,stroke:#01579b,stroke-width:3px
-    style GC fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    style I fill:#fff3e0,stroke:#ef6c00,stroke-width:1px
-    style CS fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px
-    style CD fill:#fce4ec,stroke:#880e4f,stroke-width:1px
-    style DS fill:#f1f8e9,stroke:#33691e,stroke-width:1px
-    style CI fill:#e0f2f1,stroke:#00695c,stroke-width:1px
+    style T fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    style G fill:#f3e5f5,stroke:#4a148c,stroke-width:3px
+    style I fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style S fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style C fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    style D fill:#f1f8e9,stroke:#33691e,stroke-width:2px
 ```
 
 ## Creating Content Templates
