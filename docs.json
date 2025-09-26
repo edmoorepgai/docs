@@ -125,18 +125,7 @@
                           {
                                 "group": "Templates",
                                 "pages": [
-                                    "guides/content/content-templates/use-case-alignment-template",
-                                    "data-dictionary/company-insights/goals",
-                                    "data-dictionary/company-insights/risks",
-                                    "data-dictionary/company-insights/digital-strategies",
-                                    "data-dictionary/company-insights/priority-scores",
-                                    "data-dictionary/company-insights/financial-analysis",
-                                    "data-dictionary/company-insights/organisation-structure",
-                                    "data-dictionary/company-insights/quarterly-reports",
-                                    "data-dictionary/company-insights/peer-analysis",
-                                    "data-dictionary/company-insights/swot-analysis",
-                                    "data-dictionary/company-insights/industry-insights",
-                                    "data-dictionary/company-insights/contacts"
+                                    "guides/content/content-templates/use-case-alignment-template"
                                 ]
                             }
                         ]
