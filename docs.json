@@ -153,5 +153,12 @@
         "socials": {
             "linkedin": "https://www.linkedin.com/company/pipeline-generation-ai"
         }
-    }
+    },
+  "integrations": {
+  "posthog": {
+    "apiKey": "phc_vDFi4yXfIYljhNo2mWK8E1hDXFzotnCGYVnhbaW1hrT",
+    "apiHost": "https://eu.i.posthog.com"
+  }
+}
+
 }
