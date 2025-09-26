@@ -121,7 +121,24 @@
                         "group": "Content",
                         "pages": [
                             "guides/content/creating-templates",
-                            "guides/content/using-templates"
+                            "guides/content/using-templates",
+                          {
+                                "group": "Templates",
+                                "pages": [
+                                    "data-dictionary/company-insights/strategic-priorities",
+                                    "data-dictionary/company-insights/goals",
+                                    "data-dictionary/company-insights/risks",
+                                    "data-dictionary/company-insights/digital-strategies",
+                                    "data-dictionary/company-insights/priority-scores",
+                                    "data-dictionary/company-insights/financial-analysis",
+                                    "data-dictionary/company-insights/organisation-structure",
+                                    "data-dictionary/company-insights/quarterly-reports",
+                                    "data-dictionary/company-insights/peer-analysis",
+                                    "data-dictionary/company-insights/swot-analysis",
+                                    "data-dictionary/company-insights/industry-insights",
+                                    "data-dictionary/company-insights/contacts"
+                                ]
+                            }
                         ]
                     },
                     {
