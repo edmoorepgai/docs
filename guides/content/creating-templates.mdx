@@ -1,169 +1,310 @@
 ---
-title: "Creating Content Templates"
-description: "Build reusable content templates for consistent messaging across accounts"
+title: "Content Templates"
+description: "Create AI-powered templates that generate personalized content using account intelligence and context data"
 ---
 
-Content templates enable your team to create standardized, high-quality messaging that can be personalized for any account. By building templates once, you ensure consistent communication while saving time on content creation.
+Content Templates are AI-powered instructions that generate personalized content for your target accounts. Each template combines your messaging requirements with account-specific intelligence to create relevant, customized communication.
 
-## Understanding Content Templates
+<Info>
+Content Templates use account intelligence, contact insights, and your business context to generate personalized messaging. Well-crafted templates produce content that feels researched and relevant rather than generic or templated.
+</Info>
 
-Content templates are reusable frameworks that combine your messaging with account-specific intelligence. When you generate content from a template, PG:AI pulls relevant data about the company and personalizes your message accordingly.
+## How Templates Work
 
-**Template Benefits:**
+Templates combine multiple inputs to generate personalized content:
+- **Instructions** - Your prompt that defines what content to create and how
+- **Content Settings** - Format, length, and language specifications  
+- **Context Data** - Account intelligence that personalizes the content
+- **Datasets** - Your business information and sales collateral
+- **Contact Information** - Individual insights when generating person-specific content
 
-- Maintain consistent brand voice and messaging across your team
-- Scale personalized outreach without starting from scratch each time
-- Ensure key value propositions and talking points are included
-- Reduce time spent on content creation by 70-80%
+## Template Component Architecture
 
-## Creating a New Template
-
-**Step 1: Access Template Creation**
-
-1. Navigate to the **Content** tab in your main dashboard
-2. Click **New Template** to open the template editor
-3. You'll see the template configuration panel on the left
-
-**Step 2: Configure Template Settings**
-
-<Tabs>
-  <Tab title="Basic Settings">
-    **Content Type**: Choose the format for your template
-
-    - **Email**: Outreach emails, follow-ups, introductions
-    - **Notes**: Meeting prep notes, account summaries
-    - **Document**: Proposals, case studies, detailed reports
-    - **Call Script**: Phone conversation guides, discovery frameworks
-
-    **Word Count**: Set the target length
-
-    - **Short (50-150 words)**: Brief emails, social outreach
-    - **Medium (150-300 words)**: Standard business emails, LinkedIn messages
-    - **Long (300\+ words)**: Detailed proposals, comprehensive notes
-
-    **Language**: Select output language (English, Spanish, French, etc.)
-  </Tab>
-  <Tab title="Data Sources">
-    **Dataset Selection**: Choose which information sources to include
-
-    - **Company Intelligence**: Strategic priorities, recent news, initiatives
-    - **Financial Data**: Revenue, growth, market performance
-    - **Technology Stack**: Current tools, infrastructure, recent changes
-    - **Leadership Info**: Executive profiles, recent appointments
-    - **Industry Context**: Market trends, competitive landscape
-
-    **Context Data**: Select specific insights to reference
-
-    - **Goals and Strategy**: Company objectives and strategic initiatives
-    - **Business Priorities**: Current focus areas and key projects
-    - **Value Pyramid**: Customized value propositions for this account type
-    - **Custom Insights**: Your configured research questions and findings
-    - **Recent Developments**: News, announcements, leadership changes
-  </Tab>
-  <Tab title="Advanced Options">
-    **Personalization Level**:
-
-    - **High**: Deep account-specific references and customization
-    - **Medium**: Moderate personalization with industry context
-    - **Low**: Light customization with basic company information
-
-    **Tone Settings**:
-
-    - **Professional**: Formal business communication
-    - **Conversational**: Friendly but business-appropriate
-    - **Executive**: C-level appropriate messaging
-
-    **Industry Focus**: Target specific sectors for relevant messaging
-  </Tab>
-</Tabs>
-
-**Step 3: Write Template Instructions**
-
-Your instructions are crucial - they guide how PG:AI creates content. Be specific about:
-
-**Structure Requirements:**
-
-```
-Subject line: [specific format]
-Opening: [how to start]
-Body: [key points to cover]
-Call-to-action: [what you want them to do]
-Closing: [how to end]
+```mermaid
+---
+config:
+  flowchart:
+    htmlLabels: false
+  layout: dagre
+---
+flowchart TD
+    I["Instructions<br/>(Your AI prompt)"]
+    S["Settings<br/>(Type, length, language)"]
+    C["Context Data<br/>(Account intelligence)"]
+    D["Datasets<br/>(Your sales collateral)"]
+    
+    T["Content Template"]
+    G["Generated Content"]
+    
+    I --> T
+    S --> T
+    C --> T
+    D --> T
+    
+    T --> G
+    
+    style T fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    style G fill:#f3e5f5,stroke:#4a148c,stroke-width:3px
+    style I fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style S fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style C fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    style D fill:#f1f8e9,stroke:#33691e,stroke-width:2px
 ```
 
-**Content Guidelines:**
+## Creating Content Templates
 
-- Reference specific account intelligence (priorities, challenges, recent news)
-- Include relevant value propositions from your solution set
-- Maintain professional tone while being conversational
-- Focus on business outcomes, not product features
-- Include clear next steps
+<Steps>
+  <Step title="Access template creation">
+    Navigate to Settings → Content Templates and click "New Template"
+  </Step>
+  <Step title="Write template instructions">
+    Create specific, detailed instructions for the AI about what content to generate
+  </Step>
+  <Step title="Configure content settings">
+    Set content type (email/document/notes), word count, and language
+  </Step>
+  <Step title="Select context data">
+    Choose which account intelligence to include in content generation
+  </Step>
+  <Step title="Choose datasets">
+    Select relevant business information and sales collateral
+  </Step>
+  <Step title="Test and refine">
+    Generate sample content on known accounts and iterate on the template
+  </Step>
+</Steps>
 
-**Example Instructions:**
+## Writing Effective Template Instructions
 
+### **Instruction Structure**
+Your template instructions should include:
+
+**Context Setting:**
 ```
-Create a personalized outreach email for enterprise prospects:
-
-Subject: Reference their recent [initiative/news] and connect to our value prop
-
-Opening: Congratulate them on [recent achievement/news] and briefly introduce yourself
-
-Body: 
-- Reference 2-3 specific business priorities or challenges from their intelligence
-- Connect our platform capabilities to their stated objectives
-- Include 1 relevant customer success story from similar company
-- Quantify potential impact using their business metrics
-
-CTA: Request 15-minute conversation to discuss their specific challenges
-
-Closing: Professional but warm, include calendar link
+You are writing [content type] from a salesperson at [Your Company] 
+to a [recipient role] at [Company Name] with the goal of [objective].
 ```
 
-**Step 4: Test Your Template**
+**Content Requirements:**
+```
+The [email/document] should:
+- [Specific requirement 1]
+- [Specific requirement 2] 
+- [Specific requirement 3]
+```
 
-Before saving, test the template quality:
+**Format Specifications:**
+```
+Follow this structure:
+- [Opening approach]
+- [Body content guidelines]
+- [Closing/call to action]
+```
 
-1. Click **Test Content** in the template editor
-2. Select 2-3 different companies from your account list
-3. Review the generated content for:
-   - Accurate company information and context
-   - Appropriate personalization level
-   - Clear, compelling messaging
-   - Proper tone and structure
-4. Refine instructions based on test results
+### **Effective Instruction Examples**
 
-**Step 5: Save and Organize**
+**Personalized Outreach Email:**
+```
+You are writing an email from a salesperson at [Company] to a [Role] at [Company Name] 
+with the goal of booking a meeting to explore how [Solution] can help the company.
 
-1. **Template Name**: Use descriptive names that indicate purpose and audience
-   - "Enterprise_Outreach_CISO_Security_Focus"
-   - "Mid_Market_Follow_up_Post_Demo"
-   - "Executive_Introduction_CEO_Strategic"
-2. **Template Description**: Add notes about when and how to use this template
-3. **Tags/Categories**: Organize templates by persona, use case, or stage
+The email should:
+- Reference a specific strategic initiative or challenge from their context data
+- Include relevant proof point or case study
+- Present a clear, low-friction meeting request
+- Maintain professional but conversational tone
 
-## Template Best Practices
+Follow this format:
+- Great to see [specific company insight]
+- [Relevant business challenge/opportunity] 
+- [Your solution's value proposition with proof]
+- [Clear call to action]
+```
 
-**Writing Effective Instructions:**
+**Executive Summary:**
+```
+Create an executive summary for [Company Name] analyzing their strategic position 
+and challenges that [Your Solution] addresses.
 
-- Be specific about structure and content requirements
-- Reference which account intelligence should be included
-- Specify tone, length, and call-to-action clearly
-- Include examples of good vs. poor outputs
+Include:
+- 3-5 key strategic priorities from context data
+- Relevant market trends affecting their industry
+- Specific challenges your solution addresses
+- 2-3 comparable companies who've achieved success
 
-**Maintaining Template Quality:**
+Structure as:
+- Executive overview (2-3 sentences)
+- Strategic priorities and challenges
+- Solution alignment and value proposition  
+- Next steps recommendation
+```
 
-- Review and update templates quarterly based on performance
-- Test templates on new accounts before broad deployment
-- Gather feedback from team members using the templates
-- Update instructions as your messaging and value props evolve
+**Technical Brief:**
+```
+Write a technical brief for [Role] at [Company Name] explaining how [Solution] 
+integrates with their current technology stack.
 
-**Template Organization:**
+Focus on:
+- Technical requirements mentioned in context data
+- Integration capabilities relevant to their industry
+- Security and compliance considerations
+- Implementation timeline and support
 
-- Create templates for each major persona and use case
-- Use consistent naming conventions across your team
-- Document when and how each template should be used
-- Share best-performing templates across your organization
+Format:
+- Technical overview
+- Integration approach  
+- Security and compliance
+- Implementation roadmap
+```
 
 <Warning>
-  Templates are shared across your entire workspace. Ensure content and messaging align with your company's brand guidelines and compliance requirements before saving.
+Avoid overly generic instructions like "write a good email" or "tell them about our product." Specific, detailed instructions produce higher-quality, more personalized content.
 </Warning>
+
+## Content Settings Configuration
+
+### **Content Type Options**
+- **Email** - Optimized for email communication with appropriate formatting
+- **Document** - Longer-form content suitable for attachments or presentations
+- **Notes** - Internal use content like meeting preparation or account research
+
+### **Word Count Guidelines**
+- **50-125 words** - Cold outreach emails, brief updates
+- **125-250 words** - Follow-up emails, meeting requests  
+- **250-500 words** - Executive summaries, technical briefs
+- **500+ words** - Comprehensive documents, detailed analyses
+
+### **Language Selection**
+- Choose target language for content generation
+- Ensure context data and datasets support selected language
+- Consider regional business communication preferences
+
+## Context Data Selection Strategy
+
+### **Value Pyramid**
+- **Best for:** Executive-level content, strategic discussions
+- **Contains:** Core business priorities and challenges
+- **Use when:** Creating C-suite messaging or strategic proposals
+
+### **Strategic Priorities**  
+- **Best for:** Aligning with company initiatives
+- **Contains:** Current business goals and focus areas
+- **Use when:** Referencing specific company directions or investments
+
+### **Three Whys**
+- **Best for:** Consultative, insight-driven content
+- **Contains:** Deep strategic reasoning behind company decisions
+- **Use when:** Creating thought leadership or strategic advisory content
+
+### **Website Content**
+- **Best for:** Understanding company voice and positioning
+- **Contains:** Public company messaging and stated priorities
+- **Use when:** Aligning with company's own language and themes
+
+### **Professional Experience** (Contact-specific)
+- **Best for:** Personalized individual outreach
+- **Contains:** LinkedIn profile analysis matched against company context
+- **Use when:** Creating contact-specific emails or meeting preparation
+
+## Dataset Selection Best Practices
+
+### **For Personalized Emails**
+- Focus on most relevant datasets to avoid feature overload
+- Include case studies and competitive differentiation
+- Select industry-specific information when available
+
+### **For Executive Content**
+- Include strategic business information and ROI data
+- Add industry trends and market intelligence
+- Include executive-level case studies and references
+
+### **For Technical Content**
+- Select technical specifications and integration capabilities
+- Include security and compliance information
+- Add implementation guides and support documentation
+
+## Template Performance Optimization
+
+### **Content Quality Indicators**
+✅ **High-Quality Generated Content:**
+- References specific company information accurately
+- Uses appropriate tone for target audience
+- Includes relevant, specific value propositions
+- Flows naturally without obvious AI-generated patterns
+
+❌ **Low-Quality Generated Content:**
+- Generic language that could apply to any company
+- Incorrect or irrelevant company information
+- Overly promotional or feature-heavy messaging
+- Obvious template-like structure
+
+### **Iterative Improvement Process**
+1. **Generate test content** on 3-5 known accounts
+2. **Evaluate relevance** and accuracy of generated content
+3. **Refine instructions** based on output quality
+4. **Adjust context data** selection if needed
+5. **Test again** and repeat until satisfied with quality
+
+## Template Categories
+
+PG:AI supports five main template categories, each optimized for specific sales scenarios:
+
+### **Email Templates**
+- **Purpose:** Direct outreach and follow-up communication
+- **Best for:** Initial contact, meeting requests, nurture sequences
+- **Word count:** 50-150 words for optimal engagement
+- **Key features:** High personalization, clear CTAs, mobile-optimized
+
+### **Use Case Alignment Documents** 
+- **Purpose:** Map customer strategies to your solution capabilities
+- **Best for:** Pre-meeting preparation, proposal support
+- **Word count:** 300-500 words
+- **Key features:** Strategy analysis, capability matching, proof points
+
+### **MEDDIC Pre-Meeting Documents**
+- **Purpose:** Force Management framework analysis for target accounts  
+- **Best for:** Enterprise sales preparation, executive meetings
+- **Word count:** 400-600 words
+- **Key features:** Strategic priorities, business problems, differentiated value
+
+### **Command of the Message Documents**
+- **Purpose:** Before/after scenario analysis using Force Management methodology
+- **Best for:** Value-based selling, outcome-focused conversations
+- **Word count:** 500-800 words  
+- **Key features:** Problem/solution narrative, required capabilities, proof points
+
+### **Pre-Meeting Hypothesis Documents**
+- **Purpose:** Demonstrate business understanding before first meetings
+- **Best for:** Discovery calls, initial executive meetings
+- **Word count:** 300-500 words
+- **Key features:** Strategic initiatives, technology programs, solution alignment
+
+## Selecting the Right Template Type
+
+**For Initial Outreach:** Start with Email Templates to book meetings, then use Pre-Meeting Hypothesis Documents to prepare
+
+**For Enterprise Deals:** Use MEDDIC or Command of the Message Documents for comprehensive account analysis
+
+**For Solution Mapping:** Use Case Alignment Documents work best when you need to connect customer strategies to capabilities
+
+**For Executive Meetings:** Command of the Message Documents provide the most strategic, outcome-focused approach
+
+## Quick Actions
+
+<CardGroup cols={3}>
+  <Card title="Create Template" icon="plus" href="/settings/content-templates">
+    Build new content templates
+  </Card>
+  <Card title="Organize Groups" icon="folder" href="/settings/content-groups">
+    Bundle templates into collections
+  </Card>
+  <Card title="Generate Content" icon="magic" href="/account-intelligence/content">
+    Use templates on target accounts
+  </Card>
+</CardGroup>
+
+## Integration with Content Groups
+
+Individual templates work best when organized into [Content Groups](/content-groups) that address comprehensive use cases. A single template might be used across multiple groups, allowing you to reuse well-performing templates in different contexts while maintaining focused group purposes.
+
+Templates can also be included in [Workflows](/workflows) for automated content generation during account onboarding, ensuring consistent messaging and research across all new accounts.
