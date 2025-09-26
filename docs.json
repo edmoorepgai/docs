@@ -78,8 +78,8 @@
                   {
                         "group": "Content",
                         "pages": [
-                            "account/content-groups",
-                            "account/content-templates"
+                            "content-overview/content-groups",
+                            "content-overview/content-templates"
                         ]
                     },
                     {
