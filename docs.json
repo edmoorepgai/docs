@@ -125,7 +125,8 @@
                           {
                                 "group": "Templates",
                                 "pages": [
-                                    "guides/content/content-templates/use-case-alignment-template"
+                                    "guides/content/content-templates/use-case-alignment-template",
+                                  "guides/content/content-templates/template-custom-insights",                          "guides/content/content-templates/template-disco"
                                 ]
                             }
                         ]
