@@ -121,7 +121,10 @@
                         "group": "Content",
                         "pages": [
                             "guides/content/creating-templates",
-                            "guides/content/using-templates",
+                            "guides/content/using-templates"
+                        ]
+                    },
+          
                           {
                                 "group": "Templates",
                                 "pages": [
@@ -129,8 +132,8 @@
                                   "guides/content/content-templates/template-custom-insights",                          "guides/content/content-templates/template-disco"
                                 ]
                             }
-                        ]
-                    },
+                        
+                    ,
                     {
                         "group": "Collaboration",
                         "pages": [
