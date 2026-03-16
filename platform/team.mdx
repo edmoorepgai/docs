@@ -1,0 +1,94 @@
+---
+title: "Team"
+description: "Manage users, roles, and team structures in your PG:AI workspace"
+---
+
+Team settings let you manage user access, assign roles, and create team structures within PG:AI. Control who can access your workspace and organize users into logical teams for better collaboration.
+
+{/* IMAGE PLACEHOLDER: Screenshot of team management dashboard */}
+
+## User Roles
+
+PG:AI has three user role levels:
+
+<CardGroup cols={3}>
+  <Card title="Super Admin" icon="crown">
+    Full system access including billing, settings, and user management
+  </Card>
+  <Card title="Admin" icon="shield">
+    Manage users and teams, configure settings, view analytics
+  </Card>
+  <Card title="Common User" icon="user">
+    Add accounts, create content, use AI features
+  </Card>
+</CardGroup>
+
+## Managing Users
+
+<Tabs>
+  <Tab title="User Actions">
+    - Change user roles
+    - Delete user accounts
+    - Send password reset emails
+    - View user activity status
+  </Tab>
+  <Tab title="User Information">
+    - Email address and current role
+    - Account creation date
+    - Last activity timestamp
+    - Team membership
+  </Tab>
+</Tabs>
+
+{/* IMAGE PLACEHOLDER: Screenshot of user management table */}
+
+## Team Structure
+
+Create teams that reflect your sales organization:
+
+<Steps>
+  <Step title="Create team">
+    Define a clear team name (e.g., "North America Sales", "Enterprise AEs")
+  </Step>
+  <Step title="Assign manager">
+    Designate a team manager for analytics visibility
+  </Step>
+  <Step title="Add members">
+    Select users to include in the team
+  </Step>
+  <Step title="Save configuration">
+    Finalize the team structure for reporting
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of team creation form */}
+
+## Best Practices
+
+<Warning>
+Limit Super Admin access to 1-2 essential personnel. Most users should have Common User roles.
+</Warning>
+
+**Role Guidelines:**
+- **Super Admin**: Sales ops leaders, system administrators (1-2 people)
+- **Admin**: Team managers, sales enablement staff
+- **Common User**: Sales reps, AEs, SDRs, end users
+
+**Team Structure:**
+- Mirror your actual sales organization
+- Keep teams simple and meaningful for analytics
+- Update teams as your organization evolves
+
+## Quick Actions
+
+<CardGroup cols={3}>
+  <Card title="Manage Users" icon="users" href="/settings/team/users">
+    Add users and change roles
+  </Card>
+  <Card title="Create Teams" icon="users-gear" href="/settings/team/teams">
+    Organize users into teams
+  </Card>
+  <Card title="View Analytics" icon="chart-line" href="/settings/usage-analytics">
+    Analyze team performance
+  </Card>
+</CardGroup>

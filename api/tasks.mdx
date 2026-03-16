@@ -1,0 +1,210 @@
+---
+title: "Tasks"
+description: "Create, list, retrieve, and update tasks for your sales workflow"
+icon: "list-check"
+---
+
+## List Tasks
+
+Retrieve a paginated list of tasks. Optionally filter by company or status.
+
+<ParamField query="page" type="integer" default="1">
+  Page number for pagination.
+</ParamField>
+
+<ParamField query="per_page" type="integer" default="25">
+  Number of tasks per page.
+</ParamField>
+
+<ParamField query="company_id" type="string">
+  Filter tasks by company ID (UUID).
+</ParamField>
+
+<ParamField query="status" type="string">
+  Filter tasks by status (e.g., `pending`, `in_progress`, `completed`).
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.pipelinegeneration.ai/v1/tasks?status=pending&per_page=10" \
+  -H "x-api-key: your_api_key"
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "data": [
+    {
+      "id": "t1a2b3c4-d5e6-7890-abcd-ef1234567890",
+      "title": "Follow up with Acme decision maker",
+      "description": "Schedule a demo with the VP of Engineering",
+      "status": "pending",
+      "priority": "high",
+      "company_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "assignee_id": "u1v2w3x4-y5z6-7890-abcd-ef1234567890",
+      "due_date": "2026-03-15",
+      "created_at": "2026-03-10T09:00:00Z"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "per_page": 10,
+    "total": 23
+  }
+}
+```
+</ResponseExample>
+
+---
+
+## Get Task
+
+Retrieve detailed information about a specific task.
+
+<ParamField path="task_id" type="string" required>
+  The unique identifier of the task.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.pipelinegeneration.ai/v1/tasks/{task_id}" \
+  -H "x-api-key: your_api_key"
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "id": "t1a2b3c4-d5e6-7890-abcd-ef1234567890",
+  "title": "Follow up with Acme decision maker",
+  "description": "Schedule a demo with the VP of Engineering",
+  "status": "pending",
+  "priority": "high",
+  "company_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "assignee_id": "u1v2w3x4-y5z6-7890-abcd-ef1234567890",
+  "due_date": "2026-03-15",
+  "created_at": "2026-03-10T09:00:00Z",
+  "updated_at": "2026-03-10T09:00:00Z"
+}
+```
+</ResponseExample>
+
+---
+
+## Create Task
+
+Create a new task in your workspace.
+
+<ParamField body="title" type="string" required>
+  The task title.
+</ParamField>
+
+<ParamField body="description" type="string">
+  A description of the task.
+</ParamField>
+
+<ParamField body="company_id" type="string">
+  Associate the task with a company (UUID).
+</ParamField>
+
+<ParamField body="assignee_id" type="string">
+  Assign the task to a team member (UUID).
+</ParamField>
+
+<ParamField body="due_date" type="string">
+  The due date in `YYYY-MM-DD` format.
+</ParamField>
+
+<ParamField body="priority" type="string">
+  Task priority level (e.g., `low`, `medium`, `high`).
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl -X POST "https://api.pipelinegeneration.ai/v1/tasks" \
+  -H "x-api-key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Send proposal to TechCorp",
+    "description": "Prepare and send the Q2 proposal deck",
+    "company_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "priority": "high",
+    "due_date": "2026-03-20"
+  }'
+```
+</RequestExample>
+
+<ResponseExample>
+```json 201
+{
+  "id": "t2b3c4d5-e6f7-8901-bcde-f23456789012",
+  "title": "Send proposal to TechCorp",
+  "description": "Prepare and send the Q2 proposal deck",
+  "status": "pending",
+  "priority": "high",
+  "company_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "due_date": "2026-03-20",
+  "created_at": "2026-03-12T10:00:00Z"
+}
+```
+</ResponseExample>
+
+---
+
+## Update Task
+
+Update an existing task. Only include the fields you want to change.
+
+<ParamField path="task_id" type="string" required>
+  The unique identifier of the task.
+</ParamField>
+
+<ParamField body="title" type="string">
+  Updated task title.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Updated task description.
+</ParamField>
+
+<ParamField body="status" type="string">
+  Updated status (e.g., `pending`, `in_progress`, `completed`).
+</ParamField>
+
+<ParamField body="assignee_id" type="string">
+  Reassign the task to a different team member (UUID).
+</ParamField>
+
+<ParamField body="due_date" type="string">
+  Updated due date in `YYYY-MM-DD` format.
+</ParamField>
+
+<ParamField body="priority" type="string">
+  Updated priority level.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl -X PATCH "https://api.pipelinegeneration.ai/v1/tasks/{task_id}" \
+  -H "x-api-key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "status": "completed"
+  }'
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "id": "t1a2b3c4-d5e6-7890-abcd-ef1234567890",
+  "title": "Follow up with Acme decision maker",
+  "status": "completed",
+  "priority": "high",
+  "company_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "due_date": "2026-03-15",
+  "updated_at": "2026-03-12T15:30:00Z"
+}
+```
+</ResponseExample>

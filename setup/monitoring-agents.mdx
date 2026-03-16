@@ -1,0 +1,89 @@
+---
+title: "Monitoring Agents — Setup Guide"
+description: "How to create and configure monitoring agents to watch for account changes"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Monitoring Agents */}
+
+## Prerequisites
+
+<Note>
+  Before setting up monitoring agents, ensure you have:
+  - A PG:AI account with **Monitor access enabled**
+  - **Companies** in your workspace that you want to monitor
+</Note>
+
+## Accessing Monitor
+
+<Steps>
+  <Step title="Navigate to Monitor">
+    Navigate to **Monitor** in the PG:AI sidebar.
+  </Step>
+  <Step title="View your agents">
+    You'll see your existing monitoring agents (if any) and a button to create a new one.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of Monitor dashboard */}
+
+## Creating a Monitoring Agent
+
+<Steps>
+  <Step title="Start creation">
+    Click **New Monitoring Agent**.
+  </Step>
+  <Step title="Name the agent">
+    Give the agent a **name** (e.g. "Hiring Signals", "Competitive Tech Adoption", "Leadership Changes").
+  </Step>
+  <Step title="Select the signal type">
+    Select the **signal type** — what kind of changes this agent should watch for.
+  </Step>
+  <Step title="Configure rules and thresholds">
+    Define what constitutes a notable change (e.g. "more than 10 new job postings in a week", "new C-level hire").
+  </Step>
+  <Step title="Build the watchlist">
+    Add companies to the **watchlist** — individual accounts, territory segments, or bulk import.
+  </Step>
+  <Step title="Save and activate">
+    Save and activate the agent.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of new monitoring agent creation form */}
+
+## Signal Types
+
+| Signal Type | What It Watches | Example Rule |
+|-------------|----------------|-------------|
+| Hiring signals | New job postings, hiring velocity | "Alert when >10 relevant roles posted in 7 days" |
+| Leadership changes | New executives, departures | "Alert on any C-level or VP-level change" |
+| Technology adoption | New technologies in job postings | "Alert when [competitor tech] appears in postings" |
+| Financial events | Earnings, market cap changes | "Alert on earnings release or >10% market cap change" |
+| Strategic shifts | New priorities, public initiatives | "Alert on new strategic initiative announcements" |
+
+## Managing Watchlists
+
+- **Add individual companies** — search and add from your workspace.
+- **Add from territory** — import a territory segment as the watchlist.
+- **Bulk add** — paste a list of company names or IDs.
+- **Remove companies** — remove individual companies or clear the watchlist.
+
+<Tip>
+  A single monitoring agent can watch hundreds of companies. You can create multiple agents with different signal types watching different or overlapping company sets.
+</Tip>
+
+{/* IMAGE PLACEHOLDER: Screenshot of watchlist management */}
+
+## Data Sources
+
+Monitoring agents connect to multiple data sources automatically:
+
+- Job board aggregators for hiring signals
+- Financial data providers for market data
+- News feeds for strategic announcements
+- PG:AI's enrichment engine for technology and company changes
+
+<Note>
+  You don't configure data sources directly. The platform manages source connections.
+</Note>

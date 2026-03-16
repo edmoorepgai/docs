@@ -1,0 +1,143 @@
+---
+title: "Custom Columns — Setup Guide"
+description: "How to create and configure custom columns to extend your territory data"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Custom Columns */}
+
+## Prerequisites
+
+<Note>
+  Before setting up custom columns, ensure you have:
+  - **Admin or RevOps access** to your PG:AI organisation
+  - At least one **territory with accounts**
+</Note>
+
+## Overview
+
+Custom Columns let you get answers to any question you want about your territory accounts. Define a column, describe what it should contain, and PG:AI can use AI to research and populate values across all your accounts.
+
+Navigate to **Territories → Custom Columns** in the left sidebar.
+
+<Info>
+  Custom Columns Settings — Get answers to any question you want about your territory accounts.
+</Info>
+
+## Creating a Custom Column
+
+<Steps>
+  <Step title="Navigate to Custom Columns">
+    Go to **Territories → Custom Columns** in the left sidebar.
+  </Step>
+  <Step title="Add new column">
+    Click **+ New Custom Column** (top-right button).
+  </Step>
+  <Step title="Fill in General details">
+    | Field | Description | Example |
+    |-------|-------------|---------|
+    | **Label** | The display name for this column | "Revenue Growth" |
+    | **Key** | A programmatic key (auto-generated or manual) | "revenue_growth" |
+    | **Description** | What this column measures or tracks | "Measure the company's revenue growth rate" |
+  </Step>
+  <Step title="Select Data Type">
+    Choose the type of data this column stores:
+
+    | Field | Description | Options |
+    |-------|-------------|---------|
+    | **Data Type** | The type of data this column stores | Number, Text, Boolean, etc. (select from dropdown) |
+  </Step>
+  <Step title="Save">
+    Click **Save**.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of new custom column creation form */}
+
+## How AI Enrichment Works
+
+When you create a custom column with a description, PG:AI can use AI to research each account and populate the column value:
+
+<Steps>
+  <Step title="Describe what the column should contain">
+    Use the Description and/or AI Query fields to describe the data you want.
+  </Step>
+  <Step title="AI researches each account">
+    PG:AI's AI researches each account using available data — enrichment, public information, tech stack, jobs, etc.
+  </Step>
+  <Step title="Values are generated">
+    The AI generates a value for each account based on what it finds.
+  </Step>
+  <Step title="Values appear in territory views">
+    Values are stored in the custom column and appear in territory views.
+  </Step>
+</Steps>
+
+<Tip>
+  The **AI Query** field (visible in the column list) shows the question PG:AI asks about each account to generate the value.
+</Tip>
+
+{/* IMAGE PLACEHOLDER: Screenshot of AI query configuration */}
+
+## Managing Custom Columns
+
+The Custom Columns settings page shows all columns in a table:
+
+| Column | Description |
+|--------|-------------|
+| Name | The label you gave the custom column |
+| Type | The data type (Number, Text, etc.) |
+| Description | What this column tracks |
+| AI Query | The AI question used to populate values |
+| Refresh | Whether automatic refresh is enabled |
+| Created at | When the column was created |
+
+- Click any column to edit its settings.
+- Use the search bar to filter columns by name.
+
+{/* IMAGE PLACEHOLDER: Screenshot of custom columns management table */}
+
+## Refresh and Monitoring
+
+Custom columns can be configured to automatically refresh:
+
+- **Scheduled refresh** — re-run AI enrichment on a schedule to keep values current.
+- **Change detection** — get notified when values change significantly.
+- **Manual refresh** — trigger a re-enrichment on demand.
+
+The **Refresh** column in the settings table shows the refresh status for each column.
+
+## Common Configurations
+
+**Financial signals:**
+
+| Label | Type | Description |
+|-------|------|-------------|
+| Revenue Growth | Number | Measure the company's year-over-year revenue growth rate |
+| Funding Stage | Text | Latest funding round or stage (Series A, B, C, Public) |
+| M&A Activity | Text | Recent merger or acquisition activity |
+
+**Technical signals:**
+
+| Label | Type | Description |
+|-------|------|-------------|
+| Primary Cloud Provider | Text | Main cloud infrastructure provider (AWS, Azure, GCP) |
+| DevOps Maturity | Text | Assessment of DevOps practices maturity |
+| Tech Stack Age | Text | Whether the company is on modern or legacy technology |
+
+**Market signals:**
+
+| Label | Type | Description |
+|-------|------|-------------|
+| Expansion Markets | Text | Countries or regions the company is expanding into |
+| Compliance Requirements | Text | Key regulatory frameworks (SOC2, GDPR, HIPAA) |
+| Competitive Displacement | Text | Which competitor products they currently use |
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| Column values are empty | AI enrichment hasn't run yet | Trigger enrichment or wait for scheduled run |
+| Values seem inaccurate | AI query too vague or data insufficient | Refine the description/AI query to be more specific |
+| Column not appearing in territory views | Column exists in settings but not yet populated | Run enrichment to populate values |
+| Refresh not working | Refresh not enabled for this column | Check the Refresh setting in the column configuration |

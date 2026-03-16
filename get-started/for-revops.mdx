@@ -1,0 +1,95 @@
+---
+title: "For RevOps"
+description: "Your first 10 minutes in PG:AI as a Revenue Operations professional"
+icon: "gears"
+---
+
+You own the GTM infrastructure. Territories, scoring models, data quality, integrations. PG:AI gives you a planning layer built on strategic signals — not just firmographics. Here's how to get started.
+
+## Your First 10 Minutes
+
+<Steps>
+  <Step title="Configure the organisation settings">
+    Before anyone else uses PG:AI, set up the foundation. Go to **Configuration** and work through:
+
+    - **[Favourite Technologies](/configuration/favourite-technologies)** — Add your competitors and key partner technologies. This is the single most impactful configuration. Every account's tech stack will highlight these automatically.
+    - **[Personas](/configuration/personas)** — Add the roles your team sells to. PG:AI uses these for contact matching and content generation.
+    - **[Custom Insights](/configuration/custom-insights)** — Set up custom intelligence queries that run against every account. E.g. "What is this company's approach to [your market category]?"
+    - **[Datasets](/configuration/datasets)** — Upload your sales materials, product briefs, and messaging so the AI generates content in your language.
+  </Step>
+  <Step title="Create your first territory">
+    Go to **Territory → Territory Management** and create a territory. You can import accounts via CSV or CRM sync.
+
+    For your first test, import 50-100 accounts from one team's territory. This lets you validate the enrichment and scoring before rolling out to everyone.
+  </Step>
+  <Step title="Run enrichment">
+    Go to **Territory → Enrichment** and configure which intelligence to pull: tech stack, jobs, employee groups, strategic insights. Run enrichment on your test territory.
+
+    This populates the data that scoring models will use.
+  </Step>
+  <Step title="Build a scoring model">
+    Go to **Territory → Scoring Models**. Create a model that reflects your ICP. Weight the signals: strategic insight criteria, tech stack fit, hiring signals, employee groups, firmographics.
+
+    Run it against your test territory and check the results. Do the top-scored accounts look right? If not, tune the weights.
+  </Step>
+  <Step title="Validate against known outcomes">
+    This is the step most people skip and it's the most important. Take your closed-won deals from last quarter and check their scores. Take your closed-lost deals and check theirs. If the model ranks won deals higher than lost deals, it's working. If not, adjust the criteria.
+  </Step>
+</Steps>
+
+## What You'll Use Most
+
+<CardGroup cols={2}>
+  <Card title="Configuration" icon="sliders" href="/configuration/overview">
+    The foundation — technologies, personas, custom insights, datasets. Set up once, every rep benefits.
+  </Card>
+  <Card title="Territory Management" icon="layer-group" href="/territory/territory-management">
+    Create and manage territories. Import accounts, assign reps, configure enrichment.
+  </Card>
+  <Card title="Scoring Models" icon="chart-simple" href="/territory/scoring-models">
+    Build scoring models that combine multiple signals into one account score. Validate against real outcomes.
+  </Card>
+  <Card title="Strategic Insights Scoring" icon="lightbulb" href="/territory/strategic-insights-scoring">
+    Define strategic topics and score accounts on alignment with what matters to your business.
+  </Card>
+  <Card title="Scenarios & Recommendations" icon="wand-magic-sparkles" href="/territory/scenarios-recommendations">
+    Model different territory designs. AI recommendations for rebalancing and coverage optimisation.
+  </Card>
+  <Card title="CRM Integration" icon="plug" href="/configuration/crm-integration">
+    Connect PG:AI to Salesforce or HubSpot. Sync accounts, push enrichment data back, keep CRM current.
+  </Card>
+</CardGroup>
+
+## Your Key Playbooks
+
+<CardGroup cols={2}>
+  <Card title="Territory Planning" icon="map" href="/playbooks/territory-planning">
+    Full territory planning workflow — import, enrich, score, segment, assign. **Start here.**
+  </Card>
+  <Card title="New Territory Ramp" icon="rocket" href="/playbooks/new-territory-ramp">
+    Set up a new territory for a new hire or restructure. Pre-load intelligence so they're productive from day one.
+  </Card>
+  <Card title="Territory Analysis Project" icon="chart-mixed" href="/playbooks/territory-analysis-project">
+    Run a comprehensive territory analysis — coverage, balance, quality, trends.
+  </Card>
+</CardGroup>
+
+## Setup Checklist
+
+After the first 10 minutes, here's the full setup path:
+
+- [ ] Configure favourite technologies (competitors + partners)
+- [ ] Configure personas (target roles)
+- [ ] Set up custom insights (market-specific queries)
+- [ ] Upload datasets (sales materials, product briefs)
+- [ ] Create territories and import accounts
+- [ ] Run enrichment across territories
+- [ ] Build and validate scoring models
+- [ ] Connect CRM integration
+- [ ] Set up monitoring agents for key accounts
+- [ ] Invite the team and assign territories
+- [ ] Set up workflow templates for common activities
+
+<Note>
+**Configuration is what makes PG:AI valuable.** An unconfigured PG:AI produces generic intelligence. A well-configured PG:AI produces intelligence that speaks your team's language — competitors highlighted, relevant personas surfaced, insights framed around your methodology. The 30 minutes you spend on configuration pays off across every account and every rep.
+</Note>

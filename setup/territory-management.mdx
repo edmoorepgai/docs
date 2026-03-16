@@ -1,0 +1,169 @@
+---
+title: "Territory Management — Setup Guide"
+description: "How to create, configure, and manage territories in PG:AI"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Territory Management */}
+
+## Prerequisites
+
+<Note>
+  Before setting up territories, ensure you have:
+  - **Admin or RevOps access** to your PG:AI organisation
+  - At least one **account plan created** (accounts must exist before you can add them to territories)
+</Note>
+
+## Creating a Territory
+
+<Steps>
+  <Step title="Navigate to Territories">
+    Open **Territories** in the left sidebar.
+  </Step>
+  <Step title="Create new territory">
+    Click **+ New Territory** (or the equivalent action from the territories list).
+  </Step>
+  <Step title="Name the territory">
+    Enter a **territory name** — use a naming convention that reflects your GTM structure (e.g. "EMEA Enterprise", "US Mid-Market - West").
+  </Step>
+  <Step title="Configure initial settings">
+    Configure initial territory settings (see [Territory Settings](#territory-settings) below).
+  </Step>
+  <Step title="Save">
+    Save the territory. It is now created and ready for accounts.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of new territory creation form */}
+
+## Adding Accounts to a Territory
+
+There are several ways to populate a territory with accounts:
+
+### Manual Add
+
+- From the territory's **Companies** tab, click to add companies.
+- Search for accounts by name or domain and add them individually.
+
+{/* IMAGE PLACEHOLDER: Screenshot of manual account add search */}
+
+### CSV Import
+
+<Steps>
+  <Step title="Prepare your CSV">
+    Prepare a CSV file with company names, domains, or identifiers.
+  </Step>
+  <Step title="Upload and import">
+    Use the CSV import feature to bulk-add accounts to the territory.
+  </Step>
+  <Step title="Review preview">
+    PG:AI validates the import before executing — review the preview for column mapping and data issues.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of CSV import preview screen */}
+
+### Filter-Based Assignment
+
+- Define territory filters to automatically include accounts matching certain criteria (industry, size, geography, etc.).
+- Filtered accounts populate the territory automatically.
+
+{/* IMAGE PLACEHOLDER: Screenshot of filter-based assignment configuration */}
+
+## Territory Companies View
+
+Once accounts are added, the **Companies** tab shows a table view with the following columns:
+
+| Column | Description |
+|--------|-------------|
+| Company | Company name with logo |
+| Domain | Company website domain |
+| Industry | Industry classification |
+| Country | Headquarters country |
+| Employee Size | Employee count range |
+| Revenue | Revenue range |
+| Territory Name | Which territory this account belongs to |
+| PG:AI Score | Overall account score (from scoring models) |
+
+<Tip>
+  You can sort, filter, and customise the column view. The table also shows score badges (High, Medium, Low) colour-coded for quick scanning.
+</Tip>
+
+{/* IMAGE PLACEHOLDER: Screenshot of territory companies table view */}
+
+## Territory Settings
+
+Within a territory, access settings via the **gear icon** in the top-right. The settings panel has three tabs:
+
+### Enriched Columns
+
+Controls which enriched data types are included in this territory's views and scoring. Each enriched column has:
+
+| Field | Description |
+|-------|-------------|
+| **Name** | The enrichment item (e.g. "Technology Stack", "RevOps Job Monitoring", "Chief Revenue Officer") |
+| **Type** | The data category (Tech stack, Jobs, Employee groups, Insights) |
+| **Description** | What this enrichment tracks |
+| **Included** | Toggle on/off to include or exclude from this territory |
+
+Toggle items **on** to include their data in territory views and scoring. Toggle **off** to exclude data you don't need for this territory.
+
+{/* IMAGE PLACEHOLDER: Screenshot of enriched columns settings panel */}
+
+### Scoring Model
+
+Assign a scoring model to this territory. The scoring model defines how accounts within this territory are scored and ranked. See the [Scoring Models setup guide](/setup/scoring-models) for details on creating and configuring models.
+
+{/* IMAGE PLACEHOLDER: Screenshot of scoring model assignment */}
+
+### Tech Stack
+
+Add technologies you want to track for this territory.
+
+- Search for technologies by name using the search bar.
+- Click the heart icon to favourite technologies relevant to this territory.
+- Favourited technologies surface in territory views and can be used in scoring rules.
+- Technologies appear as a card grid with logos for easy browsing.
+
+{/* IMAGE PLACEHOLDER: Screenshot of tech stack favouriting panel */}
+
+## Cloning a Territory
+
+<Steps>
+  <Step title="Open the source territory">
+    Open the territory you want to clone.
+  </Step>
+  <Step title="Clone">
+    Use the clone action (typically via a menu or action button).
+  </Step>
+  <Step title="Review and rename">
+    The clone copies the territory structure, settings, and account assignments. Rename the cloned territory and adjust settings as needed.
+  </Step>
+</Steps>
+
+<Note>
+  Cloning is non-destructive — the original territory is unaffected.
+</Note>
+
+## Common Configurations
+
+**Enterprise territory structure:**
+- One territory per region/segment (e.g. "EMEA Enterprise", "US Enterprise - East")
+- Enable all relevant enriched columns (tech stack, jobs, employee groups, insights)
+- Assign a comprehensive scoring model
+- Track technologies relevant to your ICP
+
+**SMB / velocity territory:**
+- Broader territories with more accounts
+- Fewer enriched columns (focus on high-signal items)
+- Simpler scoring models with fewer rules
+- Filter-based account assignment to keep territories current
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| Accounts not appearing in territory | Not yet added or filter not matching | Check account assignment method — manual, CSV, or filter |
+| PG:AI Score shows 50.00 for all accounts | No scoring model assigned or model not published | Assign and publish a scoring model in Territory Settings |
+| Enriched data missing from views | Enriched columns toggled off | Check Territory Settings → Enriched Columns and toggle on |
+| Territory clone missing some data | Clone copies structure but enrichment may need to re-run | Trigger a territory enrichment run after cloning |

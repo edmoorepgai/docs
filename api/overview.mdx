@@ -1,0 +1,99 @@
+---
+title: "API Overview"
+description: "Integrate PG:AI intelligence into your applications and workflows via the REST API"
+icon: "code"
+---
+
+The PG:AI API gives you programmatic access to account intelligence, territory data, contacts, content, and AI assistant capabilities. Use it to pull intelligence into your own tools, automate workflows, or build custom integrations.
+
+## Base URL
+
+```
+https://api.pipelinegeneration.ai/v1
+```
+
+## Quick Start
+
+<Steps>
+  <Step title="Get your API key">
+    Generate an API key in **Configuration > API** within your PG:AI workspace.
+  </Step>
+  <Step title="Make your first request">
+    ```bash
+    curl -X GET "https://api.pipelinegeneration.ai/v1/territories" \
+      -H "x-api-key: your_api_key"
+    ```
+  </Step>
+  <Step title="Explore the endpoints">
+    Browse the endpoint reference below to see what's available.
+  </Step>
+</Steps>
+
+## Endpoint Reference
+
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="/Documentation-New/api/authentication">
+    API key setup, permissions, and error handling
+  </Card>
+  <Card title="Companies" icon="building" href="/Documentation-New/api/companies">
+    Company data, profiles, content, contacts, and tech stacks
+  </Card>
+  <Card title="Contacts" icon="user" href="/Documentation-New/api/contacts">
+    List, retrieve, and create contacts
+  </Card>
+  <Card title="Territories" icon="map" href="/Documentation-New/api/territories">
+    Territory management and company lists
+  </Card>
+  <Card title="Tasks" icon="list-check" href="/Documentation-New/api/tasks">
+    Create and manage sales tasks
+  </Card>
+  <Card title="Workflows" icon="diagram-project" href="/Documentation-New/api/workflows">
+    Trigger and monitor automated workflows
+  </Card>
+  <Card title="Search" icon="magnifying-glass" href="/Documentation-New/api/search">
+    Unified search across companies, contacts, and content
+  </Card>
+  <Card title="Knowledge Graph" icon="diagram-project" href="/Documentation-New/api/graph">
+    Company relationship and relevance mapping
+  </Card>
+  <Card title="Assistant" icon="message-bot" href="/Documentation-New/api/assistant">
+    AI-powered company research chat
+  </Card>
+  <Card title="Webhooks" icon="webhook" href="/Documentation-New/api/webhooks">
+    Real-time event notifications
+  </Card>
+</CardGroup>
+
+## All Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/v1/companies/{company_id}` | Get company by ID |
+| `GET` | `/v1/companies/{company_id}/profile` | Get customizable company profile |
+| `GET` | `/v1/companies/{company_id}/content` | Get company content |
+| `POST` | `/v1/companies/{company_id}/contacts` | Search company contacts |
+| `POST` | `/v1/companies/{company_id}/technologies` | Get company tech stack |
+| `GET` | `/v1/companies/{company_id}/graph` | Get company knowledge graph |
+| `POST` | `/v1/companies/{company_id}/assistant/chat` | Chat with AI assistant |
+| `GET` | `/v1/companies/{company_id}/assistant/conversations` | List assistant conversations |
+| `GET` | `/v1/companies/{company_id}/assistant/conversations/{id}` | Get conversation details |
+| `POST` | `/v1/accounts` | Search accounts |
+| `GET` | `/v1/contacts` | List contacts |
+| `GET` | `/v1/contacts/{contact_id}` | Get contact by ID |
+| `POST` | `/v1/contacts` | Create a contact |
+| `GET` | `/v1/territories` | List territories |
+| `GET` | `/v1/territories/{territory_id}` | Get territory details |
+| `GET` | `/v1/territories/{territory_id}/companies` | List territory companies |
+| `GET` | `/v1/tasks` | List tasks |
+| `GET` | `/v1/tasks/{task_id}` | Get task details |
+| `POST` | `/v1/tasks` | Create a task |
+| `PATCH` | `/v1/tasks/{task_id}` | Update a task |
+| `GET` | `/v1/workflows` | List workflows |
+| `POST` | `/v1/workflows/trigger` | Trigger a workflow |
+| `GET` | `/v1/workflows/executions/{execution_id}` | Get execution status |
+| `GET` | `/v1/search` | Unified search |
+| `GET` | `/v1/organization/credits` | Get organization credits |
+
+## Rate Limits
+
+API requests are rate-limited based on your plan. When you hit the limit, the API returns `429 Too Many Requests`. See the [Authentication](/Documentation-New/api/authentication) page for details on rate limit headers.

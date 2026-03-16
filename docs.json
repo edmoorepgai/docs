@@ -11,130 +11,189 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentation",
+        "tab": "Get Started",
         "groups": [
           {
             "group": "Get Started",
             "pages": [
               "get-started/introduction",
               "get-started/quickstart",
+              "get-started/for-aes-scs",
+              "get-started/for-bdrs",
+              "get-started/for-sales-leaders",
+              "get-started/for-revops",
               "get-started/faq"
-            ]
-          },
-          {
-            "group": "Account Intelligence",
-            "pages": [
-              "account-intelligence/overview-index",
-              "account-intelligence/peer-analysis",
-              "account-intelligence/insights",
-              "account-intelligence/engage",
-              "account-intelligence/contacts",
-              "account-intelligence/tech-stack",
-              "account-intelligence/content",
-              "account-intelligence/ai-assistant"
-            ]
-          },
-          {
-            "group": "Data Dictionary",
-            "pages": [
-              {
-                "group": "Company Insights",
-                "pages": [
-                  "data-dictionary/company-insights/strategic-priorities",
-                  "data-dictionary/company-insights/goals",
-                  "data-dictionary/company-insights/risks",
-                  "data-dictionary/company-insights/digital-strategies",
-                  "data-dictionary/company-insights/priority-scores",
-                  "data-dictionary/company-insights/financial-analysis",
-                  "data-dictionary/company-insights/organisation-structure",
-                  "data-dictionary/company-insights/quarterly-reports",
-                  "data-dictionary/company-insights/peer-analysis",
-                  "data-dictionary/company-insights/swot-analysis",
-                  "data-dictionary/company-insights/industry-insights",
-                  "data-dictionary/company-insights/contacts"
-                ]
-              },
-              {
-                "group": "Engage Insights",
-                "pages": [
-                  "data-dictionary/engage-insights/value-pyramid",
-                  "data-dictionary/engage-insights/three-whys",
-                  "data-dictionary/engage-insights/discovery-questions",
-                  "data-dictionary/engage-insights/facts-and-figures",
-                  "data-dictionary/engage-insights/custom-insights"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Account",
-            "pages": [
-              "account/usage-and-analytics",
-              "account/team",
-              "account/billing",
-              "account/credit-limit"
-            ]
-          },
-          {
-            "group": "Content",
-            "pages": [
-              "content-overview/content-groups",
-              "content-overview/content-templates"
-            ]
-          },
-          {
-            "group": "Settings",
-            "pages": [
-              "settings/datasets",
-              "settings/engage",
-              "settings/custom-insights",
-              "settings/personas",
-              "settings/workflows",
-              "settings/technologies"
-            ]
-          },
-          {
-            "group": "Security",
-            "pages": [
-              "security/overview",
-              "security/subprocessor-list"
             ]
           }
         ]
       },
       {
-        "tab": "Guides",
+        "tab": "Playbooks",
+        "groups": [
+          {
+            "group": "Playbooks",
+            "pages": [
+              "playbooks/overview",
+              "playbooks/meeting-preparation",
+              "playbooks/account-planning",
+              "playbooks/territory-planning",
+              "playbooks/prospecting-outbound",
+              "playbooks/competitive-research",
+              "playbooks/qbr-ebc-preparation",
+              "playbooks/new-territory-ramp",
+              "playbooks/content-generation",
+              "playbooks/account-monitoring",
+              "playbooks/territory-analysis-project"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Account",
+        "groups": [
+          {
+            "group": "Account Intelligence",
+            "pages": [
+              "account/overview",
+              "account/strategic-insights",
+              "account/technology-intelligence",
+              "account/hiring-jobs",
+              "account/financial-intelligence",
+              "account/org-chart",
+              "account/sales-engagement"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Territory",
+        "groups": [
+          {
+            "group": "Planning & Scoring",
+            "pages": [
+              "territory/overview",
+              "territory/territory-management",
+              "territory/territory-enrichment",
+              "territory/scoring-models",
+              "territory/strategic-insights-scoring",
+              "territory/scenarios-recommendations"
+            ]
+          },
+          {
+            "group": "Analysis & Data",
+            "pages": [
+              "territory/custom-columns",
+              "territory/employee-groups",
+              "territory/jobs",
+              "territory/territory-analytics"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Contact",
+        "groups": [
+          {
+            "group": "Contact",
+            "pages": [
+              "contact/overview",
+              "contact/discovery",
+              "contact/enrichment",
+              "contact/intelligence"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Studio",
+        "groups": [
+          {
+            "group": "Studio",
+            "pages": [
+              "studio/overview",
+              "studio/the-agent",
+              "studio/canvas",
+              "studio/workflows",
+              "studio/projects-tasks",
+              "studio/account-toolbar"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Monitoring",
+        "groups": [
+          {
+            "group": "Monitoring",
+            "pages": [
+              "monitoring/overview",
+              "monitoring/monitoring-agents",
+              "monitoring/alerts"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Settings",
+        "groups": [
+          {
+            "group": "Configuration",
+            "pages": [
+              "configuration/overview",
+              "configuration/personas",
+              "configuration/engage-settings",
+              "configuration/custom-insights",
+              "configuration/favourite-technologies",
+              "configuration/datasets",
+              "configuration/workflow-templates",
+              "configuration/crm-integration",
+              "configuration/team-permissions"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API",
         "groups": [
           {
             "group": "Getting Started",
             "pages": [
-              "guides/getting-started/add-first-account"
+              "api/overview",
+              "api/authentication"
             ]
           },
           {
-            "group": "Pipeline Generation",
+            "group": "Endpoints",
             "pages": [
-              "guides/pipeline-generation/identifying-contacts"
+              "api/companies",
+              "api/contacts",
+              "api/territories",
+              "api/tasks",
+              "api/workflows",
+              "api/search",
+              "api/graph",
+              "api/assistant"
             ]
           },
           {
-            "group": "Content",
+            "group": "Events",
             "pages": [
-              "guides/content/creating-templates",
-              "guides/content/using-templates"
+              "api/webhooks"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "MCP",
+        "groups": [
           {
-            "group": "Templates",
+            "group": "MCP Server",
             "pages": [
-              "guides/content/content-templates/use-case-alignment-template"
-            ]
-          },
-          {
-            "group": "Collaboration",
-            "pages": [
-              "guides/collaboration/comments",
-              "guides/collaboration/share"
+              "platform/mcp/overview",
+              "platform/mcp/quickstart",
+              "platform/mcp/tools",
+              "platform/mcp/resources",
+              "platform/mcp/examples"
             ]
           }
         ]

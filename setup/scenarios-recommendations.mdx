@@ -1,0 +1,138 @@
+---
+title: "Scenarios & Recommendations — Setup Guide"
+description: "How to create scenarios and use AI-powered recommendations for territory planning"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Scenarios & Recommendations */}
+
+## Prerequisites
+
+<Note>
+  Before using scenarios and recommendations, ensure you have:
+  - **Admin or RevOps access** to your PG:AI organisation
+  - At least one **territory with accounts** and a **published scoring model**
+  - Recommended: Enrichment, criteria, jobs, and employee groups configured (these feed the recommendation engine)
+</Note>
+
+## Overview
+
+Scenarios let you create what-if versions of a territory. You model changes — reassign accounts, adjust allocations — without affecting the live territory. AI-powered recommendations suggest where to focus based on scores, rep capacity, and geography.
+
+## Creating a Scenario
+
+<Steps>
+  <Step title="Open a territory">
+    Open an existing territory.
+  </Step>
+  <Step title="Create a new scenario">
+    Create a new scenario from the territory (via menu or action button). The scenario inherits the territory's accounts, scores, settings, and data.
+  </Step>
+  <Step title="Name the scenario">
+    Give the scenario a descriptive name (e.g. "Q3 Rebalance - Option A", "New Rep Model").
+  </Step>
+</Steps>
+
+<Note>
+  The scenario is now a sandboxed copy you can modify freely.
+</Note>
+
+{/* IMAGE PLACEHOLDER: Screenshot of scenario creation from territory */}
+
+## Working with Scenarios
+
+### Override Account Assignments
+
+Within a scenario, you can reassign specific accounts:
+- Move accounts between reps
+- Remove accounts from the scenario
+- Add accounts that aren't in the base territory
+
+<Warning>
+  Overrides only affect the scenario — the live territory is unchanged.
+</Warning>
+
+{/* IMAGE PLACEHOLDER: Screenshot of account reassignment within a scenario */}
+
+### Generate AI Recommendations
+
+Trigger the AI recommendation engine to suggest:
+- Which accounts should be prioritised
+- How to rebalance account assignments across reps
+- Where geographic proximity could improve coverage
+
+Recommendations are based on:
+- **Scoring model outputs** (account scores)
+- **Rep capacity** (how many accounts each rep can handle)
+- **Geographic distance** (proximity between rep and account locations)
+- **Current coverage gaps**
+
+{/* IMAGE PLACEHOLDER: Screenshot of AI recommendations list */}
+
+### Review and Act on Recommendations
+
+Each recommendation can be:
+- **Accepted** — the suggested change is applied to the scenario
+- **Declined** — the suggestion is dismissed
+
+<Tip>
+  You can accept or decline individually, or use bulk actions to process many recommendations at once.
+</Tip>
+
+### Scenario Summary
+
+Review a summary showing:
+- Changes made vs. the base territory
+- Recommendations accepted vs. declined
+- Impact on score distribution and coverage
+
+{/* IMAGE PLACEHOLDER: Screenshot of scenario summary view */}
+
+## Applying Scenario Changes
+
+Once you're satisfied with a scenario:
+
+<Steps>
+  <Step title="Review the scenario summary">
+    Verify all changes and their impact.
+  </Step>
+  <Step title="Apply changes">
+    Apply the scenario changes back to the live territory.
+  </Step>
+  <Step title="Confirm">
+    The live territory updates with the new assignments and settings.
+  </Step>
+</Steps>
+
+<Warning>
+  This is a one-way operation — once applied, the live territory reflects the scenario. Create a new scenario if you want to continue modelling.
+</Warning>
+
+## Common Configurations
+
+**Quarterly territory rebalance:**
+1. Clone the current territory as a scenario
+2. Generate AI recommendations
+3. Review and accept/decline
+4. Share scenario summary with sales leadership for approval
+5. Apply to live territory
+
+**New rep onboarding:**
+1. Create a scenario to model adding a new rep
+2. Let AI recommend which accounts to reassign
+3. Check geographic proximity for the new rep's location
+4. Apply once approved
+
+**Annual planning:**
+1. Create multiple scenarios with different allocation strategies
+2. Compare scoring distributions and coverage across scenarios
+3. Pick the best option and apply
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| Recommendations not generating | Scoring model not published or insufficient data | Publish a scoring model and ensure enrichment is complete |
+| All recommendations suggest the same changes | Limited variation in scores | Review scoring model — rules may need more signals |
+| Scenario changes not applying to live territory | Confirmation step missed or insufficient permissions | Ensure you have admin access and confirm the apply action |
+| Geographic recommendations seem wrong | Rep locations not configured or account locations incomplete | Check that location data is enriched for accounts |

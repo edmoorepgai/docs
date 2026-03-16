@@ -1,0 +1,149 @@
+---
+title: "Territory Planning & Prioritisation"
+description: "Score, segment, and prioritise your territory based on real account signals — not spreadsheets and firmographics"
+icon: "map"
+---
+
+Build a territory plan where every account is scored on strategic signals, not just employee count and industry code. This playbook walks you through importing accounts, enriching them, building a scoring model, and segmenting your territory so your team knows exactly where to focus.
+
+<Info>
+**Who this is for:** RevOps, Sales Leaders, anyone responsible for territory design and account prioritisation.
+
+**Time:** 2-3 hours for a full territory build. Enrichment runs in the background, so much of this is configuration and review.
+
+**What you'll have at the end:** A scored, ranked, segmented territory with every account enriched with strategic intelligence. Exportable to your CRM or usable directly in PG:AI.
+</Info>
+
+## Step 1: Create the Territory (10 min)
+
+Go to **Territory → Territory Management** and create a new territory.
+
+**Import accounts** via one of:
+- **CSV upload** — Export from your CRM or spreadsheet. Minimum fields: company name, domain. PG:AI matches and deduplicates.
+- **CRM sync** — If connected, pull accounts directly from Salesforce or HubSpot with filters (e.g. all accounts owned by a specific rep, all accounts in a specific segment).
+- **Manual add** — For smaller territories, add accounts individually.
+
+<Tip>
+Start with a manageable size for your first territory — 100-300 accounts. Once you're confident in the enrichment and scoring, expand to the full universe.
+</Tip>
+
+{/* IMAGE PLACEHOLDER: Screenshot of territory creation / account import */}
+
+## Step 2: Configure Enrichment (5 min)
+
+Go to **Territory → Enrichment** and configure which intelligence modules to activate for this territory:
+
+- **Strategic Insights Scoring** — Score accounts against strategic criteria you define (e.g. "Is this company prioritising cloud migration?")
+- **Tech Stack** — Detect technologies from job postings. Essential if you want to score on technology fit.
+- **Jobs & Hiring Signals** — Track hiring patterns and hiring volume by role.
+- **Employee Groups** — Count employees matching specific role patterns (e.g. "How many data engineers work here?")
+
+Enable the modules relevant to your scoring approach, then run enrichment. This processes in the background — for 200 accounts, expect 30-60 minutes.
+
+{/* IMAGE PLACEHOLDER: Screenshot of enrichment configuration */}
+
+## Step 3: Define Strategic Insight Criteria (15 min)
+
+Go to **Territory → Strategic Insights Scoring**. This is where you define the strategic topics that matter for your business.
+
+For each criterion, define:
+- **Name** — e.g. "Cloud Migration Priority"
+- **Description** — What you're looking for. The more specific, the better the scoring. E.g. "Evidence that this company is actively migrating workloads to public cloud (AWS, Azure, GCP), including infrastructure modernisation, cloud-native development, or data platform migration."
+
+PG:AI scores every account 0-100 against each criterion based on the strategic intelligence it's gathered.
+
+**Tips for good criteria:**
+- Be specific about what you're looking for. "Digital transformation" is too vague. "Migrating on-premise databases to cloud-native data platforms" is specific enough to score accurately.
+- Use 3-5 criteria. More than that dilutes the signal.
+- Include at least one negative criterion if relevant (e.g. "In cost-cutting mode with hiring freeze" might be a signal to deprioritise).
+
+{/* IMAGE PLACEHOLDER: Screenshot of strategic insight criteria configuration */}
+
+## Step 4: Build the Scoring Model (10 min)
+
+Go to **Territory → Scoring Models**. Create a model that combines your signals into a single PG:AI Score per account.
+
+**Available signal categories:**
+- Strategic Insight criteria scores (from Step 3)
+- Tech stack signals (favourite technologies present/absent)
+- Hiring signals (hiring volume, specific role patterns)
+- Employee groups (headcount matching role patterns)
+- Firmographic data (revenue, employee count, industry)
+
+**Weight each signal** based on importance. A typical starting point:
+- Strategic alignment: 40%
+- Technology fit: 25%
+- Hiring signals: 15%
+- Firmographics: 20%
+
+Then run the model across the territory.
+
+{/* IMAGE PLACEHOLDER: Screenshot of scoring model configuration with weights */}
+
+## Step 5: Validate the Model (15 min)
+
+This is the step that makes the difference between a scoring model that works and one that doesn't.
+
+**Take your known outcomes** — closed-won deals from the last 6-12 months and closed-lost deals — and check how they score:
+- Do won accounts score higher on average than lost accounts?
+- Are your best customers in the top tier?
+- Are accounts you know are poor fit scoring low?
+
+If the model ranks your known good accounts higher than your known bad accounts, it's working. If not, adjust the weights and criteria.
+
+<Note>
+Perfect accuracy isn't the goal. The goal is: "if a rep follows the scoring, they'll spend more time on better accounts than they would on gut feel alone." Even a model that's 70% accurate is better than no model.
+</Note>
+
+## Step 6: Review and Segment (15 min)
+
+Go to **Territory → Analytics** to see how the territory looks:
+
+- **Score distribution** — How are accounts distributed across score tiers? You want a bell curve or pyramid, not everything clustered in the middle.
+- **Segment breakdown** — If you have segments (industry, size, geography), how does scoring vary across them?
+- **Coverage** — How many accounts are enriched? Any gaps?
+
+Use this to create segments:
+- **Tier 1 (top 20%)** — Deep engagement, full account plans, regular touchpoints
+- **Tier 2 (next 30%)** — Active prospecting, meeting prep on demand
+- **Tier 3 (bottom 50%)** — Monitoring only, engage when signals change
+
+{/* IMAGE PLACEHOLDER: Screenshot of Territory Analytics showing score distribution */}
+
+## Step 7: Assign and Distribute (10 min)
+
+Use **Scenarios & Recommendations** to model different territory assignments:
+- Balance by score tier (each rep gets a fair mix of Tier 1/2/3)
+- Balance by geography or industry
+- Balance by total account count or total score value
+
+Review the AI recommendations, accept or adjust, and publish the assignments.
+
+## What You Should Have Now
+
+- Every account enriched with strategic intelligence, tech stack, hiring signals
+- A validated scoring model that ranks accounts on strategic fit
+- Score-based segmentation (Tier 1/2/3)
+- Territory assignments balanced and published
+- Analytics showing territory health and distribution
+
+## Tips
+
+- **Revisit scoring quarterly.** Markets change, your ICP evolves, and the model should evolve with it. Run validation against recent outcomes every quarter.
+- **Use Custom Columns for ad-hoc analysis.** Need to know something specific across all accounts? Custom Columns let you ask any question and get AI-researched answers at scale.
+- **Don't over-engineer.** 3-5 scoring criteria with reasonable weights beats a complex model with 15 criteria that nobody understands.
+- **Export to CRM.** Push scores and key enrichment data back to Salesforce/HubSpot so reps see it in their daily workflow, not just in PG:AI.
+
+## Related
+
+<CardGroup cols={3}>
+  <Card title="New Territory Ramp" icon="rocket" href="/playbooks/new-territory-ramp">
+    Set up a territory for a new hire — pre-loaded with intelligence
+  </Card>
+  <Card title="Territory Analysis" icon="chart-mixed" href="/playbooks/territory-analysis-project">
+    Run a deep analysis of an existing territory
+  </Card>
+  <Card title="Scoring Models" icon="chart-simple" href="/territory/scoring-models">
+    Detailed reference for building and configuring scoring models
+  </Card>
+</CardGroup>

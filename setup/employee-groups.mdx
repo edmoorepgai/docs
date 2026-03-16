@@ -1,0 +1,124 @@
+---
+title: "Employee Groups — Setup Guide"
+description: "How to define and configure employee groups for territory planning"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Employee Groups */}
+
+## Prerequisites
+
+<Note>
+  Before setting up employee groups, ensure you have:
+  - **Admin or RevOps access** to your PG:AI organisation
+  - At least one **territory created**
+  - **Contact and job data enriched** for your accounts (employee groups match against this data)
+</Note>
+
+## Overview
+
+Employee Groups help you find out how many employees at each account match certain keywords — whether that's job titles, technologies, or specific roles. You define groups by name and keyword, and PG:AI matches them across all contacts and job data in your territories.
+
+Navigate to **Territories → Employee Groups** in the left sidebar.
+
+<Info>
+  Setting employee groups can help finding out the number of employees that match certain keywords like technologies or job roles.
+</Info>
+
+## Creating an Employee Group
+
+<Steps>
+  <Step title="Navigate to Employee Groups">
+    Go to **Territories → Employee Groups** in the left sidebar.
+  </Step>
+  <Step title="Add new group">
+    Click **+ New Employee Group** (top-right button).
+  </Step>
+  <Step title="Fill in the form">
+    Complete the group details:
+
+    | Field | Description | Example |
+    |-------|-------------|---------|
+    | **Employee Group Name** | A descriptive name for this group | "Enterprise Account Executive" |
+    | **Title Keywords** | Keywords to look for in job titles | "Account Executive", "Enterprise AE" |
+    | **Description Keywords** | Keywords to look for in job descriptions | "Enterprise", "Strategic accounts" |
+  </Step>
+  <Step title="Save">
+    Click **Save**. The employee group is now created and will begin matching against contact and job data across your territories.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of new employee group creation form */}
+
+## How Matching Works
+
+PG:AI searches across contacts and job postings for your territory accounts, looking for matches against your title keywords and description keywords. When a match is found, that person or role is counted in the employee group for that account.
+
+This gives you a per-account headcount for each group — e.g. "Harness has 4 Enterprise Account Executives" or "Collibra has 12 MEDDPICC-related roles."
+
+## Managing Employee Groups
+
+The Employee Groups settings page shows all groups in a table:
+
+| Column | Description |
+|--------|-------------|
+| Group Name | The name you gave the employee group |
+| Job Titles | Title keywords configured for this group (shown as tags) |
+| Keywords | Description keywords configured for this group (shown as tags) |
+| Created at | When the group was created |
+
+- Click any group to edit its keywords.
+- Use the search bar to filter groups by name.
+
+{/* IMAGE PLACEHOLDER: Screenshot of employee groups management table */}
+
+## Using Employee Groups in Territory Settings
+
+Employee groups appear in your territory's **Enriched Columns** settings (Territory Settings → Enriched Columns) with the type "Employee groups". Toggle them on to include employee group data in territory views and scoring.
+
+For example, from the enriched columns panel:
+- "Pipeline Generation" — Employee groups — Included: **ON**
+- "Enterprise Account Executive" — Employee groups — Included: **OFF**
+
+<Tip>
+  Only groups toggled on will contribute data to this territory's views and scoring models.
+</Tip>
+
+## Using Employee Groups in Scoring Models
+
+Employee group counts can be used as inputs to scoring model rules. For example:
+
+- "If Pipeline Generation employee group count > 5, add 15 points"
+- "Baseline rule for Pipeline Generation — Employee group" (as shown in scoring model ruleset weights)
+
+See the [Scoring Models setup guide](/setup/scoring-models) for details.
+
+## Common Configurations
+
+**Buying committee groups:**
+
+| Group Name | Title Keywords | Description Keywords |
+|-----------|----------------|---------------------|
+| Enterprise Account Executive | Account Executive, AE, Enterprise Sales | Enterprise, Strategic |
+| MEDDIC / MEDDPICC | MEDDPIC, MEDDPICC | Sales methodology |
+| CoM & CoS | Command of the..., Command c... | Command of message, Command of sale |
+
+**Departmental groups:**
+
+| Group Name | Title Keywords | Description Keywords |
+|-----------|----------------|---------------------|
+| Pipeline Generation | Pipeline, BDR, SDR | Pipeline generation, Lead generation |
+| Total Employees | (broad keywords) | (broad keywords) |
+
+<Tip>
+  Keep group names short and descriptive. Use multiple keywords per group to catch variations (e.g. "CRO", "Chief Revenue Officer", "Chief revenue" for the same role).
+</Tip>
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| Employee group shows 0 matches for all accounts | Keywords too specific or contact data not enriched | Broaden keywords or run contact enrichment |
+| Group not appearing in territory enriched columns | Group not yet included | Go to Territory Settings → Enriched Columns and toggle the group on |
+| Too many false positive matches | Keywords too broad | Narrow keywords — use exact title matches rather than generic terms |
+| Employee group data not feeding into scoring | Group not enabled in enriched columns for this territory | Toggle on in Territory Settings → Enriched Columns |

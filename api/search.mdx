@@ -1,0 +1,83 @@
+---
+title: "Search"
+description: "Unified search across companies, contacts, and content"
+icon: "magnifying-glass"
+---
+
+## Unified Search
+
+Search across multiple entity types in a single request. The API searches companies, contacts, and content in parallel and returns categorized results.
+
+<ParamField query="q" type="string" required>
+  The search query. Must be at least 1 character.
+</ParamField>
+
+<ParamField query="types" type="string">
+  Comma-separated list of entity types to search. Valid values: `companies`, `contacts`, `content`. Defaults to all types if not specified.
+</ParamField>
+
+<ParamField query="limit" type="integer" default="10">
+  Maximum number of results per type. Range: 1–100.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.pipelinegeneration.ai/v1/search?q=acme&types=companies,contacts&limit=5" \
+  -H "x-api-key: your_api_key"
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "query": "acme",
+  "total": 7,
+  "results": {
+    "companies": {
+      "items": [
+        {
+          "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "name": "Acme Corporation",
+          "domain": "acme.com",
+          "industry": "Technology"
+        },
+        {
+          "id": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+          "name": "Acme Labs",
+          "domain": "acmelabs.io",
+          "industry": "Research"
+        }
+      ],
+      "count": 2
+    },
+    "contacts": {
+      "items": [
+        {
+          "id": "c1d2e3f4-a5b6-7890-cdef-123456789012",
+          "first_name": "Jane",
+          "last_name": "Smith",
+          "email": "jane.smith@acme.com",
+          "job_title": "VP of Engineering"
+        }
+      ],
+      "count": 1
+    }
+  }
+}
+```
+</ResponseExample>
+
+### Search Behavior
+
+- When `types` is omitted, all three types (`companies`, `contacts`, `content`) are searched in parallel.
+- Each type returns up to `limit` results independently.
+- If a specific type search fails, its result will include an `error` field, but other types will still return successfully.
+- The `total` field reflects the combined count across all returned types.
+
+### Error Response for Invalid Types
+
+```json
+{
+  "error": "Invalid types parameter. Valid values: companies, contacts, content"
+}
+```

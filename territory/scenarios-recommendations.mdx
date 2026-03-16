@@ -1,0 +1,157 @@
+---
+title: "Scenarios & Recommendations"
+description: "Run AI-powered what-if territory plans — model different account assignments, get recommendations on where to focus, and accept or decline changes at scale."
+icon: "wand-magic-sparkles"
+---
+
+Scenarios & Recommendations lets you create what-if versions of your territories and receive AI-powered suggestions for optimising coverage. A scenario inherits accounts, scores, and data from a live territory — then you make changes, model different structures, and compare outcomes without affecting anything live. The platform generates recommendations based on scoring model outputs, rep capacity, geographic proximity, and other signals.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Scenarios & Recommendations */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Scenarios & Recommendations main view */}
+
+## Key Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Scenario Management" icon="code-branch">
+    Create what-if scenarios from any live territory. Override account assignments, add or remove accounts, and review summaries showing changes vs. the base territory.
+  </Card>
+  <Card title="AI Recommendations" icon="robot">
+    Generate AI-powered recommendations based on scores, capacity, and geography. Accept or decline individually or in bulk. Track recommendation acceptance rates and outcomes.
+  </Card>
+  <Card title="Planning Tools" icon="compass-drafting">
+    Calculate geographic proximity between reps and accounts. Model different rep allocations and capacity constraints. Apply scenario changes back to live territories when ready.
+  </Card>
+</CardGroup>
+
+## What Scenarios and Recommendations Do
+
+Scenarios let you ask "what if" questions about your territory:
+- What if I changed the scoring model?
+- What if I adjusted the weights?
+- What if I added or removed accounts?
+- What if I carved the territory differently?
+
+Recommendations are AI-generated suggestions for improving your territory — accounts to add, accounts to remove, or changes that would strengthen overall coverage.
+
+Together, they help you move from "here's my territory" to "here's the best version of my territory."
+
+## Common Workflows
+
+### Running a What-If Scenario
+
+<Steps>
+  <Step title="Open Scenarios">
+    Navigate to the Scenarios section for your territory.
+  </Step>
+  <Step title="Select a parameter to change">
+    Choose what to adjust — scoring model, weights, account list, segmentation criteria.
+  </Step>
+  <Step title="Apply as a scenario">
+    Apply the change as a scenario (not permanently).
+  </Step>
+  <Step title="Review projected impact">
+    How do scores shift? Which accounts move up or down? Does the High/Medium/Low distribution improve?
+  </Step>
+  <Step title="Decide">
+    If the scenario looks good, apply it permanently. If not, discard and try another.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing a scenario comparison view */}
+
+### Reviewing AI Recommendations
+
+<Steps>
+  <Step title="Open Recommendations">
+    Navigate to the Recommendations section.
+  </Step>
+  <Step title="Review AI suggestions">
+    PG:AI analyses your territory and suggests improvements based on data patterns.
+  </Step>
+  <Step title="Understand recommendation types">
+    Common types include:
+    - **Add accounts** — companies that match your territory criteria but aren't included
+    - **Remove accounts** — companies that score consistently low and may not be a good fit
+    - **Rebalance** — accounts that would perform better in a different territory or segment
+    - **Model adjustments** — suggestions for tweaking scoring weights based on conversion patterns
+  </Step>
+  <Step title="Act on each recommendation">
+    Accept, reject, or investigate further.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing AI recommendations with accept/decline actions */}
+
+### Comparing Scenarios Side-by-Side
+
+<Steps>
+  <Step title="Create Scenario A">
+    Apply one set of changes.
+  </Step>
+  <Step title="Create Scenario B">
+    Apply a different set of changes.
+  </Step>
+  <Step title="Compare key metrics">
+    Compare average score, score distribution, number of High accounts, coverage gaps.
+  </Step>
+  <Step title="Choose the best approach">
+    Select the scenario that best aligns with your goals.
+  </Step>
+</Steps>
+
+### Pre-QBR Territory Optimisation
+
+<Steps>
+  <Step title="Run a scenario">
+    Create a scenario with your current scoring model.
+  </Step>
+  <Step title="Check recommendations">
+    Review AI recommendations — are there obvious improvements?
+  </Step>
+  <Step title="Apply improvements">
+    Accept any recommendations that make sense.
+  </Step>
+  <Step title="Present with confidence">
+    Present the optimised territory with data backing your decisions.
+  </Step>
+</Steps>
+
+## Understanding Recommendation Confidence
+
+Recommendations may include a confidence level or strength indicator:
+
+| Confidence | Meaning | Action |
+|-----------|---------|--------|
+| **Strong** | High-confidence suggestion backed by multiple data signals | Likely worth acting on |
+| **Moderate** | Reasonable suggestion, but based on fewer signals | Review the underlying data before deciding |
+| **Exploratory** | Pattern detected, but not conclusive | Worth investigating, not auto-accepting |
+
+<Warning>Always check the reasoning behind a recommendation. Understanding **why** PG:AI made the suggestion is more valuable than just following it.</Warning>
+
+## Tips and Best Practices
+
+<Tip>**Use scenarios before major changes** — before restructuring territories or changing scoring models, run a scenario first to see the projected impact.</Tip>
+
+<Note>**Don't accept all recommendations blindly** — AI sees patterns in data; you have context it doesn't (relationship history, pending deals, strategic accounts).</Note>
+
+- **Iterate** — the best territories come from multiple rounds of scenario testing and refinement.
+- **Document decisions** — when you apply a scenario or act on a recommendation, note why. This helps when reviewing performance later.
+- **Review recommendations monthly** — as data changes (new enrichment, new job postings, score updates), new recommendations will surface.
+
+## Related Modules
+
+<CardGroup cols={3}>
+  <Card title="Scoring Models" icon="chart-simple" href="/territory/scoring-models">
+    Scoring model outputs are a primary input to AI recommendations.
+  </Card>
+  <Card title="Territory Management" icon="layer-group" href="/territory/territory-management">
+    Scenarios are built from and save back to live territories.
+  </Card>
+  <Card title="Territory Analytics" icon="chart-pie" href="/territory/territory-analytics">
+    Scenario outcomes can be compared using analytics.
+  </Card>
+  <Card title="Strategic Insights Scoring" icon="lightbulb" href="/territory/strategic-insights-scoring">
+    Insight scores feed the recommendations engine.
+  </Card>
+</CardGroup>

@@ -1,0 +1,123 @@
+---
+title: "Territory Enrichment — Setup Guide"
+description: "How to configure and manage enrichment scoped to your territories"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Territory Enrichment */}
+
+## Prerequisites
+
+<Note>
+  Before configuring territory enrichment, ensure you have:
+  - **Admin or RevOps access** to your PG:AI organisation
+  - At least one **territory with accounts**
+  - **Enrichment credits available** in your organisation
+</Note>
+
+## Overview
+
+Territory Enrichment controls which enriched data columns are included in each territory. From the territory settings, you toggle which enrichment types — tech stack, jobs, employee groups, insights — are active for that territory.
+
+The enrichment system runs in the background, populating data for your territory accounts based on what you've enabled.
+
+## Configuring Enriched Columns per Territory
+
+This is the primary enrichment configuration and is done per-territory.
+
+<Steps>
+  <Step title="Open a territory">
+    Open the territory you want to configure.
+  </Step>
+  <Step title="Open Territory Settings">
+    Click the **gear icon** (top-right) to open **Territory Settings**.
+  </Step>
+  <Step title="Select the Enriched Columns tab">
+    The panel shows: *"Select the enriched columns you want to include in this territory"*
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of enriched columns settings panel */}
+
+### The Enriched Columns Table
+
+Each row represents an enriched data source:
+
+| Column | Description |
+|--------|-------------|
+| Name | The name of the enriched item (e.g. "Technology Stack", "RevOps Job Monitoring") |
+| Type | The data category — one of: **Tech stack**, **Jobs**, **Employee groups**, **Insights** |
+| Description | What this enrichment tracks |
+| Included | Toggle ON/OFF to include or exclude from this territory |
+
+### Enrichment Types
+
+| Type | What It Provides | Source |
+|------|-----------------|--------|
+| **Tech stack** | Technologies used by each account | Technology Stack enrichment |
+| **Jobs** | Job postings matching your saved job searches | Jobs settings (Territories → Jobs) |
+| **Employee groups** | Employee counts matching your defined groups | Employee Groups settings (Territories → Employee Groups) |
+| **Insights** | Insight scores matching your strategic criteria | Strategic Insights Scoring (Territories → Strategic Insights Scoring) |
+
+### Toggling Enrichments
+
+- **ON** — this enrichment data is included in territory views, feeds scoring models, and is visible in account profiles within this territory.
+- **OFF** — this enrichment data is excluded from this territory. The data may still exist but won't appear in territory views or scoring.
+
+<Tip>
+  Toggle items based on what's relevant for each territory. A focused territory might only need jobs and insights; a comprehensive enterprise territory might enable everything.
+</Tip>
+
+## Configuring Tech Stack Tracking
+
+From Territory Settings, select the **Tech Stack** tab.
+
+- Browse a card grid of technologies with logos.
+- Use the **search bar** to find specific technologies.
+- Click the **heart icon** to favourite/track a technology for this territory.
+- Favourited technologies appear in territory views and can be used in scoring.
+
+{/* IMAGE PLACEHOLDER: Screenshot of tech stack tracking card grid */}
+
+## Running Enrichment
+
+Enrichment runs in the background based on:
+
+- **Automated schedules** — enrichment tasks run continuously on a schedule
+- **Batch triggers** — trigger enrichment for all accounts in a territory at once
+- **On-demand** — enrich individual accounts as needed
+
+### Monitoring Enrichment Runs
+
+Track enrichment progress:
+- View enrichment runs with status, timing, and results
+- Drill into individual enrichment jobs to see successes, failures, and pending items
+- Check territory enrichment coverage — what's been enriched and what's still missing
+
+{/* IMAGE PLACEHOLDER: Screenshot of enrichment run monitoring dashboard */}
+
+## Common Configurations
+
+**Full enrichment (enterprise territory):**
+- All enriched columns toggled ON (tech stack, all jobs, all employee groups, all insights)
+- All relevant technologies favourited
+- Full batch enrichment run after territory setup
+
+**Focused enrichment (targeted territory):**
+- Only the most relevant jobs and employee groups toggled ON
+- 2–3 key insight criteria enabled
+- Tech stack enabled for technology-specific territories
+
+**Minimal enrichment (high-volume territory):**
+- Only insight scores and one or two key job searches enabled
+- Keeps credit usage low while still providing scoring data
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| Enriched data not appearing in territory | Enriched columns toggled OFF | Territory Settings → Enriched columns → toggle items ON |
+| Tech stack shows no technologies | Technologies not yet enriched | Run tech stack enrichment for territory accounts |
+| Job data missing for some accounts | Job enrichment hasn't completed | Check enrichment run status and wait for completion |
+| Enrichment consuming too many credits | Too many enrichment types enabled | Reduce enabled enrichment types to the most essential ones |
+| Insight scores not appearing | Insights type not toggled on in enriched columns | Toggle Insights items ON in Territory Settings |

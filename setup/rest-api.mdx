@@ -1,0 +1,122 @@
+---
+title: "REST API — Setup Guide"
+description: "How to get started with the PG:AI REST API"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for the REST API */}
+
+## Prerequisites
+
+<Note>
+  Before using the REST API, ensure you have:
+  - A PG:AI account with **API access enabled**
+  - An **API key** generated from Settings
+</Note>
+
+## Generating an API Key
+
+<Steps>
+  <Step title="Navigate to API Keys">
+    Navigate to **Settings → API Keys** in PG:AI.
+  </Step>
+  <Step title="Generate a new key">
+    Click **Generate New Key**.
+  </Step>
+  <Step title="Name and scope the key">
+    Give the key a **name** (e.g. "CRM Sync", "Data Warehouse", "Internal Dashboard"). Set **permission scope** if applicable (read-only, read-write, or specific entity access).
+  </Step>
+  <Step title="Copy and store the key">
+    Copy the key immediately — it won't be shown again.
+  </Step>
+</Steps>
+
+<Warning>
+  Store your API key securely. Do not commit it to source control or share it in plaintext.
+</Warning>
+
+{/* IMAGE PLACEHOLDER: Screenshot of API key generation screen */}
+
+## Authentication
+
+All API requests require an API key passed in the request header:
+
+```bash
+Authorization: Bearer YOUR_API_KEY
+```
+
+Or as a query parameter (not recommended for production):
+
+```bash
+GET /api/v1/companies?api_key=YOUR_API_KEY
+```
+
+## Base URL
+
+```
+https://api.getpg.ai/v1
+```
+
+All endpoints are relative to this base URL.
+
+## Exploring the API
+
+### Swagger UI
+
+The interactive API explorer is available at:
+
+```
+https://www.app.getpg.ai/api-docs
+```
+
+Swagger UI lets you:
+- Browse all available endpoints
+- See request/response schemas
+- Test endpoints with your API key directly in the browser
+- View example payloads
+
+### OpenAPI Specification
+
+Download the full OpenAPI 3.0 spec:
+
+- **JSON:** `https://api.getpg.ai/v1/openapi.json`
+- **YAML:** `https://api.getpg.ai/v1/openapi.yaml`
+
+<Tip>
+  Import into Postman, Insomnia, or any OpenAPI-compatible tool to auto-generate client code.
+</Tip>
+
+## Quick Test
+
+Verify your API key works with a simple request:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.getpg.ai/v1/companies?limit=5
+```
+
+You should receive a JSON response with up to 5 company records from your workspace.
+
+{/* IMAGE PLACEHOLDER: Screenshot of successful API test response */}
+
+## Rate Limits
+
+API requests are rate-limited per key:
+
+| Tier | Requests/Minute | Requests/Day |
+|------|----------------|-------------|
+| Standard | 60 | 10,000 |
+| Professional | 120 | 50,000 |
+| Enterprise | Custom | Custom |
+
+Rate limit headers are included in every response:
+
+```
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 57
+X-RateLimit-Reset: 1707600000
+```
+
+<Warning>
+  If you exceed the limit, you'll receive a `429 Too Many Requests` response. Back off and retry after the reset time.
+</Warning>

@@ -1,0 +1,158 @@
+---
+title: "Workflows"
+description: "Multi-step, configurable AI pipelines that run research, analysis, and content generation across accounts at scale"
+icon: "diagram-project"
+---
+
+Multi-step, configurable AI pipelines that run research, analysis, and content generation across accounts at scale. Build once, run across your portfolio.
+
+Workflows automate multi-step AI tasks. Instead of manually researching an account, then generating a competitive analysis, then drafting emails, then producing a meeting brief — a workflow runs the entire sequence as a single automated pipeline with consistent quality.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Workflows */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Workflows main view */}
+
+## Key capabilities
+
+- **Multi-step pipeline builder** with LLM generation, tool calls, conditionals, and branching
+- **Batch execution** across accounts
+- **Context recipes** for reusable research configurations
+- **Frameworks** for reusable workflow templates
+- **Workflow history** and tracking
+- **Model selection per step** — choose the right LLM for each task
+
+## Who it's for
+
+| Role | How they use it |
+|------|----------------|
+| RevOps teams & sales operations | Build workflows once and run them at scale across many accounts |
+| Account executives | Trigger pre-built workflows for specific tasks (e.g., "generate a meeting brief") |
+| Sales leaders | Ensure consistent output quality across the team |
+
+## When to use workflows vs. the AI Assistant
+
+| Task | Use Assistant | Use Workflow |
+|------|---------------|--------------|
+| One-off research question | Yes | No |
+| Meeting brief for one account | Either works | Yes, for repeatable process |
+| Research report for 50 accounts | No | Yes |
+| Exploring an account interactively | Yes | No |
+| Standardised competitive analysis | No | Yes |
+| Territory-wide change summary | No | Yes |
+
+<Note>
+**Rule of thumb:** If you'll do the same task more than 3 times, build a workflow. If it's a one-off exploration, use the assistant.
+</Note>
+
+## Effective workflow patterns
+
+### Meeting preparation pipeline
+
+<Steps>
+  <Step title="Pull account data">
+    Pull strategic priorities and recent news (tool call)
+  </Step>
+  <Step title="Identify attendees">
+    Identify meeting attendees from contacts (tool call)
+  </Step>
+  <Step title="Generate talking points">
+    Generate talking points aligned to company goals (LLM generation)
+  </Step>
+  <Step title="Draft discovery questions">
+    Draft discovery questions based on account context (LLM generation)
+  </Step>
+  <Step title="Produce meeting brief">
+    Compile a one-page meeting brief (LLM generation)
+  </Step>
+</Steps>
+
+**Output:** A meeting-ready document per account. Run in batch for a week's worth of meetings.
+
+{/* IMAGE PLACEHOLDER: Screenshot showing a meeting preparation workflow in the pipeline builder */}
+
+### Territory health review
+
+<Steps>
+  <Step title="Check for changes">
+    For each account in segment: check for Intelligence changes since last review (tool call)
+  </Step>
+  <Step title="Flag accounts">
+    Flag accounts with significant changes (conditional)
+  </Step>
+  <Step title="Generate summaries">
+    Generate a change summary for flagged accounts (LLM generation)
+  </Step>
+  <Step title="Compile report">
+    Compile a territory health report (LLM generation)
+  </Step>
+</Steps>
+
+**Output:** A territory-level report highlighting which accounts need attention and why.
+
+### Account research and engagement plan
+
+<Steps>
+  <Step title="Run Intelligence review">
+    Run comprehensive Intelligence review (tool call)
+  </Step>
+  <Step title="Identify competitive landscape">
+    Identify competitive landscape (tool call + LLM generation)
+  </Step>
+  <Step title="Map stakeholders">
+    Map stakeholders and recommend contacts (LLM generation)
+  </Step>
+  <Step title="Generate value alignment">
+    Generate value alignment analysis (LLM generation)
+  </Step>
+  <Step title="Draft engagement plan">
+    Draft engagement plan with recommended sequence (LLM generation)
+  </Step>
+  <Step title="Generate outreach emails">
+    Generate 3 personalised outreach emails (LLM generation)
+  </Step>
+</Steps>
+
+**Output:** A complete engagement package per account.
+
+{/* IMAGE PLACEHOLDER: Screenshot showing workflow execution results */}
+
+## Tips for effective workflows
+
+<Steps>
+  <Step title="Start with pre-built workflows">
+    Run them as-is to understand the pattern, then customise.
+  </Step>
+  <Step title="Use context recipes">
+    Don't reinvent how Intelligence data is gathered for each workflow. Recipes standardise this.
+  </Step>
+  <Step title="Test on a small sample first">
+    Before running a workflow across 200 accounts, validate the output on 3–5 accounts.
+  </Step>
+  <Step title="Review output quality">
+    Workflows produce consistent output, but consistency doesn't guarantee quality. Review and iterate.
+  </Step>
+  <Step title="Chain workflows">
+    A territory review workflow can identify accounts that need attention; an engagement plan workflow can generate plans for those accounts.
+  </Step>
+</Steps>
+
+## Monitoring and troubleshooting
+
+- **Workflow history** shows the status of every run: completed, failed, or in progress.
+- **Step-level detail** shows which step failed and why.
+- **Retry** is available for failed runs.
+- **Output inspection** shows the generated content at each step.
+
+## Related modules
+
+<CardGroup cols={2}>
+  <Card title="AI Assistant" icon="comments" href="/studio/the-agent">
+    Use the assistant for one-off research and exploration before building repeatable workflows.
+  </Card>
+  <Card title="Canvas" icon="file-lines" href="/studio/canvas">
+    Workflows can generate Canvas documents as output for individual accounts.
+  </Card>
+  <Card title="StudioMail" icon="envelope" href="/studio/agentmail">
+    Include email context in workflow steps for more personalised content generation.
+  </Card>
+</CardGroup>

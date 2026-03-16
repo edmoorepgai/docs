@@ -1,0 +1,85 @@
+---
+title: "MCP Server"
+description: "Connect your AI tools to PG:AI with the Model Context Protocol"
+mode: "wide"
+---
+
+The PG:AI MCP Server gives your favourite AI tools direct access to your account intelligence, contacts, documents, and content generation — all through a single, secure connection.
+
+## What is MCP?
+
+The **Model Context Protocol** (MCP) is an open standard that lets AI assistants connect to external data sources and tools. Instead of copying and pasting information into your AI tool, MCP lets the AI reach into PG:AI and pull exactly what it needs, when it needs it.
+
+<Info>
+  MCP is supported by Claude, Cursor, Windsurf, and a growing number of AI tools. If your tool supports MCP, it works with PG:AI.
+</Info>
+
+## What You Get
+
+PG:AI's MCP server gives your AI assistant access to everything in your account — no plugins to install, no code to write.
+
+<CardGroup cols={3}>
+  <Card title="5 Tools" icon="wrench">
+    Search, retrieve, create, and generate — your AI can take action on your behalf
+  </Card>
+  <Card title="2 Resources" icon="database">
+    Passive access to your tracked companies and territories
+  </Card>
+  <Card title="Zero Setup" icon="bolt">
+    Fully hosted by PG:AI. Just add your API key and go
+  </Card>
+</CardGroup>
+
+## Available Tools
+
+| Tool | What It Does |
+|------|-------------|
+| **pgai_company** | Get comprehensive data about any tracked company — profile, insights, financials, tech stack, jobs, contacts, and more |
+| **pgai_search** | Search across your entire PG:AI account — companies, contacts, documents, insights, jobs, and technologies |
+| **pgai_contact** | Get full details for a specific contact |
+| **pgai_create** | Add new companies to your tracked accounts or save contacts |
+| **pgai_generate** | Generate meeting preps, emails, sequences, call scripts, value pyramids, and more |
+
+## How It Works
+
+```
+Your AI Tool ──── HTTPS ────→ mcp.pipelinegeneration.ai ────→ PG:AI Platform
+  (Claude, Cursor, etc.)        (Hosted MCP Server)            (Your Account Data)
+```
+
+Your AI tool connects to PG:AI's hosted MCP server using your API key. When you ask a question like *"What technologies does Airtable use?"*, the AI automatically calls the right PG:AI tool and returns the answer — no manual steps required.
+
+## Supported AI Tools
+
+<CardGroup cols={2}>
+  <Card title="Claude" icon="message">
+    Claude.ai, Claude Pro, Claude Enterprise — via Connectors
+  </Card>
+  <Card title="Cursor" icon="code">
+    Add to your project or global MCP settings
+  </Card>
+  <Card title="Windsurf" icon="wind">
+    Configure in Windsurf MCP settings
+  </Card>
+  <Card title="Any MCP Client" icon="plug">
+    Works with any tool that supports the Model Context Protocol
+  </Card>
+</CardGroup>
+
+## Get Started
+
+<Steps>
+  <Step title="Generate an API Key">
+    Go to **Settings → API Keys** in PG:AI and create an MCP API key
+  </Step>
+  <Step title="Connect Your AI Tool">
+    Add the PG:AI MCP server URL and your API key to your AI tool's settings
+  </Step>
+  <Step title="Start Asking Questions">
+    Ask your AI about your accounts, contacts, or anything in PG:AI
+  </Step>
+</Steps>
+
+<Card title="Quickstart Guide" icon="rocket" href="/Documentation-New/platform/mcp/quickstart">
+  Step-by-step setup instructions for Claude, Cursor, and other AI tools
+</Card>

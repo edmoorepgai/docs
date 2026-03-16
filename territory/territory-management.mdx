@@ -1,0 +1,189 @@
+---
+title: "Territory Management"
+description: "Create, configure, and manage territories — the containers that hold your accounts, filters, and go-to-market logic."
+icon: "layer-group"
+---
+
+Territory Management is the foundation of PG:AI Territory. A territory is a first-class entity — you create it, give it a name and settings, and populate it with accounts. Each territory has its own settings, filters, and technology associations. Every other module operates on territories: scoring models score the accounts within them, insight criteria evaluate them, enrichment runs against them, and analytics report on them.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Territory Management */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Territory Management main view */}
+
+## Key Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Territory Lifecycle" icon="rotate">
+    Build territories from scratch or clone existing ones to model alternatives. Configure territory-specific settings and manage structure as your GTM strategy evolves.
+  </Card>
+  <Card title="Account Assignment" icon="plus-circle">
+    Add accounts manually, in bulk, or via CSV import. Remove accounts individually or in batches. Drill into per-account details within each territory.
+  </Card>
+  <Card title="Filtering & Segmentation" icon="filter">
+    Define filters to automatically include accounts based on criteria. Apply dynamic filters to keep territory membership current.
+  </Card>
+  <Card title="Technology Associations" icon="microchip">
+    Track specific technologies within a territory. Technology associations feed into scoring and enrichment rules.
+  </Card>
+</CardGroup>
+
+## Your Territory at a Glance
+
+When you open a territory, you land on the **Companies** tab — a table of every account in the territory. This is your primary workspace.
+
+{/* IMAGE PLACEHOLDER: Annotated screenshot of the Companies tab main view */}
+
+Each row is an account. Key columns at a glance:
+
+| Column | What it shows |
+|--------|---------------|
+| **PG:AI Score** | The overall account score. Higher = stronger fit. |
+| **Score badge** | High / Medium / Low — colour-coded for quick scanning. |
+| **Sentiment** | Positive / Neutral — directional indicator. |
+| **Revenue** | Company revenue. |
+| **Employee Size** | Number of employees. |
+| **Industry** | Industry classification. |
+| **Country** | Account location. |
+
+Sort by PG:AI Score to see your best accounts at the top.
+
+## Common Workflows
+
+### Reviewing Your Territory
+
+<Steps>
+  <Step title="Open your territory">
+    Navigate to the territory you want to review.
+  </Step>
+  <Step title="Sort by PG:AI Score">
+    Sort descending to see the highest-scoring accounts first.
+  </Step>
+  <Step title="Scan score badges">
+    How many High vs. Medium vs. Low? This gives you a quick health check.
+  </Step>
+  <Step title="Drill into accounts">
+    Click into any account for the full profile — enrichment data, contacts, insights, jobs, and more.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing sorting by PG:AI Score */}
+
+<Tip>If most accounts show 50.00 with a Medium badge, the scoring model may not be configured yet or enrichment hasn't run. Check Territory Settings.</Tip>
+
+### Finding Accounts to Prioritise
+
+<Steps>
+  <Step title="Sort by score">
+    Sort by PG:AI Score descending.
+  </Step>
+  <Step title="Filter for High accounts">
+    Filter by score badge = High to see only the strongest accounts.
+  </Step>
+  <Step title="Review top accounts">
+    Do the scores match your expectations?
+  </Step>
+  <Step title="Understand the drivers">
+    For each high-scoring account, check what's driving the score: insight criteria, jobs, employee groups, tech stack.
+  </Step>
+</Steps>
+
+### Checking What's Changed
+
+<Steps>
+  <Step title="Check new accounts">
+    Look at recently added accounts (sort by date if available).
+  </Step>
+  <Step title="Review score movements">
+    Check accounts whose scores have changed — have any moved from Medium to High or dropped from High to Medium?
+  </Step>
+  <Step title="Review sentiment">
+    Check the sentiment column for directional shifts.
+  </Step>
+</Steps>
+
+### Preparing for a Meeting
+
+<Steps>
+  <Step title="Find the account">
+    Open the territory and find the account you're meeting with.
+  </Step>
+  <Step title="Open the account profile">
+    Click into the account for the full view.
+  </Step>
+  <Step title="Review key data points">
+    Check: PG:AI Score, insight scores (which strategic topics they align with), jobs (what they're hiring for), contacts (who to talk to), and any custom column data.
+  </Step>
+  <Step title="Prepare talking points">
+    Use this context to prepare questions and talking points for the meeting.
+  </Step>
+</Steps>
+
+## Working with the Companies Table
+
+### Sorting and Filtering
+
+- Click any column header to sort ascending/descending.
+- Use the filter icon to narrow by industry, country, revenue range, employee size, score band, or any other column.
+- Filters are useful for focusing on a segment: "Show me all High-scoring accounts in the UK with 500+ employees."
+
+### Customising Columns
+
+The table can show more than the default columns. Additional columns may include:
+
+- Enriched data columns (tech stack, jobs, employee groups)
+- Custom columns (any custom fields you've created)
+- Insight scores (strategic criteria scores)
+
+Use the column selector to show or hide columns based on what you need.
+
+### Selecting and Acting on Accounts
+
+- Select individual accounts or use bulk selection.
+- Available actions may include: remove from territory, trigger enrichment, view profile, export.
+
+## Navigating Between Territory Views
+
+The top of the territory page has tabs:
+
+| Tab | Use it for |
+|-----|-----------|
+| **Overview** | Quick territory summary — key metrics and score distribution |
+| **Companies** | Full account table — your main workspace |
+| **Insights** | Strategic insight scores across all territory accounts |
+
+Switch tabs depending on what you're doing:
+- **Overview** for a health check.
+- **Companies** for day-to-day account work.
+- **Insights** for understanding which strategic themes your territory aligns with.
+
+{/* IMAGE PLACEHOLDER: Annotated screenshot of territory navigation tabs */}
+
+## Tips and Best Practices
+
+<Tip>**Check your territory weekly** — scores and enrichment data update continuously. A weekly review catches changes early.</Tip>
+
+<Note>**Use score badges for triage** — High = deep dive, Medium = watch and wait, Low = deprioritise unless something changes.</Note>
+
+- **Combine score with context** — a high score is a signal, not a guarantee. Click into the account and understand what's driving it.
+- **Export before QBRs** — download the territory data for offline review and sharing with leadership.
+- **Favourite your key accounts** — bookmark or star the accounts you're actively working so they're easy to find.
+
+## Related Modules
+
+<CardGroup cols={3}>
+  <Card title="Strategic Insights Scoring" icon="lightbulb" href="/territory/strategic-insights-scoring">
+    Evaluate accounts within a territory against defined strategic topics.
+  </Card>
+  <Card title="Scoring Models" icon="chart-simple" href="/territory/scoring-models">
+    Score and rank accounts within a territory.
+  </Card>
+  <Card title="Territory Enrichment" icon="database" href="/territory/territory-enrichment">
+    Run enrichment scoped to a territory's accounts.
+  </Card>
+  <Card title="Territory Analytics" icon="chart-pie" href="/territory/territory-analytics">
+    Report on territory performance and account activity.
+  </Card>
+  <Card title="Scenarios & Recommendations" icon="wand-magic-sparkles" href="/territory/scenarios-recommendations">
+    Use territories as the basis for AI-powered planning.
+  </Card>
+</CardGroup>

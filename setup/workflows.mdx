@@ -1,0 +1,85 @@
+---
+title: "Workflows — Setup Guide"
+description: "How to access and configure AI workflows for automated account research"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Workflows */}
+
+## Prerequisites
+
+<Note>
+  Before using workflows, ensure you have:
+  - A PG:AI account with **Agent access** and **Workflows enabled**
+  - Familiarity with the **AI Assistant** and **Canvas** (workflows build on both)
+</Note>
+
+## Accessing Workflows
+
+Workflows are accessed from the **Workflows** section in the PG:AI sidebar navigation. You'll see:
+
+- **Available workflows** — pre-built and custom workflows ready to run
+- **Workflow history** — previous runs with status and output
+
+{/* IMAGE PLACEHOLDER: Screenshot of workflows list view */}
+
+## Running a Pre-Built Workflow
+
+<Steps>
+  <Step title="Select a workflow">
+    Select a workflow from the available list.
+  </Step>
+  <Step title="Choose the target">
+    Choose the **target**: a single account, a list of accounts, or a territory segment.
+  </Step>
+  <Step title="Configure parameters">
+    Configure any **parameters** the workflow requires (e.g. meeting date, attendee names, specific topics).
+  </Step>
+  <Step title="Run">
+    Click **Run**.
+  </Step>
+  <Step title="Monitor progress">
+    Monitor progress in the workflow history. Output appears when the workflow completes.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of workflow run configuration */}
+
+### Common Pre-Built Workflows
+
+- **Meeting prep** — generates a meeting brief with strategic context, key contacts, and suggested discussion topics.
+- **Account research** — runs a comprehensive research pass across all Intelligence dimensions and produces a research report.
+- **Territory review** — scans accounts in a territory segment, flags changes, and produces a summary report.
+- **Competitive analysis** — generates a competitive comparison for a specific account or deal.
+
+## Building a Custom Workflow
+
+Custom workflows are assembled from **steps**. Each step is a discrete action:
+
+| Step Type | What It Does |
+|-----------|-------------|
+| **LLM Generation** | Generate text using a prompt with account context |
+| **Tool Call** | Invoke a tool (web search, contact lookup, etc.) |
+| **Conditional** | Branch based on a condition |
+| **Validation** | Check output against criteria |
+| **Workflow Call** | Run another workflow as a sub-step |
+
+Steps chain together to form a pipeline. Output from one step feeds as input to the next.
+
+<Tip>
+  **Context recipes** provide reusable data-gathering configurations. A recipe defines which Intelligence data to pull and how to format it for the LLM.
+</Tip>
+
+<Tip>
+  **Frameworks** provide reusable workflow structures. A framework defines the step sequence; you customize the specific prompts and parameters.
+</Tip>
+
+{/* IMAGE PLACEHOLDER: Screenshot of custom workflow builder interface */}
+
+## Running Workflows in Batch
+
+Workflows can target multiple accounts. Select a territory segment or account list as the target, and the workflow runs independently for each account.
+
+Batch runs show per-account status and output in the workflow history.
+
+{/* IMAGE PLACEHOLDER: Screenshot of batch workflow run with per-account status */}

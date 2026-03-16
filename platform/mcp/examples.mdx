@@ -1,0 +1,173 @@
+---
+title: "Examples & Prompts"
+description: "Real-world examples of using PG:AI through your AI assistant"
+mode: "wide"
+---
+
+Once PG:AI is connected to your AI tool, you interact with it using natural language. Here are real-world examples of how sellers, BDRs, and sales leaders use PG:AI through Claude, Cursor, and other AI assistants.
+
+## Meeting Preparation
+
+The most common use case. Ask your AI to prepare you for an upcoming meeting, and it pulls together everything PG:AI knows about the account.
+
+<Tabs>
+  <Tab title="Simple Prep">
+    **Prompt:**
+    > I have a meeting with Airtable tomorrow. Help me prepare.
+
+    **What happens:** Your AI calls `pgai_company` with `include: ["profile", "insights", "financials", "technologies", "contacts_summary", "events"]`, then synthesises everything into a briefing.
+
+    **You get:** Company overview, recent strategic insights, financial highlights, technology stack, key contacts, and any recent events — all in one response.
+  </Tab>
+  <Tab title="Focused Prep">
+    **Prompt:**
+    > Generate a meeting prep pack for my call with the CTO of Harness. The topic is CI/CD pipeline efficiency.
+
+    **What happens:** Your AI calls `pgai_generate` with `type: "meeting_prep"` and `topic: "CI/CD pipeline efficiency"`, producing a structured prep pack.
+
+    **You get:** A comprehensive preparation document with talking points, discovery questions, and strategic angles — all tailored to Harness and the CTO's likely priorities.
+  </Tab>
+</Tabs>
+
+---
+
+## Account Research
+
+Quickly understand any account without opening multiple tabs or dashboards.
+
+<CardGroup cols={2}>
+  <Card title="Technology Intelligence" icon="microchip">
+    > *"What technologies does Frasers Group use? Are there any recent job postings for data roles?"*
+
+    Pulls technology stack and filtered job postings in a single response.
+  </Card>
+  <Card title="Strategic Insights" icon="lightbulb">
+    > *"What are the latest insights about Tesco? Anything related to digital transformation?"*
+
+    Returns AI-generated strategic insights, filtered to your question.
+  </Card>
+  <Card title="Financial Overview" icon="chart-line">
+    > *"Give me a financial summary of Snowflake — revenue, growth, and analyst estimates"*
+
+    Pulls financials, share price data, and analyst consensus in one go.
+  </Card>
+  <Card title="Competitive Landscape" icon="chess">
+    > *"Who are Airtable's main competitors and what's their tech stack compared to ours?"*
+
+    Returns competitor data and technology comparisons.
+  </Card>
+</CardGroup>
+
+---
+
+## Contact Discovery
+
+Find and research the right people at your target accounts.
+
+**Find contacts by role:**
+> *"Search for VP of Engineering contacts at my tracked accounts"*
+
+**Research a specific person:**
+> *"Find Sarah Chen at Airtable and get her full contact details"*
+
+**Discover new contacts:**
+> *"Research the top 10 data and analytics contacts at Harness"*
+
+**Save a contact you found externally:**
+> *"Save this contact: James Wilson, Head of Data Engineering at Tesco, james.wilson@tesco.com, linkedin.com/in/jameswilson"*
+
+<Tip>
+  Contact discovery works best as a two-step conversation. First search for contacts, then ask for full details on the ones you're interested in.
+</Tip>
+
+---
+
+## Content Generation
+
+Let PG:AI generate personalised, intelligence-backed sales content.
+
+### Emails
+
+> *"Write a professional email to the VP of Data at Frasers Group about our analytics platform. Focus on their recent cloud migration."*
+
+Your AI calls `pgai_generate` with `type: "email"`, pulling in the latest insights about Frasers Group to personalise the message.
+
+### Email Sequences
+
+> *"Create a 4-step email sequence for Airtable focused on data governance. Keep the tone consultative."*
+
+Generates a multi-touch sequence where each step builds on PG:AI's intelligence about the company.
+
+### Call Scripts
+
+> *"Build a call script for reaching out to the CTO at Harness about observability"*
+
+Produces a structured script with an opening, discovery questions, value propositions, and objection handling — all tailored to Harness.
+
+---
+
+## Account Management
+
+Keep your PG:AI account up to date through natural conversation.
+
+**Add a new company:**
+> *"Add Stripe to my tracked accounts"*
+
+> *"Start tracking datadog.com — I want to keep an eye on their hiring trends"*
+
+**Save contacts:**
+> *"Add Sarah Chen as a contact at Airtable. She's the VP of Engineering. Email: sarah@airtable.com"*
+
+---
+
+## Advanced Workflows
+
+### Value Pyramids
+
+> *"Generate a value pyramid for Snowflake — focus on data engineering and cost optimisation"*
+
+Creates a structured value proposition framework showing how your solution maps to the company's priorities at executive, management, and operational levels.
+
+### Enablement Guides
+
+> *"Create an enablement guide for the Tesco account focused on their digital transformation initiatives"*
+
+Produces a comprehensive guide your team can use to ramp up on the account.
+
+### Multi-Step Research
+
+Have a natural conversation that chains multiple tools together:
+
+> **You:** *"What companies am I tracking in the EMEA territory?"*
+>
+> **AI:** Lists your EMEA companies from the territories resource.
+>
+> **You:** *"Which of those are hiring for data roles?"*
+>
+> **AI:** Searches job postings across those companies.
+>
+> **You:** *"Great — generate meeting prep for the top 3 that are actively hiring"*
+>
+> **AI:** Creates tailored prep packs for each company.
+
+---
+
+## Tips for Better Results
+
+<AccordionGroup>
+  <Accordion title="Be specific about what you need">
+    Instead of *"Tell me about Airtable"*, try *"What are Airtable's latest strategic insights and what technologies are they using?"* — this helps the AI request exactly the right data sections.
+  </Accordion>
+  <Accordion title="Use company names naturally">
+    PG:AI fuzzy-matches company names, so *"Airtable"*, *"airtable"*, and *"Airtable Inc"* all work. Use whichever feels natural.
+  </Accordion>
+  <Accordion title="Chain requests in conversation">
+    Your AI remembers context within a conversation. Start with research, then ask for content generation based on what you learned — the AI will connect the dots.
+  </Accordion>
+  <Accordion title="Set the tone for generated content">
+    When generating emails or call scripts, specify the tone: *professional*, *casual*, *formal*, or *consultative*. If you don't specify, PG:AI uses sensible defaults.
+  </Accordion>
+  <Accordion title="Filter jobs with keywords">
+    When looking at job postings, include a keyword: *"Show me Airtable's job postings that mention machine learning"* — this filters results before they reach you.
+  </Accordion>
+</AccordionGroup>

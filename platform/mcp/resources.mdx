@@ -1,0 +1,85 @@
+---
+title: "Resources"
+description: "Passive data resources available through the PG:AI MCP server"
+mode: "wide"
+---
+
+MCP resources are passive data sources that your AI tool can read at any time. Unlike tools (which perform actions), resources provide background context that helps your AI give better answers.
+
+<Info>
+  Resources are read automatically by your AI tool when relevant. You don't need to request them directly — they're always available in the background.
+</Info>
+
+## Available Resources
+
+<CardGroup cols={2}>
+  <Card title="pgai://companies" icon="building">
+    **Tracked Companies**
+
+    Returns a complete list of all companies your organisation is tracking in PG:AI — including name, domain, and company ID.
+
+    Your AI uses this to understand which accounts you're working with and to resolve company names when you ask questions like *"Tell me about Airtable"*.
+  </Card>
+  <Card title="pgai://territories" icon="map">
+    **Territories**
+
+    Returns all territories configured for your organisation — including territory name, assigned accounts, and any territory-level settings.
+
+    Your AI uses this to understand how your accounts are organised and to scope requests like *"Show me insights across my EMEA territory"*.
+  </Card>
+</CardGroup>
+
+## How Resources Work
+
+Resources differ from tools in a few important ways:
+
+| | Resources | Tools |
+|---|----------|-------|
+| **Purpose** | Provide background context | Perform specific actions |
+| **When used** | Automatically, as needed | When you ask for something specific |
+| **Data** | Always the same data (your companies, territories) | Dynamic results based on your query |
+| **Example** | Your list of tracked companies | Searching for contacts at a company |
+
+When you ask your AI *"What companies am I tracking?"*, it reads the `pgai://companies` resource. When you ask *"Search for CTO contacts at Airtable"*, it uses the `pgai_search` tool.
+
+## Resource Data Format
+
+Both resources return JSON arrays. Here's what the data looks like:
+
+### Companies Resource
+
+```json
+[
+  {
+    "id": "a1b2c3d4-...",
+    "name": "Airtable",
+    "domain": "airtable.com"
+  },
+  {
+    "id": "e5f6g7h8-...",
+    "name": "Harness",
+    "domain": "harness.io"
+  }
+]
+```
+
+### Territories Resource
+
+```json
+[
+  {
+    "id": "t1u2v3w4-...",
+    "name": "EMEA Enterprise",
+    "company_count": 45
+  },
+  {
+    "id": "x5y6z7a8-...",
+    "name": "North America Mid-Market",
+    "company_count": 120
+  }
+]
+```
+
+<Tip>
+  Resources are a great starting point for exploration. Ask your AI *"What companies am I tracking?"* to see your full account list, then drill into specific companies with follow-up questions.
+</Tip>

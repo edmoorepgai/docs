@@ -1,0 +1,157 @@
+---
+title: "Jobs — Setup Guide"
+description: "How to configure job settings to surface hiring signals across your territories"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Jobs */}
+
+## Prerequisites
+
+<Note>
+  Before setting up job settings, ensure you have:
+  - **Admin or RevOps access** to your PG:AI organisation
+  - At least one **territory created**
+  - **Job data enrichment** enabled for your accounts
+</Note>
+
+## Overview
+
+Jobs settings let you define saved job searches — keyword-based searches that find relevant job postings across your territory accounts. Each job setting targets specific roles or functions, revealing hiring signals that tell you what accounts are investing in.
+
+Navigate to **Territories → Jobs** in the left sidebar.
+
+<Info>
+  Use job titles or keywords to find relevant job postings that reveal hiring signals and make your territory planning more targeted and informed.
+</Info>
+
+## Creating a Job Setting
+
+<Steps>
+  <Step title="Navigate to Jobs">
+    Go to **Territories → Jobs** in the left sidebar.
+  </Step>
+  <Step title="Add new job setting">
+    Click **+ New Job Setting** (top-right button).
+  </Step>
+  <Step title="Fill in General details">
+    | Field | Description | Example |
+    |-------|-------------|---------|
+    | **Name** | A descriptive name for this saved job search | "Chief Revenue Officer" |
+    | **Description** | What this job search is tracking | "Chief Revenue Officer" |
+  </Step>
+  <Step title="Configure Search Keywords">
+    | Field | Description | Example |
+    |-------|-------------|---------|
+    | **Job Title Keywords** | Keywords to look for in job titles | "CRO", "Chief Revenue Officer", "Chief revenue" |
+    | **Description Keywords** | Keywords to look for in job descriptions | "Chief revenue", "Revenue operations" |
+  </Step>
+  <Step title="Save">
+    Click **Save**.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of new job setting creation form */}
+
+## Managing Job Settings
+
+The Jobs settings page shows all configured job searches in a table:
+
+| Column | Description |
+|--------|-------------|
+| Name | The name of the job setting |
+| Description | What this search tracks |
+| Job Titles | Title keywords configured (shown as tags) |
+| Keywords | Description keywords configured (shown as tags) |
+| Max Jobs | Maximum number of job postings to return per account |
+
+- Click any job setting to edit its keywords and configuration.
+- Use the search bar to filter by name.
+
+{/* IMAGE PLACEHOLDER: Screenshot of job settings management table */}
+
+## How Job Matching Works
+
+PG:AI searches job postings across your territory accounts, matching against the title and description keywords you've defined. When matches are found:
+
+- The number of matching job postings is tracked per account.
+- Job data appears in territory views and account profiles.
+- Job counts feed into scoring models as rule inputs.
+
+<Tip>
+  The **Max Jobs** field limits how many job postings are returned per account for this search (e.g. 10, 20, or 100).
+</Tip>
+
+## Using Jobs in Territory Settings
+
+Job settings appear in your territory's **Enriched Columns** (Territory Settings → Enriched Columns) with the type "Jobs". Toggle them on to include job data in territory views and scoring.
+
+For example:
+- "RevOps Job Monitoring" — Jobs — Included: **ON**
+- "Chief Revenue Officer" — Jobs — Included: **ON**
+- "Enterprise Account Executive" — Jobs — Included: **ON**
+- "Job monitoring test" — Jobs — Included: **OFF**
+
+Only job settings toggled on will contribute to this territory's views and scoring models.
+
+## Using Jobs in Scoring Models
+
+Job counts can be used as inputs to scoring model rules. For example, from the scoring model interface:
+
+- "Baseline rule for RevOps" — Jobs — weight **3**
+- "Baseline rule for Chief Revenue Officer" — Jobs — weight **50**
+- "Baseline rule for Enterprise Account Executive" — Jobs — weight **16**
+
+<Tip>
+  Higher weights mean that job signal contributes more to the overall account score. See the [Scoring Models setup guide](/setup/scoring-models) for details.
+</Tip>
+
+## Connecting Jobs to Monitoring Agents
+
+Job settings can also be linked to monitoring agents for real-time alerts.
+
+<Steps>
+  <Step title="Create a new monitoring agent">
+    From the **New Agent** form, select a **Saved Job Search** to use as the monitoring source.
+  </Step>
+  <Step title="Configure alert settings">
+    Set up the **Alert Configuration**:
+    - **Severity** — how important this alert is
+    - **Alert Title** — template for the alert (supports variables like `{job_title}`, `{job_url}`, `{company_name}`)
+  </Step>
+</Steps>
+
+This means you can get alerted whenever a territory account posts a new job matching your keywords. See the [Monitoring Agents setup guide](/setup/monitoring-agents) for details.
+
+{/* IMAGE PLACEHOLDER: Screenshot of job-to-monitoring-agent connection */}
+
+## Common Configurations
+
+**Role-based job monitoring:**
+
+| Name | Job Title Keywords | Description Keywords | Max Jobs |
+|------|-------------------|---------------------|----------|
+| Chief Revenue Officer | CRO, Chief Revenue Officer | Chief revenue | 20 |
+| RevOps Job Monitoring | Revenue Operations, Sales Ops | Revenue opera..., Sales operations | 10 |
+| Enterprise Account Executive | Account Executive, Enterprise AE | Account execut..., Enterprise | 100 |
+
+**Function-based job monitoring:**
+
+| Name | Job Title Keywords | Description Keywords | Max Jobs |
+|------|-------------------|---------------------|----------|
+| Data Engineering | Data Engineer, Analytics Engineer | Data pipeline, ETL | 20 |
+| Cloud Infrastructure | Cloud Engineer, DevOps, SRE | AWS, Azure, GCP, Kubernetes | 20 |
+| Security | Security Engineer, CISO | Cybersecurity, Security operations | 20 |
+
+<Tip>
+  Use a higher Max Jobs value (50–100) for broad searches and a lower value (10–20) for specific role searches.
+</Tip>
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| Job setting shows no results | Keywords too specific or job enrichment not running | Broaden keywords or trigger job enrichment |
+| Too many irrelevant matches | Description keywords too broad | Use more specific keywords or rely primarily on title keywords |
+| Jobs not appearing in territory views | Job setting not toggled on in enriched columns | Territory Settings → Enriched Columns → toggle Jobs items on |
+| Job counts not feeding into scoring model | Jobs not enabled or no scoring rule referencing jobs | Add a scoring rule that uses job data |

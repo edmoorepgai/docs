@@ -1,0 +1,78 @@
+---
+title: "Territory Analysis Project"
+description: "Run a comprehensive territory analysis — coverage, scoring, gaps, and recommendations"
+icon: "chart-mixed"
+---
+
+Run a full analysis of an existing territory — useful for annual planning, QBR preparation, territory restructuring, or just understanding the health of your book of business.
+
+<Info>
+**Who this is for:** RevOps, Sales Leaders, anyone doing territory reviews or planning.
+
+**Time:** 2-4 hours depending on territory size. Much of this is enrichment time running in the background.
+
+**What you'll have at the end:** A complete territory health assessment with scoring validation, coverage gaps, segment analysis, and actionable recommendations.
+</Info>
+
+## Step 1: Ensure Full Enrichment
+
+Before analysing, make sure every account in the territory is enriched. Go to **Territory → Enrichment** and check for gaps. If some accounts haven't been enriched (maybe they were added recently), run enrichment to fill in the gaps.
+
+You need consistent data across all accounts for the analysis to be meaningful.
+
+## Step 2: Validate Your Scoring Model
+
+Go to **Territory → Scoring Models**. Before trusting the scores, validate:
+
+- Pull your closed-won deals from the last 6-12 months. What are their scores?
+- Pull your closed-lost deals. What are their scores?
+- If won deals consistently score higher than lost deals, the model is working. If not, adjust criteria and weights.
+- Check the distribution: are scores spread reasonably, or is everything clustered?
+
+## Step 3: Analyse Coverage and Distribution
+
+Go to **Territory → Analytics** and review:
+
+**Score distribution** — Are accounts spread across tiers, or bunched in the middle? A healthy territory has a clear top tier (accounts to invest in deeply), a middle tier (accounts to develop), and a bottom tier (accounts to monitor or deprioritise).
+
+**Segment breakdown** — How do scores vary by industry, geography, or company size? Are there segments that consistently score high? Low? This informs focus areas.
+
+**Enrichment coverage** — What percentage of accounts have full intelligence? Accounts without enrichment are blind spots.
+
+## Step 4: Identify Gaps and Opportunities
+
+Use **Custom Columns** to ask questions across the territory:
+- "Is this company actively investing in [your market]?"
+- "Does this company have a team responsible for [function you sell to]?"
+- "Has this company made any acquisitions in the last 12 months?"
+
+These ad-hoc analyses surface patterns you can't see from scores alone.
+
+## Step 5: Run Scenarios
+
+If you're considering territory changes (rebalancing, splitting, merging), use **Scenarios & Recommendations**:
+- Model different territory assignments
+- Compare score distributions across scenarios
+- Get AI recommendations for optimal balance
+
+## Step 6: Document and Share
+
+Use **Canvas** to create a territory analysis report:
+
+> "Create a territory analysis report. We have [N] accounts scored across [segments]. The scoring model uses [criteria]. Key findings: [top-line observations]. Recommendations: [what should change]."
+
+This becomes the basis for territory review meetings, QBR presentations, or planning sessions.
+
+## Related
+
+<CardGroup cols={3}>
+  <Card title="Territory Planning" icon="map" href="/playbooks/territory-planning">
+    Build a new territory from scratch
+  </Card>
+  <Card title="Scoring Models" icon="chart-simple" href="/territory/scoring-models">
+    Reference guide for building and tuning scoring models
+  </Card>
+  <Card title="Scenarios & Recommendations" icon="wand-magic-sparkles" href="/territory/scenarios-recommendations">
+    Reference guide for territory scenario modelling
+  </Card>
+</CardGroup>

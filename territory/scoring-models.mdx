@@ -1,0 +1,176 @@
+---
+title: "Scoring Models"
+description: "Build rule-based models that combine insight scores, enrichment data, job signals, and custom criteria into a single account rank."
+icon: "chart-simple"
+---
+
+Scoring Models let you build rule-based models that combine insight scores, enrichment data, job signals, employee groups, financials, tech stack, and custom columns into a single composite score per account. Each rule maps a signal to a score contribution — and the model combines them into the **PG:AI Score** you see in the territory Companies table. Think of it as a recipe: each ingredient (signal) contributes a weighted amount to the final score.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Scoring Models */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Scoring Models main view */}
+
+## Key Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Model Building" icon="wrench">
+    Build and manage multiple scoring models per territory. Define scoring rules, weight them, and publish models to make them live. Quick-start with baseline models or build from scratch.
+  </Card>
+  <Card title="Rules Engine" icon="gears">
+    Create rules for any data point — criteria scores, employee groups, jobs, enrichment, financials, tech stack, custom columns. Set thresholds and weights for each rule.
+  </Card>
+  <Card title="Automatic Scoring" icon="bolt">
+    Score all accounts in a territory automatically. Scores recalculate as underlying data changes. See per-account score breakdowns showing how each rule contributed.
+  </Card>
+</CardGroup>
+
+## How Scores Are Calculated
+
+Each scoring model is built from **criteria** — the individual data points being evaluated. Each criterion has:
+
+- **A data source** — which signal it looks at (insight score, employee group count, job posting count, etc.)
+- **A weight** — how much this criterion matters relative to others
+- **Thresholds** — the boundaries that determine scoring (e.g., "5+ DevOps Engineers = high signal")
+
+The model runs these criteria against every account in the territory and produces a normalised score (typically 0–100).
+
+### Example Rules
+
+- "If insight score for 'cloud transformation' > 70, add 20 points"
+- "If employee group 'data engineering' has 5+ people, add 15 points"
+- "If company revenue > $100M, add 10 points"
+- "If hiring for relevant roles (from Jobs), add 10 points"
+
+## Reading Account Scores
+
+### In the Companies Table
+
+| Column | What it shows |
+|--------|-------------|
+| **PG:AI Score** | The overall numerical score from the active scoring model |
+| **Score badge** | High / Medium / Low — colour-coded classification |
+| **Sentiment** | Positive / Neutral — directional indicator of recent change |
+
+{/* IMAGE PLACEHOLDER: Annotated screenshot of score columns in the Companies table */}
+
+### Score Badge Thresholds
+
+The score badge is determined by the thresholds configured in the scoring model:
+- **High** (green) — above the upper threshold
+- **Medium** (amber) — between the thresholds
+- **Low** (red/grey) — below the lower threshold
+
+<Info>The exact boundaries depend on how the model is configured. Check with your admin if you're unsure where the cutoffs are.</Info>
+
+## Common Workflows
+
+### Understanding Why an Account Scored High
+
+<Steps>
+  <Step title="Open the account">
+    Navigate to the account in the territory.
+  </Step>
+  <Step title="Review individual data points">
+    Look at insight scores, employee groups, jobs, firmographic data.
+  </Step>
+  <Step title="Identify the drivers">
+    The account is scoring high because it performs well on the criteria that carry the most weight. For example: if the model heavily weights "DevOps Engineers" and "Cloud Transformation" insight score, an account with 50 DevOps Engineers and a 90 on Cloud Transformation will score very high — even if it's a small company.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing score breakdown for an account */}
+
+### Questioning a Score That Seems Wrong
+
+If an account looks like a great fit but scores low (or vice versa):
+
+<Steps>
+  <Step title="Check the model's criteria">
+    Is it looking at the right signals for your use case?
+  </Step>
+  <Step title="Check the data">
+    Has the account been fully enriched? Missing data leads to lower scores.
+  </Step>
+  <Step title="Check the weights">
+    Maybe the model over-weights a criterion that doesn't apply to this account.
+  </Step>
+  <Step title="Speak to your admin">
+    The model may need adjusting, or a different model may be more appropriate.
+  </Step>
+</Steps>
+
+### Comparing Score Distributions
+
+<Steps>
+  <Step title="Open the Overview tab">
+    Navigate to the territory Overview for a summary of score distribution.
+  </Step>
+  <Step title="Review the distribution">
+    Look at how many accounts are High, Medium, and Low.
+  </Step>
+  <Step title="Assess territory health">
+    A healthy territory typically has a pyramid: fewer Highs, more Mediums, most Lows.
+  </Step>
+  <Step title="Identify issues">
+    If everything is Medium, the model may need sharper differentiation (wider weight spread or stricter thresholds).
+  </Step>
+</Steps>
+
+### Acting on Score Changes
+
+Scores aren't static — they update as new data flows in (new job postings, updated enrichment, market changes).
+
+<Steps>
+  <Step title="Check upward movers">
+    Periodically check for accounts that moved up (Medium → High). These are emerging opportunities.
+  </Step>
+  <Step title="Check downward movers">
+    Look for accounts that dropped (High → Medium). Investigate why — did they stop hiring? Did an insight score decline?
+  </Step>
+  <Step title="Use sentiment">
+    The Sentiment column helps — Positive sentiment suggests upward movement.
+  </Step>
+</Steps>
+
+## Multiple Scoring Models
+
+Your territory may have access to more than one scoring model. Each model can be built for a different purpose:
+
+- **ICP Model** — scores accounts against your ideal customer profile
+- **Expansion Model** — scores existing customers for upsell potential
+- **New Logo Model** — scores net-new accounts for acquisition fit
+
+The active model determines the PG:AI Score shown in the Companies table. You can switch models to see the same accounts scored from different angles.
+
+## Tips and Best Practices
+
+<Note>**Trust the model, but verify** — scoring models surface patterns at scale. For your top accounts, always click in and understand what's driving the score.</Note>
+
+<Tip>**Don't chase the score, chase the story** — a high score gets the account onto your radar. The combination of insight scores, jobs, employee groups, and firmographic data tells you why they're a fit and how to engage.</Tip>
+
+- **Request model updates** — if the model isn't differentiating well (too many accounts at the same score), ask your admin to review the weights and criteria.
+- **Use scores for prioritisation, not elimination** — a low score doesn't mean "don't engage." It means "other accounts are probably a better use of your time right now."
+- **Combine model score with your own knowledge** — you know your accounts. The model knows the data. Together, you make better decisions.
+
+## Related Modules
+
+<CardGroup cols={3}>
+  <Card title="Strategic Insights Scoring" icon="lightbulb" href="/territory/strategic-insights-scoring">
+    Insight scores are a primary input to scoring model rules.
+  </Card>
+  <Card title="Employee Groups" icon="users" href="/territory/employee-groups">
+    Employee group headcounts and role data feed scoring rules.
+  </Card>
+  <Card title="Jobs" icon="briefcase" href="/territory/jobs">
+    Hiring signals are an input to scoring rules.
+  </Card>
+  <Card title="Custom Columns" icon="table-columns" href="/territory/custom-columns">
+    Custom data can be used in scoring rules.
+  </Card>
+  <Card title="Scenarios & Recommendations" icon="wand-magic-sparkles" href="/territory/scenarios-recommendations">
+    Scoring model outputs drive AI-powered recommendations.
+  </Card>
+  <Card title="Territory Analytics" icon="chart-pie" href="/territory/territory-analytics">
+    Scoring results surface in analytics.
+  </Card>
+</CardGroup>

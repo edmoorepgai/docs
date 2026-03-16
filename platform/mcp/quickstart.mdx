@@ -1,0 +1,179 @@
+---
+title: "MCP Quickstart"
+description: "Connect PG:AI to your AI tools in under 2 minutes"
+mode: "wide"
+---
+
+This guide walks you through connecting PG:AI to your AI tool of choice. The whole process takes less than 2 minutes.
+
+## Step 1: Generate an API Key
+
+<Steps>
+  <Step title="Open PG:AI Settings">
+    Navigate to **Settings → API Keys** in your PG:AI dashboard
+  </Step>
+  <Step title="Create a New Key">
+    Click **Create API Key** and give it a descriptive name (e.g. "Claude MCP" or "Cursor")
+  </Step>
+  <Step title="Copy the Key">
+    Copy your API key immediately — it won't be shown again. Keys start with `pgai_live_`
+  </Step>
+</Steps>
+
+<Warning>
+  Keep your API key secure. Anyone with your key can access your PG:AI account data. If you suspect a key has been compromised, revoke it immediately in Settings.
+</Warning>
+
+## Step 2: Configure Your AI Tool
+
+<Tabs>
+  <Tab title="Claude.ai">
+    Claude supports MCP through **Connectors** (available on Pro and Enterprise plans).
+
+    <Steps>
+      <Step title="Open Settings">
+        Go to **Settings → Connectors** in Claude.ai
+      </Step>
+      <Step title="Add a Connector">
+        Click **Add** and select **Custom connector**
+      </Step>
+      <Step title="Enter the Server URL">
+        ```
+        https://mcp.pipelinegeneration.ai/sse
+        ```
+      </Step>
+      <Step title="Set Authentication">
+        Choose **Bearer Token** and paste your PG:AI API key
+      </Step>
+      <Step title="Save">
+        Click **Save** — Claude now has access to your PG:AI data
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Cursor">
+    Cursor supports MCP through project-level or global configuration files.
+
+    **Option A: Project-level** (recommended for team sharing)
+
+    Create or edit `.cursor/mcp.json` in your project root:
+
+    ```json
+    {
+      "mcpServers": {
+        "pgai": {
+          "url": "https://mcp.pipelinegeneration.ai/mcp",
+          "headers": {
+            "Authorization": "Bearer pgai_live_YOUR_KEY_HERE"
+          }
+        }
+      }
+    }
+    ```
+
+    **Option B: Global** (available in all projects)
+
+    Open Cursor Settings → MCP and add a new server with the same configuration.
+
+    <Info>
+      After adding the configuration, reload Cursor for the connection to take effect. You should see "pgai" listed as a connected MCP server.
+    </Info>
+  </Tab>
+
+  <Tab title="Claude Enterprise">
+    Admins can enable PG:AI for their entire organisation.
+
+    <Steps>
+      <Step title="Open Admin Settings">
+        Go to **Admin Settings → Integrations → MCP**
+      </Step>
+      <Step title="Add MCP Server">
+        Add a new MCP server with the following details:
+        - **URL:** `https://mcp.pipelinegeneration.ai/mcp`
+        - **Authentication:** Bearer token with your organisation's PG:AI API key
+      </Step>
+      <Step title="Configure Permissions">
+        Choose which users or groups should have access to PG:AI tools
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Windsurf">
+    Add PG:AI to your Windsurf MCP configuration:
+
+    ```json
+    {
+      "mcpServers": {
+        "pgai": {
+          "serverUrl": "https://mcp.pipelinegeneration.ai/mcp",
+          "headers": {
+            "Authorization": "Bearer pgai_live_YOUR_KEY_HERE"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+
+  <Tab title="Other MCP Clients">
+    PG:AI uses standard **Streamable HTTP** transport. Any MCP-compatible client can connect using:
+
+    - **Server URL:** `https://mcp.pipelinegeneration.ai/mcp`
+    - **SSE URL:** `https://mcp.pipelinegeneration.ai/sse` (for clients that require SSE)
+    - **Authentication:** `Authorization: Bearer <your_api_key>` header
+
+    Refer to your client's documentation for specific configuration instructions.
+  </Tab>
+</Tabs>
+
+## Step 3: Test the Connection
+
+Once connected, try asking your AI tool one of these prompts:
+
+<CardGroup cols={2}>
+  <Card title="Check Companies" icon="building">
+    *"What companies am I tracking in PG:AI?"*
+  </Card>
+  <Card title="Get Insights" icon="lightbulb">
+    *"Tell me about [company name] — what are the latest insights?"*
+  </Card>
+  <Card title="Search Contacts" icon="users">
+    *"Search for VP of Engineering contacts in my PG:AI account"*
+  </Card>
+  <Card title="Generate Content" icon="wand-magic-sparkles">
+    *"Generate meeting prep for my call with [company name]"*
+  </Card>
+</CardGroup>
+
+If your AI tool responds with company data, insights, or generated content — you're all set.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My AI tool says it can't find the PG:AI server">
+    Double-check the server URL. Make sure you're using `https://mcp.pipelinegeneration.ai/mcp` (or `/sse` for SSE-only clients). Restart your AI tool after updating the configuration.
+  </Accordion>
+  <Accordion title="I'm getting authentication errors">
+    Verify your API key starts with `pgai_live_` and that it hasn't been revoked. Make sure the `Authorization` header uses the `Bearer` prefix.
+  </Accordion>
+  <Accordion title="The connection works but no data is returned">
+    Your API key may not have the right permissions. Check that it was created with MCP access enabled in Settings → API Keys.
+  </Accordion>
+  <Accordion title="Cursor doesn't show pgai as a connected server">
+    After editing `.cursor/mcp.json`, reload Cursor (Cmd/Ctrl + Shift + P → "Reload Window"). Check for JSON syntax errors in your configuration file.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Tools Reference" icon="wrench" href="/Documentation-New/platform/mcp/tools">
+    Explore all 5 tools and their parameters
+  </Card>
+  <Card title="Resources" icon="database" href="/Documentation-New/platform/mcp/resources">
+    Learn about passive data resources
+  </Card>
+  <Card title="Examples" icon="message" href="/Documentation-New/platform/mcp/examples">
+    See real-world prompts and use cases
+  </Card>
+</CardGroup>

@@ -1,0 +1,113 @@
+---
+title: "Alerts"
+description: "View, triage, and act on detected account changes — each alert includes Intelligence context so you know not just what changed, but why it matters"
+icon: "bell"
+---
+
+View, triage, and act on detected account changes. Each alert includes Intelligence context so you know not just what changed, but why it matters.
+
+When a monitoring agent detects a change that matches its rules, it generates an alert. Each alert includes what changed, when it was detected, which monitoring agent triggered it, and contextual information from the account's Intelligence profile.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Alerts */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Alerts main view */}
+
+## Key capabilities
+
+- **Alert feed** with filtering and sorting
+- **Triage actions**: acknowledge, resolve, dismiss
+- **Intelligence context** embedded in every alert
+- **Alert history** and pattern analysis
+- **Alert instances** for recurring signals
+
+## What alerts look like
+
+Each alert includes:
+
+- **What changed** — the specific change detected (e.g., "12 new cloud engineering roles posted this week")
+- **When** — timestamp of detection
+- **Which agent** — the monitoring agent that triggered the alert
+- **Intelligence context** — relevant data from the account's Intelligence profile (strategic priorities, tech stack, financials, etc.)
+- **Why it matters** — a contextual explanation connecting the change to the account's broader situation
+
+{/* IMAGE PLACEHOLDER: Screenshot showing an individual alert with Intelligence context */}
+
+## Triage workflow
+
+Alerts have three triage states:
+
+| State | Meaning | When to use |
+|-------|---------|-------------|
+| **New** | Not yet reviewed | Default state for all alerts |
+| **Acknowledged** | Reviewed, action planned | You've seen it and will follow up |
+| **Resolved** | Action taken or no longer relevant | You've acted or dismissed it |
+
+### Recommended triage cadence
+
+<Steps>
+  <Step title="Daily: Quick scan">
+    Scan new alerts. Acknowledge anything that needs follow-up. Resolve anything that's not relevant.
+  </Step>
+  <Step title="Weekly: Review and act">
+    Review acknowledged alerts. Take action or resolve. Adjust monitoring agent rules if too many irrelevant alerts are appearing.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing the alert triage workflow */}
+
+## Acting on alerts
+
+Alerts are signals. The value comes from what you do with them.
+
+### Common response patterns
+
+**Hiring signal alert → Outreach**
+A company posted 15 new roles relevant to your solution. Draft a personalised email referencing the hiring activity.
+
+<Tip>
+Example: "I noticed you're scaling your cloud engineering team. We help companies at this stage of infrastructure investment..."
+</Tip>
+
+**Leadership change alert → Relationship building**
+A new VP was appointed. Research their background. Identify mutual connections. Prepare an introduction.
+
+**Competitive signal alert → Defence or displacement**
+A customer adopted a competing technology. Schedule a check-in with your champion. Understand the evaluation. Reinforce your value.
+
+**Financial event alert → Deal timing**
+The company announced strong earnings and raised guidance. The budget environment is favourable. Accelerate your engagement.
+
+## Using alerts with Agent
+
+Alerts provide the "what changed." The Agent provides the "what to do about it."
+
+<Steps>
+  <Step title="See an alert">
+    Notice an alert about hiring activity at an account.
+  </Step>
+  <Step title="Open the Agent tab">
+    Open the Agent tab for that account.
+  </Step>
+  <Step title="Ask for a recommendation">
+    Ask: "Based on their recent hiring in cloud engineering, what's the best approach for outreach?"
+  </Step>
+  <Step title="Get an informed response">
+    The agent generates a recommendation using both the alert context and the full Intelligence profile.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing an alert being actioned through the Agent tab */}
+
+## Related modules
+
+<CardGroup cols={2}>
+  <Card title="Monitoring Agents" icon="radar" href="/monitoring/monitoring-agents">
+    Configure the agents that generate alerts — define rules, thresholds, and watchlists.
+  </Card>
+  <Card title="AI Assistant" icon="comments" href="/agent/ai-assistant">
+    Use the AI Assistant to research and respond to alert signals.
+  </Card>
+  <Card title="Workflows" icon="diagram-project" href="/agent/workflows">
+    Automate responses to alerts with multi-step workflows.
+  </Card>
+</CardGroup>

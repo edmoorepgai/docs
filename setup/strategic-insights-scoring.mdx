@@ -1,0 +1,140 @@
+---
+title: "Strategic Insights Scoring — Setup Guide"
+description: "How to define insight criteria and configure strategic scoring for your territories"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Strategic Insights Scoring */}
+
+## Prerequisites
+
+<Note>
+  Before setting up strategic insights scoring, ensure you have:
+  - **Admin or RevOps access** to your PG:AI organisation
+  - At least one **territory created**
+  - **Account enrichment running** (insight scores are derived from enriched data)
+</Note>
+
+## Overview
+
+Strategic Insights Scoring lets you evaluate target companies based on the strategic topics that matter to your business. You define **insight criteria** — topics like "Global Expansion", "DevOps Transformation", or "Platform Engineering Transformation" — and PG:AI scores every account against each criterion.
+
+Navigate to **Territories → Strategic Insights Scoring** in the left sidebar to access the settings.
+
+<Info>
+  Strategic Insights Scoring helps you evaluate target companies based on the insights that matter most. Start by selecting keywords like "Improving Customer Experience" or "Global Expansion" to define your scoring criteria.
+</Info>
+
+## Creating an Insight Criterion
+
+<Steps>
+  <Step title="Navigate to Strategic Insights Scoring">
+    Go to **Territories → Strategic Insights Scoring** in the left sidebar.
+  </Step>
+  <Step title="Add new criterion">
+    Click **+ New Insight Criteria** (top-right button).
+  </Step>
+  <Step title="Name the criterion">
+    Enter a **Criteria Name** — this should be a clear, descriptive topic or initiative name.
+  </Step>
+  <Step title="Save">
+    Click **Save**. The criterion is now created and will begin scoring accounts.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of new insight criteria creation form */}
+
+### Naming Guidance
+
+Use names that describe a strategic theme or initiative, not a specific data point.
+
+| Good Criteria Names | Why |
+|-------------------|-----|
+| Global Expansion | Strategic initiative — measurable across signals |
+| Continuous Delivery/Deployment | Technical focus area — shows in jobs, tech stack, hiring |
+| DevOps Transformation | Industry trend — PG:AI can evaluate from multiple data sources |
+| Platform Engineering Transformation | Specific enough to be meaningful, broad enough to score |
+| Developer Productivity | Relevant business theme |
+| Innovation & R&D Investment | Strategic priority — visible in financials, hiring, tech adoption |
+
+<Warning>
+  Avoid overly narrow names (e.g. "Uses Jenkins" — that's a technology, not a criterion) or overly broad names (e.g. "Good company" — not measurable).
+</Warning>
+
+## How Scoring Works
+
+Once a criterion is created, PG:AI evaluates every account in your territories against that criterion. The platform analyses:
+
+- **Job postings** — are they hiring for roles related to this topic?
+- **Tech stack** — are they using technologies associated with this initiative?
+- **Public intelligence** — filings, reports, news, and events that mention this topic
+- **Enriched data** — any enrichment data relevant to the criterion
+
+Each account receives a score per criterion, indicating how strongly aligned they are to that topic. These scores:
+
+- Appear in territory views and account profiles
+- Feed into scoring models as rule inputs
+- Update automatically as enrichment data refreshes
+
+{/* IMAGE PLACEHOLDER: Screenshot of insight scores displayed in territory view */}
+
+## Managing Criteria
+
+The Strategic Insights Scoring page shows all criteria in a table:
+
+| Column | Description |
+|--------|-------------|
+| Criteria Name | The name of the criterion |
+| Created at | When the criterion was created |
+
+- Click any criterion to edit it.
+- Use the search bar to filter criteria by name.
+- The page shows the total count (e.g. "43 items").
+
+{/* IMAGE PLACEHOLDER: Screenshot of criteria management table */}
+
+## Connecting Criteria to Scoring Models
+
+Insight criteria scores feed into scoring models. To use criteria scores in account ranking:
+
+<Steps>
+  <Step title="Create insight criteria">
+    Define your insight criteria (this guide).
+  </Step>
+  <Step title="Create a scoring model">
+    See the [Scoring Models setup guide](/setup/scoring-models).
+  </Step>
+  <Step title="Add rules referencing criteria">
+    Add rules to the scoring model that reference insight criteria scores.
+  </Step>
+  <Step title="Publish the model">
+    Publish the scoring model to see ranked accounts.
+  </Step>
+</Steps>
+
+<Tip>
+  Criteria scores also appear in territory views via the Enriched Columns settings. In **Territory Settings → Enriched Columns**, items with type "Insights" correspond to your insight criteria.
+</Tip>
+
+## Common Configurations
+
+**Broad strategic scoring (executive-level):**
+- 5–10 criteria covering major themes: digital transformation, cloud, AI/ML, expansion, etc.
+- Useful for high-level territory prioritisation
+
+**Focused ICP scoring (product-specific):**
+- 15–30 criteria aligned to your product's value propositions
+- Example: a DevOps platform might use criteria like "Continuous Delivery/Deployment", "DevOps Transformation", "Microservices/Container Strategy", "Software Delivery Acceleration"
+
+**Industry-specific scoring:**
+- Criteria tailored to vertical-specific initiatives
+- Example for financial services: "Digital Banking Transformation", "Regulatory Compliance Modernisation", "Real-Time Payment Processing"
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| Criteria not scoring accounts | Enrichment hasn't run yet | Trigger a territory enrichment run |
+| All accounts have similar scores for a criterion | Criterion name too broad or too narrow | Refine the criterion name to be more specific and measurable |
+| Criteria scores not appearing in scoring models | Criteria not connected as a scoring rule | Add a rule in the scoring model that references the insight criterion |
+| Criteria scores not visible in territory view | Insights not enabled in enriched columns | Check Territory Settings → Enriched Columns and toggle Insights items on |

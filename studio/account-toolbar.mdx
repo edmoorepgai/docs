@@ -1,0 +1,170 @@
+---
+title: "Account Toolbar"
+description: "Search all account insights, discover jobs and contacts, and upload files — all from one toolbar in the Studio view"
+icon: "toolbox"
+---
+
+A unified toolbar at the top of the Studio section that gives you fast access to three essential account actions: searching across all intelligence, discovering jobs and contacts, and uploading files for the agent to reference.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Account Toolbar */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Account Toolbar showing all three sections */}
+
+## Overview
+
+The Account Toolbar sits at the top of the Studio tab in any account view. It has three sub-sections, each accessible via a tab:
+
+| Section | What it does |
+|---------|-------------|
+| **Search** | Query across all account intelligence for the account — strategic priorities, tech stack, financials, contacts, jobs, and enrichment history |
+| **Discover** | Focused search for jobs and contacts at the account |
+| **File Uploads** | Upload documents to the account for the agent to reference |
+
+---
+
+## Search
+
+Search all the insights PG:AI has about an account in one place. Instead of navigating between Strategic Priorities, Tech Stack, Financials, and Contacts individually, Search queries across every Intelligence module and returns matching results.
+
+{/* IMAGE PLACEHOLDER: Screenshot of Search results view */}
+
+### How to use it
+
+<Steps>
+  <Step title="Open Search">
+    Click the **Search** tab in the Account Toolbar.
+  </Step>
+  <Step title="Enter your query">
+    Type a keyword, phrase, or question (e.g. "cloud migration", "VP Engineering", "revenue growth").
+  </Step>
+  <Step title="Review results">
+    Results appear grouped by source module — strategic priorities, contacts, tech stack, financials, jobs, and enrichment data.
+  </Step>
+  <Step title="Drill down">
+    Click any result to navigate to the full detail view within the relevant Intelligence module.
+  </Step>
+</Steps>
+
+### Example queries
+
+| Query | What it finds |
+|-------|--------------|
+| `"AI strategy"` | Strategic priorities, job postings, and tech stack entries related to AI |
+| `"CFO"` | Matching contacts and any insights that reference the CFO |
+| `"AWS"` | Tech stack data, job postings mentioning AWS, and strategic insights about cloud infrastructure |
+| `"Q3 earnings"` | Financial intelligence and enrichment data from earnings calls |
+
+<Tip>
+Use Search to quickly verify whether specific intelligence exists before asking the AI Assistant for a deeper analysis. It's faster than navigating through each module individually.
+</Tip>
+
+---
+
+## Discover
+
+A focused search interface for exploring **jobs** and **contacts** at the account. Discover surfaces hiring activity and organisational data that help you understand the company and identify engagement opportunities.
+
+{/* IMAGE PLACEHOLDER: Screenshot of Discover view showing contacts and jobs tabs */}
+
+### Contacts
+
+Search for people at the account by name, role, department, or seniority level.
+
+- Filter by **department** (Engineering, Sales, Marketing, Finance, etc.)
+- Filter by **seniority** (C-Suite, VP, Director, Manager)
+- View role, reporting structure, and tenure
+- Click a contact to open their full profile in the Contacts & Org Chart module
+
+<Tip>
+Discover is particularly useful for meeting prep — quickly find who you'll be meeting and what roles are being hired around them.
+</Tip>
+
+### Jobs
+
+Search for job postings at the account by title, function, or keyword.
+
+- Filter by **department**, **level**, or **posting date**
+- View job descriptions, requirements, and posting source
+- Use job postings to identify investment areas and strategic priorities
+
+<Info>
+Job postings often signal strategic priorities before they appear in public announcements. A cluster of "AI Engineer" postings tells you something about company direction before the press release.
+</Info>
+
+<Tip>
+If Discover doesn't surface what you need, ask the AI Assistant to research deeper — it can trigger additional enrichment beyond what's currently in the profile.
+</Tip>
+
+---
+
+## File Uploads
+
+Upload documents directly to an account. Uploaded files are indexed and become part of the account's intelligence context — available to the AI Assistant, Canvas, and Workflows.
+
+{/* IMAGE PLACEHOLDER: Screenshot of File Uploads area with drag-and-drop zone */}
+
+### How to upload
+
+<Steps>
+  <Step title="Open File Uploads">
+    Click the **File Uploads** tab in the Account Toolbar.
+  </Step>
+  <Step title="Add files">
+    Drag and drop files into the upload area, or click to browse your computer.
+  </Step>
+  <Step title="Files are indexed">
+    Uploaded files are automatically indexed and immediately available to the agent.
+  </Step>
+</Steps>
+
+### Supported formats
+
+| Format | Extension | Max size |
+|--------|-----------|----------|
+| PDF | `.pdf` | 50 MB |
+| Word | `.docx` | 50 MB |
+| Plain text | `.txt` | 10 MB |
+| CSV | `.csv` | 25 MB |
+| Excel | `.xlsx` | 50 MB |
+| PowerPoint | `.pptx` | 50 MB |
+
+### What to upload
+
+| Document type | Why it's useful |
+|---------------|----------------|
+| Meeting notes | Studio references your notes when preparing for follow-up meetings |
+| Internal briefs | Company-specific context your team has gathered outside PG:AI |
+| Competitive analyses | Studio uses these when generating competitive positioning content |
+| RFP / RFI documents | Studio references requirements when generating proposals |
+| Account plans | Studio aligns its output with your existing account strategy |
+| Email threads (exported) | Studio uses conversation history for context |
+
+<Info>
+Uploaded files are account-level — all team members with access to the account can view and use them. Files persist until deleted.
+</Info>
+
+### Managing files
+
+- View all uploaded files in the file library
+- Files show upload date, uploader, and file size
+- Delete files you no longer need — deleted files are removed from the agent's context
+
+<Tip>
+Upload before asking the agent to generate content. The more context it has — meeting notes, internal briefs, competitive research — the better the output. Meeting notes are especially high-value because they contain context no enrichment source can provide.
+</Tip>
+
+---
+
+## Related modules
+
+<CardGroup cols={2}>
+  <Card title="AI Assistant" icon="comments" href="/studio/the-agent">
+    Ask questions about the account using intelligence data and any files you've uploaded.
+  </Card>
+  <Card title="Canvas" icon="file-lines" href="/studio/canvas">
+    Generate documents that draw from uploaded files as well as Intelligence data.
+  </Card>
+  <Card title="Workflows" icon="diagram-project" href="/studio/workflows">
+    Build automated pipelines that reference uploaded account documents at scale.
+  </Card>
+</CardGroup>

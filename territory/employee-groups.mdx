@@ -1,0 +1,129 @@
+---
+title: "Employee Groups"
+description: "Define which roles, departments, and employee segments at an account are relevant to your sale — so you know who to target and how the organisation is structured."
+icon: "users"
+---
+
+Employee Groups lets you define segments of employees based on role, title, department, or function — such as "Data Engineering", "Cloud Infrastructure", "VP+ in IT", or "Security & Compliance". The platform matches contacts and job data at every account against your definitions, showing you how many people fall into each group, what roles they hold, and how that's changing over time. This gives you a headcount and organisational view scoped to the parts of the company that matter to your sale.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Employee Groups */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Employee Groups main view */}
+
+## Key Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Group Definition" icon="pen-to-square">
+    Define groups by role, title, department, function, or seniority. Build a library of employee segments relevant to your business and update as your target personas evolve.
+  </Card>
+  <Card title="Account-Level Matching" icon="user-check">
+    See which employees at each account match each group. View headcount and role breakdown per group per account. Track changes over time — growing, shrinking, or stable.
+  </Card>
+</CardGroup>
+
+## What Employee Groups Tell You
+
+Employee groups show you the composition of people at each account. If you've defined groups like "DevOps Engineers", "C-Suite", or "Security Professionals", PG:AI matches employees at each company against those definitions and shows you the counts.
+
+This tells you:
+- Which accounts have the roles and personas you sell to
+- How deep those teams are (1 DevOps engineer vs. 50)
+- Whether an account has the organisational structure to be a buyer
+
+## Viewing Employee Group Data
+
+### In the Territory Companies Table
+
+Employee group counts can appear as columns in the Companies table when enabled in your territory's Enriched Columns settings (type: Employee Groups). Each group becomes its own column, showing the count of matching employees per account.
+
+{/* IMAGE PLACEHOLDER: Annotated screenshot of Employee Group columns in the Companies table */}
+
+### On Individual Account Profiles
+
+Click into any account to see the full employee group breakdown. This gives you the complete picture of which groups are present and how large they are.
+
+## Common Workflows
+
+### Finding Accounts with the Right Personas
+
+<Steps>
+  <Step title="Open the Companies table">
+    Navigate to your territory and go to the Companies tab.
+  </Step>
+  <Step title="Sort by the relevant group">
+    If employee group columns are visible, sort by the group that represents your ideal buyer (e.g., "Platform Engineering" descending).
+  </Step>
+  <Step title="Review top accounts">
+    Accounts with the highest counts have the largest teams in that area — they're more likely to have budget and need.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing sorting by employee group column */}
+
+### Qualifying an Account
+
+When evaluating whether an account is worth pursuing:
+
+<Steps>
+  <Step title="Open the account profile">
+    Click into the account you're evaluating.
+  </Step>
+  <Step title="Check employee group presence">
+    Do they have people in the roles you sell to? Is the team large enough to warrant an enterprise deal?
+  </Step>
+  <Step title="Assess team size">
+    If you're selling a DevOps platform and the account has 40+ DevOps Engineers, that's a strong signal. If they have 2, it's a different conversation.
+  </Step>
+</Steps>
+
+### Finding Contacts Within an Account
+
+Employee groups aren't just counts — they're built from real employee data. Use the groups to:
+
+<Steps>
+  <Step title="Identify relevant functions">
+    See which job functions exist at the account.
+  </Step>
+  <Step title="Navigate to contacts">
+    Navigate to the contacts or employee data for that account.
+  </Step>
+  <Step title="Find specific individuals">
+    Identify specific individuals to reach out to within each group.
+  </Step>
+</Steps>
+
+### Combining Employee Groups with Other Signals
+
+Employee groups are most useful in combination:
+
+| Combination | What it means |
+|------------|--------------|
+| **Employee groups + high PG:AI score** | Strong fit and the right people are there. |
+| **Employee groups + insight scores** | They're investing in a topic AND they have the team to buy your solution. |
+| **Employee groups + jobs** | They have the team AND they're hiring more — growing investment. |
+
+## Tips and Best Practices
+
+<Tip>**Think about group size** — a large DevOps team might mean they already have tooling. A growing team (combine with Jobs data) might mean they're ready to buy.</Tip>
+
+<Note>**Groups change over time** — as PG:AI re-enriches accounts, employee group counts update. Review periodically to catch shifts.</Note>
+
+- **Use groups for segmentation** — filter your territory to "accounts with 10+ Security Professionals" for a targeted outreach campaign.
+- **Feed groups into scoring models** — employee group presence and size can be weighted in scoring models to boost accounts with the right organisational fit.
+
+## Related Modules
+
+<CardGroup cols={3}>
+  <Card title="Scoring Models" icon="chart-simple" href="/territory/scoring-models">
+    Employee group data is an input to scoring rules (e.g. "score higher if 5+ people in target department").
+  </Card>
+  <Card title="Jobs" icon="briefcase" href="/territory/jobs">
+    Hiring signals complement employee groups by showing where an account is growing.
+  </Card>
+  <Card title="Strategic Insights Scoring" icon="lightbulb" href="/territory/strategic-insights-scoring">
+    Criteria may evaluate similar themes, but employee groups focus specifically on people and roles.
+  </Card>
+  <Card title="Territory Management" icon="layer-group" href="/territory/territory-management">
+    Employee groups are scoped to territories.
+  </Card>
+</CardGroup>

@@ -1,0 +1,194 @@
+---
+title: "Territory Analytics"
+description: "Understand territory performance at a glance — account aggregates, geographic distribution, activity tracking, insight scores, and exportable reports."
+icon: "chart-pie"
+---
+
+Territory Analytics provides a unified view of territory health — built directly on top of Territory Management, Scoring Models, Criteria, Enrichment, and the intelligence layer. It shows score distributions, segment breakdowns, geographic maps, activity tracking, and exportable reports. Analytics update in real time as underlying data changes, so you're always working with the latest picture.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Territory Analytics */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Territory Analytics main view */}
+
+## Key Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Summary & Aggregation" icon="chart-bar">
+    Territory-level analytics dashboard with key metrics. Account aggregates by industry, size, score band, and more. Insight score aggregations across territory accounts.
+  </Card>
+  <Card title="Geographic Views" icon="map-location-dot">
+    Map view showing account distribution by location. Spot coverage gaps and geographic concentration.
+  </Card>
+  <Card title="Activity & Engagement" icon="chart-line">
+    Track platform activity per territory — which accounts are being viewed and researched. Monitor active vs. inactive accounts. See which accounts have been added recently.
+  </Card>
+  <Card title="Tracking & Export" icon="file-export">
+    Detailed account-level tracking with full context. Export territory data for QBRs, leadership reviews, or offline analysis.
+  </Card>
+</CardGroup>
+
+## What Territory Analytics Provides
+
+Analytics gives you the big picture. While the Companies table shows account-level detail, analytics shows you patterns, distributions, and trends across the whole territory:
+
+- How are scores distributed? Is the territory healthy or flat?
+- Which industries or segments are strongest?
+- How has the territory changed over time?
+- Where are the gaps in coverage?
+
+This is the view you use for territory reviews, QBRs, and strategic planning.
+
+## Key Metrics and Views
+
+### Score Distribution
+
+{/* IMAGE PLACEHOLDER: Annotated screenshot of the score distribution chart */}
+
+See how accounts are spread across score bands:
+
+- **A healthy territory** has a clear spread — some Highs, a solid middle, and a long tail of Lows.
+- **A flat territory** (everything clustered at Medium) suggests the scoring model needs tuning or enrichment gaps exist.
+- **A top-heavy territory** (lots of Highs) is either very well-targeted or the thresholds are too generous.
+
+### Segment Breakdown
+
+Analytics can break down your territory by:
+
+- **Industry** — which industries have the best-scoring accounts?
+- **Company size** — are you strongest with mid-market, enterprise, or SMB?
+- **Geography** — which regions have the most opportunity?
+- **Score band** — how many accounts in each tier?
+
+### Trend Analysis
+
+If historical data is available:
+
+- How have scores changed over time?
+- Is the territory improving (more Highs) or deteriorating (more Lows)?
+- Are new accounts being added faster than old ones are declining?
+
+## Common Workflows
+
+### Monthly Territory Health Check
+
+<Steps>
+  <Step title="Open Territory Analytics">
+    Navigate to the analytics view for your territory.
+  </Step>
+  <Step title="Review score distribution">
+    Is it broadly the same as last month, or have there been shifts?
+  </Step>
+  <Step title="Check the High-count trend">
+    Are you gaining or losing top-tier accounts?
+  </Step>
+  <Step title="Identify declining segments">
+    Look for segments that are declining — investigate why.
+  </Step>
+  <Step title="Document findings">
+    Record your findings for your manager or the team.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing a monthly health check dashboard view */}
+
+### Preparing for a QBR
+
+<Steps>
+  <Step title="Open Territory Analytics">
+    Navigate to the analytics view.
+  </Step>
+  <Step title="Export key visualisations">
+    Export or screenshot the key views: score distribution, segment breakdown, trend charts.
+  </Step>
+  <Step title="Pull headline numbers">
+    Total accounts, % High, % Medium, top industries, top segments.
+  </Step>
+  <Step title="Prepare talking points">
+    "Territory is 15% High, up from 12% last quarter. Growth driven by financial services segment."
+  </Step>
+  <Step title="Use scenarios to propose changes">
+    "If we add 20 more accounts from target list, projected score distribution shifts to..."
+  </Step>
+</Steps>
+
+### Identifying Coverage Gaps
+
+<Steps>
+  <Step title="Review segment breakdown by industry">
+    Look at how accounts are distributed across industries.
+  </Step>
+  <Step title="Spot gaps">
+    If your ICP includes Healthcare but your territory has very few Healthcare accounts (or they all score Low), that's a coverage gap.
+  </Step>
+  <Step title="Investigate root causes">
+    Are the right accounts in the territory? Is the scoring model configured to value Healthcare-relevant signals?
+  </Step>
+  <Step title="Take action">
+    Use this insight to request territory adjustments or scoring model changes.
+  </Step>
+</Steps>
+
+### Comparing Territories
+
+If you manage multiple territories or are benchmarking:
+
+<Steps>
+  <Step title="Run analytics on each territory">
+    Open analytics for each territory you want to compare.
+  </Step>
+  <Step title="Compare key metrics">
+    Which territory has the best score distribution? The highest % of Highs?
+  </Step>
+  <Step title="Identify differences">
+    Look at what's different — scoring model? Account mix? Enrichment coverage?
+  </Step>
+  <Step title="Share best practices">
+    Apply lessons from high-performing territories to others.
+  </Step>
+</Steps>
+
+## Reading Analytics Charts
+
+### Score Distribution Chart
+
+{/* IMAGE PLACEHOLDER: Annotated screenshot of the score distribution chart with axis labels */}
+
+- **X-axis**: Score ranges (0–20, 20–40, 40–60, 60–80, 80–100)
+- **Y-axis**: Number of accounts
+- **Ideal shape**: Right-skewed bell curve — most accounts in the middle, a meaningful tail on the right (high scores)
+- **Warning shape**: Spike at one score — usually means enrichment or scoring hasn't fully processed
+
+### Segment Pie/Bar Charts
+
+- Show account counts or percentages by category (industry, size, geography).
+- Use these to answer: "What does my territory look like?" and "Where is it concentrated?"
+
+## Tips and Best Practices
+
+<Tip>**Review analytics before acting, not just after** — use analytics to decide what to do, not just to report on what happened.</Tip>
+
+<Note>**Trend matters more than snapshot** — a territory with 10% Highs that was at 5% last quarter is healthier than one with 15% Highs that's declining from 20%.</Note>
+
+- **Combine analytics with qualitative context** — the numbers say "Healthcare accounts score low." You might know that's because the scoring model doesn't weight healthcare-relevant criteria. Fix the model, don't ignore the segment.
+- **Share analytics with the team** — make territory health visible. When the whole team can see the score distribution and trends, decisions are better informed.
+- **Set benchmarks** — define what "good" looks like for your territory (e.g., "at least 20% High, average score above 55") and track against it.
+
+## Related Modules
+
+<CardGroup cols={3}>
+  <Card title="Territory Management" icon="layer-group" href="/territory/territory-management">
+    Analytics operate on the accounts and structure defined in Territory Management.
+  </Card>
+  <Card title="Scoring Models" icon="chart-simple" href="/territory/scoring-models">
+    Scoring results are a primary data source for analytics.
+  </Card>
+  <Card title="Strategic Insights Scoring" icon="lightbulb" href="/territory/strategic-insights-scoring">
+    Insight scores aggregate into analytics views.
+  </Card>
+  <Card title="Territory Enrichment" icon="database" href="/territory/territory-enrichment">
+    Enrichment coverage and completeness surface in analytics.
+  </Card>
+  <Card title="Scenarios & Recommendations" icon="wand-magic-sparkles" href="/territory/scenarios-recommendations">
+    Use analytics to guide scenario planning.
+  </Card>
+</CardGroup>

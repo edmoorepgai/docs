@@ -1,0 +1,182 @@
+---
+title: "Contacts"
+description: "List, retrieve, and create contacts in your PG:AI workspace"
+icon: "user"
+---
+
+## List Contacts
+
+Retrieve a paginated list of contacts across your organization.
+
+<ParamField query="page" type="integer" default="1">
+  Page number for pagination.
+</ParamField>
+
+<ParamField query="limit" type="integer" default="50">
+  Number of contacts to return per page. Also accepts `per_page`.
+</ParamField>
+
+**Permission:** `contacts:read`
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.pipelinegeneration.ai/v1/contacts?page=1&limit=25" \
+  -H "x-api-key: your_api_key"
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "data": [
+    {
+      "id": "c1d2e3f4-a5b6-7890-cdef-123456789012",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "email": "jane.smith@acme.com",
+      "job_title": "VP of Engineering",
+      "company": "Acme Corporation",
+      "linkedin_url": "https://linkedin.com/in/janesmith"
+    },
+    {
+      "id": "d2e3f4a5-b6c7-8901-defg-234567890123",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@techcorp.com",
+      "job_title": "CTO",
+      "company": "TechCorp",
+      "linkedin_url": "https://linkedin.com/in/johndoe"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 25,
+    "total": 2
+  }
+}
+```
+</ResponseExample>
+
+---
+
+## Get Contact
+
+Retrieve detailed information about a specific contact by ID.
+
+<ParamField path="contact_id" type="string" required>
+  The unique identifier (UUID) of the contact.
+</ParamField>
+
+**Permission:** `contacts:read`
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.pipelinegeneration.ai/v1/contacts/{contact_id}" \
+  -H "x-api-key: your_api_key"
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "id": "c1d2e3f4-a5b6-7890-cdef-123456789012",
+  "first_name": "Jane",
+  "last_name": "Smith",
+  "email": "jane.smith@acme.com",
+  "job_title": "VP of Engineering",
+  "company": "Acme Corporation",
+  "linkedin_url": "https://linkedin.com/in/janesmith",
+  "location": "San Francisco, CA",
+  "phone": "+1-555-0100",
+  "created_at": "2026-01-15T09:00:00Z",
+  "updated_at": "2026-03-10T14:30:00Z"
+}
+```
+</ResponseExample>
+
+<ResponseExample>
+```json 404
+{
+  "error": "Contact not found"
+}
+```
+</ResponseExample>
+
+---
+
+## Create Contact
+
+Create a new contact in your PG:AI workspace.
+
+<ParamField body="first_name" type="string" required>
+  The contact's first name.
+</ParamField>
+
+<ParamField body="last_name" type="string" required>
+  The contact's last name.
+</ParamField>
+
+<ParamField body="email" type="string" required>
+  The contact's email address.
+</ParamField>
+
+<ParamField body="job_title" type="string">
+  The contact's job title.
+</ParamField>
+
+<ParamField body="company" type="string">
+  The contact's company name.
+</ParamField>
+
+<ParamField body="linkedin_url" type="string">
+  The contact's LinkedIn profile URL.
+</ParamField>
+
+<ParamField body="phone" type="string">
+  The contact's phone number.
+</ParamField>
+
+<ParamField body="location" type="string">
+  The contact's location.
+</ParamField>
+
+**Permission:** `contacts:write`
+
+<RequestExample>
+```bash cURL
+curl -X POST "https://api.pipelinegeneration.ai/v1/contacts" \
+  -H "x-api-key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "first_name": "Sarah",
+    "last_name": "Connor",
+    "email": "sarah.connor@example.com",
+    "job_title": "Director of Sales",
+    "company": "Future Tech Inc",
+    "linkedin_url": "https://linkedin.com/in/sarahconnor"
+  }'
+```
+</RequestExample>
+
+<ResponseExample>
+```json 201
+{
+  "id": "f4a5b6c7-d8e9-0123-abcd-456789012345",
+  "first_name": "Sarah",
+  "last_name": "Connor",
+  "email": "sarah.connor@example.com",
+  "job_title": "Director of Sales",
+  "company": "Future Tech Inc",
+  "linkedin_url": "https://linkedin.com/in/sarahconnor",
+  "created_at": "2026-03-12T10:00:00Z"
+}
+```
+</ResponseExample>
+
+<ResponseExample>
+```json 400
+{
+  "error": "first_name is required"
+}
+```
+</ResponseExample>

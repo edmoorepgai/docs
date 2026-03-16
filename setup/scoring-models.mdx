@@ -1,0 +1,184 @@
+---
+title: "Scoring Models — Setup Guide"
+description: "How to create, configure, and publish scoring models for your territories"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Scoring Models */}
+
+## Prerequisites
+
+<Note>
+  Before setting up scoring models, ensure you have:
+  - **Admin or RevOps access** to your PG:AI organisation
+  - At least one **territory created** with accounts
+  - Recommended: **Strategic insight criteria**, **job settings**, and **employee groups** already configured (these provide the data that scoring rules evaluate)
+</Note>
+
+## Overview
+
+Scoring models turn your territory data — job counts, team size, criteria scores, enrichment data — into one simple score per account, so you can focus on the best leads first.
+
+Navigate to **Territories → Scoring Models** in the left sidebar.
+
+<Info>
+  Scoring models help you see at a glance how well each company fits your territory by turning their data (e.g. job counts, team size, criteria scores) into one simple score so you can focus on the best leads first.
+</Info>
+
+## Creating a Scoring Model
+
+<Steps>
+  <Step title="Navigate to Scoring Models">
+    Go to **Territories → Scoring Models** in the left sidebar.
+  </Step>
+  <Step title="Add new scoring model">
+    Click **+ New Scoring Model** (top-right button).
+  </Step>
+  <Step title="Name the model">
+    Enter a **Criteria Name** (the scoring model name) and optionally a **Description**.
+  </Step>
+  <Step title="Save or configure">
+    Click **Save** or proceed to configure rules and thresholds.
+  </Step>
+</Steps>
+
+<Tip>
+  PG:AI can also auto-generate a **Baseline Scoring Model** based on your territory settings (jobs, employee groups, insight criteria). This is the fastest way to get started.
+</Tip>
+
+{/* IMAGE PLACEHOLDER: Screenshot of new scoring model creation form */}
+
+## Configuring a Scoring Model
+
+### Score Band Thresholds
+
+Score bands define how account scores are categorised into traffic-light labels. Configure three thresholds:
+
+| Band | Range | Badge Colour | Meaning |
+|------|-------|-------------|---------|
+| **Negative** | ≤ 40 (default) | Low | Account is a poor fit based on current data |
+| **Neutral** | 41–59 (default) | Medium | Account has moderate signals |
+| **Positive** | ≥ 60 (default) | High | Account is a strong fit |
+
+<Tip>
+  Adjust these thresholds based on your scoring distribution. If most accounts cluster around 50, consider tightening the bands.
+</Tip>
+
+{/* IMAGE PLACEHOLDER: Screenshot of score band threshold configuration */}
+
+### Ruleset Weights
+
+Rules define what data contributes to the score and how much weight each signal carries. Each rule has:
+
+- **Rule name** — describes what this rule evaluates (e.g. "Baseline rule for RevOps")
+- **Type** — the data source: Jobs, Employee groups, Insights, etc.
+- **Weight** — a number (0–100) controlling how much this rule contributes to the total score. Shown as a slider bar.
+
+Example ruleset from a baseline model:
+
+| Rule | Type | Weight |
+|------|------|--------|
+| Baseline rule for RevOps | Jobs | 3 |
+| Baseline rule for Chief Revenue Officer | Jobs | 50 |
+| Baseline rule for Enterprise Account Executive | Jobs | 16 |
+| Baseline rule for Pipeline Generation | Employee group | (varies) |
+
+To edit rules, click **Edit Rules** to open the rules editor. You can add, remove, and modify individual rules.
+
+{/* IMAGE PLACEHOLDER: Screenshot of ruleset weights configuration */}
+
+### Preview
+
+The scoring model editor includes a **Preview** panel on the right side. This shows:
+
+- A list of accounts in the territory
+- Each account's **PG:AI Score** (the calculated score)
+- The **score badge** (High, Medium, Low) colour-coded
+- The account's **domain**
+
+<Tip>
+  Use the preview to validate your scoring model before publishing. Click **Reset** to recalculate scores.
+</Tip>
+
+{/* IMAGE PLACEHOLDER: Screenshot of scoring model preview panel */}
+
+## Publishing a Scoring Model
+
+A scoring model must be **published** to take effect. While in draft, you can adjust rules and thresholds without affecting live scores.
+
+<Steps>
+  <Step title="Configure rules and thresholds">
+    Set up your rules and score band thresholds.
+  </Step>
+  <Step title="Validate in preview">
+    Review the preview to validate scoring looks right.
+  </Step>
+  <Step title="Publish">
+    Click **Save** to publish the model. Published models score all accounts in the assigned territory automatically.
+  </Step>
+</Steps>
+
+<Note>
+  Scores recalculate as underlying data changes.
+</Note>
+
+{/* IMAGE PLACEHOLDER: Screenshot of publish confirmation */}
+
+## Assigning a Scoring Model to a Territory
+
+<Steps>
+  <Step title="Open territory settings">
+    Open the territory and go to **Territory Settings** (gear icon).
+  </Step>
+  <Step title="Select Scoring Model tab">
+    Select the **Scoring Model** tab.
+  </Step>
+  <Step title="Choose a model">
+    Choose the scoring model to assign. Once assigned, the territory's Companies view shows the PG:AI Score column with scores from this model.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot of scoring model assignment in territory settings */}
+
+## Understanding Scores in the Territory View
+
+In the territory Companies tab, the **PG:AI Score** column shows:
+
+- The numerical score (e.g. 99.31, 88.24, 64.95, 50.00)
+- A colour-coded badge: **High** (green/purple), **Medium** (yellow), **Low** (red/grey)
+- A sentiment indicator: **+ Positive**, **Neutral**, etc.
+
+Accounts are scored from 0–100. The badge thresholds correspond to your Score Band Thresholds.
+
+## Common Configurations
+
+**Baseline model (quick start):**
+- Let PG:AI generate a baseline model from your territory settings
+- Review and adjust weights
+- Good for getting started quickly
+
+**ICP-weighted model:**
+- Heavy weight on insight criteria scores (strategic fit)
+- Moderate weight on jobs (hiring signals)
+- Lower weight on employee groups (team composition)
+- Good for prioritising strategic accounts
+
+**Activity-weighted model:**
+- Heavy weight on jobs and employee group growth
+- Moderate weight on insight criteria
+- Good for identifying accounts with momentum
+
+**Multi-model comparison:**
+- Create 2–3 models with different weighting strategies
+- Assign each to a different territory (or clone territories)
+- Compare which model best predicts success
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| All accounts score 50.00 | Model not published or no rules configured | Configure rules and publish the model |
+| Scores don't update after changing data | Model needs to recalculate | Trigger a recalculation or wait for scheduled refresh |
+| Preview shows unexpected scores | Rule weights need adjustment | Review individual rule weights and adjust |
+| Scoring model not available in territory settings | Model not yet created or in wrong state | Check Territories → Scoring Models for the model |
+| High/Medium/Low badges seem wrong | Score band thresholds need adjustment | Adjust Negative/Neutral/Positive thresholds to match your score distribution |

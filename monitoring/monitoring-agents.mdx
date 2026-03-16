@@ -1,0 +1,110 @@
+---
+title: "Monitoring Agents"
+description: "Configure what to watch and which accounts to monitor — define rules, data sources, and thresholds for the signals that matter"
+icon: "radar"
+---
+
+Configure what to watch and which accounts to monitor. Define rules, data sources, and thresholds for the signals that matter to your business.
+
+A monitoring agent is a configured watcher. You define what type of changes it should look for — new job postings, leadership changes, technology adoption signals, financial events — and which companies it should monitor. Agents run continuously, evaluating new data against your defined rules.
+
+{/* VIDEO PLACEHOLDER: Short walkthrough of Monitoring Agents */}
+
+{/* IMAGE PLACEHOLDER: Screenshot of Monitoring Agents main view */}
+
+## Key capabilities
+
+- **Create and configure** monitoring agents with specific rules and thresholds
+- **Manage company watchlists** per agent (add/remove companies)
+- **Connect to multiple data sources** — CrustData, TheirStack, Parallel AI, PG:AI enrichment
+- **Scheduled and real-time** evaluation modes
+- **Multiple agents** with different focus areas running in parallel
+
+## Recommended agent configurations
+
+### For new business teams
+
+**Agent: Hiring Signals**
+Watch target accounts for hiring that indicates investment in areas relevant to your solution. A company tripling its data engineering headcount is likely investing in data infrastructure.
+
+**Agent: Strategic Initiatives**
+Watch for public strategic announcements that create openings for your solution. A company announcing a digital transformation initiative is a warmer prospect.
+
+### For customer success teams
+
+**Agent: Champion Tracking**
+Watch customer accounts for leadership changes. Your champion leaving is an early churn signal. A new leader is an opportunity to re-establish the relationship.
+
+**Agent: Competitive Signals**
+Watch customer accounts for competitive technology adoption. A customer hiring people with competitor product experience may be evaluating alternatives.
+
+### For account executives
+
+**Agent: Deal Signals**
+Watch active deal accounts for changes that affect the deal: financial events, leadership changes, strategic shifts, and competitive moves. Any of these can accelerate or derail a deal.
+
+{/* IMAGE PLACEHOLDER: Screenshot showing monitoring agent configuration with rules and thresholds */}
+
+## How many agents should you create?
+
+Start with **1–2 agents** focused on the signals that matter most to your role.
+
+| Role | Recommended starting agents |
+|------|-----------------------------|
+| Account executives | Hiring signals + leadership changes |
+| SDRs | Strategic initiatives (identifies warm outreach opportunities) |
+| Customer success | Champion tracking + competitive signals |
+| RevOps | Broad coverage across signal types for territory health |
+
+<Tip>
+You can add more agents over time as you see what surfaces valuable alerts.
+</Tip>
+
+## Tuning your agents
+
+After the first week of alerts, review:
+
+<Steps>
+  <Step title="Check signal-to-noise ratio">
+    If you're getting too many irrelevant alerts, tighten your rules — higher thresholds, more specific signal types.
+  </Step>
+  <Step title="Check coverage">
+    If important changes are being missed, add more signal types or lower thresholds.
+  </Step>
+  <Step title="Review watchlist scope">
+    If you're monitoring too many companies, prioritise your active pipeline and key accounts. You can always expand later.
+  </Step>
+</Steps>
+
+{/* IMAGE PLACEHOLDER: Screenshot showing agent tuning and threshold configuration */}
+
+## Tips
+
+<Steps>
+  <Step title="Name agents descriptively">
+    "Hiring Signals — Active Pipeline" is better than "Agent 1."
+  </Step>
+  <Step title="Separate concerns">
+    One agent per signal type is easier to manage than one agent trying to watch everything.
+  </Step>
+  <Step title="Review weekly">
+    Set aside 15 minutes per week to review and triage alerts. This keeps the system useful and the noise manageable.
+  </Step>
+  <Step title="Act on alerts">
+    An alert that's acknowledged but never acted on is a missed opportunity. If the alert isn't actionable, adjust the rules.
+  </Step>
+</Steps>
+
+## Related modules
+
+<CardGroup cols={2}>
+  <Card title="Alerts" icon="bell" href="/monitoring/alerts">
+    View, triage, and act on the changes your monitoring agents detect.
+  </Card>
+  <Card title="AI Assistant" icon="comments" href="/agent/ai-assistant">
+    Use the AI Assistant to research accounts flagged by monitoring agents.
+  </Card>
+  <Card title="Workflows" icon="diagram-project" href="/agent/workflows">
+    Trigger automated workflows in response to monitoring alerts.
+  </Card>
+</CardGroup>

@@ -1,0 +1,117 @@
+---
+title: "Territory Analytics — Setup Guide"
+description: "How to access and configure territory analytics and reporting"
+icon: "wrench"
+---
+
+{/* VIDEO PLACEHOLDER: Setup walkthrough for Territory Analytics */}
+
+## Prerequisites
+
+<Note>
+  Before using territory analytics, ensure you have:
+  - At least one **territory with accounts**
+  - Recommended: **Scoring model published**, **enrichment complete** (analytics are most useful with full data)
+</Note>
+
+## Overview
+
+Territory Analytics provides built-in views for understanding territory performance — account aggregates, score distributions, geographic views, activity tracking, and exportable reports.
+
+Analytics are accessed from within a territory view, typically via the **Overview** or **Insights** tabs at the top of the territory page.
+
+## Territory Views
+
+When you open a territory, the top navigation shows tabs including:
+
+| Tab | What It Shows |
+|-----|--------------|
+| **Overview** | Territory summary — account count, score distribution, key metrics |
+| **Companies** | Full account table with all columns, scores, and data |
+| **Insights** | Insight scores and strategic criteria performance across accounts |
+
+{/* IMAGE PLACEHOLDER: Screenshot of territory tab navigation */}
+
+## Companies Table
+
+The Companies tab is the primary analytics view. The table includes:
+
+| Column | Description |
+|--------|-------------|
+| Company | Company name with logo |
+| Domain | Website domain |
+| Industry | Industry classification |
+| Country | Headquarters country |
+| Employee Size | Employee count range (e.g. 1001–5000) |
+| Revenue | Revenue range (e.g. $500M–$1B) |
+| Territory Name | Which territory this account belongs to |
+| PG:AI Score | Overall score from the scoring model (e.g. 99.31, 88.24, 50.00) |
+| PG:AI Badge | Score band label (High, Medium, Low) with colour coding |
+| Sentiment | Positive, Neutral, etc. |
+
+### Customising the View
+
+- Click column headers to sort
+- Use the filter icon to apply filters
+- Use the column selector to show/hide columns
+- Additional columns may include enriched data, custom columns, job counts, and employee group counts
+
+{/* IMAGE PLACEHOLDER: Screenshot of companies analytics table with scores */}
+
+## Insights Tab
+
+The Insights tab shows strategic insights scoring performance across territory accounts:
+- Per-criterion scores across accounts
+- Aggregated insight data
+- Trend indicators
+
+{/* IMAGE PLACEHOLDER: Screenshot of insights analytics tab */}
+
+## Exporting Territory Data
+
+To export territory data for offline analysis, QBRs, or sharing with stakeholders:
+
+<Steps>
+  <Step title="Navigate to the Companies tab">
+    Open the Companies tab in your territory.
+  </Step>
+  <Step title="Export">
+    Use the export action to download territory data. Exports include all visible columns and account data.
+  </Step>
+</Steps>
+
+Exports are useful for:
+- Quarterly business reviews
+- Sharing with leadership who don't have platform access
+- Offline analysis and modelling
+
+{/* IMAGE PLACEHOLDER: Screenshot of export action and download */}
+
+## Common Analytics Workflows
+
+**Territory health check:**
+1. Open territory → Overview tab
+2. Review account count and score distribution
+3. Check how many accounts are High vs. Medium vs. Low
+4. Identify accounts that need attention (Low scores, no activity)
+
+**Score distribution review:**
+1. Open territory → Companies tab
+2. Sort by PG:AI Score (descending)
+3. Review the top-scoring accounts — are they the ones you'd expect?
+4. Check the bottom — are there accounts that should score higher?
+5. Adjust scoring model rules if the distribution doesn't match expectations
+
+**Territory comparison:**
+1. Open each territory and note key metrics
+2. Compare account counts, score distributions, and coverage
+3. Identify territories that are over- or under-resourced
+
+## Troubleshooting
+
+| Issue | Likely Cause | Fix |
+|-------|-------------|-----|
+| All scores show 50.00 | No scoring model assigned | Assign and publish a scoring model |
+| Analytics show limited data | Enrichment not complete | Run territory enrichment |
+| Export missing columns | Columns hidden in the view | Unhide columns before exporting |
+| Insights tab empty | No insight criteria configured | Set up Strategic Insights Scoring criteria |
