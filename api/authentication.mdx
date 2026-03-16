@@ -16,7 +16,7 @@ All API requests require authentication via an API key passed in the `x-api-key`
     Click **Generate API Key**, give it a descriptive name, and select the permission scopes it should have.
   </Step>
   <Step title="Copy and store securely">
-    Copy the key immediately — it won't be shown again. Store it in environment variables or a secrets manager.
+    Copy the key immediately  -  it won't be shown again. Store it in environment variables or a secrets manager.
   </Step>
 </Steps>
 
@@ -76,7 +76,7 @@ https://api.pipelinegeneration.ai/v1
 
 ## Permissions & Scopes
 
-API keys are scoped with granular permissions. Each endpoint requires a specific permission — requests made with a key that lacks the required scope will receive a `403 Forbidden` response.
+API keys are scoped with granular permissions. Each endpoint requires a specific permission  -  requests made with a key that lacks the required scope will receive a `403 Forbidden` response.
 
 | Scope | Description |
 |-------|-------------|
@@ -116,9 +116,9 @@ All error responses follow a consistent format:
 
 | Status Code | Description |
 |-------------|-------------|
-| `400` | Bad Request — invalid parameters or missing required fields |
-| `401` | Unauthorized — missing or invalid API key |
-| `403` | Forbidden — API key lacks the required permission scope |
-| `404` | Not Found — the requested resource does not exist |
-| `429` | Rate Limited — too many requests |
-| `500` | Internal Server Error — something went wrong on our end |
+| `400` | Bad Request  -  invalid parameters or missing required fields |
+| `401` | Unauthorized  -  missing or invalid API key |
+| `403` | Forbidden  -  API key lacks the required permission scope |
+| `404` | Not Found  -  the requested resource does not exist |
+| `429` | Rate Limited  -  too many requests |
+| `500` | Internal Server Error  -  something went wrong on our end |

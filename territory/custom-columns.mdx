@@ -1,10 +1,10 @@
 ---
 title: "Custom Columns"
-description: "Extend territory data with any field you need — populated manually, enriched by AI, or auto-refreshed on a schedule."
+description: "Extend territory data with any field you need  -  populated manually, enriched by AI, or auto-refreshed on a schedule."
 icon: "table-columns"
 ---
 
-Custom Columns let you add any data field to your territory's account table. You define the question, choose a data type, and then populate it — manually, via AI enrichment, or with location data. AI enrichment researches each account using enriched data, public information, tech stack, jobs, and more to answer your question across all accounts automatically. Custom columns can be monitored and auto-refreshed to stay current as things change.
+Custom Columns let you add any data field to your territory's account table. You define the question, choose a data type, and then populate it  -  manually, via AI enrichment, or with location data. AI enrichment researches each account using enriched data, public information, tech stack, jobs, and more to answer your question across all accounts automatically. Custom columns can be monitored and auto-refreshed to stay current as things change.
 
 {/* VIDEO PLACEHOLDER: Short walkthrough of Custom Columns */}
 
@@ -31,9 +31,9 @@ Custom columns are new data fields that you add to your territory account table.
 Want to know each account's primary cloud provider? Their compliance posture? Whether they've been through a recent acquisition? You create a custom column, describe what you want to know, choose a data type (text, number, boolean), and PG:AI's AI researches each account and fills in the answer.
 
 Custom columns can hold:
-- **AI-researched answers** — PG:AI looks at enrichment data, public information, tech stack, jobs, and more
-- **Manual values** — data you set yourself on individual accounts
-- **Any data type** — text, numbers, booleans — whatever fits the question
+- **AI-researched answers**  -  PG:AI looks at enrichment data, public information, tech stack, jobs, and more
+- **Manual values**  -  data you set yourself on individual accounts
+- **Any data type**  -  text, numbers, booleans  -  whatever fits the question
 
 ## Viewing Custom Columns
 
@@ -67,7 +67,7 @@ This is the core use case. You have a question that matters to your sales strate
     PG:AI's AI researches each account and populates the answer.
   </Step>
   <Step title="Use the data">
-    The answers appear as a column in your territory table — sortable, filterable, and ready to use.
+    The answers appear as a column in your territory table  -  sortable, filterable, and ready to use.
   </Step>
 </Steps>
 
@@ -94,7 +94,7 @@ Once columns are populated:
 
 <Steps>
   <Step title="Sort by custom column">
-    Sort the territory by a custom column to see patterns — e.g., sort by "Primary Cloud Provider" to group all AWS accounts together.
+    Sort the territory by a custom column to see patterns  -  e.g., sort by "Primary Cloud Provider" to group all AWS accounts together.
   </Step>
   <Step title="Filter to specific values">
     Show only accounts where "Recent Acquisition" = Yes.
@@ -127,10 +127,10 @@ Custom columns are powerful for campaign targeting:
 
 Some columns work best as manual additions:
 
-- **Account tier** (Tier 1, 2, 3) — your team's strategic classification
-- **Outreach status** — "Not started", "Sequenced", "Meeting booked"
-- **Assigned rep** — who owns this account
-- **Notes** — context that only you have
+- **Account tier** (Tier 1, 2, 3)  -  your team's strategic classification
+- **Outreach status**  -  "Not started", "Sequenced", "Meeting booked"
+- **Assigned rep**  -  who owns this account
+- **Notes**  -  context that only you have
 
 These sit alongside AI-populated columns, so your territory table combines PG:AI intelligence with your team's knowledge.
 
@@ -139,7 +139,7 @@ These sit alongside AI-populated columns, so your territory table combines PG:AI
 Custom column values can be used as inputs to scoring models:
 
 - If "Primary Cloud Provider = AWS" and you sell an AWS-optimised product, that should boost the score.
-- If "Recent Acquisition = Yes", that might indicate budget disruption — positive or negative depending on your offering.
+- If "Recent Acquisition = Yes", that might indicate budget disruption  -  positive or negative depending on your offering.
 - If "DevOps Maturity = Advanced", that could mean they're ready for your product (or already have something similar).
 
 <Tip>Talk to your admin about which custom columns should feed into the scoring model.</Tip>
@@ -148,23 +148,23 @@ Custom column values can be used as inputs to scoring models:
 
 Custom columns can be configured to refresh automatically:
 
-- **Scheduled refresh** — AI re-researches accounts periodically and updates values.
-- **Change detection** — flags when an answer changes significantly (e.g., a company switches cloud providers).
-- **Manual refresh** — re-run AI research on demand for specific accounts.
+- **Scheduled refresh**  -  AI re-researches accounts periodically and updates values.
+- **Change detection**  -  flags when an answer changes significantly (e.g., a company switches cloud providers).
+- **Manual refresh**  -  re-run AI research on demand for specific accounts.
 
 This means custom column data stays current without manual maintenance. A company that switches from Azure to AWS will have its "Primary Cloud Provider" column updated on the next refresh.
 
 ## Tips and Best Practices
 
-<Tip>**Be specific in your questions** — "Primary cloud provider" works better than "cloud stuff." The clearer the question, the more accurate the AI answer.</Tip>
+<Tip>**Be specific in your questions**  -  "Primary cloud provider" works better than "cloud stuff." The clearer the question, the more accurate the AI answer.</Tip>
 
-<Note>**Choose the right data type** — use boolean for yes/no questions, number for quantitative data, text for descriptive answers. The right type makes sorting and filtering work properly.</Note>
+<Note>**Choose the right data type**  -  use boolean for yes/no questions, number for quantitative data, text for descriptive answers. The right type makes sorting and filtering work properly.</Note>
 
-- **Start with high-value questions** — what data points, if you had them for every account, would most change how you prioritise? Start there.
-- **Combine AI columns with manual columns** — AI tells you what's true about the account; manual columns track your team's decisions and status. Both are valuable.
-- **Review AI answers for accuracy** — spot-check a few accounts you know well to validate that the AI is answering correctly. If not, refine the column description.
-- **Don't over-create** — 5–10 well-chosen custom columns are more useful than 30 random ones. Each column should earn its place on the table.
-- **Feed important columns into scoring** — if a custom column captures a signal that genuinely affects fit, make sure it's weighted in the scoring model.
+- **Start with high-value questions**  -  what data points, if you had them for every account, would most change how you prioritise? Start there.
+- **Combine AI columns with manual columns**  -  AI tells you what's true about the account; manual columns track your team's decisions and status. Both are valuable.
+- **Review AI answers for accuracy**  -  spot-check a few accounts you know well to validate that the AI is answering correctly. If not, refine the column description.
+- **Don't over-create**  -  5–10 well-chosen custom columns are more useful than 30 random ones. Each column should earn its place on the table.
+- **Feed important columns into scoring**  -  if a custom column captures a signal that genuinely affects fit, make sure it's weighted in the scoring model.
 
 ## Related Modules
 

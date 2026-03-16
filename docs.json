@@ -49,10 +49,10 @@
         ]
       },
       {
-        "tab": "Account",
+        "tab": "Product",
         "groups": [
           {
-            "group": "Account Intelligence",
+            "group": "Account",
             "pages": [
               "account/overview",
               "account/strategic-insights",
@@ -62,37 +62,22 @@
               "account/org-chart",
               "account/sales-engagement"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Territory",
-        "groups": [
+          },
           {
-            "group": "Planning & Scoring",
+            "group": "Territory",
             "pages": [
               "territory/overview",
               "territory/territory-management",
               "territory/territory-enrichment",
               "territory/scoring-models",
               "territory/strategic-insights-scoring",
-              "territory/scenarios-recommendations"
-            ]
-          },
-          {
-            "group": "Analysis & Data",
-            "pages": [
+              "territory/scenarios-recommendations",
               "territory/custom-columns",
               "territory/employee-groups",
               "territory/jobs",
               "territory/territory-analytics"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Contact",
-        "groups": [
+          },
           {
             "group": "Contact",
             "pages": [
@@ -101,12 +86,7 @@
               "contact/enrichment",
               "contact/intelligence"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Studio",
-        "groups": [
+          },
           {
             "group": "Studio",
             "pages": [
@@ -117,12 +97,7 @@
               "studio/projects-tasks",
               "studio/account-toolbar"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Monitoring",
-        "groups": [
+          },
           {
             "group": "Monitoring",
             "pages": [
@@ -149,17 +124,39 @@
               "configuration/crm-integration",
               "configuration/team-permissions"
             ]
+          },
+          {
+            "group": "Setup Guides",
+            "pages": [
+              "setup/territory-management",
+              "setup/territory-enrichment",
+              "setup/territory-analytics",
+              "setup/scoring-models",
+              "setup/strategic-insights-scoring",
+              "setup/scenarios-recommendations",
+              "setup/custom-columns",
+              "setup/employee-groups",
+              "setup/jobs",
+              "setup/ai-assistant",
+              "setup/canvas",
+              "setup/workflows",
+              "setup/monitoring-agents",
+              "setup/alerts",
+              "setup/agentmail",
+              "setup/rest-api"
+            ]
           }
         ]
       },
       {
-        "tab": "API",
+        "tab": "Developers",
         "groups": [
           {
-            "group": "Getting Started",
+            "group": "API",
             "pages": [
               "api/overview",
-              "api/authentication"
+              "api/authentication",
+              "api/endpoints"
             ]
           },
           {
@@ -172,20 +169,10 @@
               "api/workflows",
               "api/search",
               "api/graph",
-              "api/assistant"
-            ]
-          },
-          {
-            "group": "Events",
-            "pages": [
+              "api/assistant",
               "api/webhooks"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "MCP",
-        "groups": [
+          },
           {
             "group": "MCP Server",
             "pages": [

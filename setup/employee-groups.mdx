@@ -1,5 +1,5 @@
 ---
-title: "Employee Groups — Setup Guide"
+title: "Employee Groups  -  Setup Guide"
 description: "How to define and configure employee groups for territory planning"
 icon: "wrench"
 ---
@@ -17,7 +17,7 @@ icon: "wrench"
 
 ## Overview
 
-Employee Groups help you find out how many employees at each account match certain keywords — whether that's job titles, technologies, or specific roles. You define groups by name and keyword, and PG:AI matches them across all contacts and job data in your territories.
+Employee Groups help you find out how many employees at each account match certain keywords  -  whether that's job titles, technologies, or specific roles. You define groups by name and keyword, and PG:AI matches them across all contacts and job data in your territories.
 
 Navigate to **Territories → Employee Groups** in the left sidebar.
 
@@ -54,7 +54,7 @@ Navigate to **Territories → Employee Groups** in the left sidebar.
 
 PG:AI searches across contacts and job postings for your territory accounts, looking for matches against your title keywords and description keywords. When a match is found, that person or role is counted in the employee group for that account.
 
-This gives you a per-account headcount for each group — e.g. "Harness has 4 Enterprise Account Executives" or "Collibra has 12 MEDDPICC-related roles."
+This gives you a per-account headcount for each group  -  e.g. "Harness has 4 Enterprise Account Executives" or "Collibra has 12 MEDDPICC-related roles."
 
 ## Managing Employee Groups
 
@@ -77,8 +77,8 @@ The Employee Groups settings page shows all groups in a table:
 Employee groups appear in your territory's **Enriched Columns** settings (Territory Settings → Enriched Columns) with the type "Employee groups". Toggle them on to include employee group data in territory views and scoring.
 
 For example, from the enriched columns panel:
-- "Pipeline Generation" — Employee groups — Included: **ON**
-- "Enterprise Account Executive" — Employee groups — Included: **OFF**
+- "Pipeline Generation"  -  Employee groups  -  Included: **ON**
+- "Enterprise Account Executive"  -  Employee groups  -  Included: **OFF**
 
 <Tip>
   Only groups toggled on will contribute data to this territory's views and scoring models.
@@ -89,7 +89,7 @@ For example, from the enriched columns panel:
 Employee group counts can be used as inputs to scoring model rules. For example:
 
 - "If Pipeline Generation employee group count > 5, add 15 points"
-- "Baseline rule for Pipeline Generation — Employee group" (as shown in scoring model ruleset weights)
+- "Baseline rule for Pipeline Generation  -  Employee group" (as shown in scoring model ruleset weights)
 
 See the [Scoring Models setup guide](/setup/scoring-models) for details.
 
@@ -120,5 +120,5 @@ See the [Scoring Models setup guide](/setup/scoring-models) for details.
 |-------|-------------|-----|
 | Employee group shows 0 matches for all accounts | Keywords too specific or contact data not enriched | Broaden keywords or run contact enrichment |
 | Group not appearing in territory enriched columns | Group not yet included | Go to Territory Settings → Enriched Columns and toggle the group on |
-| Too many false positive matches | Keywords too broad | Narrow keywords — use exact title matches rather than generic terms |
+| Too many false positive matches | Keywords too broad | Narrow keywords  -  use exact title matches rather than generic terms |
 | Employee group data not feeding into scoring | Group not enabled in enriched columns for this territory | Toggle on in Territory Settings → Enriched Columns |
