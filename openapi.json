@@ -1,0 +1,3934 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PGAI Public API",
+    "version": "1.0.0",
+    "description": "Public API for accessing PGAI data with organisation-based access control. All endpoints require API key authentication and appropriate permissions.",
+    "contact": {
+      "name": "PG:AI Support",
+      "url": "https://www.getpg.ai"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.getpg.ai/v1",
+      "description": "Production"
+    },
+    {
+      "url": "https://api-dev.getpg.ai/v1",
+      "description": "Development"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key",
+        "description": "Your API key for authentication. Get your API key from the PGAI dashboard."
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "JWT bearer token for authentication"
+      }
+    },
+    "schemas": {
+      "AccountsSearchResponse": {
+        "type": "object",
+        "description": "Response from accounts search endpoint",
+        "properties": {
+          "request": {
+            "type": "object",
+            "description": "Request parameters used for the search",
+            "properties": {
+              "industry": {
+                "type": "string",
+                "nullable": true
+              },
+              "employee_size_category": {
+                "type": "string",
+                "nullable": true
+              },
+              "revenue_category": {
+                "type": "string",
+                "nullable": true
+              },
+              "country": {
+                "type": "string",
+                "nullable": true
+              },
+              "public_company": {
+                "type": "boolean"
+              },
+              "company_name": {
+                "type": "string",
+                "nullable": true
+              },
+              "page": {
+                "type": "integer"
+              },
+              "per_page": {
+                "type": "integer"
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "description": "Array of company/account items",
+            "items": {
+              "$ref": "#/components/schemas/AccountItem"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "required": [
+          "items",
+          "pagination"
+        ]
+      },
+      "AccountItem": {
+        "type": "object",
+        "description": "Company/account item from search results",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "company_name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri"
+          },
+          "public_company": {
+            "type": "boolean"
+          },
+          "industry": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee_size_category": {
+            "type": "string",
+            "nullable": true
+          },
+          "revenue_category": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "company_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "website_domain": {
+            "type": "string"
+          },
+          "country_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkedin_url": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "hq_city": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_state": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_address": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_postcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_country_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "ceo": {
+            "type": "string",
+            "nullable": true
+          },
+          "sector": {
+            "type": "string",
+            "nullable": true
+          },
+          "revenue_range": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee_count_range": {
+            "type": "string",
+            "nullable": true
+          },
+          "full_time_employees": {
+            "type": "integer",
+            "nullable": true
+          },
+          "alternative_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "alternative_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock_ticker": {
+            "type": "string",
+            "nullable": true
+          },
+          "market_cap": {
+            "type": "number",
+            "nullable": true
+          },
+          "stock_currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock_exchange_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock_exchange_symbol": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "company_id"
+        ]
+      },
+      "Company": {
+        "type": "object",
+        "description": "Company information",
+        "properties": {
+          "company_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "company_name": {
+            "type": "string"
+          },
+          "website_domain": {
+            "type": "string"
+          },
+          "public_company": {
+            "type": "boolean"
+          },
+          "country_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkedin_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_city": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_state": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_address": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_postcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "hq_country_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "ceo": {
+            "type": "string",
+            "nullable": true
+          },
+          "sector": {
+            "type": "string",
+            "nullable": true
+          },
+          "industry": {
+            "type": "string",
+            "nullable": true
+          },
+          "revenue_range": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee_count_range": {
+            "type": "string",
+            "nullable": true
+          },
+          "full_time_employees": {
+            "type": "integer",
+            "nullable": true
+          },
+          "alternative_domains": {
+            "type": "string",
+            "nullable": true
+          },
+          "alternative_names": {
+            "type": "string",
+            "nullable": true
+          },
+          "tags": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock_ticker": {
+            "type": "string",
+            "nullable": true
+          },
+          "market_cap": {
+            "type": "number",
+            "nullable": true
+          },
+          "stock_currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock_exchange_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock_exchange_symbol": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "company_id"
+        ]
+      },
+      "CompanyContactsResponse": {
+        "type": "object",
+        "description": "Response containing company contacts",
+        "properties": {
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contact"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "required": [
+          "contacts",
+          "pagination"
+        ]
+      },
+      "CompanyContentResponse": {
+        "type": "object",
+        "description": "Response containing company content",
+        "properties": {
+          "contacts": {
+            "type": "array",
+            "description": "Array of content items (note: field name is \"contacts\" in API)",
+            "items": {
+              "$ref": "#/components/schemas/Content"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "required": [
+          "contacts",
+          "pagination"
+        ]
+      },
+      "CompanyProfile": {
+        "type": "object",
+        "description": "Customizable company profile with optional sections",
+        "properties": {
+          "company_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "company_name": {
+            "type": "string"
+          },
+          "website_domain": {
+            "type": "string"
+          },
+          "hq_country_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "industry": {
+            "type": "string",
+            "nullable": true
+          },
+          "revenue_range": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee_count_range": {
+            "type": "string",
+            "nullable": true
+          },
+          "overview": {
+            "type": "object",
+            "description": "Company overview section",
+            "additionalProperties": true
+          },
+          "divisions": {
+            "type": "array",
+            "description": "Company divisions",
+            "items": {
+              "type": "object",
+              "properties": {
+                "division_name": {
+                  "type": "string"
+                },
+                "division_summary": {
+                  "type": "string"
+                },
+                "last_year_label": {
+                  "type": "string"
+                },
+                "last_year_financial_year_end": {
+                  "type": "string"
+                },
+                "last_year_revenue_gross": {
+                  "type": "number"
+                },
+                "last_year_gross_revenue_change": {
+                  "type": "string"
+                },
+                "year_before_label": {
+                  "type": "string"
+                },
+                "year_before_financial_year_end": {
+                  "type": "string"
+                },
+                "year_before_revenue_gross": {
+                  "type": "number"
+                },
+                "year_before_gross_revenue_change": {
+                  "type": "string"
+                },
+                "priorities": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sources": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "challenges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sources": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "digital_strategies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sources": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "key_people": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "key_executives": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "geographical_operations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "swot_analysis": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "STRENGTH",
+                    "WEAKNESS",
+                    "OPPORTUNITY",
+                    "THREAT"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "strategic_priorities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "digital_strategies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "goals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "risks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "competitors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "industry_insights": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "event_title": {
+                  "type": "string"
+                },
+                "fiscal_label": {
+                  "type": "string"
+                },
+                "period_end_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "gross_revenue": {
+                  "type": "number"
+                },
+                "gross_revenue_change": {
+                  "type": "string"
+                },
+                "earnings_call_new_strategies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "earnings_call_summary": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "earnings_call_quotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "event_new_strategies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "earnings_call_challenges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "digital_strategies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "custom_insights": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "insights_scores": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "territory_custom_scores": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "required": [
+          "company_id"
+        ]
+      },
+      "Contact": {
+        "type": "object",
+        "description": "Contact information",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Contact ID"
+          },
+          "full_name": {
+            "type": "string",
+            "description": "Full name"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "First name"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Last name"
+          },
+          "current_job_title": {
+            "type": "string",
+            "description": "Current job title"
+          },
+          "linkedin_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "LinkedIn profile URL"
+          },
+          "location": {
+            "type": "string",
+            "description": "Location"
+          },
+          "country": {
+            "type": "string",
+            "nullable": true,
+            "description": "Country"
+          },
+          "country_code": {
+            "type": "string",
+            "nullable": true,
+            "description": "Country code"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Professional summary"
+          },
+          "image_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Profile image URL"
+          },
+          "headline": {
+            "type": "string",
+            "description": "Professional headline"
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Email addresses"
+          },
+          "phones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Phone numbers"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Skills"
+          },
+          "company": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "linkedin_id": {
+                "type": "string"
+              }
+            }
+          },
+          "experience": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "job_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "company_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "company": {
+                  "type": "string"
+                },
+                "company_linkedin_id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "start_date": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end_date": {
+                  "type": "string",
+                  "format": "date-time",
+                  "nullable": true
+                },
+                "is_current": {
+                  "type": "boolean"
+                },
+                "description": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "education": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "degree": {
+                  "type": "string"
+                },
+                "field_of_study": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "school": {
+                  "type": "string"
+                },
+                "start_year": {
+                  "type": "integer"
+                },
+                "end_year": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation timestamp"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Last update timestamp"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "Content": {
+        "type": "object",
+        "description": "Content item",
+        "properties": {
+          "content_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Content ID"
+          },
+          "company_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Associated company ID"
+          },
+          "content_type": {
+            "type": "string",
+            "enum": [
+              "email",
+              "notes",
+              "call_script",
+              "document",
+              "value_pyramid",
+              "three_whys"
+            ],
+            "description": "Content type"
+          },
+          "content_setting_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "Content setting ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Content title"
+          },
+          "content": {
+            "type": "string",
+            "description": "Content body/text (can be markdown)"
+          },
+          "ref_content_template_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "Reference content template ID"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation timestamp"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Last update timestamp"
+          }
+        },
+        "required": [
+          "content_id",
+          "company_id",
+          "content_type"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error response",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error type or code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable error message"
+          },
+          "details": {
+            "type": "object",
+            "description": "Additional error details",
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "error"
+        ]
+      },
+      "OrganizationCredits": {
+        "type": "object",
+        "description": "Organization credit information",
+        "properties": {
+          "organization": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "credit_remaining": {
+            "type": "object",
+            "properties": {
+              "company_credits": {
+                "type": "integer"
+              },
+              "content_credits": {
+                "type": "integer"
+              },
+              "territory_credits": {
+                "type": "integer"
+              },
+              "contact_credits": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "required": [
+          "organization",
+          "credit_remaining"
+        ]
+      },
+      "Pagination": {
+        "type": "object",
+        "description": "Pagination information",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Current page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Items per page"
+          },
+          "total": {
+            "type": "integer",
+            "description": "Total number of items",
+            "nullable": true
+          },
+          "total_items": {
+            "type": "integer",
+            "description": "Total number of items (alternative field name)",
+            "nullable": true
+          },
+          "total_pages": {
+            "type": "integer",
+            "description": "Total number of pages"
+          },
+          "has_next": {
+            "type": "boolean",
+            "description": "Whether there is a next page",
+            "nullable": true
+          },
+          "has_previous": {
+            "type": "boolean",
+            "description": "Whether there is a previous page",
+            "nullable": true
+          }
+        },
+        "required": [
+          "page",
+          "per_page"
+        ]
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check endpoint",
+        "description": "Returns API status and data connector connection info",
+        "tags": [
+          "health"
+        ],
+        "responses": {
+          "200": {
+            "description": "API is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/companies/{company_id}": {
+      "get": {
+        "summary": "Get company by ID",
+        "description": "Retrieve detailed information about a specific company. Requires \"insights:read\" permission.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Company found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Company"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Company ID is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions. Required: insights:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Company not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Company ID (UUID)"
+          }
+        ]
+      }
+    },
+    "/accounts": {
+      "post": {
+        "summary": "Search for companies (accounts)",
+        "description": "Search for companies using various filters. No search filters required - empty body returns all results.",
+        "tags": [
+          "accounts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountsSearchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Input Error. Check the request payload for issues.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Additional privileges are needed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limited. Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "industry": {
+                    "type": "string",
+                    "description": "Filter by industry"
+                  },
+                  "employee_size_category": {
+                    "type": "string",
+                    "description": "Filter by employee size category"
+                  },
+                  "revenue_category": {
+                    "type": "string",
+                    "description": "Filter by revenue category"
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "Filter by country"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "description": "Filter by company name"
+                  },
+                  "page": {
+                    "type": "integer",
+                    "description": "Page number",
+                    "default": 0
+                  },
+                  "per_page": {
+                    "type": "integer",
+                    "description": "Items per page",
+                    "default": 0
+                  },
+                  "public_company": {
+                    "type": "boolean",
+                    "description": "Filter by public company status"
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "description": "Offset for pagination",
+                    "default": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/companies/{company_id}/assistant/chat": {
+      "post": {
+        "summary": "Assistant chat for a company",
+        "description": "Send a chat message to the assistant for a specific company. Optionally continue an existing conversation.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Input Error. Check the request payload for issues.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Additional privileges are needed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limited. Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Company ID (UUID)"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "Chat message"
+                  },
+                  "conversation_id": {
+                    "type": "string",
+                    "description": "Optional conversation ID to continue existing conversation"
+                  }
+                },
+                "required": [
+                  "message"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/companies/{company_id}/assistant/conversations": {
+      "get": {
+        "summary": "List assistant conversations for a company",
+        "description": "Retrieve a list of assistant conversations for a specific company.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Input Error. Check the request payload for issues.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Additional privileges are needed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limited. Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Company ID (UUID)"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 25
+            },
+            "description": "Items per page"
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/assistant/conversations/{conversation_id}": {
+      "get": {
+        "summary": "Get a single assistant conversation",
+        "description": "Retrieve a specific assistant conversation by ID.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Input Error. Check the request payload for issues.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Additional privileges are needed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limited. Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Company ID (UUID)"
+          },
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Conversation ID (UUID)"
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/content": {
+      "get": {
+        "summary": "Get content for a company",
+        "description": "Retrieve content associated with a company. Valid content types: email, notes, call_script, document, value_pyramid, three_whys",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyContentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Input Error. Check the request payload for issues.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Additional privileges are needed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limited. Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Company ID (UUID)"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100
+            },
+            "description": "Items per page"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "email",
+                  "notes",
+                  "call_script",
+                  "document",
+                  "value_pyramid",
+                  "three_whys"
+                ]
+              }
+            },
+            "description": "Content type filter(s). Can specify multiple types.",
+            "style": "form",
+            "explode": true
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/profile": {
+      "get": {
+        "summary": "Get customizable company profile",
+        "description": "Retrieve a customizable company profile with optional sections. Include can be \"full\" or specific sections. Sources can be true/false.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfile"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Input Error. Check the request payload for issues.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Additional privileges are needed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limited. Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Company ID (UUID)"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "full",
+                  "overview",
+                  "key_executives",
+                  "divisions",
+                  "geographical_operations",
+                  "swot_analysis",
+                  "competitors",
+                  "industry_insights",
+                  "strategic_priorities",
+                  "digital_strategies",
+                  "risks",
+                  "goals",
+                  "insights_scores",
+                  "events",
+                  "value_pyramid",
+                  "three_whys",
+                  "discovery_questions",
+                  "how_they_make_money",
+                  "how_they_lose_money",
+                  "custom_insights",
+                  "employee_groups",
+                  "favourite_technologies_count",
+                  "territory_custom_scores",
+                  "content"
+                ]
+              }
+            },
+            "description": "Array of sections to include. Use [\"full\"] for everything or specific sections.",
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "exclude",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "full",
+                  "overview",
+                  "key_executives",
+                  "divisions",
+                  "geographical_operations",
+                  "swot_analysis",
+                  "competitors",
+                  "industry_insights",
+                  "strategic_priorities",
+                  "digital_strategies",
+                  "risks",
+                  "goals",
+                  "insights_scores",
+                  "events",
+                  "value_pyramid",
+                  "three_whys",
+                  "discovery_questions",
+                  "how_they_make_money",
+                  "how_they_lose_money",
+                  "custom_insights",
+                  "employee_groups",
+                  "favourite_technologies_count",
+                  "territory_custom_scores",
+                  "content"
+                ]
+              }
+            },
+            "description": "Array of sections to exclude.",
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "sources",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Include sources (true/false)"
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/technologies": {
+      "post": {
+        "summary": "Get technologies for a company",
+        "description": "Retrieve technologies associated with a company with optional filtering by category, confidence, and favorites.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Input Error. Check the request payload for issues.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Additional privileges are needed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limited. Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Company ID (UUID)"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "confidence": {
+                    "type": "string",
+                    "description": "Filter by confidence level"
+                  },
+                  "category": {
+                    "type": "string",
+                    "description": "Filter by technology category (UUID or name)",
+                    "enum": [
+                      "Data, BI and Analytics",
+                      "Collaboration",
+                      "Communications",
+                      "Computer Networks",
+                      "Customer Management",
+                      "Devops And Development",
+                      "E-commerce",
+                      "Finance And Accounting",
+                      "Health Tech",
+                      "Industrial Engineering",
+                      "Programming",
+                      "Favourites",
+                      "HR",
+                      "IT Management",
+                      "IT Security",
+                      "Marketing",
+                      "Platform And Storage",
+                      "Product And Design",
+                      "Productivity And Operations",
+                      "Sales",
+                      "Testing And QA",
+                      "Operations Software"
+                    ]
+                  },
+                  "favourites": {
+                    "type": "boolean",
+                    "description": "Filter by favorites only"
+                  },
+                  "page": {
+                    "type": "integer",
+                    "description": "Page number",
+                    "default": 1
+                  },
+                  "per_page": {
+                    "type": "integer",
+                    "description": "Items per page",
+                    "default": 100
+                  },
+                  "query": {
+                    "type": "string",
+                    "description": "Search query"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts/{contact_id}": {
+      "get": {
+        "summary": "Get contact by ID",
+        "description": "Retrieve detailed information about a specific contact.",
+        "tags": [
+          "contacts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contact"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Contact ID is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "contact_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Contact ID (UUID)"
+          }
+        ]
+      }
+    },
+    "/contacts": {
+      "get": {
+        "summary": "List contacts",
+        "description": "Retrieve a list of contacts with pagination.",
+        "tags": [
+          "contacts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50
+            },
+            "description": "Items per page"
+          }
+        ]
+      }
+    },
+    "/content/{content_id}": {
+      "get": {
+        "summary": "Get content by ID",
+        "description": "Retrieve detailed information about specific content.",
+        "tags": [
+          "content"
+        ],
+        "responses": {
+          "200": {
+            "description": "Content found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Content"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Content ID is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "content_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Content ID (UUID)"
+          }
+        ]
+      }
+    },
+    "/contents": {
+      "get": {
+        "summary": "List contents",
+        "description": "Retrieve a list of contents with pagination.",
+        "tags": [
+          "contents"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50
+            },
+            "description": "Items per page"
+          }
+        ]
+      }
+    },
+    "/integrations/status": {
+      "get": {
+        "summary": "Get integration status",
+        "description": "Returns the authenticated organization's active integrations and their sync status.",
+        "tags": [
+          "integrations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - list of connected integrations with status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: integrations:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/organization/credits": {
+      "get": {
+        "summary": "Get organization credits",
+        "description": "Retrieve credit information for the authenticated organization.",
+        "tags": [
+          "organization"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationCredits"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Input Error. Check the request payload for issues.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Additional privileges are needed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. The requested resource does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limited. Too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/territories": {
+      "get": {
+        "summary": "List territories",
+        "description": "Retrieve a paginated list of territories for the authenticated organization.",
+        "tags": [
+          "territories"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - paginated list of territories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: territories:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "description": "Page number",
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 25
+            },
+            "description": "Results per page (max 100)",
+            "example": 25
+          }
+        ]
+      }
+    },
+    "/territories/{territory_id}": {
+      "get": {
+        "summary": "Get territory by ID",
+        "description": "Retrieve detailed information about a specific territory.",
+        "tags": [
+          "territories"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - territory details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: territories:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Territory not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "territory_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "UUID of the territory",
+            "example": "550e8400-e29b-41d4-a716-446655440000"
+          }
+        ]
+      }
+    },
+    "/territories/{territory_id}/companies": {
+      "get": {
+        "summary": "List territory companies",
+        "description": "Retrieve a paginated list of companies within a specific territory.",
+        "tags": [
+          "territories"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - paginated list of companies in the territory",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: territories:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Territory not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "territory_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "UUID of the territory",
+            "example": "550e8400-e29b-41d4-a716-446655440000"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "description": "Page number",
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 25
+            },
+            "description": "Results per page (max 100)",
+            "example": 25
+          }
+        ]
+      }
+    },
+    "/tasks": {
+      "get": {
+        "summary": "List tasks",
+        "description": "Retrieve a paginated list of tasks for the authenticated organization. Optionally filter by company or status.",
+        "tags": [
+          "tasks"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - paginated list of tasks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: tasks:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "description": "Page number",
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 25
+            },
+            "description": "Results per page (max 100)",
+            "example": 25
+          },
+          {
+            "name": "company_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter tasks by company UUID"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "in_progress",
+                "completed",
+                "cancelled"
+              ]
+            },
+            "description": "Filter tasks by status"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create a task",
+        "description": "Create a new task within the authenticated organization.",
+        "tags": [
+          "tasks"
+        ],
+        "responses": {
+          "201": {
+            "description": "Task created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: tasks:write",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the task"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Description of the task"
+                  },
+                  "company_id": {
+                    "type": "string",
+                    "description": "UUID of the associated company"
+                  },
+                  "assignee_id": {
+                    "type": "string",
+                    "description": "UUID of the assigned user"
+                  },
+                  "due_date": {
+                    "type": "string",
+                    "description": "Due date in ISO 8601 format"
+                  },
+                  "priority": {
+                    "type": "string",
+                    "description": "Task priority level",
+                    "enum": [
+                      "low",
+                      "medium",
+                      "high",
+                      "urgent"
+                    ]
+                  }
+                },
+                "required": [
+                  "title"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tasks/{task_id}": {
+      "get": {
+        "summary": "Get task by ID",
+        "description": "Retrieve detailed information about a specific task.",
+        "tags": [
+          "tasks"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - task details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: tasks:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "task_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "UUID of the task"
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update a task",
+        "description": "Update an existing task. Only provided fields will be modified.",
+        "tags": [
+          "tasks"
+        ],
+        "responses": {
+          "200": {
+            "description": "Task updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: tasks:write",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "task_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "UUID of the task to update"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "description": "Task status",
+                    "enum": [
+                      "pending",
+                      "in_progress",
+                      "completed",
+                      "cancelled"
+                    ]
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Updated title"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Updated description"
+                  },
+                  "assignee_id": {
+                    "type": "string",
+                    "description": "UUID of the assigned user"
+                  },
+                  "due_date": {
+                    "type": "string",
+                    "description": "Updated due date in ISO 8601 format"
+                  },
+                  "priority": {
+                    "type": "string",
+                    "description": "Updated priority",
+                    "enum": [
+                      "low",
+                      "medium",
+                      "high",
+                      "urgent"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workflows": {
+      "get": {
+        "summary": "List workflows",
+        "description": "Retrieve available workflows for the authenticated organization.",
+        "tags": [
+          "workflows"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - list of available workflows",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: workflows:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/workflows/trigger": {
+      "post": {
+        "summary": "Trigger a workflow",
+        "description": "Trigger execution of a workflow. Returns immediately with an execution ID that can be polled for status.",
+        "tags": [
+          "workflows"
+        ],
+        "responses": {
+          "202": {
+            "description": "Workflow triggered - execution started",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body or missing workflow_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: workflows:execute",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Workflow not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "workflow_id": {
+                    "type": "string",
+                    "description": "UUID of the workflow to trigger"
+                  },
+                  "company_id": {
+                    "type": "string",
+                    "description": "UUID of the target company"
+                  },
+                  "contact_id": {
+                    "type": "string",
+                    "description": "UUID of the target contact"
+                  },
+                  "parameters": {
+                    "type": "object",
+                    "description": "Additional workflow parameters"
+                  }
+                },
+                "required": [
+                  "workflow_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workflows/executions/{execution_id}": {
+      "get": {
+        "summary": "Get workflow execution status",
+        "description": "Check the status and result of a previously triggered workflow execution.",
+        "tags": [
+          "workflows"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - execution status and result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: workflows:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Execution not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "execution_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "UUID of the workflow execution"
+          }
+        ]
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Unified search",
+        "description": "Search across companies, contacts, and content in a single request. Results are grouped by type.",
+        "tags": [
+          "search"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - grouped search results with totals",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid query parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search query (minimum 1 character)",
+            "example": "Tesco"
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "companies",
+                "contacts",
+                "content"
+              ]
+            },
+            "description": "Comma-separated list of types to search. Defaults to all."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            },
+            "description": "Max results per type (1-100)",
+            "example": 10
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/graph": {
+      "get": {
+        "summary": "Get company relevance graph",
+        "description": "Retrieve a relevance graph for a company showing related entities as nodes and edges. Useful for understanding relationships and connections.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - graph with nodes and edges",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid company ID format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: companies:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Company not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "UUID of the company",
+            "example": "550e8400-e29b-41d4-a716-446655440000"
+          }
+        ]
+      }
+    },
+    "/companies/{company_id}/contacts": {
+      "post": {
+        "summary": "Search company contacts",
+        "description": "Search and retrieve contacts associated with a specific company. Supports filtering by name, job title, location, and LinkedIn URL.",
+        "tags": [
+          "companies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - list of contacts with pagination",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Response data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid company ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied. Required: contacts:read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Company not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "UUID of the company"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "page": {
+                    "type": "integer",
+                    "description": "Page number for pagination"
+                  },
+                  "per_page": {
+                    "type": "integer",
+                    "description": "Results per page"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Filter by contact name"
+                  },
+                  "job_title": {
+                    "type": "string",
+                    "description": "Filter by job title"
+                  },
+                  "location": {
+                    "type": "string",
+                    "description": "Filter by location"
+                  },
+                  "linkedin_url": {
+                    "type": "string",
+                    "description": "Filter by LinkedIn URL"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
