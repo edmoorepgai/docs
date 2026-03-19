@@ -8,14 +8,6 @@
     "dark": "#5d4af6"
   },
   "favicon": "/images/pgai-favicon.png",
-  "openapi": ["openapi.json"],
-  "api": {
-    "baseUrl": "https://api.getpg.ai/v1",
-    "auth": {
-      "method": "key",
-      "name": "x-api-key"
-    }
-  },
   "navigation": {
     "tabs": [
       {
@@ -158,6 +150,7 @@
       },
       {
         "tab": "Developers",
+        "openapi": "openapi.json",
         "groups": [
           {
             "group": "Getting Started",
@@ -171,133 +164,79 @@
             "group": "Companies",
             "pages": [
               "api/companies",
-              {
-                "openapi": "GET /companies/{company_id}"
-              },
-              {
-                "openapi": "GET /companies/{company_id}/profile"
-              },
-              {
-                "openapi": "GET /companies/{company_id}/content"
-              },
-              {
-                "openapi": "POST /companies/{company_id}/technologies"
-              },
-              {
-                "openapi": "POST /companies/{company_id}/contacts"
-              },
-              {
-                "openapi": "GET /companies/{company_id}/graph"
-              },
-              {
-                "openapi": "POST /accounts"
-              }
+              "GET /companies/{company_id}",
+              "GET /companies/{company_id}/profile",
+              "GET /companies/{company_id}/content",
+              "POST /companies/{company_id}/technologies",
+              "POST /companies/{company_id}/contacts",
+              "GET /companies/{company_id}/graph",
+              "POST /accounts"
             ]
           },
           {
             "group": "Contacts",
             "pages": [
               "api/contacts",
-              {
-                "openapi": "GET /contacts"
-              },
-              {
-                "openapi": "GET /contacts/{contact_id}"
-              }
+              "GET /contacts",
+              "GET /contacts/{contact_id}"
             ]
           },
           {
             "group": "Content",
             "pages": [
-              {
-                "openapi": "GET /contents"
-              },
-              {
-                "openapi": "GET /content/{content_id}"
-              }
+              "GET /contents",
+              "GET /content/{content_id}"
             ]
           },
           {
             "group": "Territories",
             "pages": [
               "api/territories",
-              {
-                "openapi": "GET /territories"
-              },
-              {
-                "openapi": "GET /territories/{territory_id}"
-              },
-              {
-                "openapi": "GET /territories/{territory_id}/companies"
-              }
+              "GET /territories",
+              "GET /territories/{territory_id}",
+              "GET /territories/{territory_id}/companies"
             ]
           },
           {
             "group": "Tasks",
             "pages": [
               "api/tasks",
-              {
-                "openapi": "GET /tasks"
-              },
-              {
-                "openapi": "GET /tasks/{task_id}"
-              },
-              {
-                "openapi": "POST /tasks"
-              },
-              {
-                "openapi": "PATCH /tasks/{task_id}"
-              }
+              "GET /tasks",
+              "GET /tasks/{task_id}",
+              "POST /tasks",
+              "PATCH /tasks/{task_id}"
             ]
           },
           {
             "group": "Workflows",
             "pages": [
               "api/workflows",
-              {
-                "openapi": "GET /workflows"
-              },
-              {
-                "openapi": "POST /workflows/trigger"
-              },
-              {
-                "openapi": "GET /workflows/executions/{execution_id}"
-              }
+              "GET /workflows",
+              "POST /workflows/trigger",
+              "GET /workflows/executions/{execution_id}"
             ]
           },
           {
             "group": "Search",
             "pages": [
               "api/search",
-              {
-                "openapi": "GET /search"
-              }
+              "GET /search"
             ]
           },
           {
             "group": "AI Assistant",
             "pages": [
               "api/assistant",
-              {
-                "openapi": "POST /companies/{company_id}/assistant/chat"
-              },
-              {
-                "openapi": "GET /companies/{company_id}/assistant/conversations"
-              },
-              {
-                "openapi": "GET /companies/{company_id}/assistant/conversations/{conversation_id}"
-              }
+              "POST /companies/{company_id}/assistant/chat",
+              "GET /companies/{company_id}/assistant/conversations",
+              "GET /companies/{company_id}/assistant/conversations/{conversation_id}"
             ]
           },
           {
             "group": "Organization",
             "pages": [
-              {
-                "openapi": "GET /organization/credits"
-              },
-              {
-                "openapi": "GET /integrations/status"
-              }
+              "GET /organization/credits",
+              "GET /integrations/status"
             ]
           },
           {
