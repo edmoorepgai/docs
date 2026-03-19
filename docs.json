@@ -150,97 +150,16 @@
       },
       {
         "tab": "Developers",
-        "openapi": "openapi.json",
         "groups": [
           {
-            "group": "Getting Started",
+            "group": "Overview",
             "pages": [
               "api/overview",
-              "api/authentication",
-              "api/endpoints"
+              "api/authentication"
             ]
           },
           {
-            "group": "Companies",
-            "pages": [
-              "api/companies",
-              "GET /companies/{company_id}",
-              "GET /companies/{company_id}/profile",
-              "GET /companies/{company_id}/content",
-              "POST /companies/{company_id}/technologies",
-              "POST /companies/{company_id}/contacts",
-              "GET /companies/{company_id}/graph",
-              "POST /accounts"
-            ]
-          },
-          {
-            "group": "Contacts",
-            "pages": [
-              "api/contacts",
-              "GET /contacts",
-              "GET /contacts/{contact_id}"
-            ]
-          },
-          {
-            "group": "Content",
-            "pages": [
-              "GET /contents",
-              "GET /content/{content_id}"
-            ]
-          },
-          {
-            "group": "Territories",
-            "pages": [
-              "api/territories",
-              "GET /territories",
-              "GET /territories/{territory_id}",
-              "GET /territories/{territory_id}/companies"
-            ]
-          },
-          {
-            "group": "Tasks",
-            "pages": [
-              "api/tasks",
-              "GET /tasks",
-              "GET /tasks/{task_id}",
-              "POST /tasks",
-              "PATCH /tasks/{task_id}"
-            ]
-          },
-          {
-            "group": "Workflows",
-            "pages": [
-              "api/workflows",
-              "GET /workflows",
-              "POST /workflows/trigger",
-              "GET /workflows/executions/{execution_id}"
-            ]
-          },
-          {
-            "group": "Search",
-            "pages": [
-              "api/search",
-              "GET /search"
-            ]
-          },
-          {
-            "group": "AI Assistant",
-            "pages": [
-              "api/assistant",
-              "POST /companies/{company_id}/assistant/chat",
-              "GET /companies/{company_id}/assistant/conversations",
-              "GET /companies/{company_id}/assistant/conversations/{conversation_id}"
-            ]
-          },
-          {
-            "group": "Organization",
-            "pages": [
-              "GET /organization/credits",
-              "GET /integrations/status"
-            ]
-          },
-          {
-            "group": "Events",
+            "group": "Webhooks",
             "pages": [
               "api/webhooks"
             ]
@@ -256,6 +175,10 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API Reference",
+        "openapi": "openapi.json"
       }
     ],
     "global": {

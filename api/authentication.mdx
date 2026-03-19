@@ -27,7 +27,7 @@ Include the API key in the `x-api-key` header on every request:
 <CodeGroup>
 
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/territories" \
+curl -X GET "https://api.getpg.ai/v1/territories" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json"
 ```
@@ -41,7 +41,7 @@ headers = {
 }
 
 response = requests.get(
-    "https://api.pipelinegeneration.ai/v1/territories",
+    "https://api.getpg.ai/v1/territories",
     headers=headers
 )
 
@@ -49,7 +49,7 @@ data = response.json()
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.pipelinegeneration.ai/v1/territories", {
+const response = await fetch("https://api.getpg.ai/v1/territories", {
   method: "GET",
   headers: {
     "x-api-key": "your_api_key",
@@ -71,7 +71,7 @@ Never expose your API key in client-side code, public repositories, or browser r
 All API endpoints use the following base URL:
 
 ```
-https://api.pipelinegeneration.ai/v1
+https://api.getpg.ai/v1
 ```
 
 ## Permissions & Scopes

@@ -13,10 +13,6 @@
     {
       "url": "https://api.getpg.ai/v1",
       "description": "Production"
-    },
-    {
-      "url": "https://api-dev.getpg.ai/v1",
-      "description": "Development"
     }
   ],
   "components": {
