@@ -1255,8 +1255,8 @@
     },
     "/accounts": {
       "post": {
-        "summary": "Search for companies (accounts)",
-        "description": "Search for companies using various filters. No search filters required - empty body returns all results.",
+        "summary": "Search for accounts",
+        "description": "Search for accounts within your organisation. Returns matching accounts with key details.",
         "tags": [
           "accounts"
         ],
@@ -1508,7 +1508,8 @@
               }
             }
           }
-        }
+        },
+        "x-hidden": true
       }
     },
     "/companies/{company_id}/assistant/conversations": {
@@ -1632,7 +1633,8 @@
             },
             "description": "Items per page"
           }
-        ]
+        ],
+        "x-hidden": true
       }
     },
     "/companies/{company_id}/assistant/conversations/{conversation_id}": {
@@ -1745,7 +1747,8 @@
             },
             "description": "Conversation ID (UUID)"
           }
-        ]
+        ],
+        "x-hidden": true
       }
     },
     "/companies/{company_id}/content": {
@@ -2461,7 +2464,8 @@
             },
             "description": "Content ID (UUID)"
           }
-        ]
+        ],
+        "x-hidden": true
       }
     },
     "/contents": {
@@ -2532,7 +2536,8 @@
             },
             "description": "Items per page"
           }
-        ]
+        ],
+        "x-hidden": true
       }
     },
     "/integrations/status": {
@@ -2589,7 +2594,8 @@
           {
             "ApiKeyAuth": []
           }
-        ]
+        ],
+        "x-hidden": true
       }
     },
     "/organization/credits": {
@@ -3041,7 +3047,8 @@
             },
             "description": "Filter tasks by status"
           }
-        ]
+        ],
+        "x-hidden": true
       },
       "post": {
         "summary": "Create a task",
@@ -3151,7 +3158,8 @@
               }
             }
           }
-        }
+        },
+        "x-hidden": true
       }
     },
     "/tasks/{task_id}": {
@@ -3229,7 +3237,8 @@
             },
             "description": "UUID of the task"
           }
-        ]
+        ],
+        "x-hidden": true
       },
       "patch": {
         "summary": "Update a task",
@@ -3363,7 +3372,8 @@
               }
             }
           }
-        }
+        },
+        "x-hidden": true
       }
     },
     "/workflows": {
@@ -3420,7 +3430,8 @@
           {
             "ApiKeyAuth": []
           }
-        ]
+        ],
+        "x-hidden": true
       }
     },
     "/workflows/trigger": {
@@ -3528,7 +3539,8 @@
               }
             }
           }
-        }
+        },
+        "x-hidden": true
       }
     },
     "/workflows/executions/{execution_id}": {
@@ -3606,7 +3618,8 @@
             },
             "description": "UUID of the workflow execution"
           }
-        ]
+        ],
+        "x-hidden": true
       }
     },
     "/search": {
@@ -3799,7 +3812,8 @@
             "description": "UUID of the company",
             "example": "550e8400-e29b-41d4-a716-446655440000"
           }
-        ]
+        ],
+        "x-hidden": true
       }
     },
     "/companies/{company_id}/contacts": {
