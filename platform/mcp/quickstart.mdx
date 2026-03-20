@@ -39,7 +39,7 @@ This guide walks you through connecting PG:AI to your AI tool of choice. The who
       </Step>
       <Step title="Enter the Server URL">
         ```
-        https://mcp.pipelinegeneration.ai/sse
+        https://mcp.getpg.ai/sse
         ```
       </Step>
       <Step title="Set Authentication">
@@ -62,7 +62,7 @@ This guide walks you through connecting PG:AI to your AI tool of choice. The who
     {
       "mcpServers": {
         "pgai": {
-          "url": "https://mcp.pipelinegeneration.ai/mcp",
+          "url": "https://mcp.getpg.ai/mcp",
           "headers": {
             "Authorization": "Bearer pgai_live_YOUR_KEY_HERE"
           }
@@ -89,7 +89,7 @@ This guide walks you through connecting PG:AI to your AI tool of choice. The who
       </Step>
       <Step title="Add MCP Server">
         Add a new MCP server with the following details:
-        - **URL:** `https://mcp.pipelinegeneration.ai/mcp`
+        - **URL:** `https://mcp.getpg.ai/mcp`
         - **Authentication:** Bearer token with your organisation's PG:AI API key
       </Step>
       <Step title="Configure Permissions">
@@ -105,7 +105,7 @@ This guide walks you through connecting PG:AI to your AI tool of choice. The who
     {
       "mcpServers": {
         "pgai": {
-          "serverUrl": "https://mcp.pipelinegeneration.ai/mcp",
+          "serverUrl": "https://mcp.getpg.ai/mcp",
           "headers": {
             "Authorization": "Bearer pgai_live_YOUR_KEY_HERE"
           }
@@ -118,8 +118,8 @@ This guide walks you through connecting PG:AI to your AI tool of choice. The who
   <Tab title="Other MCP Clients">
     PG:AI uses standard **Streamable HTTP** transport. Any MCP-compatible client can connect using:
 
-    - **Server URL:** `https://mcp.pipelinegeneration.ai/mcp`
-    - **SSE URL:** `https://mcp.pipelinegeneration.ai/sse` (for clients that require SSE)
+    - **Server URL:** `https://mcp.getpg.ai/mcp`
+    - **SSE URL:** `https://mcp.getpg.ai/sse` (for clients that require SSE)
     - **Authentication:** `Authorization: Bearer <your_api_key>` header
 
     Refer to your client's documentation for specific configuration instructions.
@@ -151,7 +151,7 @@ If your AI tool responds with company data, insights, or generated content  -  y
 
 <AccordionGroup>
   <Accordion title="My AI tool says it can't find the PG:AI server">
-    Double-check the server URL. Make sure you're using `https://mcp.pipelinegeneration.ai/mcp` (or `/sse` for SSE-only clients). Restart your AI tool after updating the configuration.
+    Double-check the server URL. Make sure you're using `https://mcp.getpg.ai/mcp` (or `/sse` for SSE-only clients). Restart your AI tool after updating the configuration.
   </Accordion>
   <Accordion title="I'm getting authentication errors">
     Verify your API key starts with `pgai_live_` and that it hasn't been revoked. Make sure the `Authorization` header uses the `Bearer` prefix.

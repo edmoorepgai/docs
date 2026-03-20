@@ -18,7 +18,7 @@ Retrieve a paginated list of all territories in your workspace.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/territories?page=1&per_page=10" \
+curl -X GET "https://api.getpg.ai/v1/territories?page=1&per_page=10" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -58,7 +58,7 @@ Retrieve detailed information about a specific territory.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/territories/{territory_id}" \
+curl -X GET "https://api.getpg.ai/v1/territories/{territory_id}" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -102,7 +102,7 @@ Retrieve the companies that belong to a specific territory, with pagination.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/territories/{territory_id}/companies?page=1&per_page=20" \
+curl -X GET "https://api.getpg.ai/v1/territories/{territory_id}/companies?page=1&per_page=20" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>

@@ -48,7 +48,7 @@ Search for companies (accounts) across your organization using a variety of filt
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.pipelinegeneration.ai/v1/accounts" \
+curl -X POST "https://api.getpg.ai/v1/accounts" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -98,7 +98,7 @@ Retrieve detailed information about a specific company by its ID.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/companies/{company_id}" \
+curl -X GET "https://api.getpg.ai/v1/companies/{company_id}" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -149,7 +149,7 @@ Retrieve a customizable company profile with selectable sections. Use the `inclu
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/companies/{company_id}/profile?include=overview,swot_analysis,competitors&sources=true" \
+curl -X GET "https://api.getpg.ai/v1/companies/{company_id}/profile?include=overview,swot_analysis,competitors&sources=true" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -207,7 +207,7 @@ Retrieve content generated for a company, such as emails, call scripts, and docu
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/companies/{company_id}/content?type=email&page=1&per_page=25" \
+curl -X GET "https://api.getpg.ai/v1/companies/{company_id}/content?type=email&page=1&per_page=25" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -265,7 +265,7 @@ Search and filter contacts associated with a specific company. Uses POST to supp
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.pipelinegeneration.ai/v1/companies/{company_id}/contacts" \
+curl -X POST "https://api.getpg.ai/v1/companies/{company_id}/contacts" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -337,7 +337,7 @@ Retrieve the technology stack for a company with optional filtering. Uses POST t
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.pipelinegeneration.ai/v1/companies/{company_id}/technologies" \
+curl -X POST "https://api.getpg.ai/v1/companies/{company_id}/technologies" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json" \
   -d '{

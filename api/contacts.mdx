@@ -20,7 +20,7 @@ Retrieve a paginated list of contacts across your organization.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/contacts?page=1&limit=25" \
+curl -X GET "https://api.getpg.ai/v1/contacts?page=1&limit=25" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -71,7 +71,7 @@ Retrieve detailed information about a specific contact by ID.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/contacts/{contact_id}" \
+curl -X GET "https://api.getpg.ai/v1/contacts/{contact_id}" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -144,7 +144,7 @@ Create a new contact in your PG:AI workspace.
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.pipelinegeneration.ai/v1/contacts" \
+curl -X POST "https://api.getpg.ai/v1/contacts" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json" \
   -d '{

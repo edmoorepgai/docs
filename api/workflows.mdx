@@ -10,7 +10,7 @@ Retrieve all available workflows in your workspace.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/workflows" \
+curl -X GET "https://api.getpg.ai/v1/workflows" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -60,7 +60,7 @@ Start a workflow execution. Workflows run asynchronously  -  the API returns a `
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.pipelinegeneration.ai/v1/workflows/trigger" \
+curl -X POST "https://api.getpg.ai/v1/workflows/trigger" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -109,7 +109,7 @@ Check the status and results of a workflow execution.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.pipelinegeneration.ai/v1/workflows/executions/{execution_id}" \
+curl -X GET "https://api.getpg.ai/v1/workflows/executions/{execution_id}" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
