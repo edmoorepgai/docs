@@ -18,47 +18,7 @@ Retrieve a paginated list of all territories in your workspace.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.getpg.ai/v1/territories?page=1&per_page=10" \
-  -H "x-api-key: your_api_key"
-```
-</RequestExample>
-
-<ResponseExample>
-```json 200
-[
-  {
-    "id": "ter_abc123",
-    "name": "Enterprise West Coast",
-    "description": "West Coast enterprise accounts",
-    "company_count": 156,
-    "owner": "Jane Smith",
-    "created_at": "2026-01-05T08:00:00Z"
-  },
-  {
-    "id": "ter_def456",
-    "name": "Mid-Market EMEA",
-    "description": "EMEA mid-market segment",
-    "company_count": 89,
-    "owner": "John Doe",
-    "created_at": "2026-01-10T12:00:00Z"
-  }
-]
-```
-</ResponseExample>
-
----
-
-## Get Territory
-
-Retrieve detailed information about a specific territory.
-
-<ParamField path="territory_id" type="string" required>
-  The unique identifier of the territory.
-</ParamField>
-
-<RequestExample>
-```bash cURL
-curl -X GET "https://api.getpg.ai/v1/territories/{territory_id}" \
+curl -X GET "https://api.getpg.ai/public-api/v1/territories?page=1&per_page=10" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -66,18 +26,56 @@ curl -X GET "https://api.getpg.ai/v1/territories/{territory_id}" \
 <ResponseExample>
 ```json 200
 {
-  "id": "ter_abc123",
-  "name": "Enterprise West Coast",
-  "description": "West Coast enterprise accounts",
-  "company_count": 156,
-  "owner": "Jane Smith",
-  "scoring_model": "Enterprise ICP v2",
-  "filters": {
-    "region": "West Coast",
-    "segment": "Enterprise"
-  },
-  "created_at": "2026-01-05T08:00:00Z",
-  "updated_at": "2026-03-10T14:00:00Z"
+  "itemsReceived": 4,
+  "curPage": 1,
+  "nextPage": null,
+  "prevPage": null,
+  "offset": 0,
+  "perPage": 25,
+  "itemsTotal": 4,
+  "pageTotal": 1,
+  "items": [
+    {
+      "id": "f2b6d9b6-c4ce-4eb6-9c65-4e48fcde4dfe",
+      "territory_name": "Enterprise West Coast",
+      "status": "",
+      "created_at": "2025-10-08T22:27:24.248Z"
+    },
+    {
+      "id": "96951eb0-340e-4016-a3fc-c3470e76e6b6",
+      "territory_name": "Mid-Market EMEA",
+      "status": "",
+      "created_at": "2025-10-08T22:25:14.560Z"
+    }
+  ]
+}
+```
+</ResponseExample>
+
+---
+
+## Get Territory
+
+Retrieve information about a specific territory.
+
+<ParamField path="territory_id" type="string" required>
+  The unique identifier of the territory.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.getpg.ai/public-api/v1/territories/{territory_id}" \
+  -H "x-api-key: your_api_key"
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "id": "f2b6d9b6-c4ce-4eb6-9c65-4e48fcde4dfe",
+  "territory_name": "Enterprise West Coast",
+  "status": "",
+  "created_at": "2025-10-08T22:27:24.248Z"
 }
 ```
 </ResponseExample>
@@ -86,7 +84,7 @@ curl -X GET "https://api.getpg.ai/v1/territories/{territory_id}" \
 
 ## List Territory Companies
 
-Retrieve the companies that belong to a specific territory, with pagination.
+Retrieve the companies that belong to a specific territory, with pagination. Returns company IDs and their processing status — use `GET /companies/{company_id}` to fetch full company details.
 
 <ParamField path="territory_id" type="string" required>
   The unique identifier of the territory.
@@ -102,7 +100,7 @@ Retrieve the companies that belong to a specific territory, with pagination.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.getpg.ai/v1/territories/{territory_id}/companies?page=1&per_page=20" \
+curl -X GET "https://api.getpg.ai/public-api/v1/territories/{territory_id}/companies?page=1&per_page=20" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -110,31 +108,32 @@ curl -X GET "https://api.getpg.ai/v1/territories/{territory_id}/companies?page=1
 <ResponseExample>
 ```json 200
 {
-  "data": [
+  "itemsReceived": 2,
+  "curPage": 1,
+  "nextPage": 2,
+  "prevPage": null,
+  "offset": 0,
+  "perPage": 20,
+  "itemsTotal": 30,
+  "pageTotal": 15,
+  "items": [
     {
-      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-      "name": "Acme Corporation",
-      "domain": "acme.com",
-      "industry": "Technology",
-      "employee_count": 5000,
-      "score": 87,
-      "tier": "A"
+      "id": "62fe568a-fd78-4adf-9920-bfd8cd86b7e4",
+      "company_id": "0de1addb-dfe7-497c-b116-4d1a0c1ffda1",
+      "status": "Completed",
+      "created_at": "2026-03-24T11:54:56.348Z"
     },
     {
-      "id": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
-      "name": "GlobalSoft",
-      "domain": "globalsoft.io",
-      "industry": "Software",
-      "employee_count": 2500,
-      "score": 72,
-      "tier": "B"
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "company_id": "7d31ffcc-6567-4071-af95-6084d702e024",
+      "status": "not_started",
+      "created_at": "2026-03-24T11:54:56.348Z"
     }
-  ],
-  "pagination": {
-    "page": 1,
-    "per_page": 20,
-    "total": 156
-  }
+  ]
 }
 ```
 </ResponseExample>
+
+<Note>
+Territory company items return `company_id` and `status` (e.g. `Completed`, `not_started`). To get full company details like name, industry, and employee count, call `GET /companies/{company_id}` with the `company_id` from the response.
+</Note>

@@ -6,7 +6,7 @@ icon: "building"
 
 ## Search Accounts
 
-Search for companies (accounts) across your organization using a variety of filters. Send an empty body to return all results.
+Search for companies (accounts) across your organization using a variety of filters. Send an empty body `{}` to return all results.
 
 <ParamField body="company_name" type="string">
   Filter by company name (partial match).
@@ -40,20 +40,15 @@ Search for companies (accounts) across your organization using a variety of filt
   Number of items per page.
 </ParamField>
 
-<ParamField body="offset" type="integer">
-  Offset for pagination.
-</ParamField>
-
 **Permission:** `accounts:read`
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.getpg.ai/v1/accounts" \
+curl -X POST "https://api.getpg.ai/public-api/v1/accounts" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json" \
   -d '{
     "industry": "Technology",
-    "country": "United States",
     "per_page": 10
   }'
 ```
@@ -63,22 +58,27 @@ curl -X POST "https://api.getpg.ai/v1/accounts" \
 ```json 200
 [
   {
-    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Acme Corporation",
-    "domain": "acme.com",
-    "industry": "Technology",
-    "employee_count": 5000,
-    "revenue": "$500M - $1B",
-    "country": "United States"
-  },
-  {
-    "id": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
-    "name": "GlobalSoft",
-    "domain": "globalsoft.io",
-    "industry": "Technology",
-    "employee_count": 2500,
-    "revenue": "$100M - $500M",
-    "country": "United States"
+    "id": "0472a8a1-bdc4-4f53-93f6-7d9a967beb76",
+    "company_name": "Sprout Social",
+    "website_domain": "sproutsocial.com",
+    "public_company": true,
+    "country_code": "US",
+    "linkedin_url": "https://www.linkedin.com/company/sprout-social-inc-",
+    "hq_city": "Chicago",
+    "hq_state": "IL",
+    "hq_country_name": "United States",
+    "region": "North America",
+    "ceo": "Mr. Ryan Paul Barretto",
+    "sector": "Technology",
+    "industry": "Apps",
+    "revenue_range": "$100M-$500M",
+    "employee_count_range": "1001-5000",
+    "full_time_employees": 1322,
+    "description": "Sprout Social, Inc. designs, develops, and operates a web-based social media management platform...",
+    "stock_ticker": "SPT",
+    "market_cap": 337111258,
+    "stock_currency": "USD",
+    "stock_exchange_name": "NASDAQ Capital Market"
   }
 ]
 ```
@@ -98,7 +98,7 @@ Retrieve detailed information about a specific company by its ID.
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.getpg.ai/v1/companies/{company_id}" \
+curl -X GET "https://api.getpg.ai/public-api/v1/companies/{company_id}" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -106,17 +106,44 @@ curl -X GET "https://api.getpg.ai/v1/companies/{company_id}" \
 <ResponseExample>
 ```json 200
 {
-  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "name": "Acme Corporation",
-  "domain": "acme.com",
-  "industry": "Technology",
-  "employee_count": 5000,
-  "revenue": "$500M - $1B",
-  "country": "United States",
-  "description": "Leading provider of enterprise solutions...",
-  "logo_url": "https://logo.clearbit.com/acme.com",
-  "linkedin_url": "https://linkedin.com/company/acme",
-  "website": "https://acme.com"
+  "company_id": "0472a8a1-bdc4-4f53-93f6-7d9a967beb76",
+  "company_name": "Sprout Social",
+  "website_domain": "sproutsocial.com",
+  "public_company": true,
+  "country_code": "US",
+  "linkedin_url": "https://www.linkedin.com/company/sprout-social-inc-",
+  "hq_city": "Chicago",
+  "hq_state": "IL",
+  "hq_country_name": "United States",
+  "region": "North America",
+  "ceo": "Mr. Ryan Paul Barretto",
+  "sector": "Technology",
+  "industry": "Apps",
+  "revenue_range": "$100M-$500M",
+  "employee_count_range": "1001-5000",
+  "full_time_employees": 1322,
+  "description": "Sprout Social, Inc. designs, develops, and operates a web-based social media management platform...",
+  "stock_ticker": "SPT",
+  "market_cap": 337111258,
+  "stock_currency": "USD",
+  "stock_exchange_name": "NASDAQ Capital Market",
+  "stock_exchange_symbol": "NASDAQ"
+}
+```
+</ResponseExample>
+
+<ResponseExample>
+```json 400
+{
+  "error": "Not a valid UUID."
+}
+```
+</ResponseExample>
+
+<ResponseExample>
+```json 403
+{
+  "error": "You do not have access to this company"
 }
 ```
 </ResponseExample>
@@ -134,7 +161,7 @@ Retrieve a customizable company profile with selectable sections. Use the `inclu
 <ParamField query="include" type="string">
   Comma-separated list of profile sections to include. Use `full` for all sections.
 
-  Available sections: `overview`, `key_executives`, `divisions`, `geographical_operations`, `swot_analysis`, `competitors`, `industry_insights`, `strategic_priorities`, `digital_strategies`, `risks`, `goals`, `insights_scores`, `events`, `value_pyramid`, `three_whys`, `discovery_questions`, `how_they_make_money`, `how_they_lose_money`, `custom_insights`, `employee_groups`, `favourite_technologies_count`, `territory_custom_scores`, `content`
+  Available sections: `overview`, `key_executives`, `divisions`, `geographical_operations`, `swot_analysis`, `competitors`, `industry_insights`, `strategic_priorities`, `digital_strategies`, `risks`, `goals`, `insights_scores`, `events`, `value_pyramid`, `three_whys`, `discovery_questions`, `custom_insights`, `content`
 </ParamField>
 
 <ParamField query="exclude" type="string">
@@ -149,7 +176,7 @@ Retrieve a customizable company profile with selectable sections. Use the `inclu
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.getpg.ai/v1/companies/{company_id}/profile?include=overview,swot_analysis,competitors&sources=true" \
+curl -X GET "https://api.getpg.ai/public-api/v1/companies/{company_id}/profile?include=overview,swot_analysis,competitors,key_executives" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -157,25 +184,68 @@ curl -X GET "https://api.getpg.ai/v1/companies/{company_id}/profile?include=over
 <ResponseExample>
 ```json 200
 {
-  "company_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "name": "Acme Corporation",
+  "company_id": "0472a8a1-bdc4-4f53-93f6-7d9a967beb76",
+  "company_name": "Sprout Social",
+  "website_domain": "sproutsocial.com",
+  "hq_country_name": "United States",
+  "industry": "Apps",
+  "revenue_range": "$100M-$500M",
+  "employee_count_range": "1001-5000",
   "overview": {
-    "summary": "Acme Corporation is a leading enterprise technology provider...",
-    "founded": "1995",
-    "headquarters": "San Francisco, CA",
-    "sources": [
-      { "url": "https://acme.com/about", "title": "About Acme" }
-    ]
+    "public_company": true,
+    "country_code": "US",
+    "linkedin_url": "https://www.linkedin.com/company/sprout-social-inc-",
+    "hq_city": "Chicago",
+    "hq_state": "IL",
+    "region": "North America",
+    "ceo": "Mr. Ryan Paul Barretto",
+    "sector": "Technology",
+    "full_time_employees": 1322,
+    "description": "Sprout Social, Inc. designs, develops, and operates a web-based social media management platform..."
   },
-  "swot_analysis": {
-    "strengths": ["Market leader in enterprise solutions", "Strong R&D investment"],
-    "weaknesses": ["Limited presence in APAC"],
-    "opportunities": ["AI integration", "Cloud migration demand"],
-    "threats": ["Increasing competition from startups"]
-  },
+  "swot_analysis": [
+    {
+      "name": "AI-Powered Platform with Proprietary Trellis Agent",
+      "type": "STRENGTH",
+      "description": "Sprout Social has developed a proprietary AI agent called Trellis that transforms social data into actionable insights..."
+    },
+    {
+      "name": "Limited International Presence",
+      "type": "WEAKNESS",
+      "description": "Despite growing international revenue, Sprout Social remains heavily concentrated in the North American market..."
+    },
+    {
+      "name": "AI-Driven Social Commerce",
+      "type": "OPPORTUNITY",
+      "description": "The convergence of social media and e-commerce presents a significant growth opportunity..."
+    },
+    {
+      "name": "Increasing Competition from AI-Native Platforms",
+      "type": "THREAT",
+      "description": "New AI-native social media management platforms pose a competitive threat..."
+    }
+  ],
   "competitors": [
-    { "name": "TechCorp", "domain": "techcorp.com" },
-    { "name": "GlobalSoft", "domain": "globalsoft.io" }
+    {
+      "name": "Hootsuite",
+      "website": "https://hootsuite.com",
+      "description": "Hootsuite is a comprehensive social media management platform..."
+    },
+    {
+      "name": "Zoho Social",
+      "website": "https://www.zoho.com/social/",
+      "description": "Zoho Social is a social media management tool..."
+    }
+  ],
+  "key_executives": [
+    {
+      "name": "Ryan Barretto",
+      "title": "Chief Executive Officer and Member of the Board of Directors"
+    },
+    {
+      "name": "Justyn Howard",
+      "title": "Executive Chair and Member of the Board of Directors"
+    }
   ]
 }
 ```
@@ -185,29 +255,21 @@ curl -X GET "https://api.getpg.ai/v1/companies/{company_id}/profile?include=over
 
 ## Get Company Content
 
-Retrieve content generated for a company, such as emails, call scripts, and documents.
+Retrieve AI-generated content for a company, such as emails, executive reports, and call scripts.
 
 <ParamField path="company_id" type="string" required>
   The unique identifier (UUID) of the company.
 </ParamField>
 
 <ParamField query="type" type="string">
-  Filter by content type. Valid values: `email`, `notes`, `call_script`, `document`, `value_pyramid`, `three_whys`
-</ParamField>
-
-<ParamField query="page" type="integer" default="1">
-  Page number for pagination.
-</ParamField>
-
-<ParamField query="per_page" type="integer" default="100">
-  Number of items per page.
+  Filter by content type. Valid values: `email`, `document`, `call_script`, `notes`
 </ParamField>
 
 **Permission:** `insights:read`
 
 <RequestExample>
 ```bash cURL
-curl -X GET "https://api.getpg.ai/v1/companies/{company_id}/content?type=email&page=1&per_page=25" \
+curl -X GET "https://api.getpg.ai/public-api/v1/companies/{company_id}/content?type=email" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -216,12 +278,16 @@ curl -X GET "https://api.getpg.ai/v1/companies/{company_id}/content?type=email&p
 ```json 200
 [
   {
-    "id": "cnt_abc123",
-    "type": "email",
-    "title": "Introduction Email for Acme",
-    "body": "Hi {{first_name}},\n\nI noticed Acme recently...",
-    "created_at": "2026-03-10T14:30:00Z",
-    "updated_at": "2026-03-10T14:30:00Z"
+    "id": "9e106d89-a191-439f-a49f-b225e8fe24fe",
+    "content_type": "document",
+    "title": "Executive Report: Accelerating Enterprise Growth with PG:AI",
+    "content": "Subject: Executive Report...\n\nOur Understanding of Your Business..."
+  },
+  {
+    "id": "3aa65f1a-8b4a-480b-a947-da49ebcb1d29",
+    "content_type": "email",
+    "title": "Accelerate Enterprise Pipeline & GTM Alignment",
+    "content": "Subject: Accelerate Enterprise Pipeline...\n\nHi {Name},\n\nIn your recent earnings call..."
   }
 ]
 ```
@@ -257,20 +323,14 @@ Search and filter contacts associated with a specific company. Uses POST to supp
   Filter contacts by location.
 </ParamField>
 
-<ParamField body="linkedin_url" type="string">
-  Filter contacts by LinkedIn URL.
-</ParamField>
-
 **Permission:** `insights:read`
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.getpg.ai/v1/companies/{company_id}/contacts" \
+curl -X POST "https://api.getpg.ai/public-api/v1/companies/{company_id}/contacts" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json" \
   -d '{
-    "job_title": "VP",
-    "page": 1,
     "per_page": 10
   }'
 ```
@@ -281,19 +341,26 @@ curl -X POST "https://api.getpg.ai/v1/companies/{company_id}/contacts" \
 {
   "contacts": [
     {
-      "id": "c1d2e3f4-a5b6-7890-cdef-123456789012",
-      "first_name": "Jane",
-      "last_name": "Smith",
-      "job_title": "VP of Engineering",
-      "email": "jane.smith@acme.com",
-      "linkedin_url": "https://linkedin.com/in/janesmith",
-      "location": "San Francisco, CA"
+      "id": "deb3474b-5836-492c-aca4-4e0ccc8afbae",
+      "full_name": "Iain Donachie",
+      "first_name": "Iain",
+      "last_name": "Donachie",
+      "current_job_title": "Head of Gift Cards UK & Ireland, Tesco",
+      "linkedin_url": "https://www.linkedin.com/in/iain-donachie-6bb3406",
+      "location": "Edinburgh, Scotland, United Kingdom",
+      "country": "United Kingdom",
+      "country_code": "GB",
+      "summary": "",
+      "image_url": "https://media.licdn.com/dms/image/...",
+      "created_at": "2026-04-01T12:47:07.324Z",
+      "updated_at": null
     }
   ],
   "pagination": {
     "page": 1,
     "per_page": 10,
-    "total": 42
+    "total": 42,
+    "total_pages": 5
   }
 }
 ```
@@ -337,12 +404,11 @@ Retrieve the technology stack for a company with optional filtering. Uses POST t
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.getpg.ai/v1/companies/{company_id}/technologies" \
+curl -X POST "https://api.getpg.ai/public-api/v1/companies/{company_id}/technologies" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json" \
   -d '{
     "category": "IT Security",
-    "favourites": true,
     "per_page": 50
   }'
 ```
@@ -354,18 +420,14 @@ curl -X POST "https://api.getpg.ai/v1/companies/{company_id}/technologies" \
   {
     "name": "Cloudflare",
     "category": "IT Security",
-    "confidence": "high",
-    "first_detected": "2025-11-15",
-    "last_detected": "2026-03-01",
-    "is_favourite": true
+    "sub_category": "CDN & DDoS Protection",
+    "confidence": "high"
   },
   {
     "name": "CrowdStrike",
     "category": "IT Security",
-    "confidence": "medium",
-    "first_detected": "2025-08-20",
-    "last_detected": "2026-02-28",
-    "is_favourite": true
+    "sub_category": "Endpoint Security",
+    "confidence": "medium"
   }
 ]
 ```

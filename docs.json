@@ -158,12 +158,7 @@
               "api/authentication"
             ]
           },
-          {
-            "group": "Webhooks",
-            "pages": [
-              "api/webhooks"
-            ]
-          },
+          
           {
             "group": "MCP Server",
             "pages": [
