@@ -1,0 +1,39 @@
+---
+title: "Organization"
+description: "View organization settings and credit usage"
+icon: "gear"
+---
+
+## Get Organization Credits
+
+Retrieve credit usage information for your organization. Returns remaining credits across different categories.
+
+**Permission:** `org_settings:read`
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.getpg.ai/public-api/v1/organization/credits" \
+  -H "x-api-key: your_api_key"
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "organization_id": "org_8b0ad...",
+  "credit_remaining": {
+    "enrichment": 500,
+    "ai_generation": 1200,
+    "contact_discovery": 300
+  }
+}
+```
+</ResponseExample>
+
+<ResponseExample>
+```json 403
+{
+  "error": "You do not have permission to access this resource"
+}
+```
+</ResponseExample>

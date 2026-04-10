@@ -158,7 +158,16 @@
               "api/authentication"
             ]
           },
-          
+          {
+            "group": "Endpoint Guides",
+            "pages": [
+              "api/companies",
+              "api/contacts",
+              "api/territories",
+              "api/search",
+              "api/organization"
+            ]
+          },
           {
             "group": "MCP Server",
             "pages": [

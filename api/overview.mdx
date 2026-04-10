@@ -16,7 +16,7 @@ https://api.getpg.ai/public-api/v1
 
 <Steps>
   <Step title="Get your API key">
-    Generate an API key in **Configuration > API** within your PG:AI workspace.
+    Generate an API key in **Settings > API Keys** within your PG:AI workspace.
   </Step>
   <Step title="Make your first request">
     ```bash
@@ -27,34 +27,38 @@ https://api.getpg.ai/public-api/v1
     ```
   </Step>
   <Step title="Explore the endpoints">
-    Browse the endpoint reference below to see what's available.
+    Browse the [API Reference](/api-reference) for interactive endpoint documentation, or read the guides below.
   </Step>
 </Steps>
 
 ## Endpoint Reference
 
 <CardGroup cols={2}>
-  <Card title="Authentication" icon="key" href="/Documentation-New/api/authentication">
+  <Card title="Authentication" icon="key" href="/api/authentication">
     API key setup, permissions, and error handling
   </Card>
-  <Card title="Companies" icon="building" href="/Documentation-New/api/companies">
+  <Card title="Companies" icon="building" href="/api/companies">
     Company data, profiles, content, contacts, and tech stacks
   </Card>
-  <Card title="Contacts" icon="user" href="/Documentation-New/api/contacts">
-    List, retrieve, and create contacts
+  <Card title="Contacts" icon="user" href="/api/contacts">
+    List and retrieve contacts with full profile data
   </Card>
-  <Card title="Territories" icon="map" href="/Documentation-New/api/territories">
+  <Card title="Territories" icon="map" href="/api/territories">
     Territory management and company lists
   </Card>
-  <Card title="Search" icon="magnifying-glass" href="/Documentation-New/api/search">
+  <Card title="Search" icon="magnifying-glass" href="/api/search">
     Unified search across companies, contacts, and content
+  </Card>
+  <Card title="Organization" icon="gear" href="/api/organization">
+    Organization settings and credit usage
   </Card>
 </CardGroup>
 
-## All Endpoints
+## Available Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
+| `GET` | `/v1/health` | Health check (no auth required) |
 | `POST` | `/v1/accounts` | Search accounts |
 | `GET` | `/v1/companies/{company_id}` | Get company by ID |
 | `GET` | `/v1/companies/{company_id}/profile` | Get customizable company profile |
@@ -63,14 +67,16 @@ https://api.getpg.ai/public-api/v1
 | `POST` | `/v1/companies/{company_id}/technologies` | Get company tech stack |
 | `GET` | `/v1/contacts` | List contacts |
 | `GET` | `/v1/contacts/{contact_id}` | Get contact by ID |
-| `POST` | `/v1/contacts` | Create a contact |
 | `GET` | `/v1/territories` | List territories |
 | `GET` | `/v1/territories/{territory_id}` | Get territory details |
 | `GET` | `/v1/territories/{territory_id}/companies` | List territory companies |
 | `GET` | `/v1/search` | Unified search |
 | `GET` | `/v1/organization/credits` | Get organization credits |
-| `GET` | `/v1/integrations/status` | Get integration status |
 
 ## Rate Limits
 
-API requests are rate-limited based on your plan. When you hit the limit, the API returns `429 Too Many Requests`. See the [Authentication](/Documentation-New/api/authentication) page for details on rate limit headers.
+API requests are rate-limited based on your plan. When you hit the limit, the API returns `429 Too Many Requests`. See the [Authentication](/api/authentication) page for details on rate limit headers.
+
+## Interactive API Reference
+
+The **API Reference** tab in the sidebar provides an interactive playground powered by our live OpenAPI specification. You can test endpoints directly from the docs with your API key.

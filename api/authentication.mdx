@@ -4,19 +4,19 @@ description: "Authenticate with the PG:AI API using API keys"
 icon: "key"
 ---
 
-All API requests require authentication via an API key passed in the `x-api-key` request header.
+All API requests (except `/health`) require authentication via an API key passed in the `x-api-key` request header.
 
 ## Getting Your API Key
 
 <Steps>
   <Step title="Navigate to settings">
-    Go to **Configuration > API** in your PG:AI workspace.
+    Go to **Settings > API Keys** in your PG:AI workspace.
   </Step>
   <Step title="Generate a key">
     Click **Generate API Key**, give it a descriptive name, and select the permission scopes it should have.
   </Step>
   <Step title="Copy and store securely">
-    Copy the key immediately  -  it won't be shown again. Store it in environment variables or a secrets manager.
+    Copy the key immediately — it won't be shown again. Store it in environment variables or a secrets manager.
   </Step>
 </Steps>
 
@@ -27,7 +27,7 @@ Include the API key in the `x-api-key` header on every request:
 <CodeGroup>
 
 ```bash cURL
-curl -X GET "https://api.getpg.ai/v1/territories" \
+curl -X GET "https://api.getpg.ai/public-api/v1/territories" \
   -H "x-api-key: your_api_key" \
   -H "Content-Type: application/json"
 ```
@@ -41,7 +41,7 @@ headers = {
 }
 
 response = requests.get(
-    "https://api.getpg.ai/v1/territories",
+    "https://api.getpg.ai/public-api/v1/territories",
     headers=headers
 )
 
@@ -49,7 +49,7 @@ data = response.json()
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.getpg.ai/v1/territories", {
+const response = await fetch("https://api.getpg.ai/public-api/v1/territories", {
   method: "GET",
   headers: {
     "x-api-key": "your_api_key",
@@ -71,12 +71,12 @@ Never expose your API key in client-side code, public repositories, or browser r
 All API endpoints use the following base URL:
 
 ```
-https://api.getpg.ai/v1
+https://api.getpg.ai/public-api/v1
 ```
 
 ## Permissions & Scopes
 
-API keys are scoped with granular permissions. Each endpoint requires a specific permission  -  requests made with a key that lacks the required scope will receive a `403 Forbidden` response.
+API keys are scoped with granular permissions. Each endpoint requires a specific permission — requests made with a key that lacks the required scope will receive a `403 Forbidden` response.
 
 | Scope | Description |
 |-------|-------------|
@@ -116,9 +116,9 @@ All error responses follow a consistent format:
 
 | Status Code | Description |
 |-------------|-------------|
-| `400` | Bad Request  -  invalid parameters or missing required fields |
-| `401` | Unauthorized  -  missing or invalid API key |
-| `403` | Forbidden  -  API key lacks the required permission scope |
-| `404` | Not Found  -  the requested resource does not exist |
-| `429` | Rate Limited  -  too many requests |
-| `500` | Internal Server Error  -  something went wrong on our end |
+| `400` | Bad Request — invalid parameters or missing required fields |
+| `401` | Unauthorized — missing or invalid API key |
+| `403` | Forbidden — API key lacks the required permission scope |
+| `404` | Not Found — the requested resource does not exist |
+| `429` | Rate Limited — too many requests |
+| `500` | Internal Server Error — something went wrong on our end |

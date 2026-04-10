@@ -1,6 +1,6 @@
 ---
 title: "Contacts"
-description: "List, retrieve, and create contacts in your PG:AI workspace"
+description: "List and retrieve contacts in your PG:AI workspace"
 icon: "user"
 ---
 
@@ -104,16 +104,6 @@ curl -X GET "https://api.getpg.ai/public-api/v1/contacts/{contact_id}" \
       "start_date": "2025-02-01T00:00:00.000Z",
       "end_date": null,
       "is_current": true
-    },
-    {
-      "job_id": "cf6643f5-25fc-4440-b976-9ebc5f2f4ee0",
-      "company_id": "304599c3-212f-4122-b84a-d655a1455d31",
-      "company": "Tesco Bank",
-      "title": "Head of Money Services",
-      "location": "Edinburgh, Scotland, United Kingdom",
-      "start_date": "2022-09-01T00:00:00.000Z",
-      "end_date": "2025-11-01T00:00:00.000Z",
-      "is_current": false
     }
   ],
   "education": [
@@ -143,89 +133,6 @@ curl -X GET "https://api.getpg.ai/public-api/v1/contacts/{contact_id}" \
 ```json 404
 {
   "error": "Contact not found"
-}
-```
-</ResponseExample>
-
----
-
-## Create Contact
-
-Create a new contact in your PG:AI workspace.
-
-<ParamField body="first_name" type="string" required>
-  The contact's first name.
-</ParamField>
-
-<ParamField body="last_name" type="string" required>
-  The contact's last name.
-</ParamField>
-
-<ParamField body="email" type="string" required>
-  The contact's email address.
-</ParamField>
-
-<ParamField body="job_title" type="string">
-  The contact's job title.
-</ParamField>
-
-<ParamField body="company" type="string">
-  The contact's company name.
-</ParamField>
-
-<ParamField body="linkedin_url" type="string">
-  The contact's LinkedIn profile URL.
-</ParamField>
-
-<ParamField body="phone" type="string">
-  The contact's phone number.
-</ParamField>
-
-<ParamField body="location" type="string">
-  The contact's location.
-</ParamField>
-
-**Permission:** `contacts:write`
-
-<RequestExample>
-```bash cURL
-curl -X POST "https://api.getpg.ai/public-api/v1/contacts" \
-  -H "x-api-key: your_api_key" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "first_name": "Sarah",
-    "last_name": "Connor",
-    "email": "sarah.connor@example.com",
-    "job_title": "Director of Sales",
-    "company": "Future Tech Inc",
-    "linkedin_url": "https://linkedin.com/in/sarahconnor"
-  }'
-```
-</RequestExample>
-
-<ResponseExample>
-```json 201
-{
-  "id": "f4a5b6c7-d8e9-0123-abcd-456789012345",
-  "first_name": "Sarah",
-  "last_name": "Connor",
-  "email": "sarah.connor@example.com",
-  "job_title": "Director of Sales",
-  "company": "Future Tech Inc",
-  "linkedin_url": "https://linkedin.com/in/sarahconnor",
-  "created_at": "2026-03-12T10:00:00Z"
-}
-```
-</ResponseExample>
-
-<ResponseExample>
-```json 400
-{
-  "error": "Validation error",
-  "details": [
-    "Missing required field: \"last_name\"",
-    "Missing required field: \"email\""
-  ]
 }
 ```
 </ResponseExample>
