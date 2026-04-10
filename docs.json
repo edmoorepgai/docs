@@ -173,7 +173,7 @@
       },
       {
         "tab": "API Reference",
-        "openapi": "openapi.json"
+        "openapi": "https://api.getpg.ai/docs/v1/openapi.json"
       }
     ],
     "global": {
