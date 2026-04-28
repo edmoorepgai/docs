@@ -1,0 +1,217 @@
+---
+title: "What's New in PG:AI V2"
+description: "A complete platform rebuild - faster enrichment, a new AI agent, composable canvases, territory planning, and more"
+icon: "sparkles"
+---
+
+PG:AI V2 is a ground-up rebuild of the platform. New backend, new frontend, new capabilities. This page covers everything that's changed and what it means for your workflow.
+
+## The big picture
+
+We rebuilt PG:AI from scratch on a new backend architecture designed to be composable, scalable, and agent-native. This isn't a UI refresh - it's a fundamentally different platform that enables everything below, plus a roadmap we couldn't have shipped on V1.
+
+The result: faster enrichment, a dramatically better AI agent, a composable content layer, territory-level planning, and a unified workspace that pulls everything together.
+
+<div className="my-6">
+  <div className="mb-3 text-sm font-medium text-gray-500 dark:text-gray-400">
+    Product tour - scroll sideways to preview the new V2 workspace
+  </div>
+  <div className="flex gap-4 overflow-x-auto pb-4">
+    <img
+      src="/images/app/workspace/workspace-search-results-company-view.png"
+      alt="V2 workspace company search results"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/search/search-page-new-company-search-results-framed.png"
+      alt="New company search results in PG:AI V2"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/territory/territory-companies-list-framed.png"
+      alt="Territory companies list in PG:AI V2"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/account/company-overview-insights-details-sidebar-framed.png"
+      alt="Account insight details sidebar in PG:AI V2"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/studio/company-canvas-template-selector-framed.png"
+      alt="Canvas template selector in Studio"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+  </div>
+</div>
+
+---
+
+## Faster enrichment
+
+Account plan generation is **3–4x faster**. What used to take 5–10 minutes now completes in 2–3. The underlying enrichment pipeline has been rebuilt to parallelise research across data sources, so you're waiting less and working sooner.
+
+---
+
+## New interface
+
+{/* IMAGE PLACEHOLDER: Screenshot of V2 workspace */}
+
+A completely new UI that's significantly easier to navigate and better to look at - with or without the agent open. The company view retains the same conceptual structure you're used to, but surfaces more data in a cleaner layout. Navigation, search, and account switching are all faster.
+
+---
+
+## Workspace
+
+{/* IMAGE PLACEHOLDER: Screenshot of unified workspace view */}
+
+A centralised view across your entire portfolio:
+
+<CardGroup cols={2}>
+  <Card title="Unified search" icon="magnifying-glass">
+    Search across all your accounts - including inside annual reports, earnings calls, job descriptions, and enrichment data - from one search bar.
+  </Card>
+  <Card title="Accounts, contacts, jobs, insights" icon="table-columns">
+    View all of your tracked companies, contacts, jobs, and insights in one place instead of navigating account by account.
+  </Card>
+  <Card title="Relevance graph" icon="diagram-project">
+    Visual graph showing what's most relevant to your search, surfacing connections across accounts you might not have spotted.
+  </Card>
+  <Card title="Signals hub" icon="bell">
+    All monitoring alerts and signals across your entire portfolio in one centralised feed - no more checking accounts one at a time.
+  </Card>
+</CardGroup>
+
+---
+
+## Territory analysis
+
+{/* IMAGE PLACEHOLDER: Screenshot or mockup of Territory view */}
+
+The go-to-market planning layer. Territory gives RevOps and sales leaders a structured, data-driven workspace to define territories, score and rank accounts, run AI-powered scenarios, and focus their teams on the opportunities that matter most.
+
+Instead of managing territories in static spreadsheets, Territory brings together enriched account data, configurable scoring models, strategic insight criteria, and AI recommendations - all in one place.
+
+<AccordionGroup>
+  <Accordion title="Territory scoring">
+    Score and rank accounts using configurable models that go beyond firmographics - incorporating strategic signals, hiring data, tech stack alignment, and competitive positioning.
+  </Accordion>
+  <Accordion title="AI scenarios">
+    Run what-if scenarios across your territory: "What if we weighted hiring signals higher?" or "Show me accounts where our use cases align with their stated priorities." The AI re-ranks in real time.
+  </Accordion>
+  <Accordion title="Team alignment">
+    Assign reps to territories and track coverage. See which accounts are under-covered and which reps need support.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Studio
+
+Studio is where intelligence becomes action. Every other module in PG:AI builds intelligence - Territory scores your accounts, Account gives you deep research, Contact maps the people, Monitoring watches for changes. Studio is where you use all of that to actually do something.
+
+### AI Agent
+
+{/* GIF PLACEHOLDER: Agent answering a research question with citations */}
+
+A brand-new, dramatically more capable AI agent. This isn't the Q&A assistant from V1 - it's a research agent that can work autonomously on your behalf: running multi-step research, pulling from live data sources, generating content, and taking actions across your accounts.
+
+<Info>
+The agent has full access to every intelligence module for the account you're viewing - strategic priorities, contacts, tech stack, financials, hiring data, enrichment history, and previous conversations. Every response is grounded in what PG:AI actually knows.
+</Info>
+
+### Canvas
+
+{/* IMAGE PLACEHOLDER: Canvas with structured content */}
+
+A composable content surface where you generate, edit, and refine deliverables. Canvases can contain free-form text or structured UI components - and you can edit them yourself or collaborate with the agent, similar to working with an AI-powered IDE.
+
+Use cases include account briefs, engagement plans, email sequences, meeting prep docs, discovery question sets, competitive comparisons, and anything else a GTM team member would need to produce.
+
+### Canvas templates
+
+Pre-built and custom templates for common GTM workflows:
+
+- Build a value pyramid for an account
+- Match your use cases to a company's stated strategies
+- Generate email sequences grounded in account intelligence
+- Create meeting prep documents
+- Produce competitive battle cards
+
+You can use the built-in templates or create your own that your team can reuse.
+
+### Workflows
+
+{/* IMAGE PLACEHOLDER: Workflow builder or execution view */}
+
+Multi-step, configurable AI pipelines that run research, analysis, and content generation across accounts at scale. Instead of doing things one account at a time, workflows let you define a sequence of steps - research, analyse, generate - and run it across your entire territory.
+
+---
+
+## Contacts
+
+<CardGroup cols={2}>
+  <Card title="Enhanced discovery" icon="user-magnifying-glass">
+    Better contact discovery with more sources and higher match rates.
+  </Card>
+  <Card title="Phone & email enrichment" icon="address-book">
+    Direct phone numbers and verified email addresses, enriched automatically.
+  </Card>
+  <Card title="Org charts" icon="sitemap">
+    Visual org charts showing reporting lines and team structures - built from enrichment data, not manual entry.
+  </Card>
+  <Card title="Contact monitoring" icon="bell-on">
+    Track job changes, promotions, and departures for key contacts across your accounts.
+  </Card>
+</CardGroup>
+
+---
+
+## Monitoring
+
+{/* IMAGE PLACEHOLDER: Monitoring feed with ranked signals */}
+
+PG:AI Monitoring watches your accounts for changes and alerts you when something happens. Configurable monitoring agents track hiring shifts, strategic changes, competitive moves, financial events, and more - so your team never misses a signal.
+
+Enterprise sellers manage portfolios of 50–200+ accounts. It's impossible to manually track what's happening at every company, every day. Monitor replaces ad-hoc checking - Google Alerts, LinkedIn notifications, manual scans - with systematic, contextual monitoring powered by your Intelligence data.
+
+Signals are ranked by relevance, not just recency, so the things that actually matter surface first.
+
+---
+
+## Platform & integrations
+
+<CardGroup cols={2}>
+  <Card title="Public API" icon="code" href="/api/overview">
+    Programmatic access to PG:AI - companies, contacts, intelligence, the agent, and more. Build integrations, automate workflows, and pull PG:AI data into your existing tools.
+  </Card>
+  <Card title="MCP Server" icon="plug" href="/platform/mcp/overview">
+    Connect PG:AI to AI tools that support MCP (Model Context Protocol) - use PG:AI intelligence directly from Claude, Cursor, and other MCP-compatible clients.
+  </Card>
+  <Card title="Organisation analytics" icon="chart-mixed" href="/settings/analytics">
+    Enhanced analytics for admins and team leaders - track adoption, usage patterns, and team activity across the platform.
+  </Card>
+</CardGroup>
+
+---
+
+## Getting started
+
+If you're an existing user, everything has been migrated - your accounts, contacts, and intelligence data are all in V2, ready to go. Log in and explore.
+
+If you're new to PG:AI, start here:
+
+<CardGroup cols={2}>
+  <Card title="Quick start" icon="rocket" href="/get-started/quickstart">
+    Add your first accounts and see intelligence in minutes.
+  </Card>
+  <Card title="For AEs & SCs" icon="handshake" href="/get-started/for-aes-scs">
+    How account executives and solutions consultants use PG:AI day to day.
+  </Card>
+  <Card title="For BDRs" icon="phone" href="/get-started/for-bdrs">
+    How business development reps use PG:AI for prospecting and outreach.
+  </Card>
+  <Card title="AI Agent guide" icon="robot" href="/studio/the-agent">
+    What the agent can do and how to get the most out of it.
+  </Card>
+</CardGroup>

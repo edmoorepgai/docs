@@ -18,6 +18,7 @@
             "pages": [
               "get-started/introduction",
               "get-started/quickstart",
+              "get-started/whats-new-v2",
               "get-started/for-aes-scs",
               "get-started/for-bdrs",
               "get-started/for-sales-leaders",
@@ -94,7 +95,6 @@
               "studio/the-agent",
               "studio/canvas",
               "studio/workflows",
-              "studio/projects-tasks",
               "studio/account-toolbar"
             ]
           },
