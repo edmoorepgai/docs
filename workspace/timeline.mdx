@@ -1,0 +1,69 @@
+---
+title: "Company Timeline"
+description: "A chronological feed of every meaningful event for an account or across your book of business"
+icon: "clock"
+---
+
+The **Company Timeline** is a chronological view of every meaningful event we've recorded for an account  -  strategic priorities, goals and risks identified by AI, hiring activity, key contact changes, public events like earnings calls and investor days, and shifts in the account's territory score  -  all merged into a single, paginated, time-ordered feed.
+
+Where **Unified Search** answers "what's the most relevant thing here?", the Timeline answers "what happened, in order?". It's the right view when you want to scroll through an account's recent history, build a meeting-prep narrative, or audit when a particular signal first appeared.
+
+<img
+  src="/images/app/workspace/workspace-search-results-company-timeline-view.png"
+  alt="Company Timeline view in search results"
+  className="w-full rounded-xl shadow-sm"
+/>
+
+## Scope
+
+Each request can target:
+
+- **A specific account**  -  the most common use case, powering the timeline tab on a company page.
+- **The current user's tracked accounts**  -  a personal "everything happening across my book" feed.
+- **The entire organisation's accounts**  -  a manager- or org-wide view of activity across the full portfolio.
+
+Only one of the three may be active per request. When a single account is requested, the Timeline includes events sourced specifically for that account; the broader scopes merge events across multiple accounts into one chronological stream.
+
+## Filters
+
+- **Date range**  -  `from_date` and `to_date` constrain the window. Defaults to the last 12 months.
+- **Event kinds**  -  narrow the stream to specific event types (e.g. only public events and contact joiners). Omit to include everything.
+- **Sort**  -  ascending (oldest first) or descending (newest first). Descending is the default.
+- **Pagination**  -  `page` and `per_page` (default 50). Real pagination, not just truncation, so the Timeline supports infinite scroll on the front end.
+
+## Event types surfaced
+
+The Timeline is the consolidated feed for everything we know about an account's activity, including:
+
+- **Strategic priorities, goals, risks, and digital strategies**  -  AI-generated insights linked to the account.
+- **Public events**  -  earnings calls, investor days, AGMs, conferences, M&A announcements, and other corporate-calendar items.
+- **Job postings**  -  net-new roles posted by the company, with title, location, and posting date.
+- **Contact changes**  -  when a tracked contact joins or leaves a role at the company.
+- **Score updates**  -  when the account's territory or relevance score moves materially.
+
+Each event carries the company it belongs to, the canonical event date, a display title and description, and, where relevant, source links and supporting metadata so the front end can render rich cards without further lookups.
+
+## Performance characteristics
+
+The Timeline reads directly from our Postgres entity tables  -  no vector search, no third-party API calls, no MongoDB round trip. Typical response time is about 100–300 ms for a single account over a 12-month window, scaling roughly linearly with the number of accounts in scope. It is the cheapest and fastest way to retrieve account activity in the platform, and it is fully cacheable downstream.
+
+## Relationship to Unified Search and Activity Pulse
+
+Three views, one underlying event model:
+
+- **Activity Pulse**  -  the at-a-glance view across your book of business, optimised for spotting which accounts and signals need attention right now.
+- **Unified Search**  -  the relevance-ranked, answer-first, query-driven view.
+- **Company Timeline**  -  the chronological feed: narrative-first, scroll-driven.
+
+All three speak the same canonical event vocabulary, so a user can move between them without losing context: see activity on the Pulse, drill into the **Company Timeline** to see what happened in order, then jump to **Unified Search** to find related material across the rest of the portfolio.
+
+## Related features
+
+<CardGroup cols={2}>
+  <Card title="Unified Search" icon="magnifying-glass" href="/workspace/unified-search">
+    Query-driven, relevance-ranked search across all intelligence. Complements the Timeline's time-ordered feed.
+  </Card>
+  <Card title="Activity Pulse" icon="wave-pulse" href="/workspace/activity-pulse">
+    Portfolio-level view of what's happening now. Pairs with Timeline when you need chronology for a specific account.
+  </Card>
+</CardGroup>

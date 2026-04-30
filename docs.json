@@ -99,6 +99,17 @@
             ]
           },
           {
+            "group": "Workspace",
+            "pages": [
+              "workspace/overview",
+              "workspace/unified-search",
+              "workspace/activity-pulse",
+              "workspace/timeline",
+              "workspace/account-library",
+              "workspace/contact-directory"
+            ]
+          },
+          {
             "group": "Monitoring",
             "pages": [
               "monitoring/overview",
@@ -142,7 +153,6 @@
               "setup/workflows",
               "setup/monitoring-agents",
               "setup/alerts",
-              "setup/agentmail",
               "setup/rest-api"
             ]
           }
