@@ -1,129 +1,74 @@
 ---
 title: "What's New in PG:AI V2"
-description: "A complete platform rebuild - faster enrichment, a new AI agent, composable canvases, territory planning, and more"
+description: "A new GTM agent, composable canvases, territory planning, continuous monitoring, and a unified workspace. Everything rebuilt."
 icon: "sparkles"
 ---
 
-PG:AI V2 is a ground-up rebuild of the platform. New backend, new frontend, new capabilities. This page covers everything that's changed and what it means for your workflow.
+The way GTM teams research accounts hasn't changed in a decade. You Google the company, skim a 10-K, check LinkedIn, open a few tabs, and hope you remember what you found by the time you're on the call. Multiply that across 200 accounts and it's obvious why most reps only deeply understand a handful of their book.
 
-## The big picture
+PG:AI V2 changes that. A new Agent that researches autonomously. Composable canvases that turn intelligence into deliverables. Workflows that run at scale across your entire territory. Continuous monitoring that tells you when something changes and what to do about it. And a unified workspace that ties it all together.
 
-We rebuilt PG:AI from scratch on a new backend architecture designed to be composable, scalable, and agent-native. This isn't a UI refresh - it's a fundamentally different platform that enables everything below, plus a roadmap we couldn't have shipped on V1.
+This page covers what's new.
 
-The result: faster enrichment, a dramatically better AI agent, a composable content layer, territory-level planning, and a unified workspace that pulls everything together.
+---
 
-<div className="my-6">
-  <div className="mb-3 text-sm font-medium text-gray-500 dark:text-gray-400">
-    Product tour - scroll sideways to preview company and contact views in V2
-  </div>
-  <div className="flex gap-4 overflow-x-auto pb-4">
-    <img
-      src="/images/app/account/company-contact-overview-framed.png"
-      alt="Contact overview on a company in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-contact-relevance-graph-framed.png"
-      alt="Contact relevance graph in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-competitors-framed.png"
-      alt="Company overview competitors in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-division-framed.png"
-      alt="Company division view in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-financial-situation-events-timeline-framed.png"
-      alt="Financial situation events timeline in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-financial-situation-framed.png"
-      alt="Financial situation in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-industry-overview-framed.png"
-      alt="Industry overview in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-insights-details-sidebar-framed.png"
-      alt="Account insight details sidebar in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-insights-framed.png"
-      alt="Strategic insights in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-swot-analysis-framed.png"
-      alt="SWOT analysis in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-tech-stack-framed.png"
-      alt="Tech stack in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-    <img
-      src="/images/app/account/company-overview-three-whys-framed.png"
-      alt="Three whys in PG:AI V2"
-      className="min-w-[85%] rounded-xl shadow-sm"
-    />
-  </div>
+## Studio
+
+Studio is where intelligence becomes action. The Agent researches. Canvas creates. Workflows scale. Everything is grounded in what PG:AI actually knows about your accounts.
+
+### The Agent
+
+This isn't the Q&A assistant from V1. The new Agent works autonomously on your behalf: multi-step research, live data sources, content generation, and actions across your accounts. Ask it to prepare you for a meeting and it pulls strategic priorities, attendee profiles, competitive positioning, and recommended questions, all cited back to sources.
+
+The Agent has full access to every intelligence dimension for the account you're viewing. Every response is grounded in what PG:AI actually knows, not a generic LLM answer.
+
+<div className="my-4">
+<video
+  src="https://res.cloudinary.com/dv8zk2qjf/video/upload/v1777655373/canvas-edit_b6x803.mp4"
+  autoPlay
+  controls
+  muted
+  playsInline
+  preload="metadata"
+  className="w-full rounded-xl"
+>
+  Sorry, your browser does not support embedded videos.
+</video>
 </div>
 
----
+### Canvas
 
-## Faster enrichment
+A composable content surface for generating, editing, and refining deliverables. Pick a template or start from scratch. The Agent writes a first draft pre-filled with account intelligence. You refine through conversation: "Make the competitive section stronger." "Add the CFO's comments from last quarter." Each revision draws on the full intelligence graph.
 
-Account plan generation is **3–4x faster**. What used to take 5–10 minutes now completes in 2–3. The underlying enrichment pipeline has been rebuilt to parallelise research across data sources, so you're waiting less and working sooner.
+<div className="my-4">
+<video
+  src="https://res.cloudinary.com/dv8zk2qjf/video/upload/v1777655035/canvas-display_jsqbc8.mp4"
+  autoPlay
+  controls
+  muted
+  playsInline
+  preload="metadata"
+  className="w-full rounded-xl"
+>
+  Sorry, your browser does not support embedded videos.
+</video>
+</div>
 
----
+Account briefs, meeting prep, email sequences, discovery questions, competitive comparisons, value pyramids. You can use the built-in templates or create your own that your team can reuse.
 
-## New interface
+### Workflows
 
-{/* IMAGE PLACEHOLDER: Screenshot of V2 workspace */}
+{/* IMAGE PLACEHOLDER: Workflow builder or execution view */}
 
-A completely new UI that's significantly easier to navigate and better to look at - with or without the agent open. The company view retains the same conceptual structure you're used to, but surfaces more data in a cleaner layout. Navigation, search, and account switching are all faster.
-
----
-
-## Workspace
-
-{/* IMAGE PLACEHOLDER: Screenshot of unified workspace view */}
-
-A centralised view across your entire portfolio:
-
-<CardGroup cols={2}>
-  <Card title="Unified search" icon="magnifying-glass">
-    Search across all your accounts - including inside annual reports, earnings calls, job descriptions, and enrichment data - from one search bar.
-  </Card>
-  <Card title="Accounts, contacts, jobs, insights" icon="table-columns">
-    View all of your tracked companies, contacts, jobs, and insights in one place instead of navigating account by account.
-  </Card>
-  <Card title="Relevance graph" icon="diagram-project">
-    Visual graph showing what's most relevant to your search, surfacing connections across accounts you might not have spotted.
-  </Card>
-  <Card title="Signals hub" icon="bell">
-    All monitoring alerts and signals across your entire portfolio in one centralised feed - no more checking accounts one at a time.
-  </Card>
-</CardGroup>
+Multi-step agentic pipelines that run across accounts at scale. Define a sequence of steps (research, analyse, find contacts, generate outreach) and run it across 50 or 500 accounts at once. Workflows branch, run in parallel, and produce different outputs per step. Build once, run across your entire territory.
 
 ---
 
-## Territory Analysis
+## Territory
 
 {/* IMAGE PLACEHOLDER: Screenshot or mockup of Territory view */}
 
-The go-to-market planning layer. Territory gives RevOps and sales leaders a structured, data-driven workspace to define territories, score and rank accounts, run AI-powered scenarios, and focus their teams on the opportunities that matter most.
+The go-to-market planning layer. Score and rank accounts, run AI-powered scenarios, and focus your team on the opportunities that matter most. Instead of static spreadsheets, Territory brings together enriched account data, configurable scoring models, and AI recommendations in one place.
 
 <div className="my-6">
   <iframe
@@ -135,61 +80,67 @@ The go-to-market planning layer. Territory gives RevOps and sales leaders a stru
   />
 </div>
 
-Instead of managing territories in static spreadsheets, Territory brings together enriched account data, configurable scoring models, strategic insight criteria, and AI recommendations - all in one place.
+**Territory scoring** — Score and rank accounts using configurable models that go beyond firmographics, incorporating strategic signals, hiring data, tech stack alignment, and competitive positioning.
 
-<AccordionGroup>
-  <Accordion title="Territory scoring">
-    Score and rank accounts using configurable models that go beyond firmographics - incorporating strategic signals, hiring data, tech stack alignment, and competitive positioning.
-  </Accordion>
-  <Accordion title="AI scenarios">
-    Run what-if scenarios across your territory: "What if we weighted hiring signals higher?" or "Show me accounts where our use cases align with their stated priorities." The AI re-ranks in real time.
-  </Accordion>
-  <Accordion title="Team alignment">
-    Assign reps to territories and track coverage. See which accounts are under-covered and which reps need support.
-  </Accordion>
-</AccordionGroup>
+**AI scenarios** — Run what-if scenarios across your territory: "What if we weighted hiring signals higher?" or "Show me accounts where our use cases align with their stated priorities." The AI re-ranks in real time.
+
+**Team alignment** — Assign reps to territories and track coverage. See which accounts are under-covered and which reps need support.
 
 ---
 
-## Studio
+## Monitoring
 
-Studio is where intelligence becomes action. Every other module in PG:AI builds intelligence - Territory scores your accounts, Account gives you deep research, Contact maps the people, Monitoring watches for changes. Studio is where you use all of that to actually do something.
+{/* IMAGE PLACEHOLDER: Monitoring feed with ranked signals */}
 
-### AI Agent
+Seven agent types run continuously across every account on your watchlist: jobs, contacts, web mentions, annual reports, earnings calls, public filings, and strategic insight changes. When something changes, monitoring doesn't just notify you. It contextualises the signal, explains why it matters, and tells you what to do about it.
 
-{/* GIF PLACEHOLDER: Agent answering a research question with citations */}
+Signals are ranked by relevance, not just recency. A new VP of Engineering doesn't show up as "new contact detected." The alert maps their background to your solution and your buyer personas. Alerts can trigger Studio workflows automatically.
 
-A brand-new, dramatically more capable AI agent. This isn't the Q&A assistant from V1 - it's a research agent that can work autonomously on your behalf: running multi-step research, pulling from live data sources, generating content, and taking actions across your accounts.
+---
 
-<Info>
-The agent has full access to every intelligence module for the account you're viewing - strategic priorities, contacts, tech stack, financials, hiring data, enrichment history, and previous conversations. Every response is grounded in what PG:AI actually knows.
-</Info>
+## Workspace
 
-### Canvas
+The cross-account layer of PG:AI. While Account gives you deep intelligence on a single company and Territory helps you prioritise, Workspace lets you search, explore, and monitor activity across your entire portfolio from one place.
 
-{/* IMAGE PLACEHOLDER: Canvas with structured content */}
+### Unified Search
 
-A composable content surface where you generate, edit, and refine deliverables. Canvases can contain free-form text or structured UI components - and you can edit them yourself or collaborate with the agent, similar to working with an AI-powered IDE.
+One search box for every piece of intelligence across all your accounts. Insights, contacts, jobs, public events, news mentions, web pages, technologies, internal documents, and conversations, all queryable from one place. Unified Search understands the meaning of your query and ranks results by relevance, not just keyword match. Instead of remembering which tab or system holds what, you type what you're looking for and get the answer.
 
-Use cases include account briefs, engagement plans, email sequences, meeting prep docs, discovery question sets, competitive comparisons, and anything else a GTM team member would need to produce.
+<div className="my-4">
+<video
+  src="https://res.cloudinary.com/dv8zk2qjf/video/upload/v1777651023/workspace-search_fz3jes.mp4"
+  autoPlay
+  controls
+  muted
+  playsInline
+  preload="metadata"
+  className="w-full rounded-xl"
+>
+  Sorry, your browser does not support embedded videos.
+</video>
+</div>
 
-### Canvas templates
+The same search engine powers single-company timelines, dashboards, and the global search bar. Three scopes: a single account, your tracked book of business, or every account in your entire organisation. Three views: timeline (most recent first), company (grouped by account), and relevance graph (visual network showing how accounts and topics connect).
 
-Pre-built and custom templates for common GTM workflows:
+### Activity Pulse
 
-- Build a value pyramid for an account
-- Match your use cases to a company's stated strategies
-- Generate email sequences grounded in account intelligence
-- Create meeting prep documents
-- Produce competitive battle cards
+The dashboard sellers open first thing in the morning. Activity Pulse brings together every meaningful event from every account, strategic priorities, earnings calls, leadership changes, hiring activity, technology adoption, news mentions, and regulatory filings, so you can see what needs attention today.
 
-You can use the built-in templates or create your own that your team can reuse.
+<div className="my-4">
+<video
+  src="https://res.cloudinary.com/dv8zk2qjf/video/upload/v1777651307/workspace-activity-pulse_wkrofr.mp4"
+  autoPlay
+  controls
+  muted
+  playsInline
+  preload="metadata"
+  className="w-full rounded-xl"
+>
+  Sorry, your browser does not support embedded videos.
+</video>
+</div>
 
-### Workflows
-
-{/* IMAGE PLACEHOLDER: Workflow builder or execution view */}
-
-Multi-step, configurable AI pipelines that run research, analysis, and content generation across accounts at scale. Instead of doing things one account at a time, workflows let you define a sequence of steps - research, analyse, generate - and run it across your entire territory.
+Built-in weighting ensures high-signal events stand out from routine noise. A new strategic priority from an earnings call reads differently from a standard job posting. A company posting a thousand jobs in a week won't drown out three earnings-call insights from the same period. You don't need to configure it. Activity Pulse understands which events matter most and surfaces them accordingly.
 
 ---
 
@@ -203,7 +154,7 @@ Multi-step, configurable AI pipelines that run research, analysis, and content g
     Direct phone numbers and verified email addresses, enriched automatically.
   </Card>
   <Card title="Org charts" icon="sitemap">
-    Visual org charts showing reporting lines and team structures - built from enrichment data, not manual entry.
+    Visual org charts showing reporting lines and team structures, built from enrichment data.
   </Card>
   <Card title="Contact monitoring" icon="bell-on">
     Track job changes, promotions, and departures for key contacts across your accounts.
@@ -212,15 +163,93 @@ Multi-step, configurable AI pipelines that run research, analysis, and content g
 
 ---
 
-## Monitoring
+## Faster enrichment
 
-{/* IMAGE PLACEHOLDER: Monitoring feed with ranked signals */}
+Account enrichment is **3-4x faster**. What used to take 5-10 minutes now completes in 2-3. The underlying pipeline parallelises research across data sources, so you're waiting less and working sooner.
 
-PG:AI Monitoring watches your accounts for changes and alerts you when something happens. Configurable monitoring agents track hiring shifts, strategic changes, competitive moves, financial events, and more - so your team never misses a signal.
+---
 
-Enterprise sellers manage portfolios of 50–200+ accounts. It's impossible to manually track what's happening at every company, every day. Monitor replaces ad-hoc checking - Google Alerts, LinkedIn notifications, manual scans - with systematic, contextual monitoring powered by your Intelligence data.
+## New interface
 
-Signals are ranked by relevance, not just recency, so the things that actually matter surface first.
+A completely new UI that's faster to navigate and better to look at. The company view retains the same structure you're used to, but surfaces more data in a cleaner layout.
+
+<div className="my-6">
+  <div className="mb-3 text-sm font-medium text-gray-500 dark:text-gray-400">
+    Product tour - scroll sideways to preview the new interface
+  </div>
+  <div className="flex gap-4 overflow-x-auto pb-4">
+    <img
+      src="/images/app/cleanshot-screenshots/001-cleanshot-2026-04-30-at-00-25-27-2-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 1"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/007-cleanshot-2026-04-30-at-10-09-30-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 2"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/031-cleanshot-2026-04-30-at-16-20-18-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 3"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/035-cleanshot-2026-04-30-at-18-56-37-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 4"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/038-cleanshot-2026-04-30-at-19-01-55-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 5"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/009-cleanshot-2026-04-30-at-10-17-29-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 6"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/015-cleanshot-2026-04-30-at-10-22-40-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 7"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/040-cleanshot-2026-04-30-at-14-54-15-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 8"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/016-cleanshot-2026-04-30-at-10-25-08-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 9"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/020-cleanshot-2026-04-30-at-10-29-52-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 10"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/023-cleanshot-2026-04-30-at-15-02-06-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 11"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/cleanshot-screenshots/025-cleanshot-2026-04-30-at-15-03-12-framed-bg.png"
+      alt="PG:AI V2 product tour screenshot 12"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/account/company-overview-financial-situation-events-timeline-framed.png"
+      alt="Financial situation events timeline in PG:AI V2"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+    <img
+      src="/images/app/account/company-overview-financial-situation-framed.png"
+      alt="Financial situation in PG:AI V2"
+      className="min-w-[85%] rounded-xl shadow-sm"
+    />
+  </div>
+</div>
 
 ---
 
@@ -228,13 +257,13 @@ Signals are ranked by relevance, not just recency, so the things that actually m
 
 <CardGroup cols={2}>
   <Card title="Public API" icon="code" href="/api/overview">
-    Programmatic access to PG:AI - companies, contacts, intelligence, the agent, and more. Build integrations, automate workflows, and pull PG:AI data into your existing tools.
+    Programmatic access to PG:AI: companies, contacts, intelligence, the agent, and more. Build integrations, automate workflows, and pull PG:AI data into your existing tools.
   </Card>
   <Card title="MCP Server" icon="plug" href="/platform/mcp/overview">
-    Connect PG:AI to AI tools that support MCP (Model Context Protocol) - use PG:AI intelligence directly from Claude, Cursor, and other MCP-compatible clients.
+    Connect PG:AI to AI tools that support MCP (Model Context Protocol). Use PG:AI intelligence directly from Claude, Cursor, and other MCP-compatible clients.
   </Card>
   <Card title="Organisation analytics" icon="chart-mixed" href="/settings/analytics">
-    Enhanced analytics for admins and team leaders - track adoption, usage patterns, and team activity across the platform.
+    Enhanced analytics for admins and team leaders. Track adoption, usage patterns, and team activity across the platform.
   </Card>
 </CardGroup>
 
@@ -242,9 +271,9 @@ Signals are ranked by relevance, not just recency, so the things that actually m
 
 ## Getting started
 
-If you're an existing user, everything has been migrated - your accounts, contacts, and intelligence data are all in V2, ready to go. Log in and explore.
+If you're an existing user, everything has been migrated. Your accounts, contacts, and intelligence data are all in V2, ready to go. Log in and explore.
 
-If you're new to PG:AI, start here:
+If you're new to PG:AI:
 
 <CardGroup cols={2}>
   <Card title="Quick start" icon="rocket" href="/get-started/quickstart">
@@ -256,7 +285,7 @@ If you're new to PG:AI, start here:
   <Card title="For BDRs" icon="phone" href="/get-started/for-bdrs">
     How business development reps use PG:AI for prospecting and outreach.
   </Card>
-  <Card title="AI Agent guide" icon="robot" href="/studio/the-agent">
+  <Card title="Agent guide" icon="robot" href="/studio/the-agent">
     What the agent can do and how to get the most out of it.
   </Card>
 </CardGroup>

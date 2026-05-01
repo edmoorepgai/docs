@@ -18,12 +18,17 @@
             "pages": [
               "get-started/introduction",
               "get-started/quickstart",
-              "get-started/whats-new-v2",
               "get-started/for-aes-scs",
               "get-started/for-bdrs",
               "get-started/for-sales-leaders",
               "get-started/for-revops",
               "get-started/faq"
+            ]
+          },
+          {
+            "group": "Updates",
+            "pages": [
+              "get-started/whats-new-v2"
             ]
           }
         ]
