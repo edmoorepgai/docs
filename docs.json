@@ -128,37 +128,50 @@
         "tab": "Settings",
         "groups": [
           {
-            "group": "Configuration",
+            "group": "Account",
             "pages": [
               "configuration/overview",
+              "configuration/team-permissions",
+              "configuration/datasets",
               "configuration/personas",
+              "configuration/contact-enrichment",
               "configuration/engage-settings",
               "configuration/custom-insights",
               "configuration/favourite-technologies",
-              "configuration/datasets",
-              "configuration/workflow-templates",
-              "configuration/crm-integration",
-              "configuration/team-permissions"
+              "configuration/organisation-use-cases",
+              "configuration/credits"
             ]
           },
           {
-            "group": "Setup Guides",
+            "group": "Territory",
             "pages": [
               "setup/territory-management",
               "setup/territory-enrichment",
-              "setup/territory-analytics",
               "setup/scoring-models",
               "setup/strategic-insights-scoring",
               "setup/scenarios-recommendations",
               "setup/custom-columns",
               "setup/employee-groups",
               "setup/jobs",
-              "setup/ai-assistant",
+              "setup/territory-analytics"
+            ]
+          },
+          {
+            "group": "Studio",
+            "pages": [
+              "configuration/content-settings",
+              "configuration/workflow-settings",
+              "configuration/sequence-settings",
               "setup/canvas",
-              "setup/workflows",
+              "setup/workflows"
+            ]
+          },
+          {
+            "group": "Monitoring",
+            "pages": [
+              "configuration/monitoring-rules",
               "setup/monitoring-agents",
-              "setup/alerts",
-              "setup/rest-api"
+              "setup/alerts"
             ]
           }
         ]

@@ -1,0 +1,25 @@
+---
+title: "Monitoring Rules"
+description: "Define what signals should trigger alerts, for which scope, and through which channels"
+---
+
+Monitoring rules define when PG:AI should generate alerts and who should receive them.
+
+## Rule components
+
+- **Source type**: what to monitor (jobs, employee changes, custom columns, external events, etc.)
+- **Condition type**: how to evaluate change (threshold, equals, created, changed, etc.)
+- **Scope**: organisation-wide, territory, or selected companies
+- **Frequency**: real-time, hourly, daily, weekly, or on-change
+- **Channels**: in-app, email, Slack, webhook
+
+## Recommended rollout
+
+1. Start with a small set of high-value rules.
+2. Set severity and cooldowns to reduce noise.
+3. Review trigger volume after one week.
+4. Tighten conditions before adding more rules.
+
+<Warning>
+Over-broad rules create alert fatigue quickly. Start narrow, then expand once signal quality is proven.
+</Warning>

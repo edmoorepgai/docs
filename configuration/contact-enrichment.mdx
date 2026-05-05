@@ -1,0 +1,31 @@
+---
+title: "Contact Enrichment"
+description: "Control how contacts are auto-enriched across the organisation and by persona"
+---
+
+Contact enrichment settings control whether PG:AI automatically enriches contacts with email, phone, both, or neither.
+
+## How it works
+
+- **Organisation default** applies to all contacts.
+- **Persona overrides** let you use different enrichment behavior for specific personas.
+- If a contact has no persona override, the organisation default is used.
+
+## Enrichment modes
+
+| Mode | Behavior |
+|------|----------|
+| `none` | No automatic contact enrichment |
+| `email` | Enrich email only |
+| `phone` | Enrich phone only |
+| `email_and_mobile` | Enrich both email and phone |
+
+## Recommended setup
+
+1. Set an organisation default first.
+2. Add persona-specific overrides only for high-priority personas.
+3. Review monthly to balance quality, speed, and credit usage.
+
+<Note>
+Keep persona overrides limited to the personas your team actively sells to. Too many overrides make behavior harder to reason about.
+</Note>
