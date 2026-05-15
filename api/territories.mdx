@@ -16,6 +16,8 @@ Retrieve a paginated list of all territories in your workspace.
   Number of territories per page.
 </ParamField>
 
+**Permission:** `territories:read`
+
 <RequestExample>
 ```bash cURL
 curl -X GET "https://api.getpg.ai/public-api/v1/territories?page=1&per_page=10" \
@@ -62,6 +64,8 @@ Retrieve information about a specific territory.
   The unique identifier of the territory.
 </ParamField>
 
+**Permission:** `territories:read`
+
 <RequestExample>
 ```bash cURL
 curl -X GET "https://api.getpg.ai/public-api/v1/territories/{territory_id}" \
@@ -84,6 +88,10 @@ curl -X GET "https://api.getpg.ai/public-api/v1/territories/{territory_id}" \
 
 ## List Territory Companies
 
+<Note>
+  **Early access** — this endpoint is available but not yet in the interactive API Reference.
+</Note>
+
 Retrieve the companies that belong to a specific territory, with pagination. Returns company IDs and their processing status — use `GET /companies/{company_id}` to fetch full company details.
 
 <ParamField path="territory_id" type="string" required>
@@ -97,6 +105,8 @@ Retrieve the companies that belong to a specific territory, with pagination. Ret
 <ParamField query="per_page" type="integer" default="25">
   Number of companies per page.
 </ParamField>
+
+**Permission:** `territories:read`
 
 <RequestExample>
 ```bash cURL

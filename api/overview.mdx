@@ -38,7 +38,7 @@ https://api.getpg.ai/public-api/v1
     API key setup, permissions, and error handling
   </Card>
   <Card title="Companies" icon="building" href="/api/companies">
-    Company data, profiles, content, contacts, and tech stacks
+    Company data, profiles, contacts, and tech stacks
   </Card>
   <Card title="Contacts" icon="user" href="/api/contacts">
     List and retrieve contacts with full profile data
@@ -47,7 +47,7 @@ https://api.getpg.ai/public-api/v1
     Territory management and company lists
   </Card>
   <Card title="Search" icon="magnifying-glass" href="/api/search">
-    Unified search across companies, contacts, and content
+    Unified semantic search across companies, contacts, and content
   </Card>
   <Card title="Organization" icon="gear" href="/api/organization">
     Organization settings and credit usage
@@ -56,22 +56,41 @@ https://api.getpg.ai/public-api/v1
 
 ## Available Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/v1/health` | Health check (no auth required) |
-| `POST` | `/v1/accounts` | Search accounts |
-| `GET` | `/v1/companies/{company_id}` | Get company by ID |
-| `GET` | `/v1/companies/{company_id}/profile` | Get customizable company profile |
-| `GET` | `/v1/companies/{company_id}/content` | Get company content |
-| `POST` | `/v1/companies/{company_id}/contacts` | Search company contacts |
-| `POST` | `/v1/companies/{company_id}/technologies` | Get company tech stack |
-| `GET` | `/v1/contacts` | List contacts |
-| `GET` | `/v1/contacts/{contact_id}` | Get contact by ID |
-| `GET` | `/v1/territories` | List territories |
-| `GET` | `/v1/territories/{territory_id}` | Get territory details |
-| `GET` | `/v1/territories/{territory_id}/companies` | List territory companies |
-| `GET` | `/v1/search` | Unified search |
-| `GET` | `/v1/organization/credits` | Get organization credits |
+Endpoints marked `[BETA]` are stable for production use but may have minor changes before general availability. Endpoints marked `[ALPHA]` are early access and subject to change.
+
+| Method | Endpoint | Maturity | Description |
+|--------|----------|----------|-------------|
+| `POST` | `/v1/accounts` | GA | Search for accounts |
+| `POST` | `/v1/companies` | BETA | Add a company (async enrichment) |
+| `GET` | `/v1/companies/{company_id}` | GA | Get company by ID |
+| `GET` | `/v1/companies/{company_id}/profile` | GA | Get customizable company profile |
+| `POST` | `/v1/companies/{company_id}/contacts` | GA | Search company contacts |
+| `POST` | `/v1/companies/{company_id}/contacts/search` | GA | Search contacts for a company |
+| `GET` | `/v1/companies/{company_id}/graph` | BETA | Get company relevance graph |
+| `GET` | `/v1/companies/{company_id}/relevance` | BETA | Get company relevance signals |
+| `GET` | `/v1/companies/{company_id}/search` | ALPHA | Search documents about a company |
+| `GET` | `/v1/companies/{company_id}/jobs` | GA | List job postings for a company |
+| `GET` | `/v1/companies/{company_id}/alerts` | GA | List alerts for a company |
+| `GET` | `/v1/companies/{company_id}/canvas` | GA | List canvases for a company |
+| `GET` | `/v1/companies/{company_id}/events` | BETA | List monitoring events for a company |
+| `GET` | `/v1/companies/{company_id}/agent/sessions` | BETA | List agent sessions for a company |
+| `GET` | `/v1/contacts` | BETA | List contacts |
+| `POST` | `/v1/contacts/search` | BETA | Search contacts (workspace) |
+| `POST` | `/v1/contacts/{contact_id}/enrich/contact_info` | BETA | Enrich contact with phone/email |
+| `GET` | `/v1/territories` | BETA | List territories |
+| `GET` | `/v1/territories/{territory_id}` | BETA | Get territory by ID |
+| `GET` | `/v1/territories/{territory_id}/companies` | BETA | List territory companies |
+| `GET` | `/v1/search` | BETA | Unified semantic search |
+| `GET` | `/v1/agent/sessions` | BETA | List workspace agent sessions |
+| `GET` | `/v1/canvas` | BETA | List canvases (workspace) |
+| `GET` | `/v1/canvas/templates` | GA | List canvas templates |
+| `GET` | `/v1/alerts` | GA | List alerts (workspace) |
+| `PATCH` | `/v1/alerts/{alert_id}` | GA | Update alert status |
+| `GET` | `/v1/events` | BETA | List monitoring events (workspace) |
+| `GET` | `/v1/jobs` | GA | List job postings (workspace) |
+| `GET` | `/v1/filters` | BETA | Get filter metadata |
+| `GET` | `/v1/operations/{public_operation_id}` | BETA | Poll async operation status |
+| `GET` | `/v1/organization/credits` | GA | Get organization credits |
 
 ## Rate Limits
 
@@ -79,4 +98,4 @@ API requests are rate-limited based on your plan. When you hit the limit, the AP
 
 ## Interactive API Reference
 
-The **API Reference** tab in the sidebar provides an interactive playground powered by our live OpenAPI specification. You can test endpoints directly from the docs with your API key.
+The **API Reference** in the top navigation provides an interactive playground powered by our live OpenAPI specification. You can test endpoints directly from the docs with your API key.

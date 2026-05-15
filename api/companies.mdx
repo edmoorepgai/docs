@@ -135,7 +135,11 @@ curl -X GET "https://api.getpg.ai/public-api/v1/companies/{company_id}" \
 <ResponseExample>
 ```json 400
 {
-  "error": "Not a valid UUID."
+  "error": {
+    "type": "validation_error",
+    "code": "invalid_uuid",
+    "message": "Not a valid UUID."
+  }
 }
 ```
 </ResponseExample>
@@ -143,7 +147,11 @@ curl -X GET "https://api.getpg.ai/public-api/v1/companies/{company_id}" \
 <ResponseExample>
 ```json 403
 {
-  "error": "You do not have access to this company"
+  "error": {
+    "type": "authorization_error",
+    "code": "forbidden",
+    "message": "You do not have access to this company"
+  }
 }
 ```
 </ResponseExample>
@@ -161,7 +169,7 @@ Retrieve a customizable company profile with selectable sections. Use the `inclu
 <ParamField query="include" type="string">
   Comma-separated list of profile sections to include. Use `full` for all sections.
 
-  Available sections: `overview`, `key_executives`, `divisions`, `geographical_operations`, `swot_analysis`, `competitors`, `industry_insights`, `strategic_priorities`, `digital_strategies`, `risks`, `goals`, `insights_scores`, `events`, `value_pyramid`, `three_whys`, `discovery_questions`, `custom_insights`, `content`
+  Available sections: `overview`, `key_executives`, `divisions`, `geographical_operations`, `swot_analysis`, `competitors`, `industry_insights`, `strategic_priorities`, `digital_strategies`, `risks`, `goals`, `insights_scores`, `events`, `value_pyramid`, `three_whys`, `discovery_questions`, `how_they_make_money`, `how_they_lose_money`, `custom_insights`, `employee_groups`, `favourite_technologies_count`, `territory_custom_scores`, `content`
 </ParamField>
 
 <ParamField query="exclude" type="string">
@@ -253,48 +261,6 @@ curl -X GET "https://api.getpg.ai/public-api/v1/companies/{company_id}/profile?i
 
 ---
 
-## Get Company Content
-
-Retrieve AI-generated content for a company, such as emails, executive reports, and call scripts.
-
-<ParamField path="company_id" type="string" required>
-  The unique identifier (UUID) of the company.
-</ParamField>
-
-<ParamField query="type" type="string">
-  Filter by content type. Valid values: `email`, `document`, `call_script`, `notes`
-</ParamField>
-
-**Permission:** `insights:read`
-
-<RequestExample>
-```bash cURL
-curl -X GET "https://api.getpg.ai/public-api/v1/companies/{company_id}/content?type=email" \
-  -H "x-api-key: your_api_key"
-```
-</RequestExample>
-
-<ResponseExample>
-```json 200
-[
-  {
-    "id": "9e106d89-a191-439f-a49f-b225e8fe24fe",
-    "content_type": "document",
-    "title": "Executive Report: Accelerating Enterprise Growth with PG:AI",
-    "content": "Subject: Executive Report...\n\nOur Understanding of Your Business..."
-  },
-  {
-    "id": "3aa65f1a-8b4a-480b-a947-da49ebcb1d29",
-    "content_type": "email",
-    "title": "Accelerate Enterprise Pipeline & GTM Alignment",
-    "content": "Subject: Accelerate Enterprise Pipeline...\n\nHi {Name},\n\nIn your recent earnings call..."
-  }
-]
-```
-</ResponseExample>
-
----
-
 ## Search Company Contacts
 
 Search and filter contacts associated with a specific company. Uses POST to support complex filter combinations in the request body.
@@ -370,33 +336,33 @@ curl -X POST "https://api.getpg.ai/public-api/v1/companies/{company_id}/contacts
 
 ## Get Company Technologies
 
-Retrieve the technology stack for a company with optional filtering. Uses POST to support filter parameters in the request body.
+Retrieve the technology stack for a company with optional filtering. Pass all filters as query parameters.
 
 <ParamField path="company_id" type="string" required>
   The unique identifier (UUID) of the company.
 </ParamField>
 
-<ParamField body="category" type="string">
+<ParamField query="category" type="string">
   Filter by technology category. Valid categories include: `Data, BI and Analytics`, `Collaboration`, `Communications`, `Customer Management`, `Devops And Development`, `E-commerce`, `Finance And Accounting`, `IT Security`, `Marketing`, `Sales`, and more.
 </ParamField>
 
-<ParamField body="confidence" type="string">
-  Filter by detection confidence level.
+<ParamField query="confidence" type="string">
+  Filter by detection confidence level (`high`, `medium`, `low`).
 </ParamField>
 
-<ParamField body="favourites" type="boolean">
+<ParamField query="favourites" type="boolean">
   Set to `true` to only return technologies marked as favourites in your workspace.
 </ParamField>
 
-<ParamField body="query" type="string">
-  Search query to filter technologies by name.
+<ParamField query="q" type="string">
+  Free-text search to filter technologies by name.
 </ParamField>
 
-<ParamField body="page" type="integer" default="1">
+<ParamField query="page" type="integer" default="1">
   Page number for pagination.
 </ParamField>
 
-<ParamField body="per_page" type="integer" default="100">
+<ParamField query="per_page" type="integer" default="100">
   Number of items per page.
 </ParamField>
 
@@ -404,13 +370,8 @@ Retrieve the technology stack for a company with optional filtering. Uses POST t
 
 <RequestExample>
 ```bash cURL
-curl -X POST "https://api.getpg.ai/public-api/v1/companies/{company_id}/technologies" \
-  -H "x-api-key: your_api_key" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "category": "IT Security",
-    "per_page": 50
-  }'
+curl -X GET "https://api.getpg.ai/public-api/v1/companies/{company_id}/technologies?category=IT+Security&per_page=50" \
+  -H "x-api-key: your_api_key"
 ```
 </RequestExample>
 

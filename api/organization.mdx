@@ -33,7 +33,11 @@ curl -X GET "https://api.getpg.ai/public-api/v1/organization/credits" \
 <ResponseExample>
 ```json 403
 {
-  "error": "You do not have permission to access this resource"
+  "error": {
+    "type": "authorization_error",
+    "code": "forbidden",
+    "message": "You do not have permission to access this resource. Required scope: org_settings:read"
+  }
 }
 ```
 </ResponseExample>

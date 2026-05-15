@@ -80,12 +80,24 @@ API keys are scoped with granular permissions. Each endpoint requires a specific
 
 | Scope | Description |
 |-------|-------------|
-| `insights:read` | Read company intelligence, profiles, content, and technologies |
-| `insights:write` | Create or modify company data |
 | `accounts:read` | Search and list accounts |
+| `companies:read` | Read company data (relevance, graph, search, jobs, canvas) |
 | `contacts:read` | Read contact data |
-| `contacts:write` | Create or modify contacts |
+| `contacts:write` | Create or enrich contacts |
+| `insights:read` | Read company intelligence, profiles, alerts, and technologies |
+| `insights:write` | Create or modify company enrichment data |
+| `integrations:read` | Read integration status |
+| `jobs:read` | Read job postings |
+| `monitoring:read` | Read monitoring events |
+| `monitoring:write` | Manage monitoring events |
 | `org_settings:read` | Read organization settings and credits |
+| `sequences:read` | Read sequences and templates |
+| `sequences:write` | Create or modify sequences |
+| `tasks:read` | Read tasks |
+| `tasks:write` | Create or modify tasks |
+| `territories:read` | Read territories and their companies |
+| `workflows:read` | Read workflows |
+| `workflows:execute` | Trigger workflow executions |
 | `*` | Full access (all permissions) |
 
 Wildcard scopes are also supported. For example, `insights:*` grants both `insights:read` and `insights:write`.
@@ -106,19 +118,28 @@ If you're hitting rate limits, consider batching requests or adding short delays
 
 ## Error Responses
 
-All error responses follow a consistent format:
+All error responses follow a consistent structured format. Every error includes a `type`, a machine-readable `code`, and a human-readable `message`. Some errors include a `details` object with additional context.
 
 ```json
 {
-  "error": "Human-readable error message"
+  "error": {
+    "type": "validation_error",
+    "code": "invalid_uuid",
+    "message": "Not a valid UUID.",
+    "details": {}
+  }
 }
 ```
+
+All responses (including errors) include an `X-Request-Id` header you can use when contacting support to identify the specific request.
 
 | Status Code | Description |
 |-------------|-------------|
 | `400` | Bad Request — invalid parameters or missing required fields |
 | `401` | Unauthorized — missing or invalid API key |
+| `402` | Insufficient Credits — your organization has run out of credits for this operation |
 | `403` | Forbidden — API key lacks the required permission scope |
 | `404` | Not Found — the requested resource does not exist |
-| `429` | Rate Limited — too many requests |
+| `429` | Rate Limited — too many requests, slow down and retry |
 | `500` | Internal Server Error — something went wrong on our end |
+| `503` | Service Unavailable — a downstream service is temporarily unreachable |

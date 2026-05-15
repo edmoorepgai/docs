@@ -1,6 +1,6 @@
 ---
 title: "Contacts"
-description: "List and retrieve contacts in your PG:AI workspace"
+description: "List, retrieve, search, and enrich contacts in your PG:AI workspace"
 icon: "user"
 ---
 
@@ -12,8 +12,8 @@ Retrieve a paginated list of contacts across your organization.
   Page number for pagination.
 </ParamField>
 
-<ParamField query="limit" type="integer" default="50">
-  Number of contacts to return per page. Also accepts `per_page`.
+<ParamField query="limit" type="integer" default="25">
+  Number of contacts to return per page.
 </ParamField>
 
 **Permission:** `contacts:read`
@@ -122,17 +122,129 @@ curl -X GET "https://api.getpg.ai/public-api/v1/contacts/{contact_id}" \
 </ResponseExample>
 
 <ResponseExample>
-```json 400
+```json 404
 {
-  "error": "Invalid contact ID format"
+  "error": {
+    "type": "not_found",
+    "code": "contact_not_found",
+    "message": "Contact not found"
+  }
+}
+```
+</ResponseExample>
+
+---
+
+## Search Contacts
+
+<Note>
+  **Beta** — Search across all contacts in your workspace. Pass an empty body `{}` to return all contacts with pagination.
+</Note>
+
+<ParamField body="name" type="string">
+  Filter contacts by name (partial match).
+</ParamField>
+
+<ParamField body="job_title" type="string">
+  Filter contacts by job title.
+</ParamField>
+
+<ParamField body="company_id" type="string">
+  Filter contacts by associated company UUID.
+</ParamField>
+
+<ParamField body="location" type="string">
+  Filter contacts by location.
+</ParamField>
+
+<ParamField body="page" type="integer" default="1">
+  Page number for pagination.
+</ParamField>
+
+<ParamField body="per_page" type="integer" default="25">
+  Number of contacts per page.
+</ParamField>
+
+**Permission:** `contacts:read`
+
+<RequestExample>
+```bash cURL
+curl -X POST "https://api.getpg.ai/public-api/v1/contacts/search" \
+  -H "x-api-key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "job_title": "Chief Revenue Officer",
+    "per_page": 10
+  }'
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "contacts": [
+    {
+      "id": "deb3474b-5836-492c-aca4-4e0ccc8afbae",
+      "full_name": "Iain Donachie",
+      "current_job_title": "Head of Gift Cards UK & Ireland, Tesco",
+      "linkedin_url": "https://www.linkedin.com/in/iain-donachie-6bb3406",
+      "location": "Edinburgh, Scotland, United Kingdom"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "per_page": 10,
+    "total": 42,
+    "total_pages": 5
+  }
+}
+```
+</ResponseExample>
+
+---
+
+## Enrich Contact
+
+<Note>
+  **Beta** — Queue an enrichment job to discover phone numbers and email addresses for a contact. Returns `202 Accepted` immediately; poll `GET /operations/{public_operation_id}` for completion.
+</Note>
+
+<ParamField path="contact_id" type="string" required>
+  The unique identifier (UUID) of the contact to enrich.
+</ParamField>
+
+**Permission:** `contacts:write`
+
+<Warning>
+Enrichment consumes credits. A `402` response means your organization has insufficient credits.
+</Warning>
+
+<RequestExample>
+```bash cURL
+curl -X POST "https://api.getpg.ai/public-api/v1/contacts/{contact_id}/enrich/contact_info" \
+  -H "x-api-key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+</RequestExample>
+
+<ResponseExample>
+```json 202
+{
+  "public_operation_id": "op_a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "status": "accepted"
 }
 ```
 </ResponseExample>
 
 <ResponseExample>
-```json 404
+```json 402
 {
-  "error": "Contact not found"
+  "error": {
+    "type": "payment_required",
+    "code": "insufficient_credits",
+    "message": "Your organization has insufficient credits to complete this enrichment."
+  }
 }
 ```
 </ResponseExample>

@@ -1,28 +1,53 @@
 ---
 title: "Search"
-description: "Unified search across companies, contacts, and content"
+description: "Unified semantic search across all data PG:AI holds for your accounts"
 icon: "magnifying-glass"
 ---
 
 ## Unified Search
 
-Search across multiple entity types in a single request. The API searches companies, contacts, and content in parallel and returns categorized results.
+Search semantically across everything PG:AI holds for your accounts — public filings and news, uploaded materials, web pages, job postings, technologies, contacts, conversations, insights, and more. Results are ranked by relevance.
+
+<ParamField query="scope" type="string" required>
+  Defines which accounts to search across.
+  - `organisation` — searches every account tracked in your workspace
+  - `companies` — restricts the search to the accounts you specify in `company_ids`
+</ParamField>
 
 <ParamField query="q" type="string" required>
   The search query. Must be at least 1 character.
 </ParamField>
 
-<ParamField query="types" type="string">
-  Comma-separated list of entity types to search. Valid values: `companies`, `contacts`, `content`. Defaults to all types if not specified.
+<ParamField query="company_ids" type="string">
+  Comma-separated list of company UUIDs. Required when `scope=companies`. Ignored when `scope=organisation`.
 </ParamField>
 
-<ParamField query="limit" type="integer" default="10">
-  Maximum number of results per type. Range: 1–100.
+<ParamField query="page" type="integer" default="1">
+  Page number for pagination.
 </ParamField>
+
+<ParamField query="per_source" type="integer" default="25">
+  Maximum number of results returned per vector source. Range: 1–100.
+</ParamField>
+
+<ParamField query="date_from" type="string">
+  ISO 8601 lower bound on result date (e.g. `2025-01-01`).
+</ParamField>
+
+<ParamField query="date_to" type="string">
+  ISO 8601 upper bound on result date (e.g. `2025-12-31`).
+</ParamField>
+
+**Permission:** `companies:read`
 
 <RequestExample>
-```bash cURL
-curl -X GET "https://api.getpg.ai/public-api/v1/search?q=Tesco&types=companies,contacts&limit=5" \
+```bash Organisation scope
+curl -X GET "https://api.getpg.ai/public-api/v1/search?scope=organisation&q=AI+strategy&per_source=10" \
+  -H "x-api-key: your_api_key"
+```
+
+```bash Companies scope
+curl -X GET "https://api.getpg.ai/public-api/v1/search?scope=companies&q=product+launch&company_ids=304599c3-212f-4122-b84a-d655a1455d31,0472a8a1-bdc4-4f53-93f6-7d9a967beb76" \
   -H "x-api-key: your_api_key"
 ```
 </RequestExample>
@@ -30,51 +55,32 @@ curl -X GET "https://api.getpg.ai/public-api/v1/search?q=Tesco&types=companies,c
 <ResponseExample>
 ```json 200
 {
-  "query": "Tesco",
-  "total": 3,
-  "results": {
-    "companies": {
-      "items": [
-        {
-          "id": "304599c3-212f-4122-b84a-d655a1455d31",
-          "company_name": "Tesco",
-          "website_domain": "tesco.com"
-        }
-      ],
-      "count": 1
-    },
-    "contacts": {
-      "items": [
-        {
-          "id": "deb3474b-5836-492c-aca4-4e0ccc8afbae",
-          "full_name": "Iain Donachie",
-          "current_job_title": "Head of Gift Cards UK & Ireland, Tesco"
-        }
-      ],
-      "count": 1
+  "items": [
+    {
+      "id": "abc123",
+      "company_id": "304599c3-212f-4122-b84a-d655a1455d31",
+      "company_name": "Tesco",
+      "source_type": "news",
+      "title": "Tesco announces AI-driven supply chain strategy",
+      "excerpt": "Tesco's leadership outlined a multi-year plan to deploy AI across logistics...",
+      "date": "2025-11-14T00:00:00.000Z",
+      "score": 0.91
     }
-  }
+  ],
+  "total": 48,
+  "page": 1,
+  "per_page": 25,
+  "resolved_company_count": 12
 }
 ```
 </ResponseExample>
 
+<Note>
+`resolved_company_count` is only present when `scope=organisation`. It shows how many distinct companies were searched.
+</Note>
+
 ### Search Behavior
 
-- When `types` is omitted, all three types (`companies`, `contacts`, `content`) are searched in parallel.
-- Each type returns up to `limit` results independently.
-- If a specific type search fails, its result will include an `error` field, but other types will still return successfully.
-- The `total` field reflects the combined count across all returned types.
-
-### Error Responses
-
-```json
-{
-  "error": "Query parameter \"q\" is required and must be at least 1 character"
-}
-```
-
-```json
-{
-  "error": "Invalid types parameter. Valid values: companies, contacts, content"
-}
-```
+- Results are ranked by semantic relevance, not recency. Use `date_from` / `date_to` to narrow to a time window.
+- `per_source` applies per vector source independently — the total number of results can exceed this value when multiple sources return results.
+- If a downstream source fails, the API still returns results from the remaining sources.
