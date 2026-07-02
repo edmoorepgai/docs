@@ -1,85 +1,97 @@
 ---
 title: "MCP Server"
-description: "Connect your AI tools to PG:AI with the Model Context Protocol"
+description: "Connect Claude and other AI clients to your PG:AI workspace"
 mode: "wide"
 ---
 
-The PG:AI MCP Server gives your favourite AI tools direct access to your account intelligence, contacts, documents, and content generation  -  all through a single, secure connection.
+The PG:AI MCP server lets AI assistants read your account intelligence, search your workspace, manage accounts and contacts, and generate sales content - through a single secure connection.
 
 ## What is MCP?
 
-The **Model Context Protocol** (MCP) is an open standard that lets agents connect to external data sources and tools. Instead of copying and pasting information into your AI tool, MCP lets the AI reach into PG:AI and pull exactly what it needs, when it needs it.
+The **Model Context Protocol** (MCP) is an open standard for connecting AI clients to external tools and data. Instead of copying context into a chat window, the model calls PG:AI tools directly when your prompt needs account data, search, or content generation.
 
 <Info>
-  MCP is supported by Claude, Cursor, Windsurf, and a growing number of AI tools. If your tool supports MCP, it works with PG:AI.
+  MCP is supported by Claude (Connectors), Cursor, and other MCP-compatible clients. PG:AI hosts the production server at `https://mcp.getpg.ai`.
 </Info>
 
-## What You Get
-
-PG:AI's MCP server gives your agent access to everything in your account  -  no plugins to install, no code to write.
+## What you get
 
 <CardGroup cols={3}>
-  <Card title="5 Tools" icon="wrench">
-    Search, retrieve, create, and generate  -  your AI can take action on your behalf
+  <Card title="22 tools" icon="wrench">
+    Research, search, accounts, contacts, jobs, content generation, and optional agent sessions
   </Card>
-  <Card title="2 Resources" icon="database">
-    Passive access to your tracked companies and territories
+  <Card title="2 resources" icon="database">
+    Passive lists of tracked companies and territories
   </Card>
-  <Card title="Zero Setup" icon="bolt">
-    Fully hosted by PG:AI. Just add your API key and go
+  <Card title="Hosted by PG:AI" icon="bolt">
+    No self-hosting required for production - connect with OAuth or an API key
   </Card>
 </CardGroup>
 
-## Available Tools
-
-| Tool | What It Does |
-|------|-------------|
-| **pgai_company** | Get comprehensive data about any tracked company  -  profile, insights, financials, tech stack, jobs, contacts, and more |
-| **pgai_search** | Search across your entire PG:AI account  -  companies, contacts, documents, insights, jobs, and technologies |
-| **pgai_contact** | Get full details for a specific contact |
-| **pgai_create** | Add new companies to your tracked accounts or save contacts |
-| **pgai_generate** | Generate meeting preps, emails, sequences, call scripts, value pyramids, and more |
-
-## How It Works
+## How it works
 
 ```
-Your AI Tool ──── HTTPS ────→ mcp.getpg.ai ────→ PG:AI Platform
-  (Claude, Cursor, etc.)        (Hosted MCP Server)            (Your Account Data)
+Your AI client ── HTTPS ──→ mcp.getpg.ai ──→ PG:AI Data Hub ──→ Your workspace
+   (Claude, Cursor)         (MCP server)        (secure proxy)      (org-scoped data)
 ```
 
-Your AI tool connects to PG:AI's hosted MCP server using your API key. When you ask a question like *"What technologies does Airtable use?"*, the AI automatically calls the right PG:AI tool and returns the answer  -  no manual steps required.
+When you ask *"What are the latest insights for Salesforce?"*, the model calls the `company` tool (and others if needed). You do not need to name tools in your prompt - the client picks them from the tool list.
 
-## Supported AI Tools
+## Authentication
+
+| Method | Best for | How org is chosen |
+|--------|----------|-------------------|
+| **OAuth** (recommended for Claude) | Claude.ai, Claude Team/Enterprise | Your PG:AI login email → your organisation |
+| **API key** | Cursor, scripts, automation | Key is tied to one organisation in Settings → API Keys |
+
+API keys start with `pgai_live_`. Send them as `x-api-key: pgai_live_…` or `Authorization: Bearer pgai_live_…`.
+
+## Tool groups (at a glance)
+
+| Group | Tools | Purpose |
+|-------|-------|---------|
+| **Research** | `company`, `search`, `jobs_search` | Profiles, semantic search, job postings |
+| **Accounts** | `accounts`, `companies_search`, `companies_add` | List tracked accounts, discover new companies, add to workspace |
+| **Contacts** | `contact_search`, `contact`, `create_contact`, `contact_find_email_phone` | Find people, read profiles, save contacts, enrich email/phone |
+| **Content - browse** | `canvas_list`, `sequence_list`, `canvas_get`, `sequence_get` | Already-generated documents and sequences |
+| **Content - generate** | `templates`, `template_generate`, `get_operation_status` | Discover recipes → start job → poll → read result |
+| **Agent** (optional) | `agent_message_send`, `agent_sessions_*` | Full PG:AI agent chat and sessions |
+| **Write** | `canvas_update` | Edit an existing canvas record |
+
+See [Tools reference](/platform/mcp/tools) for every parameter. See [Examples](/platform/mcp/examples) for copy-paste prompts.
+
+<Warning>
+  **Templates vs finished content:** use `templates` to see what you *can* generate. Use `canvas_list` / `sequence_list` to browse what you *already* generated.
+</Warning>
+
+## Supported clients
 
 <CardGroup cols={2}>
   <Card title="Claude" icon="message">
-    Claude.ai, Claude Pro, Claude Enterprise  -  via Connectors
+    Claude.ai Pro / Team / Enterprise - Custom connector with OAuth ([setup guide](/platform/mcp/quickstart))
   </Card>
   <Card title="Cursor" icon="code">
-    Add to your project or global MCP settings
+    Project or global MCP config with an API key
   </Card>
-  <Card title="Windsurf" icon="wind">
-    Configure in Windsurf MCP settings
-  </Card>
-  <Card title="Any MCP Client" icon="plug">
-    Works with any tool that supports the Model Context Protocol
+  <Card title="Other MCP clients" icon="plug">
+    Streamable HTTP at `https://mcp.getpg.ai/mcp` or SSE at `https://mcp.getpg.ai/sse`
   </Card>
 </CardGroup>
 
-## Get Started
+## Get started
 
 <Steps>
-  <Step title="Generate an API Key">
-    Go to **Settings → API Keys** in PG:AI and create an MCP API key
+  <Step title="Choose authentication">
+    Claude users: OAuth via a Custom connector. Developers: create an API key in **Settings → API Keys**.
   </Step>
-  <Step title="Connect Your AI Tool">
-    Add the PG:AI MCP server URL and your API key to your AI tool's settings
+  <Step title="Connect your client">
+    Follow the [Quickstart](/platform/mcp/quickstart) for Claude step-by-step instructions.
   </Step>
-  <Step title="Start Asking Questions">
-    Ask your AI about your accounts, contacts, or anything in PG:AI
+  <Step title="Test with a simple prompt">
+    Try *"List my tracked accounts"* or *"Get the profile overview for [company name]"*.
   </Step>
 </Steps>
 
-<Card title="Quickstart Guide" icon="rocket" href="/platform/mcp/quickstart">
-  Step-by-step setup instructions for Claude, Cursor, and other AI tools
+<Card title="Quickstart - connect Claude" icon="rocket" href="/platform/mcp/quickstart">
+  Step-by-step connector setup with screenshots
 </Card>

@@ -1,173 +1,197 @@
 ---
 title: "Examples & Prompts"
-description: "Real-world examples of using PG:AI through your agent"
+description: "Real-world prompts for PG:AI MCP in Claude and other clients"
 mode: "wide"
 ---
 
-Once PG:AI is connected to your AI tool, you interact with it using natural language. Here are real-world examples of how sellers, BDRs, and sales leaders use PG:AI through Claude, Cursor, and other agents.
-
-## Meeting Preparation
-
-The most common use case. Ask your AI to prepare you for an upcoming meeting, and it pulls together everything PG:AI knows about the account.
-
-<Tabs>
-  <Tab title="Simple Prep">
-    **Prompt:**
-    > I have a meeting with Airtable tomorrow. Help me prepare.
-
-    **What happens:** Your AI calls `pgai_company` with `include: ["profile", "insights", "financials", "technologies", "contacts_summary", "events"]`, then synthesises everything into a briefing.
-
-    **You get:** Company overview, recent strategic insights, financial highlights, technology stack, key contacts, and any recent events  -  all in one response.
-  </Tab>
-  <Tab title="Focused Prep">
-    **Prompt:**
-    > Generate a meeting prep pack for my call with the CTO of Harness. The topic is CI/CD pipeline efficiency.
-
-    **What happens:** Your AI calls `pgai_generate` with `type: "meeting_prep"` and `topic: "CI/CD pipeline efficiency"`, producing a structured prep pack.
-
-    **You get:** A comprehensive preparation document with talking points, discovery questions, and strategic angles  -  all tailored to Harness and the CTO's likely priorities.
-  </Tab>
-</Tabs>
+Once PG:AI is connected, use natural language. These examples show what the model typically does behind the scenes - you do not need to name tools yourself.
 
 ---
 
-## Account Research
+## Account research
 
-Quickly understand any account without opening multiple tabs or dashboards.
+**Profile and insights**
 
-<CardGroup cols={2}>
-  <Card title="Technology Intelligence" icon="microchip">
-    > *"What technologies does Frasers Group use? Are there any recent job postings for data roles?"*
+> Get the SWOT analysis and strategic priorities for Salesforce.
 
-    Pulls technology stack and filtered job postings in a single response.
-  </Card>
-  <Card title="Strategic Insights" icon="lightbulb">
-    > *"What are the latest insights about Tesco? Anything related to digital transformation?"*
+*Uses `company` with `include: ["swot_analysis", "strategic_priorities"]`.*
 
-    Returns AI-generated strategic insights, filtered to your question.
-  </Card>
-  <Card title="Financial Overview" icon="chart-line">
-    > *"Give me a financial summary of Snowflake  -  revenue, growth, and analyst estimates"*
+**Deep dive**
 
-    Pulls financials, share price data, and analyst consensus in one go.
-  </Card>
-  <Card title="Competitive Landscape" icon="chess">
-    > *"Who are Airtable's main competitors and what's their tech stack compared to ours?"*
+> Give me the full company profile for Tesco - overview, competitors, events, and value pyramid.
 
-    Returns competitor data and technology comparisons.
-  </Card>
-</CardGroup>
+*Uses `company` with `include: ["full"]` or multiple sections.*
 
----
+**Semantic search**
 
-## Contact Discovery
+> Search my workspace for anything about cloud migration at Frasers Group.
 
-Find and research the right people at your target accounts.
+*Uses `search` with `scope: "organisation"` and a company filter if needed.*
 
-**Find contacts by role:**
-> *"Search for VP of Engineering contacts at my tracked accounts"*
+**Jobs**
 
-**Research a specific person:**
-> *"Find Sarah Chen at Airtable and get her full contact details"*
+> What data engineering roles is Harness hiring for in the UK?
 
-**Discover new contacts:**
-> *"Research the top 10 data and analytics contacts at Harness"*
-
-**Save a contact you found externally:**
-> *"Save this contact: James Wilson, Head of Data Engineering at Tesco, james.wilson@tesco.com, linkedin.com/in/jameswilson"*
-
-<Tip>
-  Contact discovery works best as a two-step conversation. First search for contacts, then ask for full details on the ones you're interested in.
-</Tip>
+*Uses `jobs_search` with `q`, `company`, and `country_code`.*
 
 ---
 
-## Content Generation
+## Accounts and discovery
 
-Let PG:AI generate personalised, intelligence-backed sales content.
+**List your book**
 
-### Emails
+> List my tracked accounts.
 
-> *"Write a professional email to the VP of Data at Frasers Group about our analytics platform. Focus on their recent cloud migration."*
+*Uses `accounts` with default `scope: "user"`.*
 
-Your AI calls `pgai_generate` with `type: "email"`, pulling in the latest insights about Frasers Group to personalise the message.
+**Org-wide view**
 
-### Email Sequences
+> Show all accounts in the organisation that mention "fintech".
 
-> *"Create a 4-step email sequence for Airtable focused on data governance. Keep the tone consultative."*
+*Uses `accounts` with `scope: "org"` and `query`.*
 
-Generates a multi-touch sequence where each step builds on PG:AI's intelligence about the company.
+**Find new companies**
 
-### Call Scripts
+> Search globally for companies named Snowflake - tell me if we already track them.
 
-> *"Build a call script for reaching out to the CTO at Harness about observability"*
+*Uses `companies_search` - check `is_in_user_accounts` in the response.*
 
-Produces a structured script with an opening, discovery questions, value propositions, and objection handling  -  all tailored to Harness.
+**Add to workspace**
 
----
+> Add stripe.com to my tracked accounts.
 
-## Account Management
-
-Keep your PG:AI account up to date through natural conversation.
-
-**Add a new company:**
-> *"Add Stripe to my tracked accounts"*
-
-> *"Start tracking datadog.com  -  I want to keep an eye on their hiring trends"*
-
-**Save contacts:**
-> *"Add Sarah Chen as a contact at Airtable. She's the VP of Engineering. Email: sarah@airtable.com"*
+*Uses `companies_add`, then `get_operation_status` until enrichment completes.*
 
 ---
 
-## Advanced Workflows
+## Contacts
 
-### Value Pyramids
+**Find by role**
 
-> *"Generate a value pyramid for Snowflake  -  focus on data engineering and cost optimisation"*
+> Find VP of Engineering contacts at Salesforce.
 
-Creates a structured value proposition framework showing how your solution maps to the company's priorities at executive, management, and operational levels.
+*Uses `contact_search` with title criteria and company scope.*
 
-### Enablement Guides
+**Full profile**
 
-> *"Create an enablement guide for the Tesco account focused on their digital transformation initiatives"*
+> Get full details for contact ID `abc-123-…`.
 
-Produces a comprehensive guide your team can use to ramp up on the account.
+*Uses `contact` (after search returns an ID).*
 
-### Multi-Step Research
+**Save a contact**
 
-Have a natural conversation that chains multiple tools together:
+> Save Jane Doe, Head of Data at Tesco - jane.doe@tesco.com - to my workspace.
 
-> **You:** *"What companies am I tracking in the EMEA territory?"*
->
-> **AI:** Lists your EMEA companies from the territories resource.
->
-> **You:** *"Which of those are hiring for data roles?"*
->
-> **AI:** Searches job postings across those companies.
->
-> **You:** *"Great  -  generate meeting prep for the top 3 that are actively hiring"*
->
-> **AI:** Creates tailored prep packs for each company.
+*Uses `create_contact`.*
+
+**Enrich email**
+
+> Find the work email and mobile for contact `abc-123-…`.
+
+*Uses `contact_find_email_phone`, then polls `get_operation_status`, then `contact`.*
 
 ---
 
-## Tips for Better Results
+## Content generation (full flow)
+
+### Single document (e.g. value pyramid)
+
+**You:**
+
+> I want to generate a value pyramid for Salesforce. What templates are available?
+
+**AI:** Calls `templates` with `produces: "document"` (or unfiltered), shows options.
+
+**You:**
+
+> Use the Value Pyramid template for Salesforce. Focus on data platform consolidation.
+
+**AI:**
+
+1. `template_generate` - `template_kind: "canvas"`, `template_id` from step 1, `company: "Salesforce"`, `user_instruction` with your focus
+2. `get_operation_status` - poll until `completed`
+3. `canvas_get` - `format: "text"` for readable output
+
+### Email or call script
+
+> List email templates, then generate a professional email to the CIO at Airtable about analytics governance.
+
+*Same flow - pick a canvas template where `produces` is `email` or `call_script`.*
+
+### Outreach sequence
+
+> Show sequence templates, then generate a 5-step email sequence for Harness aimed at platform engineering leaders.
+
+1. `templates` with `produces: "sequence"`
+2. `template_generate` with `template_kind: "sequence"`
+3. `get_operation_status`
+4. `sequence_get`
+
+---
+
+## Browse existing content
+
+**List documents**
+
+> What value pyramids have we already generated for Salesforce?
+
+*Uses `canvas_list` with `company` and `content_type: "value_pyramid"`.*
+
+**Read one**
+
+> Open canvas `98b4c290-…` as plain text.
+
+*Uses `canvas_get` with `format: "text"`.*
+
+**Sequences**
+
+> List draft sequences for my territory.
+
+*Uses `sequence_list` with `status: "draft"`.*
+
+---
+
+## Agent conversations (advanced)
+
+> Start a company-scoped agent chat about Microsoft - ask what changed in their earnings narrative this quarter.
+
+*Uses `agent_message_send` with `company: "Microsoft"`, then `get_operation_status`.*
+
+> List my recent agent sessions for Airtable.
+
+*Uses `agent_sessions_list`.*
+
+---
+
+## Multi-step conversation
+
+A natural research → generate chain:
+
+| Turn | You say | Tools used |
+|------|---------|------------|
+| 1 | *"List my accounts in software"* | `accounts` |
+| 2 | *"Which are hiring for platform roles?"* | `jobs_search` |
+| 3 | *"Get insights overview for the top match"* | `company` |
+| 4 | *"Generate meeting prep using the right template"* | `templates` → `template_generate` → `get_operation_status` → `canvas_get` |
+
+---
+
+## Tips for better results
 
 <AccordionGroup>
-  <Accordion title="Be specific about what you need">
-    Instead of *"Tell me about Airtable"*, try *"What are Airtable's latest strategic insights and what technologies are they using?"*  -  this helps the AI request exactly the right data sections.
+  <Accordion title="Be specific about profile sections">
+    Say which angles you care about: *"SWOT and competitors"* rather than *"everything about them"* unless you want `include: ["full"]`.
   </Accordion>
   <Accordion title="Use company names naturally">
-    PG:AI fuzzy-matches company names, so *"Airtable"*, *"airtable"*, and *"Airtable Inc"* all work. Use whichever feels natural.
+    Names are fuzzy-matched against tracked accounts. Domains (`stripe.com`) also work.
   </Accordion>
-  <Accordion title="Chain requests in conversation">
-    Your AI remembers context within a conversation. Start with research, then ask for content generation based on what you learned  -  the AI will connect the dots.
+  <Accordion title="Wait for async jobs">
+    After generation or company add, ask the model to *"check operation status"* if it stops early.
   </Accordion>
-  <Accordion title="Set the tone for generated content">
-    When generating emails or call scripts, specify the tone: *professional*, *casual*, *formal*, or *consultative*. If you don't specify, PG:AI uses sensible defaults.
+  <Accordion title="Templates vs lists">
+    Ask for *"templates I can use to generate"* vs *"canvases we already created"* - different tools.
   </Accordion>
-  <Accordion title="Filter jobs with keywords">
-    When looking at job postings, include a keyword: *"Show me Airtable's job postings that mention machine learning"*  -  this filters results before they reach you.
+  <Accordion title="Credits">
+    Adding companies and contact enrichment use credits. If you get a 402 error, check your organisation credit balance in PG:AI.
   </Accordion>
 </AccordionGroup>

@@ -1,85 +1,77 @@
 ---
 title: "Resources"
-description: "Passive data resources available through the PG:AI MCP server"
+description: "Passive MCP resources - tracked companies and territories"
 mode: "wide"
 ---
 
-MCP resources are passive data sources that your AI tool can read at any time. Unlike tools (which perform actions), resources provide background context that helps your AI give better answers.
+MCP **resources** are read-only data URIs your client can fetch for background context. Unlike tools, they do not perform actions - they provide lists your AI can use to resolve company names and understand workspace structure.
 
 <Info>
-  Resources are read automatically by your AI tool when relevant. You don't need to request them directly  -  they're always available in the background.
+  Not every client surfaces resources in the UI. Claude may use them implicitly when relevant. Tools such as `accounts` and `company` are more reliable for explicit requests.
 </Info>
 
-## Available Resources
+## Available resources
 
 <CardGroup cols={2}>
   <Card title="pgai://companies" icon="building">
-    **Tracked Companies**
+    **Tracked companies**
 
-    Returns a complete list of all companies your organisation is tracking in PG:AI  -  including name, domain, and company ID.
+    All companies your organisation tracks in PG:AI (id, name, domain).
 
-    Your AI uses this to understand which accounts you're working with and to resolve company names when you ask questions like *"Tell me about Airtable"*.
+    Helps the model resolve *"Tell me about Airtable"* to the correct account UUID.
   </Card>
   <Card title="pgai://territories" icon="map">
     **Territories**
 
-    Returns all territories configured for your organisation  -  including territory name, assigned accounts, and any territory-level settings.
+    Territories configured for your organisation.
 
-    Your AI uses this to understand how your accounts are organised and to scope requests like *"Show me insights across my EMEA territory"*.
+    Useful for prompts like *"What accounts are in my EMEA territory?"* when combined with tools.
   </Card>
 </CardGroup>
 
-## How Resources Work
-
-Resources differ from tools in a few important ways:
+## Resources vs tools
 
 | | Resources | Tools |
-|---|----------|-------|
-| **Purpose** | Provide background context | Perform specific actions |
-| **When used** | Automatically, as needed | When you ask for something specific |
-| **Data** | Always the same data (your companies, territories) | Dynamic results based on your query |
-| **Example** | Your list of tracked companies | Searching for contacts at a company |
+|---|-----------|-------|
+| **Purpose** | Static lists for context | Query and action |
+| **When used** | Client-driven background read | When the model needs data or writes |
+| **Examples** | `pgai://companies` | `accounts`, `company`, `search` |
 
-When you ask your AI *"What companies am I tracking?"*, it reads the `pgai://companies` resource. When you ask *"Search for CTO contacts at Airtable"*, it uses the `pgai_search` tool.
+For most workflows, prefer **`accounts`** (filtered, paginated, enrichment metadata) over the companies resource. Use **`company`** for rich profile data on one account.
 
-## Resource Data Format
+## Example shapes
 
-Both resources return JSON arrays. Here's what the data looks like:
+Responses are JSON. Exact fields may include additional metadata from your workspace.
 
-### Companies Resource
+### Companies
 
 ```json
 [
   {
-    "id": "a1b2c3d4-...",
-    "name": "Airtable",
-    "domain": "airtable.com"
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Salesforce",
+    "domain": "salesforce.com"
   },
   {
-    "id": "e5f6g7h8-...",
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
     "name": "Harness",
     "domain": "harness.io"
   }
 ]
 ```
 
-### Territories Resource
+### Territories
 
 ```json
 [
   {
-    "id": "t1u2v3w4-...",
+    "id": "t1u2v3w4-x5y6-7890-zabc-def123456789",
     "name": "EMEA Enterprise",
     "company_count": 45
-  },
-  {
-    "id": "x5y6z7a8-...",
-    "name": "North America Mid-Market",
-    "company_count": 120
   }
 ]
 ```
 
 <Tip>
-  Resources are a great starting point for exploration. Ask your AI *"What companies am I tracking?"* to see your full account list, then drill into specific companies with follow-up questions.
+  Start exploration with *"List my tracked accounts"* (`accounts` tool) - it returns more useful fields than the passive resource alone.
 </Tip>

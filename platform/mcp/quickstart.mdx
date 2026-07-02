@@ -1,179 +1,211 @@
 ---
 title: "MCP Quickstart"
-description: "Connect PG:AI to your AI tools in under 2 minutes"
+description: "Connect PG:AI to Claude and other MCP clients"
 mode: "wide"
 ---
 
-This guide walks you through connecting PG:AI to your AI tool of choice. The whole process takes less than 2 minutes.
+This guide gets you connected to the hosted PG:AI MCP server at `https://mcp.getpg.ai`. Most users connect **Claude** with OAuth; developers often use an **API key** in Cursor or scripts.
 
-## Step 1: Generate an API Key
+## Before you start
+
+- A PG:AI account with access to at least one organisation
+- For Claude: a plan that supports **Connectors** (Pro, Team, or Enterprise)
+- For API key auth: permission to create keys in **Settings → API Keys**
+
+---
+
+## Option A - Claude (recommended)
+
+Claude connects through a **Custom connector** and signs in with your PG:AI identity (OAuth). Your organisation is resolved automatically from your PG:AI user email - you do not paste an org ID into Claude.
+
+### Step 1: Open Connectors in Claude
+
+1. Open [Claude.ai](https://claude.ai) and sign in.
+2. Go to **Settings** (profile menu → Settings).
+3. Open **Connectors** (sometimes under **Integrations** depending on your plan).
+
+<Info>
+  **Screenshot needed:** Claude Settings → Connectors page with the **Add connector** button visible.
+</Info>
+
+### Step 2: Add the PG:AI connector
+
+1. Click **Add connector** (or **Add custom connector**).
+2. Enter a name, for example **PG:AI**.
+3. Enter the server URL:
+
+```
+https://mcp.getpg.ai/mcp
+```
+
+If your Claude build only supports SSE connectors, use:
+
+```
+https://mcp.getpg.ai/sse
+```
+
+4. Save the connector.
+
+<Info>
+  **Screenshot needed:** The "Add custom connector" form filled in with name **PG:AI** and URL `https://mcp.getpg.ai/mcp`.
+</Info>
+
+### Step 3: Sign in with PG:AI
+
+1. Claude will prompt you to authenticate.
+2. Complete the PG:AI / Auth0 login with the **same email** as your PG:AI workspace user.
+3. Approve access when asked.
+
+<Warning>
+  Your PG:AI account email must match your login email. Org membership is resolved server-side - if login succeeds but tools return no data, check that your user exists in the correct organisation in PG:AI.
+</Warning>
+
+<Info>
+  **Screenshot needed:** OAuth consent / PG:AI login screen during connector authorisation.
+</Info>
+
+### Step 4: Enable the connector in a chat
+
+1. Start a **new** chat in Claude.
+2. Open the **+** or tools menu near the message box.
+3. Enable the **PG:AI** connector for that conversation.
+
+<Info>
+  **Screenshot needed:** New chat with the PG:AI connector toggled on in the tools/connectors menu.
+</Info>
+
+### Step 5: Verify it works
+
+Try these prompts in order:
+
+| Prompt | Expected behaviour |
+|--------|-------------------|
+| *"List my tracked accounts"* | Calls `accounts` - returns companies in your territory or org |
+| *"Get the company profile overview for Salesforce"* | Calls `company` with `include: ["overview"]` |
+| *"What templates can I use to generate content?"* | Calls `templates` - lists canvas and sequence recipes |
+
+If Claude says it cannot reach PG:AI or authentication failed, see [Troubleshooting](#troubleshooting) below.
+
+### Claude Team / Enterprise
+
+An **admin** can add the same connector once under **Admin settings → Connectors**. Each user still connects with their own PG:AI login so data stays scoped to their organisation membership.
+
+---
+
+## Option B - API key (Cursor, scripts, other clients)
+
+Use this when OAuth is not available (for example Cursor or local testing).
+
+### Step 1: Create an API key
 
 <Steps>
-  <Step title="Open PG:AI Settings">
-    Navigate to **Settings → API Keys** in your PG:AI dashboard
+  <Step title="Open Settings">
+    In PG:AI go to **Settings → API Keys**
   </Step>
-  <Step title="Create a New Key">
-    Click **Create API Key** and give it a descriptive name (e.g. "Claude MCP" or "Cursor")
+  <Step title="Create a key">
+    Click **Create API Key**. Name it (e.g. "Cursor MCP"). Enable MCP scopes if prompted.
   </Step>
-  <Step title="Copy the Key">
-    Copy your API key immediately  -  it won't be shown again. Keys start with `pgai_live_`
+  <Step title="Copy the key">
+    Copy the key immediately - it starts with `pgai_live_` and is only shown once.
   </Step>
 </Steps>
 
+<Info>
+  **Screenshot needed:** PG:AI Settings → API Keys with **Create API Key** and scope selection visible.
+</Info>
+
 <Warning>
-  Keep your API key secure. Anyone with your key can access your PG:AI account data. If you suspect a key has been compromised, revoke it immediately in Settings.
+  Treat API keys like passwords. Revoke compromised keys in Settings immediately.
 </Warning>
 
-## Step 2: Configure Your AI Tool
+### Step 2: Configure Cursor
 
-<Tabs>
-  <Tab title="Claude.ai">
-    Claude supports MCP through **Connectors** (available on Pro and Enterprise plans).
+Create or edit `.cursor/mcp.json` in your project (or add via **Cursor Settings → MCP**):
 
-    <Steps>
-      <Step title="Open Settings">
-        Go to **Settings → Connectors** in Claude.ai
-      </Step>
-      <Step title="Add a Connector">
-        Click **Add** and select **Custom connector**
-      </Step>
-      <Step title="Enter the Server URL">
-        ```
-        https://mcp.getpg.ai/sse
-        ```
-      </Step>
-      <Step title="Set Authentication">
-        Choose **Bearer Token** and paste your PG:AI API key
-      </Step>
-      <Step title="Save">
-        Click **Save**  -  Claude now has access to your PG:AI data
-      </Step>
-    </Steps>
-  </Tab>
-
-  <Tab title="Cursor">
-    Cursor supports MCP through project-level or global configuration files.
-
-    **Option A: Project-level** (recommended for team sharing)
-
-    Create or edit `.cursor/mcp.json` in your project root:
-
-    ```json
-    {
-      "mcpServers": {
-        "pgai": {
-          "url": "https://mcp.getpg.ai/mcp",
-          "headers": {
-            "Authorization": "Bearer pgai_live_YOUR_KEY_HERE"
-          }
-        }
+```json
+{
+  "mcpServers": {
+    "pgai": {
+      "url": "https://mcp.getpg.ai/mcp",
+      "headers": {
+        "x-api-key": "pgai_live_YOUR_KEY_HERE"
       }
     }
-    ```
+  }
+}
+```
 
-    **Option B: Global** (available in all projects)
+You can also use `Authorization: Bearer pgai_live_YOUR_KEY_HERE` instead of `x-api-key`.
 
-    Open Cursor Settings → MCP and add a new server with the same configuration.
+Reload Cursor (**Cmd/Ctrl + Shift + P** → **Developer: Reload Window**). You should see **pgai** as a connected MCP server.
 
-    <Info>
-      After adding the configuration, reload Cursor for the connection to take effect. You should see "pgai" listed as a connected MCP server.
-    </Info>
-  </Tab>
+### Step 3: Verify with tools/list
 
-  <Tab title="Claude Enterprise">
-    Admins can enable PG:AI for their entire organisation.
+Any MCP client can list tools with a JSON-RPC `tools/list` call. Example with curl:
 
-    <Steps>
-      <Step title="Open Admin Settings">
-        Go to **Admin Settings → Integrations → MCP**
-      </Step>
-      <Step title="Add MCP Server">
-        Add a new MCP server with the following details:
-        - **URL:** `https://mcp.getpg.ai/mcp`
-        - **Authentication:** Bearer token with your organisation's PG:AI API key
-      </Step>
-      <Step title="Configure Permissions">
-        Choose which users or groups should have access to PG:AI tools
-      </Step>
-    </Steps>
-  </Tab>
+```bash
+curl -s -X POST https://mcp.getpg.ai/mcp \
+  -H "x-api-key: pgai_live_YOUR_KEY" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
+```
 
-  <Tab title="Windsurf">
-    Add PG:AI to your Windsurf MCP configuration:
+You should see tools such as `company`, `search`, `accounts`, and `templates`.
 
-    ```json
-    {
-      "mcpServers": {
-        "pgai": {
-          "serverUrl": "https://mcp.getpg.ai/mcp",
-          "headers": {
-            "Authorization": "Bearer pgai_live_YOUR_KEY_HERE"
-          }
-        }
-      }
-    }
-    ```
-  </Tab>
+---
 
-  <Tab title="Other MCP Clients">
-    PG:AI uses standard **Streamable HTTP** transport. Any MCP-compatible client can connect using:
+## Connection details (reference)
 
-    - **Server URL:** `https://mcp.getpg.ai/mcp`
-    - **SSE URL:** `https://mcp.getpg.ai/sse` (for clients that require SSE)
-    - **Authentication:** `Authorization: Bearer <your_api_key>` header
+| Setting | Value |
+|---------|--------|
+| Streamable HTTP URL | `https://mcp.getpg.ai/mcp` |
+| SSE URL | `https://mcp.getpg.ai/sse` |
+| OAuth metadata | `https://mcp.getpg.ai/.well-known/oauth-protected-resource` |
+| API key header | `x-api-key: pgai_live_…` or `Authorization: Bearer pgai_live_…` |
 
-    Refer to your client's documentation for specific configuration instructions.
-  </Tab>
-</Tabs>
-
-## Step 3: Test the Connection
-
-Once connected, try asking your AI tool one of these prompts:
-
-<CardGroup cols={2}>
-  <Card title="Check Companies" icon="building">
-    *"What companies am I tracking in PG:AI?"*
-  </Card>
-  <Card title="Get Insights" icon="lightbulb">
-    *"Tell me about [company name]  -  what are the latest insights?"*
-  </Card>
-  <Card title="Search Contacts" icon="users">
-    *"Search for VP of Engineering contacts in my PG:AI account"*
-  </Card>
-  <Card title="Generate Content" icon="wand-magic-sparkles">
-    *"Generate meeting prep for my call with [company name]"*
-  </Card>
-</CardGroup>
-
-If your AI tool responds with company data, insights, or generated content  -  you're all set.
+---
 
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="My AI tool says it can't find the PG:AI server">
-    Double-check the server URL. Make sure you're using `https://mcp.getpg.ai/mcp` (or `/sse` for SSE-only clients). Restart your AI tool after updating the configuration.
+  <Accordion title="Claude says authentication failed">
+    - Confirm you completed OAuth with the same email as your PG:AI user.
+    - Try removing and re-adding the connector.
+    - For Team/Enterprise, confirm an admin enabled custom connectors.
   </Accordion>
-  <Accordion title="I'm getting authentication errors">
-    Verify your API key starts with `pgai_live_` and that it hasn't been revoked. Make sure the `Authorization` header uses the `Bearer` prefix.
+  <Accordion title="Tools return 401 or authentication required">
+    - API key: check the key starts with `pgai_live_` and was not revoked.
+    - Claude: ensure the connector is **enabled for the current chat**.
   </Accordion>
-  <Accordion title="The connection works but no data is returned">
-    Your API key may not have the right permissions. Check that it was created with MCP access enabled in Settings → API Keys.
+  <Accordion title="Connector added but Claude never calls PG:AI">
+    - Enable the connector in the chat's tools menu (not only in Settings).
+    - Ask a PG:AI-specific question: *"Use PG:AI to list my accounts"*.
   </Accordion>
-  <Accordion title="Cursor doesn't show pgai as a connected server">
-    After editing `.cursor/mcp.json`, reload Cursor (Cmd/Ctrl + Shift + P → "Reload Window"). Check for JSON syntax errors in your configuration file.
+  <Accordion title="templates returns an error">
+  Template discovery depends on the Data Hub and Xano template routes. If you see a UUID validation error, contact support - this is a known routing issue being fixed on the backend.
+  </Accordion>
+  <Accordion title="Cursor does not show pgai">
+    - Reload the window after editing `mcp.json`.
+    - Check JSON syntax and that the URL has no trailing slash issues.
+  </Accordion>
+  <Accordion title="Async jobs never finish">
+    Generation and enrichment are asynchronous. After `template_generate`, `companies_add`, or `contact_find_email_phone`, poll `get_operation_status` every few seconds until `status` is `completed` or `failed`.
   </Accordion>
 </AccordionGroup>
 
-## Next Steps
+---
+
+## Next steps
 
 <CardGroup cols={3}>
-  <Card title="Tools Reference" icon="wrench" href="/platform/mcp/tools">
-    Explore all 5 tools and their parameters
-  </Card>
-  <Card title="Resources" icon="database" href="/platform/mcp/resources">
-    Learn about passive data resources
+  <Card title="Tools reference" icon="wrench" href="/platform/mcp/tools">
+    All 22 tools and parameters
   </Card>
   <Card title="Examples" icon="message" href="/platform/mcp/examples">
-    See real-world prompts and use cases
+    Prompts for research, contacts, and generation
+  </Card>
+  <Card title="Resources" icon="database" href="/platform/mcp/resources">
+    Passive company and territory lists
   </Card>
 </CardGroup>
