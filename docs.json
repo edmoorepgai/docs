@@ -8,6 +8,16 @@
     "dark": "#5d4af6"
   },
   "favicon": "/images/pgai-favicon.png",
+  "api": {
+    "baseUrl": "https://api.getpg.ai/public-api/v1",
+    "auth": {
+      "method": "key",
+      "name": "x-api-key"
+    },
+    "playground": {
+      "display": "interactive"
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -177,25 +187,8 @@
         ]
       },
       {
-        "tab": "Developers",
+        "tab": "Integrations",
         "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "api/overview",
-              "api/authentication"
-            ]
-          },
-          {
-            "group": "Endpoint Guides",
-            "pages": [
-              "api/companies",
-              "api/contacts",
-              "api/territories",
-              "api/search",
-              "api/organization"
-            ]
-          },
           {
             "group": "MCP Server",
             "pages": [
@@ -209,8 +202,107 @@
         ]
       },
       {
-        "tab": "API Reference",
-        "openapi": "https://api.getpg.ai/docs/v1/openapi.json"
+        "tab": "API",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "api/overview",
+              "api/authentication",
+              "api/common-flows"
+            ]
+          },
+          {
+            "group": "Accounts",
+            "openapi": "openapi.json",
+            "pages": ["POST /accounts"]
+          },
+          {
+            "group": "Companies",
+            "openapi": "openapi.json",
+            "pages": [
+              "POST /companies",
+              "GET /companies/{company_id}",
+              "GET /companies/{company_id}/profile",
+              "POST /companies/{company_id}/contacts",
+              "POST /companies/{company_id}/contacts/search",
+              "GET /companies/{company_id}/graph",
+              "GET /companies/{company_id}/relevance",
+              "GET /companies/{company_id}/jobs",
+              "GET /companies/{company_id}/alerts",
+              "GET /companies/{company_id}/canvas",
+              "GET /companies/{company_id}/events",
+              "GET /companies/{company_id}/agent/sessions"
+            ]
+          },
+          {
+            "group": "Contacts",
+            "openapi": "openapi.json",
+            "pages": [
+              "GET /contacts",
+              "POST /contacts/search",
+              "POST /contacts/{contact_id}/enrich/contact_info"
+            ]
+          },
+          {
+            "group": "Territories",
+            "openapi": "openapi.json",
+            "pages": [
+              "GET /territories",
+              "GET /territories/{territory_id}"
+            ]
+          },
+          {
+            "group": "Search",
+            "openapi": "openapi.json",
+            "pages": ["GET /search"]
+          },
+          {
+            "group": "Canvas",
+            "openapi": "openapi.json",
+            "pages": [
+              "GET /canvas",
+              "GET /canvas/templates"
+            ]
+          },
+          {
+            "group": "Agent",
+            "openapi": "openapi.json",
+            "pages": [
+              "POST /agent/sessions",
+              "GET /agent/sessions"
+            ]
+          },
+          {
+            "group": "Monitoring",
+            "openapi": "openapi.json",
+            "pages": [
+              "GET /events",
+              "GET /alerts",
+              "PATCH /alerts/{alert_id}"
+            ]
+          },
+          {
+            "group": "Jobs",
+            "openapi": "openapi.json",
+            "pages": ["GET /jobs"]
+          },
+          {
+            "group": "Filters",
+            "openapi": "openapi.json",
+            "pages": ["GET /filters"]
+          },
+          {
+            "group": "Operations",
+            "openapi": "openapi.json",
+            "pages": ["GET /operations/{public_operation_id}"]
+          },
+          {
+            "group": "Organization",
+            "openapi": "openapi.json",
+            "pages": ["GET /organization/credits"]
+          }
+        ]
       }
     ],
     "global": {

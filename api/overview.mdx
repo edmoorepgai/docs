@@ -16,7 +16,7 @@ https://api.getpg.ai/public-api/v1
 
 <Steps>
   <Step title="Get your API key">
-    Generate an API key in **Settings > API Keys** within your PG:AI workspace.
+    Generate an API key in **Settings → API Keys** within your PG:AI workspace.
   </Step>
   <Step title="Make your first request">
     ```bash
@@ -26,76 +26,30 @@ https://api.getpg.ai/public-api/v1
       -d '{}'
     ```
   </Step>
-  <Step title="Explore the endpoints">
-    Browse the [API Reference](/api-reference) for interactive endpoint documentation, or read the guides below.
+  <Step title="Follow a common flow">
+    See [Common Flows](/api/common-flows) for end-to-end examples — add a company, enrich contacts, list canvas, and more.
+  </Step>
+  <Step title="Explore endpoints">
+    Scroll the **API** sidebar — **Getting started** is at the top, then Accounts, Companies, Contacts, and the rest.
   </Step>
 </Steps>
-
-## Endpoint Reference
 
 <CardGroup cols={2}>
   <Card title="Authentication" icon="key" href="/api/authentication">
     API key setup, permissions, and error handling
   </Card>
-  <Card title="Companies" icon="building" href="/api/companies">
-    Company data, profiles, contacts, and tech stacks
+  <Card title="Common Flows" icon="route" href="/api/common-flows">
+    End-to-end integration patterns with curl and Python
   </Card>
-  <Card title="Contacts" icon="user" href="/api/contacts">
-    List and retrieve contacts with full profile data
-  </Card>
-  <Card title="Territories" icon="map" href="/api/territories">
-    Territory management and company lists
-  </Card>
-  <Card title="Search" icon="magnifying-glass" href="/api/search">
-    Unified semantic search across companies, contacts, and content
-  </Card>
-  <Card title="Organization" icon="gear" href="/api/organization">
-    Organization settings and credit usage
+  <Card title="MCP Server" icon="plug" href="/platform/mcp/overview">
+    Connect Claude, Cursor, and other AI clients — see the **Integrations** tab
   </Card>
 </CardGroup>
 
-## Available Endpoints
+## Async operations
 
-Endpoints marked `[BETA]` are stable for production use but may have minor changes before general availability. Endpoints marked `[ALPHA]` are early access and subject to change.
+Some endpoints return `202 Accepted` with a `public_operation_id`. Poll `GET /operations/{public_operation_id}` until the job completes. See [Common Flows](/api/common-flows#add-a-company-and-wait-for-enrichment) for a full example.
 
-| Method | Endpoint | Maturity | Description |
-|--------|----------|----------|-------------|
-| `POST` | `/v1/accounts` | GA | Search for accounts |
-| `POST` | `/v1/companies` | BETA | Add a company (async enrichment) |
-| `GET` | `/v1/companies/{company_id}` | GA | Get company by ID |
-| `GET` | `/v1/companies/{company_id}/profile` | GA | Get customizable company profile |
-| `POST` | `/v1/companies/{company_id}/contacts` | GA | Search company contacts |
-| `POST` | `/v1/companies/{company_id}/contacts/search` | GA | Search contacts for a company |
-| `GET` | `/v1/companies/{company_id}/graph` | BETA | Get company relevance graph |
-| `GET` | `/v1/companies/{company_id}/relevance` | BETA | Get company relevance signals |
-| `GET` | `/v1/companies/{company_id}/search` | ALPHA | Search documents about a company |
-| `GET` | `/v1/companies/{company_id}/jobs` | GA | List job postings for a company |
-| `GET` | `/v1/companies/{company_id}/alerts` | GA | List alerts for a company |
-| `GET` | `/v1/companies/{company_id}/canvas` | GA | List canvases for a company |
-| `GET` | `/v1/companies/{company_id}/events` | BETA | List monitoring events for a company |
-| `GET` | `/v1/companies/{company_id}/agent/sessions` | BETA | List agent sessions for a company |
-| `GET` | `/v1/contacts` | BETA | List contacts |
-| `POST` | `/v1/contacts/search` | BETA | Search contacts (workspace) |
-| `POST` | `/v1/contacts/{contact_id}/enrich/contact_info` | BETA | Enrich contact with phone/email |
-| `GET` | `/v1/territories` | BETA | List territories |
-| `GET` | `/v1/territories/{territory_id}` | BETA | Get territory by ID |
-| `GET` | `/v1/territories/{territory_id}/companies` | BETA | List territory companies |
-| `GET` | `/v1/search` | BETA | Unified semantic search |
-| `GET` | `/v1/agent/sessions` | BETA | List workspace agent sessions |
-| `GET` | `/v1/canvas` | BETA | List canvases (workspace) |
-| `GET` | `/v1/canvas/templates` | GA | List canvas templates |
-| `GET` | `/v1/alerts` | GA | List alerts (workspace) |
-| `PATCH` | `/v1/alerts/{alert_id}` | GA | Update alert status |
-| `GET` | `/v1/events` | BETA | List monitoring events (workspace) |
-| `GET` | `/v1/jobs` | GA | List job postings (workspace) |
-| `GET` | `/v1/filters` | BETA | Get filter metadata |
-| `GET` | `/v1/operations/{public_operation_id}` | BETA | Poll async operation status |
-| `GET` | `/v1/organization/credits` | GA | Get organization credits |
+## Rate limits
 
-## Rate Limits
-
-API requests are rate-limited based on your plan. When you hit the limit, the API returns `429 Too Many Requests`. See the [Authentication](/api/authentication) page for details on rate limit headers.
-
-## Interactive API Reference
-
-The **API Reference** in the top navigation provides an interactive playground powered by our live OpenAPI specification. You can test endpoints directly from the docs with your API key.
+API requests are rate-limited based on your plan. When you hit the limit, the API returns `429 Too Many Requests`. See [Authentication](/api/authentication) for rate limit headers.

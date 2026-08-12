@@ -1,0 +1,275 @@
+---
+title: "Common Flows"
+description: "End-to-end workflow guides for common PG:AI API integrations"
+icon: "route"
+---
+
+This page walks through common end-to-end workflows with the PG:AI API. Each flow includes the full sequence of API calls with examples. For request parameters and response schemas, see the endpoint pages below in the **API** tab sidebar.
+
+## Setup
+
+Set your API key before running any example:
+
+```bash
+export PGAI_API_KEY="pgai_live_your_key_here"
+export PGAI_BASE="https://api.getpg.ai/public-api/v1"
+```
+
+Generate keys in **Settings → API Keys** in your PG:AI workspace.
+
+---
+
+## First request: search accounts
+
+The simplest integration check — authenticate and list accounts in your workspace.
+
+```bash
+curl -X POST "$PGAI_BASE/accounts" \
+  -H "x-api-key: $PGAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"per_page": 10}'
+```
+
+Response (200):
+
+```json
+[
+  {
+    "id": "0472a8a1-bdc4-4f53-93f6-7d9a967beb76",
+    "company_name": "Example Corp",
+    "website_domain": "example.com"
+  }
+]
+```
+
+Send an empty body `{}` to return all accounts (paginated).
+
+---
+
+## Add a company and wait for enrichment
+
+Adding a company is **async**. You receive a `public_operation_id` and poll until enrichment completes.
+
+### Step 1: Submit the company
+
+```bash
+curl -X POST "$PGAI_BASE/companies" \
+  -H "x-api-key: $PGAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "company_name": "Acme Corporation",
+    "domain": "acme.com"
+  }'
+```
+
+Response (202):
+
+```json
+{
+  "public_operation_id": "op_abc123",
+  "status": "queued"
+}
+```
+
+Provide at least one of `company_name`, `domain`, or `id` (existing PG:AI company UUID).
+
+### Step 2: Poll operation status
+
+```bash
+curl "$PGAI_BASE/operations/op_abc123" \
+  -H "x-api-key: $PGAI_API_KEY"
+```
+
+Poll until `status` is `completed` or `failed`. Typical intervals: 2–5 seconds.
+
+### Step 3: Read the enriched profile
+
+Once complete, the operation result includes the company id (or use the id you already had):
+
+```bash
+curl "$PGAI_BASE/companies/{company_id}/profile" \
+  -H "x-api-key: $PGAI_API_KEY"
+```
+
+### Full Python example
+
+```python
+import os
+import time
+import requests
+
+API_KEY = os.environ["PGAI_API_KEY"]
+BASE = os.environ.get("PGAI_BASE", "https://api.getpg.ai/public-api/v1")
+HEADERS = {"x-api-key": API_KEY, "Content-Type": "application/json"}
+
+# 1. Add company
+add = requests.post(
+    f"{BASE}/companies",
+    headers=HEADERS,
+    json={"company_name": "Acme Corporation", "domain": "acme.com"},
+)
+add.raise_for_status()
+op_id = add.json()["public_operation_id"]
+print(f"Operation: {op_id}")
+
+# 2. Poll until done
+while True:
+    op = requests.get(f"{BASE}/operations/{op_id}", headers=HEADERS).json()
+    status = op.get("status")
+    print(f"Status: {status}")
+    if status in ("completed", "failed"):
+        break
+    time.sleep(3)
+
+if status == "failed":
+    raise SystemExit(f"Enrichment failed: {op}")
+
+company_id = op.get("result", {}).get("company_id") or op.get("company_id")
+if not company_id:
+    raise SystemExit("No company_id in operation result")
+
+# 3. Fetch profile
+profile = requests.get(
+    f"{BASE}/companies/{company_id}/profile",
+    headers={"x-api-key": API_KEY},
+).json()
+print(f"Profile ready for {profile.get('company_name', company_id)}")
+```
+
+---
+
+## Research an account
+
+Combine account search, semantic search, and profile data for a research pipeline.
+
+### Step 1: Find the company
+
+```bash
+curl -X POST "$PGAI_BASE/accounts" \
+  -H "x-api-key: $PGAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"company_name": "Acme"}'
+```
+
+### Step 2: Unified search across your workspace
+
+```bash
+curl "$PGAI_BASE/search?q=cloud%20migration&per_page=10" \
+  -H "x-api-key: $PGAI_API_KEY"
+```
+
+### Step 3: Company profile and relevance
+
+```bash
+curl "$PGAI_BASE/companies/{company_id}/profile" \
+  -H "x-api-key: $PGAI_API_KEY"
+
+curl "$PGAI_BASE/companies/{company_id}/relevance" \
+  -H "x-api-key: $PGAI_API_KEY"
+```
+
+Use `GET /filters` to discover filter metadata available for your workspace before building search UIs.
+
+---
+
+## Find and enrich contacts
+
+### Step 1: Search contacts
+
+```bash
+curl -X POST "$PGAI_BASE/contacts/search" \
+  -H "x-api-key: $PGAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "query": "VP Sales",
+    "per_page": 10
+  }'
+```
+
+### Step 2: Enrich email or phone
+
+```bash
+curl -X POST "$PGAI_BASE/contacts/{contact_id}/enrich/contact_info" \
+  -H "x-api-key: $PGAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
+Enrichment may be async — check the response for an operation id and poll `GET /operations/{public_operation_id}` if needed.
+
+---
+
+## List canvases for a company
+
+Use the workspace canvas list with a `company_ids` filter. This is the canonical pattern — prefer it over company-scoped list paths.
+
+```bash
+curl "$PGAI_BASE/canvas?company_ids=%5B%22{company_id}%22%5D&per_page=25" \
+  -H "x-api-key: $PGAI_API_KEY"
+```
+
+Or pass the filter in a clearer form:
+
+```bash
+curl -G "$PGAI_BASE/canvas" \
+  -H "x-api-key: $PGAI_API_KEY" \
+  --data-urlencode "company_ids=[\"{company_id}\"]" \
+  --data-urlencode "per_page=25"
+```
+
+Optional filters: `contact_id`, `content_type`, `created_after`, `created_before`.
+
+Fetch a single document with `GET /canvas/{canvas_id}`.
+
+---
+
+## List territories
+
+```bash
+curl "$PGAI_BASE/territories" \
+  -H "x-api-key: $PGAI_API_KEY"
+```
+
+```bash
+curl "$PGAI_BASE/territories/{territory_id}" \
+  -H "x-api-key: $PGAI_API_KEY"
+```
+
+---
+
+## Check credit usage
+
+```bash
+curl "$PGAI_BASE/organization/credits" \
+  -H "x-api-key: $PGAI_API_KEY"
+```
+
+Useful before batch enrichment or contact enrichment flows.
+
+---
+
+## MCP instead of REST
+
+For AI clients (Claude, Cursor, etc.), the MCP server exposes the same workspace data as tools — no need to wire every REST call yourself. See the **Integrations** tab for MCP setup, or connect to `https://mcp.getpg.ai`.
+
+| Task | REST API | MCP |
+|------|----------|-----|
+| Account research | `/accounts`, `/search`, `/companies/{id}/profile` | `company`, `search` tools |
+| Add company | `POST /companies` + poll | `companies_add` + `get_operation_status` |
+| Content | `GET /canvas`, templates | `canvas_list`, `template_generate` |
+
+---
+
+## Error handling
+
+All flows should handle standard HTTP status codes in production:
+
+| Status | Meaning |
+|--------|---------|
+| `401` | Missing or invalid API key |
+| `403` | Key lacks required permission scope |
+| `404` | Resource not found |
+| `429` | Rate limit — retry with backoff |
+| `202` | Async job accepted — poll `/operations/{id}` |
+
+See [Authentication](/api/authentication) for permission scopes and rate limit headers.

@@ -86,6 +86,49 @@ curl -X POST "https://api.getpg.ai/public-api/v1/accounts" \
 
 ---
 
+## Add Company (Async Enrichment)
+
+Submit a company for discovery and enrichment. Returns `202 Accepted` with a `public_operation_id` to poll via `GET /operations/{public_operation_id}`.
+
+Provide at least one of `company_name`, `domain`, or `id`.
+
+<ParamField body="company_name" type="string">
+  Company display name.
+</ParamField>
+
+<ParamField body="domain" type="string">
+  Company website domain (e.g. `acme.com`).
+</ParamField>
+
+<ParamField body="id" type="string">
+  Existing PG:AI company UUID.
+</ParamField>
+
+**Permission:** `insights:write`
+
+<RequestExample>
+```bash cURL
+curl -X POST "https://api.getpg.ai/public-api/v1/companies" \
+  -H "x-api-key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "company_name": "Acme Corporation",
+    "domain": "acme.com"
+  }'
+```
+</RequestExample>
+
+<ResponseExample>
+```json 202
+{
+  "public_operation_id": "op_abc123",
+  "status": "queued"
+}
+```
+</ResponseExample>
+
+---
+
 ## Get Company
 
 Retrieve detailed information about a specific company by its ID.
